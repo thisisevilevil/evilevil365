@@ -13,9 +13,9 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: Evil365 IT Blog for everything Intune related
+title: Mads' IT Blog for everything Intune and Modern workplace related
 email: mcj@apento.com
-description: >- # Awesome description of site
+description: >- # Awesome description of site 
 twitter_username: thisisevilevil
 github_username: thisisevilevil
 minimal_mistakes_skin: default
@@ -56,7 +56,7 @@ plugins:
 
 author:
   name   : "Mads Johansen"
-  avatar : "/assets/images/bio-photo.jpg"
+  avatar : "/assets/images/mads-2021.jpg"
   bio    : "Follow this blog to get hints/tips for doing awesome things in Intune!"
   links:
     - label: "Website"
