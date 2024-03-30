@@ -55,9 +55,9 @@ plugins:
   - jekyll-include-cache
 
 author:
-  name   : "First Lastname"
+  name   : "Mads Johansen"
   avatar : "/assets/images/bio-photo.jpg"
-  bio    : "My awesome biography constrained to a sentence or two goes here."
+  bio    : "Follow this blog to get hints/tips for doing awesome things in Intune!"
   links:
     - label: "Website"
       icon: "fas fa-fw fa-link"
