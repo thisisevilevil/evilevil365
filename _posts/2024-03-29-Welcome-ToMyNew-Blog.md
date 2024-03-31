@@ -1,6 +1,6 @@
 ---
 title: "Welcome to my new blog"
-date: 2024-03-31T11:00:30-04:00
+date: 2024-03-30T11:00:30-04:00
 categories:
   - blog
 tags:
