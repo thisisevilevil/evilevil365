@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Welcome to my new blog :)"
 date: 2024-03-29T13:47:30-04:00
 categories:
