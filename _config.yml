@@ -13,7 +13,7 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: Blog for everything Intune!
+title: Welcome to the land of everything Microsoft Intune!
 email: mcj@apento.com
 description: >- # Awesome description of site 
 twitter_username: thisisevilevil
@@ -60,9 +60,9 @@ author:
   avatar : "/assets/images/mads-2021.jpg"
   bio    : "Follow this blog to get hints/tips for doing awesome things in Intune!"
   links:
-    - label: "Website"
-      icon: "fas fa-fw fa-link"
-      url: "https://"
+    - label: "Linkedin"
+      icon: "fab fa-fw fa-linkedin"
+      url: "https://linkedin.com/madsjohansen"
     - label: "Twitter"
       icon: "fab fa-fw fa-twitter-square"
       url: "https://twitter.com/thisisevilevil"
@@ -78,6 +78,9 @@ footer:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/"
+    - label: "Linkedin"
+      icon: "fab fa-fw fa-linkedin"
+      url: "https://linkedin.com/madsjohansen"
 
 defaults:
   # _posts
