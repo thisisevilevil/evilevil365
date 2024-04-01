@@ -12,4 +12,6 @@ I succesfully implemented Autopilot and other technologies using Microsoft Intun
 
 In March 2021 I decided it was time to try something new, so I started my own company. Within my first few days of being self-employed as a freelancer, I found [APENTO](https://www.apento.com). A small network for highly specialized freelancers within the Microsoft space, all self-employed like myself, highly motivated and super driven to achieve the best results for our customers. In APENTO, I have continued to work within the modern workplace space, where I am still working today. I spent most of my time helping a large company in Denmark adopting Intune and Autopilot, whilst I also have smaller customers on the side that I'm assisting occasionally.
 
+I hold +10 Microsoft certifications and around the same in HPE Certifications, but some of them expired by now, as I'm only actively renewing my Microsoft certifications.
+
 Lately I have spent a lot of time testing and working on products in the Intune suite, also with my customers, so do not be surprised if you hear me speaking or blogging about the Intune suite. It's the latest and greatest thing from Microsoft in the modern workplace space, and it's super exciting that Microsoft has finally entered this space, and I can't wait to see what it's store for the future of the Intune Suite!
