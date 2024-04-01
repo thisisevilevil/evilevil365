@@ -62,7 +62,7 @@ author:
   links:
     - label: "Linkedin"
       icon: "fab fa-fw fa-linkedin"
-      url: "https://linkedin.com/madsjohansen"
+      url: "https://www.linkedin.com/in/mads-johansen/"
     - label: "Twitter"
       icon: "fab fa-fw fa-twitter-square"
       url: "https://twitter.com/thisisevilevil"
@@ -80,7 +80,7 @@ footer:
       url: "https://github.com/"
     - label: "Linkedin"
       icon: "fab fa-fw fa-linkedin"
-      url: "https://linkedin.com/madsjohansen"
+      url: "https://www.linkedin.com/in/mads-johansen/"
 
 defaults:
   # _posts
