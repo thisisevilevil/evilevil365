@@ -54,7 +54,9 @@ Once the client installs, the most obvious things you will notice is of course w
 ![EPM](/_posts/Images/2024-04-01-GettingStarted-With-EPM/EPM-Service.png?raw=true "EPM Service")
 ![EPM](/_posts/Images/2024-04-01-GettingStarted-With-EPM/EPM-RunWithElevatedAccess.png?raw=true "EPM RunWithElevatedAccess")
 
+You will notice if you elevate anything at this stage with the current policy we assigned, the user would simply be denied. Because remember we set the "Default elevation response" to "Not Configured" the user can only elevate apps that we create specific rules for. We will come around to crafting elevation rules for specific apps in a moment.
 
+![EPM](/_posts/Images/2024-04-01-GettingStarted-With-EPM/EPM-NotAllowed.png?raw=true "EPM Not Allowed")
 
 
 > **_NOTE:_** **Microsoft has created a new channel for delivering EPM Policies, that is super fast! EPM is the only tool to use this new channel for now as of this blogs date, but not long from now, all other sections of Intune will also migrate to this new channel to deliver policies. Depending on who you ask, they will refer to this as being "Dual Enrolled" since we now have 2 seperate channels for policies - Super nice!**
