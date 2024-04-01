@@ -1,5 +1,5 @@
 ---
-title: "Welcome to my new blog"
+title: "Test Post"
 date: 2024-04-01
 categories:
   - test
