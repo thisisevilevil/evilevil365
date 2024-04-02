@@ -26,7 +26,7 @@ The point is: If we don't have a good and secure way to facilitate this on behal
 - Allow standard users to elevate processes in a guarded enviroment
 - Eliminating one-time installs of software
 - Reporting/Auditing across your estate of Administrator usage!
-- Supports only Windows for now, Mac will come at a later stage
+- Support for Windows - Mac will come at a later stage.
 
 # Getting Started with EPM
 Getting started with EPM is very simple, and only take a few clicks. But before we do anything ensure you have the correct licensing by heading to the Intune Portal -> Tenant Administration -> Intune Add-ons. Ensure either Microsoft Intune Suite or Endpoint Privilege Management is active! When it's correctly activated, you will get an extra pane under Endpoint Security -> Endpoint Privilege Manager
@@ -54,13 +54,56 @@ Once the client installs, the most obvious things you will notice is of course w
 ![EPM](/_posts/Images/2024-04-01-GettingStarted-With-EPM/EPM-Service.png?raw=true "EPM Service")
 ![EPM](/_posts/Images/2024-04-01-GettingStarted-With-EPM/EPM-RunWithElevatedAccess.png?raw=true "EPM RunWithElevatedAccess")
 
-You will notice if you elevate anything at this stage with the current policy we assigned, the user would simply be denied. Because remember we set the "Default elevation response" to "Not Configured" the user can only elevate apps that we create specific rules for. We will come around to crafting elevation rules for specific apps in a moment.
+You will notice if you elevate anything at this stage with the current policy we assigned, the user would simply be denied. Remember we set the "Default elevation response" to "Not Configured" meaning the user can only elevate apps that we create specific rules for. We will come around to crafting elevation rules for specific apps in a moment.
 
 ![EPM](/_posts/Images/2024-04-01-GettingStarted-With-EPM/EPM-NotAllowed.png?raw=true "EPM Not Allowed")
 
 
 > **_NOTE:_** **Microsoft has created a new channel for delivering EPM Policies, that is super fast! EPM is the only tool to use this new channel for now as of this blogs date, but not long from now, all other sections of Intune will also migrate to this new channel to deliver policies. Depending on who you ask, they will refer to this as being "Dual Enrolled" since we now have 2 seperate channels for policies - Super nice!**
 
+## Crafting an elevation rules policy
 
+### Craft elevation rule to allow 7zip 24.03 beta .exe using file hash
+Now we will craft our first elevation rule policy to allow 7zip. The elevation rule will use the filehash to allow the elevation. When using filehash, you achieve the storngest detection for a specific process as this is unique for every single file. That way, we ensure only the specific process we specify, will be allowed to run with elevated rights.
 
+I will take you through every step of creating the policy.
+
+Head on over to Intune -> Endpoint Security -> Endpoint Privilege Management. Press the "Create Policy" button, choose Windows 10 or later and choose "Elevation Rules Policy". GIve it a nice name like "Default Elevation Rules" and then press "edit instance"
+![EPM](/_posts/Images/2024-04-01-GettingStarted-With-EPM/EPM-ElevationRules-1.png?raw=true "EPM Elevation Rules")
+![EPM](/_posts/Images/2024-04-01-GettingStarted-With-EPM/EPM-ElevationRules-2.png?raw=true "EPM Elevation Rules 2")
+
+**In elevation type, we have the following options:**
+1. User Confirmed: User will have to confirm when elevating an app
+2. Automatic: App will elevate without user confirmation. Best practice is to only use this for legacy apps that doesn't work with User Confirmed or support approved
+3. Support approved: IT Support will approve elevation requests before users can elevate a process
+
+For now, let us choose User Confirmed.
+
+**In validation we have 2 optional boxes we can tick:**
+1. Business Justification: User will have to present a business justification before being allowed to elevate a process
+2. Windows Authentication: User will have to authentication using their login to Windows. This can be a password, but also works for Windows Hello and FIDO Keys
+
+For now, let us only choose Windows Authentication:
+![EPM](/_posts/Images/2024-04-01-GettingStarted-With-EPM/EPM-ElevationRules-3.png?raw=true "EPM Elevation Rules 3")
+
+Lastly to finish specifying our elevation conditions, we need to select child process behaviour. Be careful with this option, as lot of installers spawn subprocesses to install dependencies. Let's us expand a bit on the options:
+1. Allow all child procesesses to run elevated: All processes spawned by the elevated process, will be allowed to elevate. This is also the default in Windows when you right click a process and select "Run as administrator. You will find that a lot of app installers rely on this functionality, so if you don't choose this, be sure to test it thoroughly!
+2. Require rule to elevate: The subprocess will need a specific rule to elevate, before it can be run. While this is the most secure by far, be careful choosing this one, unless for processes like cmd.exe or PowerShell.exe - Otherwise you will find yourself having to craft a lot more elevation rules that you might initially have signed up for.
+3. Deny All: Most secure, but see notes in option #2.
+4. Not Configured: Will revert to the default response which is "Require rule to elevate"
+
+Let's select "Allow all child processes to run elevated" for now:
+![EPM](/_posts/Images/2024-04-01-GettingStarted-With-EPM/EPM-ElevationRules-4.png?raw=true "EPM Elevation Rules 4")
+
+Finally we need to provide some file information. Since we are using file hash to craft this elevation rule, we will set "Signature Source" to "Not Configured". Notice when we set it to not configured, then we only need to give it a filename and a filehash. Getting the filename is easy, but to get the filehash, we have a few different methods at our disposal. Let's open a PowerShell and use the Get-FileHash  cmdlet
+![EPM](/_posts/Images/2024-04-01-GettingStarted-With-EPM/EPM-ElevationRules-5.png?raw=true "EPM Elevation Rules 5")
+![EPM](/_posts/Images/2024-04-01-GettingStarted-With-EPM/EPM-ElevationRules-6.png?raw=true "EPM Elevation Rules 6")
+![EPM](/_posts/Images/2024-04-01-GettingStarted-With-EPM/EPM-ElevationRules-7.png?raw=true "EPM Elevation Rules 7")
+
+Once you have extracted the filehash, you should have a policy that looks like the following:
+![EPM](/_posts/Images/2024-04-01-GettingStarted-With-EPM/EPM-ElevationRules-8.png?raw=true "EPM Elevation Rules 8")
+
+Once you are satifised with everything, lets take our new elevation rule for a spin. Assign your scope tags where required, then assign your elevation rule to your device.
+
+> **_NOTE:_** **If you want more control of where the process is launched from, you can also configure the "File path" option. IF users try to elevate a file outside this path, detection will fail and users will not be able to elevate**
 
