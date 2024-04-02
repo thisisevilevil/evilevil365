@@ -105,4 +105,5 @@ Once you have extracted the filehash, you should have a policy that looks like t
 
 Once you are satifised with everything, lets take our new elevation rule for a spin. Assign your scope tags where required, then assign your elevation rule to your device.
 
+> **_NOTE:_** **If you want more control of where the process is launched from, you can also configure the "File path" option. IF users try to elevate a file outside this path, detection will fail and users will not be able to elevate**
 
