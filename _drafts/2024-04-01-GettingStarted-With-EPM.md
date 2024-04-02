@@ -19,6 +19,8 @@ Some organizations have chosen to remove local admin rights altogether, but ther
 
 The point is: If we don't have a good and secure way to facilitate this on behalf of the end-user, guess what? They are going to log a ticket to ServiceDesk! That's where the good PAM Solution comes in. Not only will it eliminate the need to log a ticket to ServiceDesk, it will also still be able to facilitate that elevation without compromising security!
 
+EPM changes a lot, and expect big changes coming this year, so keep checking back on this blog, once new features get added, as I will keep this one updated :)
+
 > **_NOTE:_** **LAPS is not a PAM Solution - It is highly undesirable from a security perspective to use LAPS as a general means to elevate processes on end-users devices, unless it's for emergency/break-glass purpose**
 
 
@@ -103,7 +105,27 @@ Finally we need to provide some file information. Since we are using file hash t
 Once you have extracted the filehash, you should have a policy that looks like the following:
 ![EPM](/_posts/Images/2024-04-01-GettingStarted-With-EPM/EPM-ElevationRules-8.png?raw=true "EPM Elevation Rules 8")
 
-Once you are satifised with everything, lets take our new elevation rule for a spin. Assign your scope tags where required, then assign your elevation rule to your device.
+Once you are satifised with everything, lets take our new elevation rule for a spin. Assign your scope tags where required, then assign your elevation rule to your device. then on your device, perform a sync from company portal, it can take 5-10 minutes before the policy is applied on your device.
 
-> **_NOTE:_** **If you want more control of where the process is launched from, you can also configure the "File path" option. IF users try to elevate a file outside this path, detection will fail and users will not be able to elevate**
+> **_NOTE:_** **EPM has it's own PowerShell module for troubleshooting/debugging purporses. cd to C:\Program Files\Microsoft EPM Agent\EpmTools and run import-module .\epmcmdlets.dll - then run Get-Policies -PolicyType ElevationRules to see if any elevationrules has applied to the device. If nothing is returned, policies has not yet applied. More inforation [here](https://learn.microsoft.com/en-us/mem/intune/protect/epm-overview#install-the-epmtools-powershell-module).**
+> 
+>![EPM](/_posts/Images/2024-04-01-GettingStarted-With-EPM/EPM-GetPolicies-ElevationRules_extra.png?raw=true "EPM Elevation Rules PowerShell")
+
+Now we can go to the [7zip website](https://www.7-zip.org/download.html) and download 7zip 24.03 beta .exe. Right click the file and press "run with elevated access". Note when launching the file, the user will first be prompted to confirm the elevation (User Confirmation), and then after confirmation the user will be asked to verify their identity, just as we configured the rule. Then finally the user should be able to install 7zip without a hitch :)
+
+![EPM](/_posts/Images/2024-04-01-GettingStarted-With-EPM/EPM-Launch7Zip-3.png?raw=true "7zip installed")
+
+> **_NOTE:_** **Windows Security defaults dictates that files downloaded from the internet must first be unblocked. Use the Unblock-File cmdlet in PowerShell or simply right click the file -> Select Properties -> And tick "Unblock" in the bottom fo the file. If you don't do this, EPM will not be able to launch the file! I have asked Microsoft/EPM team to make sure EPM gives a better error message for this particular error**
+>
+> ![EPM](/_posts/Images/2024-04-01-GettingStarted-With-EPM/EPM-UnblockFile.png?raw=true "EPM Blocked File")
+> ![EPM](/_posts/Images/2024-04-01-GettingStarted-With-EPM/EPM-UnblockFile-1.png?raw=true "EPM UnblockFile")
+
+### Craft elevation rule to allow Adobe Reader using Signing Certificate
+In our elevation rule for 7zip, we used a file hash for detection. Now we are going to create an elevation rule using a signing certificate instead. Using a signing certificate adds an extra layer of security, as it will reference a Windows API to verify the certificate validity and revocation status. Let's say we allowed Adobe Reader to be elevated, using a certificate. 
+But after 1 week, Adobe decides to revoke the certificate for security reasons. That will prevent any further elevations using EPM for any elevation rules that uses that signing certificate, until both the executeable and the certificate is replaced..
+
+But how do we know if an executeable is signed? Simply right click the file and press properties. If a "Digital Signatures" tab is present, the file is signed. Next up, is to validate if it's signed by a valid certificate. Press the "Details" button. First to check is the "Digital signature information" if it's ok. Next up is the validity period by pressing "View Certificate". In the below example you can see I have downloaded an english version of adobe reader where everything looks ok.
+
+![EPM](/_posts/Images/2024-04-01-GettingStarted-With-EPM/EPM-ElevationRules-Adobe-1.png?raw=true "Adobe Reader File information")
+
 
