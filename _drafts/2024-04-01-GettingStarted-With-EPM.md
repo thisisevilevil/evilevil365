@@ -121,11 +121,35 @@ Now we can go to the [7zip website](https://www.7-zip.org/download.html) and dow
 > ![EPM](/_posts/Images/2024-04-01-GettingStarted-With-EPM/EPM-UnblockFile-1.png?raw=true "EPM UnblockFile")
 
 ### Craft elevation rule to allow Adobe Reader using Signing Certificate
-In our elevation rule for 7zip, we used a file hash for detection. Now we are going to create an elevation rule using a signing certificate instead. Using a signing certificate adds an extra layer of security, as it will reference a Windows API to verify the certificate validity and revocation status. Let's say we allowed Adobe Reader to be elevated, using a certificate. 
-But after 1 week, Adobe decides to revoke the certificate for security reasons. That will prevent any further elevations using EPM for any elevation rules that uses that signing certificate, until both the executeable and the certificate is replaced..
+In our elevation rule for 7zip, we used a file hash for detection. Now we are going to create an elevation rule using a signing certificate instead. Using a signing certificate adds an extra layer of security, as it will reference a Windows API to verify the certificate validity and revocation status. 
+Let's say we allowed Adobe Reader to be elevated, using a certificate. But after 1 week, Adobe decides to revoke the certificate for security reasons. That will prevent any further elevations using EPM for any elevation rules that uses that signing certificate, until both the executeable and the certificate is replaced..
 
-But how do we know if an executeable is signed? Simply right click the file and press properties. If a "Digital Signatures" tab is present, the file is signed. Next up, is to validate if it's signed by a valid certificate. Press the "Details" button. First to check is the "Digital signature information" if it's ok. Next up is the validity period by pressing "View Certificate". In the below example you can see I have downloaded an english version of adobe reader where everything looks ok.
+But how do we know if an executeable is signed? Simply right click the file and press properties. If a "Digital Signatures" tab is present, the file is signed. 
+Next up, is to validate if it's signed by a valid certificate. Press the "Details" button. First to check is the "Digital signature information" if it's ok. Next up is the validity period by pressing "View Certificate". In the below example you can see I have downloaded an english version of adobe reader where everything looks ok.
 
 ![EPM](/_posts/Images/2024-04-01-GettingStarted-With-EPM/EPM-ElevationRules-Adobe-1.png?raw=true "Adobe Reader File information")
 
+So now we have to craft a rule to allow this app, also based on the signing certificate. Let's import the signing certificate into the endpoint manager portal as a reusable setting. This allows us to easily reuse it for multiple rules, without having to import it over and over. So what is the easiest way to export the signing certificate from a file? EPM PowerShell cmdlets to the rescue! So like before, we need to open an elevated PowerShell on a device with EPM already instead. Then we need to load the epmcdmlets.dll once more like before, and this time we need to run the Get-FileAttributes cmdlet.
 
+`C:\Windows\system32> Import-Module 'C:\Program Files\Microsoft EPM Agent\EpmTools\EpmCmdlets.dll'`
+
+`C:\Windows\system32> Get-FileAttributes -FilePath C:\Users\ChristieCline\Downloads\Reader_en_install.exe -CertOutputPath C:\Users\ChristieCline\Downloads\`
+
+![EPM](/_posts/Images/2024-04-01-GettingStarted-With-EPM/EPM-ElevationRules-Adobe-2.png?raw=true "Adobe Reader File information")
+
+Now we have what we need to create our elevation rule. Head on back to Intune -> Endpoint Security -> Endpoint Privilege Management. Press the "Reusable settings" button and finally hit the "add" button. Give it the name "Adobe signing certificate". Finally import the exported Adobe Signing Certificate, should be the one ending with the number 4.
+
+![EPM](/_posts/Images/2024-04-01-GettingStarted-With-EPM/EPM-ElevationRules-Adobe-3.png?raw=true "Adobe Reader Elevation Rules")
+![EPM](/_posts/Images/2024-04-01-GettingStarted-With-EPM/EPM-ElevationRules-Adobe-4.png?raw=true "Adobe Reader Elevation Rules")
+![EPM](/_posts/Images/2024-04-01-GettingStarted-With-EPM/EPM-ElevationRules-Adobe-5.png?raw=true "Adobe Reader Elevation Rules")
+
+Now it's time to craft the actual rule. Let's go in and edit our old "Default Elevation Rules" and add a new entry. Give it a nice name. Set Elevation Type "User Confirmed", and in validation set it to "Business Justification" this time. Child Process Behaviour should be set to "Allow all child processes to run elevated"
+
+![EPM](/_posts/Images/2024-04-01-GettingStarted-With-EPM/EPM-ElevationRules-Adobe-7.png?raw=true "Adobe Reader Elevation Rules")
+
+Now for the interesting bit, so pay attention here, as this is really important!
+1. In the certificate section press the add or remove a certificate. This will open a new view, where you should be able to select the signing certificate we imported before. Then hit select in the bottom
+2. In certificate type, select "Publisher". Because remember we selected the signing certificate of Adobe, which is a Publisher certificate. This is the most commonly used scenario. Very rarely would we ever choose to whitelist certificate authorities, as this could cause unpredictable and unexpected elevations using EPM!
+* Once you have added the signing certificate, you can save the rule already. But consider the impact of this: All files signed with this exact Adobe signing certificate, can be elevated with admin permissions? Is this what you want?
+* Consider adding more attributes. If you only want to allow Adobe Reader for instance, you can consider also adding a file name. However, also consider this: Simply adding the file name, then the user can download another adobe product, and simply rename the installer to that given filename, and elevate that file. So if you only want a specific app, consider adding more metadata for the file! Think Get-FileAttributes again
+3. After adding the signing adobe signing certificate, let's save and apply the elevation rule
