@@ -86,7 +86,7 @@ For now, let us choose User Confirmed.
 For now, let us only choose Windows Authentication:
 ![EPM](/_posts/Images/2024-04-01-GettingStarted-With-EPM/EPM-ElevationRules-3.png?raw=true "EPM Elevation Rules 3")
 
-Lastly to finish specifying our elevation conditions, we need to select child process behaviour. Be careful with this option, as lot of installers spawn subprocesses to install dependencies. Let's expand a bit
+Lastly to finish specifying our elevation conditions, we need to select child process behaviour. Be careful with this option, as lot of installers spawn subprocesses to install dependencies. Let's us expand a bit on the options:
 1. Allow all child procesesses to run elevated: All processes spawned by the elevated process, will be allowed to elevate. This is also the default in Windows when you right click a process and select "Run as administrator. You will find that a lot of app installers rely on this functionality, so if you don't choose this, be sure to test it thoroughly!
 2. Require rule to elevate: The subprocess will need a specific rule to elevate, before it can be run. While this is the most secure by far, be careful choosing this one, unless for processes like cmd.exe or PowerShell.exe - Otherwise you will find yourself having to craft a lot more elevation rules that you might initially have signed up for.
 3. Deny All: Most secure, but see notes in option #2.
