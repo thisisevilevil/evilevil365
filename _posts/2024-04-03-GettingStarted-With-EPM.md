@@ -111,7 +111,7 @@ Once you are satisfised with everything, lets take our new elevation rule for a 
 > 
 >![EPM](/assets/images/2024-04-01-GettingStarted-With-EPM/EPM-GetPolicies-ElevationRules_extra.png?raw=true "EPM Elevation Rules PowerShell")
 
-Now we can go to the [7zip website](https://www.7-zip.org/download.html) and download 7zip 24.03 beta .exe. Right click the file and press "run with elevated access". Note when launching the file, the user will first be prompted to confirm the elevation (User Confirmation), and then after confirmation the user will be asked to verify their identity, just as we configured the rule. Then finally the user should be able to install 7zip without a hitch :)
+Now we can go to the [7zip website](https://www.7-zip.org/download.html) and download 7zip 24.03 beta .exe on our test device. Right click the file and press "run with elevated access". Note when launching the file, the user will first be prompted to confirm the elevation (User Confirmation), and then after confirmation the user will be asked to verify their identity, just as we configured the rule. Then finally the user should be able to install 7zip without a hitch :)
 
 ![EPM](/assets/images/2024-04-01-GettingStarted-With-EPM/EPM-Launch7Zip-3.png?raw=true "7zip installed")
 
