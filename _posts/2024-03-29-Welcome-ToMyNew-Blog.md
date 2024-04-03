@@ -1,10 +1,10 @@
 ---
 title: "Welcome to my new blog"
-date: 2024-03-30T11:00:30-04:00
+date: 2024-03-30
 categories:
   - blog
 tags:
   - update
 ---
 
-Welcome to my new blog. Still getting it set up, but stay tuned for blog posts for how to be an awesome IT admin in your organisation using [Microsoft Intune!](https://learn.microsoft.com/en-us/mem/intune/fundamentals/what-is-intune)
+Welcome to my new blog. Still getting it set up. I am planning to blog about [Microsoft Intune!](https://learn.microsoft.com/en-us/mem/intune/fundamentals/what-is-intune). Bookmark this blog and check in from time to time, as I will attempt to share my knowledge about everything Intune :)
