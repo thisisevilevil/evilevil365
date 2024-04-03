@@ -17,7 +17,7 @@ EPM, short for [Endpoint Privilege Management](https://learn.microsoft.com/en-us
 
 Some organizations have chosen to remove local admin rights altogether, but there can be certain times where users needs these admin rights to do their job, i.e: Changing system settings for development purposes, installing apps not present in the existing app catalogs or just general supportability, the list is can be endless. 
 
-If we don't have a good and secure way to facilitate elevated privileges this on behalf of the end-user, guess what? They are going to log a ticket to ServiceDesk or they are going to resort to shadow IT! That's where the good PAM Solution comes in. Not only will it eliminate the need to log a ticket to ServiceDesk, it will also still be able to facilitate that elevation without compromising security!
+If we don't have a good and secure way to facilitate elevated privileges on behalf of the end-user, guess what? They are going to log a ticket to ServiceDesk or they are going to resort to shadow IT! That's where the good PAM Solution comes in. Not only will it eliminate the need to log a ticket to ServiceDesk, it will also still be able to facilitate that elevation without compromising security!
 
 EPM is ever changing, and expect big changes coming this year, so keep checking back on this blog, once new features get added, as I will keep this one updated :)
 
