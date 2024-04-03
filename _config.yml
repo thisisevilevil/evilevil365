@@ -63,12 +63,13 @@ author:
     - label: "Linkedin"
       icon: "fab fa-fw fa-linkedin"
       url: "https://www.linkedin.com/in/mads-johansen/"
-    - label: "Sessionize"
-      icon: "fab fa-fw fa-sessionize"
-      url: "https://sessionize.com/madsjohansen/"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/thisisevilevil"
+    - label: "Sessionize"
+      icon: "fab fa-fw fa-sessionize"
+      url: "https://sessionize.com/madsjohansen/"
+
 
 footer:
   links:
