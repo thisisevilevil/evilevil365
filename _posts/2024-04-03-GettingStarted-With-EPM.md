@@ -35,8 +35,8 @@ Getting started with EPM is very simple, and only take a few clicks. But before 
 ![EPM](/assets/images/2024-04-01-GettingStarted-With-EPM/EPM-Button_Small.png?raw=true "EPM Button in Intune")
 
 Head over to the Endpoint Privilege Management section and press the "Create Policy" button and select the "Elevation Settings Policy". This is where we can craft a policy to enable EPM. Give it a friendly name, i.e: Default EPM Elevation Policy
-![EPM](./Images/2024-04-01-GettingStarted-With-EPM/EPM-ElevationRules.png?raw=true "EPM Button in Intune")
-![EPM](./Images/2024-04-01-GettingStarted-With-EPM/EPM-DefaultEPMElevationRules.png?raw=true "EPM Button in Intune")
+![EPM](/assets/images/2024-04-01-GettingStarted-With-EPM/EPM-ElevationRules.png?raw=true "EPM Button in Intune")
+![EPM](/assets/images/2024-04-01-GettingStarted-With-EPM/EPM-DefaultEPMElevationRules.png?raw=true "EPM Button in Intune")
 
 At the next section, this is basically the on/off lever for EPM. We leave all of the settings on the default settings. Most of them is self-explanatory, but the most important one here is the "Default elevation response". This is super important to note, as this will have an important effect. 
 If you choose "Not Configured", this means it will always default to "Deny all requests" for end-users UNLESS there is an elevation rule crafted for a given process. The other option called "Require user confirmation" is the most relaxed, as this allows the end-user to simply confirm the risks of an elevation and proceed to elevating a process without needing a specific elevation rule to be crafted in the first place and doesn't require any kind of approval from IT. 
@@ -45,7 +45,7 @@ The last option called "require support approval", allows the end-user to reques
 
 For now, let's just choose "Not Configured" and leave everything as the default. Then assign a scope tag if required and finally assign to a test device of your choice using a group or a device filter.
 
-![EPM](./Images/2024-04-01-GettingStarted-With-EPM/EPM-ConfigurationSettings.png?raw=true "EPM Policy")
+![EPM](/assets/images/2024-04-01-GettingStarted-With-EPM/EPM-ConfigurationSettings.png?raw=true "EPM Policy")
 
 > **_NOTE:_** **Microsoft recommends choosing "Not Configured" as the default elevation requests, for the majority of your users, to ensure full control of how administrator rights is used in your organizations endpoints!**
 
@@ -53,13 +53,13 @@ For now, let's just choose "Not Configured" and leave everything as the default.
 As soon as you assign the EPM policy to your test device, shortly after, the device should automatically get the EPM Client installed. It works the same way with the Intune Management Extension: IF you have any PowerShell Scripts, Remediations, Win32 or Windows Store apps assigned to the device, the Intune Management extension will also automatically install. Not need to manually maintain these binaries, Microsoft will do this for you!
 Once the client installs, the most obvious things you will notice is of course when users right click, they will notice "Run with elevated access". The EPM Client will also install under the folder C:\Program Files\Microsoft EPM Agent whilst it will also install a service which will leave a process in task manager as well.
 
-![EPM](./Images/2024-04-01-GettingStarted-With-EPM/EPM-Folder.png?raw=true "EPM Folder")
-![EPM](./Images/2024-04-01-GettingStarted-With-EPM/EPM-Service.png?raw=true "EPM Service")
-![EPM](./Images/2024-04-01-GettingStarted-With-EPM/EPM-RunWithElevatedAccess.png?raw=true "EPM RunWithElevatedAccess")
+![EPM](/assets/images/2024-04-01-GettingStarted-With-EPM/EPM-Folder.png?raw=true "EPM Folder")
+![EPM](/assets/images/2024-04-01-GettingStarted-With-EPM/EPM-Service.png?raw=true "EPM Service")
+![EPM](/assets/images/2024-04-01-GettingStarted-With-EPM/EPM-RunWithElevatedAccess.png?raw=true "EPM RunWithElevatedAccess")
 
 You will notice if you elevate anything at this stage with the current policy we assigned, the user would simply be denied. Remember we set the "Default elevation response" to "Not Configured" meaning the user can only elevate apps that we create specific rules for. We will come around to crafting elevation rules for specific apps in a moment.
 
-![EPM](./Images/2024-04-01-GettingStarted-With-EPM/EPM-NotAllowed.png?raw=true "EPM Not Allowed")
+![EPM](/assets/images/2024-04-01-GettingStarted-With-EPM/EPM-NotAllowed.png?raw=true "EPM Not Allowed")
 
 > **_NOTE:_** **Microsoft has created a new channel for delivering EPM Policies, that is super fast! EPM is the only tool to use this new channel for now as of this blogs date, but not long from now, all other sections of Intune will also migrate to this new channel to deliver policies. Depending on who you ask, they will refer to this as being "Dual Enrolled" since we now have 2 seperate channels for policies - Super nice!**
 
@@ -71,8 +71,8 @@ Now we will craft our first elevation rule policy to allow 7zip. The elevation r
 I will take you through every step of creating the policy.
 
 Head on over to Intune -> Endpoint Security -> Endpoint Privilege Management. Press the "Create Policy" button, choose Windows 10 or later and choose "Elevation Rules Policy". GIve it a nice name like "Default Elevation Rules" and then press "edit instance"
-![EPM](./Images/2024-04-01-GettingStarted-With-EPM/EPM-ElevationRules-1.png?raw=true "EPM Elevation Rules")
-![EPM](./Images/2024-04-01-GettingStarted-With-EPM/EPM-ElevationRules-2.png?raw=true "EPM Elevation Rules 2")
+![EPM](/assets/images/2024-04-01-GettingStarted-With-EPM/EPM-ElevationRules-1.png?raw=true "EPM Elevation Rules")
+![EPM](/assets/images/2024-04-01-GettingStarted-With-EPM/EPM-ElevationRules-2.png?raw=true "EPM Elevation Rules 2")
 
 **In elevation type, we have the following options:**
 1. User Confirmed: User will have to confirm when elevating an app
@@ -86,7 +86,7 @@ For now, let us choose User Confirmed.
 2. Windows Authentication: User will have to authentication using their login to Windows. This can be a password, but also works for Windows Hello and FIDO Keys
 
 For now, let us only choose Windows Authentication:
-![EPM](./Images/2024-04-01-GettingStarted-With-EPM/EPM-ElevationRules-3.png?raw=true "EPM Elevation Rules 3")
+![EPM](/assets/images/2024-04-01-GettingStarted-With-EPM/EPM-ElevationRules-3.png?raw=true "EPM Elevation Rules 3")
 
 Lastly to finish specifying our elevation conditions, we need to select child process behaviour. Be careful with this option, as lot of installers spawn subprocesses to install dependencies. Let's us expand a bit on the options:
 1. Allow all child processes to run elevated: All processes spawned by the elevated process, will be allowed to elevate. This is also the default in Windows when you right click a process and select "Run as administrator. You will find that a lot of app installers rely on this functionality, so if you don't choose this, be sure to test it thoroughly!
@@ -95,30 +95,30 @@ Lastly to finish specifying our elevation conditions, we need to select child pr
 4. Not Configured: Will revert to the default response which is "Require rule to elevate"
 
 Let's select "Allow all child processes to run elevated" for now:
-![EPM](./Images/2024-04-01-GettingStarted-With-EPM/EPM-ElevationRules-4.png?raw=true "EPM Elevation Rules 4")
+![EPM](/assets/images/2024-04-01-GettingStarted-With-EPM/EPM-ElevationRules-4.png?raw=true "EPM Elevation Rules 4")
 
 Finally we need to provide some file information. Since we are using file hash to craft this elevation rule, we will set "Signature Source" to "Not Configured". Notice when we set it to not configured, then we only need to give it a filename and a filehash. Getting the filename is easy, but to get the filehash, we have a few different methods at our disposal. Let's open a PowerShell and use the Get-FileHash  cmdlet
 
-![EPM](./Images/2024-04-01-GettingStarted-With-EPM/EPM-ElevationRules-6.png?raw=true "EPM Elevation Rules 6")
-![EPM](./Images/2024-04-01-GettingStarted-With-EPM/EPM-ElevationRules-7.png?raw=true "EPM Elevation Rules 7")
+![EPM](/assets/images/2024-04-01-GettingStarted-With-EPM/EPM-ElevationRules-6.png?raw=true "EPM Elevation Rules 6")
+![EPM](/assets/images/2024-04-01-GettingStarted-With-EPM/EPM-ElevationRules-7.png?raw=true "EPM Elevation Rules 7")
 
 Once you have extracted the filehash, you should have a policy that looks like the following:
-![EPM](./Images/2024-04-01-GettingStarted-With-EPM/EPM-ElevationRules-8.png?raw=true "EPM Elevation Rules 8")
+![EPM](/assets/images/2024-04-01-GettingStarted-With-EPM/EPM-ElevationRules-8.png?raw=true "EPM Elevation Rules 8")
 
 Once you are satisfised with everything, lets take our new elevation rule for a spin. Assign your scope tags where required, then assign your elevation rule to your device. then on your device, perform a sync from company portal, it can take 5-10 minutes before the policy is applied on your device.
 
 > **_NOTE:_** **EPM has it's own PowerShell module for troubleshooting/debugging purposes. cd to C:\Program Files\Microsoft EPM Agent\EpmTools and run import-module .\epmcmdlets.dll - then run Get-Policies -PolicyType ElevationRules to see if any elevationrules has applied to the device. If nothing is returned, policies has not yet applied. More information [here](https://learn.microsoft.com/en-us/mem/intune/protect/epm-overview#install-the-epmtools-powershell-module).**
 > 
->![EPM](./Images/2024-04-01-GettingStarted-With-EPM/EPM-GetPolicies-ElevationRules_extra.png?raw=true "EPM Elevation Rules PowerShell")
+>![EPM](/assets/images/2024-04-01-GettingStarted-With-EPM/EPM-GetPolicies-ElevationRules_extra.png?raw=true "EPM Elevation Rules PowerShell")
 
 Now we can go to the [7zip website](https://www.7-zip.org/download.html) and download 7zip 24.03 beta .exe. Right click the file and press "run with elevated access". Note when launching the file, the user will first be prompted to confirm the elevation (User Confirmation), and then after confirmation the user will be asked to verify their identity, just as we configured the rule. Then finally the user should be able to install 7zip without a hitch :)
 
-![EPM](./Images/2024-04-01-GettingStarted-With-EPM/EPM-Launch7Zip-3.png?raw=true "7zip installed")
+![EPM](/assets/images/2024-04-01-GettingStarted-With-EPM/EPM-Launch7Zip-3.png?raw=true "7zip installed")
 
 > **_NOTE:_** **Windows Security defaults dictates that files downloaded from the internet must first be unblocked. Use the Unblock-File cmdlet in PowerShell or simply right click the file -> Select Properties -> And tick "Unblock" in the bottom fo the file. If you don't do this, EPM will not be able to launch the file! I have asked Microsoft/EPM team to make sure EPM gives a better error message for this particular error**
 >
-> ![EPM](./Images/2024-04-01-GettingStarted-With-EPM/EPM-UnblockFile.png?raw=true "EPM Blocked File")
-> ![EPM](./Images/2024-04-01-GettingStarted-With-EPM/EPM-UnblockFile-1.png?raw=true "EPM UnblockFile")
+> ![EPM](/assets/images/2024-04-01-GettingStarted-With-EPM/EPM-UnblockFile.png?raw=true "EPM Blocked File")
+> ![EPM](/assets/images/2024-04-01-GettingStarted-With-EPM/EPM-UnblockFile-1.png?raw=true "EPM UnblockFile")
 
 ### Craft elevation rule to allow Adobe Reader using Signing Certificate
 In our elevation rule for 7zip, we used a file hash for detection. Now we are going to create an elevation rule using a signing certificate instead. Using a signing certificate adds an extra layer of security, as it will reference a Windows API to verify the certificate validity and revocation status. 
@@ -127,7 +127,7 @@ Let's say we allowed Adobe Reader to be elevated, using a certificate. But after
 But how do we know if an executable is signed? Simply right click the file and press properties. If a "Digital Signatures" tab is present, the file is signed. 
 Next up, is to validate if it's signed by a valid certificate. Press the "Details" button. First to check is the "Digital signature information" if it's ok. Next up is the validity period by pressing "View Certificate". In the below example you can see I have downloaded an english version of adobe reader where everything looks ok.
 
-![EPM](./Images/2024-04-01-GettingStarted-With-EPM/EPM-ElevationRules-Adobe-1.png?raw=true "Adobe Reader File information")
+![EPM](/assets/images/2024-04-01-GettingStarted-With-EPM/EPM-ElevationRules-Adobe-1.png?raw=true "Adobe Reader File information")
 
 So now we have to craft a rule to allow this app, also based on the signing certificate. Let's import the signing certificate into the endpoint manager portal as a reusable setting. This allows us to easily reuse it for multiple rules, without having to import it over and over. So what is the easiest way to export the signing certificate from a file? EPM PowerShell cmdlets to the rescue! So like before, we need to open an elevated PowerShell on a device with EPM already installed. Then we need to load the epmcdmlets.dll once more like before, and this time we need to run the Get-FileAttributes cmdlet.
 
@@ -135,17 +135,17 @@ So now we have to craft a rule to allow this app, also based on the signing cert
 
 `C:\Windows\system32> Get-FileAttributes -FilePath C:\Users\ChristieCline\Downloads\Reader_en_install.exe -CertOutputPath C:\Users\ChristieCline\Downloads\`
 
-![EPM](./Images/2024-04-01-GettingStarted-With-EPM/EPM-ElevationRules-Adobe-2.png?raw=true "Adobe Reader File information")
+![EPM](/assets/images/2024-04-01-GettingStarted-With-EPM/EPM-ElevationRules-Adobe-2.png?raw=true "Adobe Reader File information")
 
 Now we have what we need to create our elevation rule. Head on back to Intune -> Endpoint Security -> Endpoint Privilege Management. Press the "Reusable settings" button and finally hit the "add" button. Give it the name "Adobe signing certificate". Finally import the exported Adobe Signing Certificate, should be the one ending with the number 4.
 
-![EPM](./Images/2024-04-01-GettingStarted-With-EPM/EPM-ElevationRules-Adobe-3.png?raw=true "Adobe Reader Elevation Rules")
-![EPM](./Images/2024-04-01-GettingStarted-With-EPM/EPM-ElevationRules-Adobe-4.png?raw=true "Adobe Reader Elevation Rules")
-![EPM](./Images/2024-04-01-GettingStarted-With-EPM/EPM-ElevationRules-Adobe-5.png?raw=true "Adobe Reader Elevation Rules")
+![EPM](/assets/images/2024-04-01-GettingStarted-With-EPM/EPM-ElevationRules-Adobe-3.png?raw=true "Adobe Reader Elevation Rules")
+![EPM](/assets/images/2024-04-01-GettingStarted-With-EPM/EPM-ElevationRules-Adobe-4.png?raw=true "Adobe Reader Elevation Rules")
+![EPM](/assets/images/2024-04-01-GettingStarted-With-EPM/EPM-ElevationRules-Adobe-5.png?raw=true "Adobe Reader Elevation Rules")
 
 Now it's time to craft the actual rule. Let's go in and edit our old "Default Elevation Rules" and add a new entry. Give it a nice name. Set Elevation Type "User Confirmed", and in validation set it to "Business Justification" this time. Child Process Behaviour should be set to "Allow all child processes to run elevated"
 
-![EPM](./Images/2024-04-01-GettingStarted-With-EPM/EPM-ElevationRules-Adobe-7.png?raw=true "Adobe Reader Elevation Rules")
+![EPM](/assets/images/2024-04-01-GettingStarted-With-EPM/EPM-ElevationRules-Adobe-7.png?raw=true "Adobe Reader Elevation Rules")
 
 Now for the interesting bit, so pay attention here, as this is really important!
 1. In the certificate section press the add or remove a certificate. This will open a new view, where you should be able to select the signing certificate we imported before. Then hit select in the bottom
@@ -156,7 +156,7 @@ Now for the interesting bit, so pay attention here, as this is really important!
 
 Sync from company portal and wait a few minutes to ensure you get the new policy. When you are ready, right click reader_en_install.exe and press "Run with elevated access". If it's working correctly, you should get the EPM Screen, but now the user needs to put in a business justification, and will then be able to complete the installation.
 
-![EPM](./Images/2024-04-01-GettingStarted-With-EPM/EPM-ElevationRules-Adobe-8.png?raw=true "Adobe Reader Installation")
+![EPM](/assets/images/2024-04-01-GettingStarted-With-EPM/EPM-ElevationRules-Adobe-8.png?raw=true "Adobe Reader Installation")
 
 
 # Wrapping up
@@ -179,4 +179,4 @@ TL;DR: Managed Elevation = An elevation rule facilitated an elevation on an endp
 6. **"Run with elevated access" button is missing**: If the button is missing and you have verified EPM is installed and running, first try and reboot the device. If it's still not present, navigate to this path: C:\Program Files\Microsoft EPM Agent\EPMShellExtension
 * Run the file EpmShellExtension.msix as the current user, not as an administrator. Once opened, it should say that it's already installed. Simply hit the reinstall button to reinstall the shell extension. That should resolve the issue.
 
-![EPM](./Images/2024-04-01-GettingStarted-With-EPM/EPM-MSIXShellExtension.png?raw=true "EPM Shell Extension")
+![EPM](/assets/images/2024-04-01-GettingStarted-With-EPM/EPM-MSIXShellExtension.png?raw=true "EPM Shell Extension")
