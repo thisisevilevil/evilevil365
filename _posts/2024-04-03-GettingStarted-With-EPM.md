@@ -32,7 +32,7 @@ EPM is ever changing, and expect big changes coming this year, so keep checking 
 
 # Getting Started with EPM
 Getting started with EPM is very simple, and only take a few clicks. But before we do anything ensure you have the correct licensing by heading to the Intune Portal -> Tenant Administration -> Intune Add-ons. Ensure either Microsoft Intune Suite or Endpoint Privilege Management is active! When it's correctly activated, you will get an extra pane under Endpoint Security called "Endpoint Privilege Management"
-![EPM](./Images/2024-04-01-GettingStarted-With-EPM/EPM-Button_Small.png?raw=true "EPM Button in Intune")
+![EPM](./assets/images/2024-04-01-GettingStarted-With-EPM/EPM-Button_Small.png?raw=true "EPM Button in Intune")
 
 Head over to the Endpoint Privilege Management section and press the "Create Policy" button and select the "Elevation Settings Policy". This is where we can craft a policy to enable EPM. Give it a friendly name, i.e: Default EPM Elevation Policy
 ![EPM](./Images/2024-04-01-GettingStarted-With-EPM/EPM-ElevationRules.png?raw=true "EPM Button in Intune")
