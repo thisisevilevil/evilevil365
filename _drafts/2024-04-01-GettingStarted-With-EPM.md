@@ -13,13 +13,13 @@ tags:
 ---
 
 # What is EPM?
-EPM, short for {Endpoint Privilege Management](https://learn.microsoft.com/en-us/mem/intune/protect/epm-overview), is Microsofts own tool to control, audit and manage elevated rights on windows endpoints (mac soon to come as well!). This is also under a category of what we refer to as a [PAM Solution for Endpoints](https://www.microsoft.com/en/security/business/security-101/what-is-privileged-access-management-pam#:~:text=Privileged%20access%20management%20(PAM)%20is,privileged%20access%20to%20critical%20resources). Having a PAM Solution for endpoints is absolutely vital to control and audit the usage of elevating processes.
+EPM, short for {Endpoint Privilege Management](https://learn.microsoft.com/en-us/mem/intune/protect/epm-overview), is Microsofts own tool to control, audit and manage administrators rights on windows endpoints (MacOS soon to come as well!). This is also under a category of what we refer to as a [PAM Solution for Endpoints](https://www.microsoft.com/en/security/business/security-101/what-is-privileged-access-management-pam#:~:text=Privileged%20access%20management%20(PAM)%20is,privileged%20access%20to%20critical%20resources). Having a PAM Solution for endpoints is absolutely vital to control and audit the usage of elevating processes.
 
 Some organizations have chosen to remove local admin rights altogether, but there can be certain times where users needs these admin rights to do their job, i.e: Changing system settings for development purposes, installing apps not present in the existing app catalogs or just general supportability, the list is can be endless. 
 
-The point is: If we don't have a good and secure way to facilitate this on behalf of the end-user, guess what? They are going to log a ticket to ServiceDesk! That's where the good PAM Solution comes in. Not only will it eliminate the need to log a ticket to ServiceDesk, it will also still be able to facilitate that elevation without compromising security!
+If we don't have a good and secure way to facilitate elevated privileges this on behalf of the end-user, guess what? They are going to log a ticket to ServiceDesk or they are going to resort to shadow IT! That's where the good PAM Solution comes in. Not only will it eliminate the need to log a ticket to ServiceDesk, it will also still be able to facilitate that elevation without compromising security!
 
-EPM changes a lot, and expect big changes coming this year, so keep checking back on this blog, once new features get added, as I will keep this one updated :)
+EPM is ever changing, and expect big changes coming this year, so keep checking back on this blog, once new features get added, as I will keep this one updated :)
 
 > **_NOTE:_** **LAPS is not a PAM Solution - It is highly undesirable from a security perspective to use LAPS as a general means to elevate processes on end-users devices, unless it's for emergency/break-glass purpose**
 
@@ -31,14 +31,15 @@ EPM changes a lot, and expect big changes coming this year, so keep checking bac
 - Support for Windows - Mac will come at a later stage.
 
 # Getting Started with EPM
-Getting started with EPM is very simple, and only take a few clicks. But before we do anything ensure you have the correct licensing by heading to the Intune Portal -> Tenant Administration -> Intune Add-ons. Ensure either Microsoft Intune Suite or Endpoint Privilege Management is active! When it's correctly activated, you will get an extra pane under Endpoint Security -> Endpoint Privilege Manager
+Getting started with EPM is very simple, and only take a few clicks. But before we do anything ensure you have the correct licensing by heading to the Intune Portal -> Tenant Administration -> Intune Add-ons. Ensure either Microsoft Intune Suite or Endpoint Privilege Management is active! When it's correctly activated, you will get an extra pane under Endpoint Security called "Endpoint Privilege Management"
 ![EPM](/_posts/Images/2024-04-01-GettingStarted-With-EPM/EPM-Button_Small.png?raw=true "EPM Button in Intune")
 
-Head over to the Endpoint Privilege Management section and press the "Create Policy" button and select the "Elevation Settings Policy". This is where we can craft a policy to enable EPM! Give it a friendly name, i.e: Default EPM Elevation Policy
+Head over to the Endpoint Privilege Management section and press the "Create Policy" button and select the "Elevation Settings Policy". This is where we can craft a policy to enable EPM. Give it a friendly name, i.e: Default EPM Elevation Policy
 ![EPM](/_posts/Images/2024-04-01-GettingStarted-With-EPM/EPM-ElevationRules.png?raw=true "EPM Button in Intune")
 ![EPM](/_posts/Images/2024-04-01-GettingStarted-With-EPM/EPM-DefaultEPMElevationRules.png?raw=true "EPM Button in Intune")
 
-At the next section, this is basically the on/off lever for EPM. We leave all of the settings on the default settings. Most of them is self-explanatory, but the most important one here is the "Default elevation response". This is super important to take note off, as this will have an important effect. If you choose "Not Configured", this means it will always default to "Deny all requests" for end-users UNLESS there is an elevation rule crafted for a given process. The other option called "Require user confirmation" is the most relaxed, as this allows the end-user to simply confirm the risks of an elevation and proceed to elevating a process without needing a specific elevation rule to be crafted in the first place and doesn't require any kind of approval from IT. 
+At the next section, this is basically the on/off lever for EPM. We leave all of the settings on the default settings. Most of them is self-explanatory, but the most important one here is the "Default elevation response". This is super important to note, as this will have an important effect. 
+If you choose "Not Configured", this means it will always default to "Deny all requests" for end-users UNLESS there is an elevation rule crafted for a given process. The other option called "Require user confirmation" is the most relaxed, as this allows the end-user to simply confirm the risks of an elevation and proceed to elevating a process without needing a specific elevation rule to be crafted in the first place and doesn't require any kind of approval from IT. 
 
 The last option called "require support approval", allows the end-user to request elevations of files, regardless of whether there is a rule for a process crafted. Then someone from IT with the necessary access, can choose to approve/deny the elevation request.
 
@@ -59,7 +60,6 @@ Once the client installs, the most obvious things you will notice is of course w
 You will notice if you elevate anything at this stage with the current policy we assigned, the user would simply be denied. Remember we set the "Default elevation response" to "Not Configured" meaning the user can only elevate apps that we create specific rules for. We will come around to crafting elevation rules for specific apps in a moment.
 
 ![EPM](/_posts/Images/2024-04-01-GettingStarted-With-EPM/EPM-NotAllowed.png?raw=true "EPM Not Allowed")
-
 
 > **_NOTE:_** **Microsoft has created a new channel for delivering EPM Policies, that is super fast! EPM is the only tool to use this new channel for now as of this blogs date, but not long from now, all other sections of Intune will also migrate to this new channel to deliver policies. Depending on who you ask, they will refer to this as being "Dual Enrolled" since we now have 2 seperate channels for policies - Super nice!**
 
@@ -150,6 +150,19 @@ Now it's time to craft the actual rule. Let's go in and edit our old "Default El
 Now for the interesting bit, so pay attention here, as this is really important!
 1. In the certificate section press the add or remove a certificate. This will open a new view, where you should be able to select the signing certificate we imported before. Then hit select in the bottom
 2. In certificate type, select "Publisher". Because remember we selected the signing certificate of Adobe, which is a Publisher certificate. This is the most commonly used scenario. Very rarely would we ever choose to whitelist certificate authorities, as this could cause unpredictable and unexpected elevations using EPM!
-* Once you have added the signing certificate, you can save the rule already. But consider the impact of this: All files signed with this exact Adobe signing certificate, can be elevated with admin permissions? Is this what you want?
+* Once you have added the signing certificate, you can save the rule already. But consider the impact of this: All files signed with this exact Adobe signing certificate, can be elevated with admin permissions, using EPM. Is this what you want?
 * Consider adding more attributes. If you only want to allow Adobe Reader for instance, you can consider also adding a file name. However, also consider this: Simply adding the file name, then the user can download another adobe product, and simply rename the installer to that given filename, and elevate that file. So if you only want a specific app, consider adding more metadata for the file! Think Get-FileAttributes again
-3. After adding the signing adobe signing certificate, let's save and apply the elevation rule
+3. After adding the signing adobe signing certificate, let's save and apply the elevation rule and take it for a spin.
+
+# Wrapping up
+In this blog post we learned the following:
+* What is EPM and what can it currently offer
+* What is a PAM Solution
+* How does EPM Deploy and work on the Windows Endpoint
+* How to craft elevation rules, using the different levers and toggles at our disposal
+
+## Things I didn't cover in this blog that you can check out or should know:
+1. **Support Approved**: Try to craft an elevation rule and then choose "Support approved" and go through and elevation so you can see the flow. This can save you valuable time for one-time configuration changes and one-time installs requests. Why have ServiceDesk spend time doing this manually, when you can empower the end-user to do it themselves?
+2. **Reporting**: Under the Endpoint Privilege Manager section in Intune, you can press "Reports" to see reports of how EPM and Administrator rights is used in your org. 
+TL;DR: Managed Elevation = An elevation rule facilitated an elevation on an endpoint. Unmanaged Elevation = A local administrator on the device elevated a process, not using EPM.
+3. **Secure Virtual Account**: When you elevate a process it is elevated in a virtual account that EPM creates. it goes like so: MEM\<domain>_username_$. This is for security reasons. The EPM team has also explained this is done because EPM and UAC is 2 different technlogies. EPM doesn't integrate or communicate with UAC today. Some 
