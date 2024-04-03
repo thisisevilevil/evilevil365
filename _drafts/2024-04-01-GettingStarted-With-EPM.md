@@ -129,7 +129,7 @@ Next up, is to validate if it's signed by a valid certificate. Press the "Detail
 
 ![EPM](/_posts/Images/2024-04-01-GettingStarted-With-EPM/EPM-ElevationRules-Adobe-1.png?raw=true "Adobe Reader File information")
 
-So now we have to craft a rule to allow this app, also based on the signing certificate. Let's import the signing certificate into the endpoint manager portal as a reusable setting. This allows us to easily reuse it for multiple rules, without having to import it over and over. So what is the easiest way to export the signing certificate from a file? EPM PowerShell cmdlets to the rescue! So like before, we need to open an elevated PowerShell on a device with EPM already instead. Then we need to load the epmcdmlets.dll once more like before, and this time we need to run the Get-FileAttributes cmdlet.
+So now we have to craft a rule to allow this app, also based on the signing certificate. Let's import the signing certificate into the endpoint manager portal as a reusable setting. This allows us to easily reuse it for multiple rules, without having to import it over and over. So what is the easiest way to export the signing certificate from a file? EPM PowerShell cmdlets to the rescue! So like before, we need to open an elevated PowerShell on a device with EPM already installed. Then we need to load the epmcdmlets.dll once more like before, and this time we need to run the Get-FileAttributes cmdlet.
 
 `C:\Windows\system32> Import-Module 'C:\Program Files\Microsoft EPM Agent\EpmTools\EpmCmdlets.dll'`
 
@@ -153,6 +153,8 @@ Now for the interesting bit, so pay attention here, as this is really important!
 * Once you have added the signing certificate, you can save the rule already. But consider the impact of this: All files signed with this exact Adobe signing certificate, can be elevated with admin permissions, using EPM. Is this what you want?
 * Consider adding more attributes. If you only want to allow Adobe Reader for instance, you can consider also adding a file name. However, also consider this: Simply adding the file name, then the user can download another adobe product, and simply rename the installer to that given filename, and elevate that file. So if you only want a specific app, consider adding more metadata for the file! Think Get-FileAttributes again
 3. After adding the signing adobe signing certificate, let's save and apply the elevation rule and take it for a spin.
+
+
 
 # Wrapping up
 In this blog post we learned the following:
