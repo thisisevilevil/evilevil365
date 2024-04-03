@@ -75,24 +75,24 @@ Head on over to Intune -> Endpoint Security -> Endpoint Privilege Management. Pr
 ![EPM](/assets/images/2024-04-01-GettingStarted-With-EPM/EPM-ElevationRules-2.png?raw=true "EPM Elevation Rules 2")
 
 **In elevation type, we have the following options:**
-1. User Confirmed: User will have to confirm when elevating an app
-2. Automatic: App will elevate without user confirmation. Best practice is to only use this for legacy apps that doesn't work with User Confirmed or support approved
-3. Support approved: IT Support will approve elevation requests before users can elevate a process
+1. **User Confirmed**: User will have to confirm when elevating an app
+2. **Automatic**: App will elevate without user confirmation. Best practice is to only use this for legacy apps that doesn't work with User Confirmed or support approved
+3. **Support approved**: IT Support will approve elevation requests before users can elevate a process
 
 For now, let us choose User Confirmed.
 
 **In validation we have 2 optional boxes we can tick:**
-1. Business Justification: User will have to present a business justification before being allowed to elevate a process
-2. Windows Authentication: User will have to authentication using their login to Windows. This can be a password, but also works for Windows Hello and FIDO Keys
+1. **Business Justification**: User will have to present a business justification before being allowed to elevate a process
+2. **Windows Authentication**: User will have to authentication using their login to Windows. This can be a password, but also works for Windows Hello and FIDO Keys
 
 For now, let us only choose Windows Authentication:
 ![EPM](/assets/images/2024-04-01-GettingStarted-With-EPM/EPM-ElevationRules-3.png?raw=true "EPM Elevation Rules 3")
 
 Lastly to finish specifying our elevation conditions, we need to select child process behaviour. Be careful with this option, as lot of installers spawn subprocesses to install dependencies. Let's us expand a bit on the options:
-1. Allow all child processes to run elevated: All processes spawned by the elevated process, will be allowed to elevate. This is also the default in Windows when you right click a process and select "Run as administrator. You will find that a lot of app installers rely on this functionality, so if you don't choose this, be sure to test it thoroughly!
-2. Require rule to elevate: The subprocess will need a specific rule to elevate, before it can be run. While this is the most secure by far, be careful choosing this one, unless for processes like cmd.exe or PowerShell.exe - Otherwise you will find yourself having to craft a lot more elevation rules that you might initially have signed up for.
-3. Deny All: Most secure, but see notes in option #2.
-4. Not Configured: Will revert to the default response which is "Require rule to elevate"
+1. **Allow all child processes to run elevated**: All processes spawned by the elevated process, will be allowed to elevate. This is also the default in Windows when you right click a process and select "Run as administrator". You will find that a lot of app installers rely on this functionality, so if you don't choose this, be sure to test it thoroughly!
+2. **Require rule to elevate**: The subprocess will need a specific rule to elevate, before it can be run. While this is the most secure by far, be careful choosing this one, unless for processes like cmd.exe or PowerShell.exe - Otherwise you will find yourself having to craft a lot more elevation rules that you might initially have signed up for.
+3. **Deny All**: Most secure, but see notes in option #2.
+4. **Not Configured**: Will revert to the default response which is "Require rule to elevate"
 
 Let's select "Allow all child processes to run elevated" for now:
 ![EPM](/assets/images/2024-04-01-GettingStarted-With-EPM/EPM-ElevationRules-4.png?raw=true "EPM Elevation Rules 4")
