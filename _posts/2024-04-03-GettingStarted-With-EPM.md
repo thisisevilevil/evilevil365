@@ -1,6 +1,6 @@
 ---
 title: "Getting started with EPM - Endpoint Privilege Management"
-date: 2024-04-01TREMOVETHIS
+date: 2024-04-03
 categories:
   - Microsoft Intune Suite
   - Getting Started
