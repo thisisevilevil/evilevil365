@@ -154,7 +154,7 @@ Now for the interesting bit, so pay attention here, as this is really important!
 * Consider adding more attributes. If you only want to allow Adobe Reader for instance, you can consider also adding a file name. However, also consider this: Simply adding the file name, then the user can download another adobe product, and simply rename the installer to that given filename, and elevate that file. So if you only want a specific app, consider adding more metadata for the file! Think Get-FileAttributes again
 3. After adding the adobe signing certificate, let's save and apply the elevation rule without adding a name or a path, only the certificate.
 
-Sync from company portal and wait a few minutes to ensure you get the new policy. When you are ready, right click reader_en_install.exe and press "Run with elevated access". If it's working correctly, you should get the EPM Screen, but now the user needs to put in a business justification, and will then be able to complete the installation.
+Sync from company portal and wait a few minutes to ensure you get the new policy. When you are ready, right click reader_en_install.exe and press "Run with elevated access". If it's working correctly, you should get the EPM Screen, but now the user only needs to put in a business justification, and will then be able to complete the installation.
 
 ![EPM](/assets/images/2024-04-01-GettingStarted-With-EPM/EPM-ElevationRules-Adobe-8.png?raw=true "Adobe Reader Installation")
 
