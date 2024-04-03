@@ -25,7 +25,7 @@ EPM is ever changing, and expect big changes coming this year, so keep checking 
 
 
 **At it's core, EPM will give you the following functionalities:**
-- Allow standard users to elevate processes in a guarded enviroment
+- Allow standard users to elevate processes in a guarded environment
 - Eliminating one-time installs of software
 - Reporting/Auditing across your estate of Administrator usage!
 - Support for Windows - Mac will come at a later stage.
@@ -66,7 +66,7 @@ You will notice if you elevate anything at this stage with the current policy we
 ## Crafting an elevation rules policy
 
 ### Craft elevation rule to allow 7zip 24.03 beta .exe using file hash
-Now we will craft our first elevation rule policy to allow 7zip. The elevation rule will use the filehash to allow the elevation. When using filehash, you achieve the storngest detection for a specific process as this is unique for every single file. That way, we ensure only the specific process we specify, will be allowed to run with elevated rights.
+Now we will craft our first elevation rule policy to allow 7zip. The elevation rule will use the filehash to allow the elevation. When using filehash, you achieve the strongest detection for a specific process as this is unique for every single file. That way, we ensure only the specific process we specify, will be allowed to run with elevated rights.
 
 I will take you through every step of creating the policy.
 
@@ -89,7 +89,7 @@ For now, let us only choose Windows Authentication:
 ![EPM](/_posts/Images/2024-04-01-GettingStarted-With-EPM/EPM-ElevationRules-3.png?raw=true "EPM Elevation Rules 3")
 
 Lastly to finish specifying our elevation conditions, we need to select child process behaviour. Be careful with this option, as lot of installers spawn subprocesses to install dependencies. Let's us expand a bit on the options:
-1. Allow all child procesesses to run elevated: All processes spawned by the elevated process, will be allowed to elevate. This is also the default in Windows when you right click a process and select "Run as administrator. You will find that a lot of app installers rely on this functionality, so if you don't choose this, be sure to test it thoroughly!
+1. Allow all child processes to run elevated: All processes spawned by the elevated process, will be allowed to elevate. This is also the default in Windows when you right click a process and select "Run as administrator. You will find that a lot of app installers rely on this functionality, so if you don't choose this, be sure to test it thoroughly!
 2. Require rule to elevate: The subprocess will need a specific rule to elevate, before it can be run. While this is the most secure by far, be careful choosing this one, unless for processes like cmd.exe or PowerShell.exe - Otherwise you will find yourself having to craft a lot more elevation rules that you might initially have signed up for.
 3. Deny All: Most secure, but see notes in option #2.
 4. Not Configured: Will revert to the default response which is "Require rule to elevate"
@@ -105,9 +105,9 @@ Finally we need to provide some file information. Since we are using file hash t
 Once you have extracted the filehash, you should have a policy that looks like the following:
 ![EPM](/_posts/Images/2024-04-01-GettingStarted-With-EPM/EPM-ElevationRules-8.png?raw=true "EPM Elevation Rules 8")
 
-Once you are satifised with everything, lets take our new elevation rule for a spin. Assign your scope tags where required, then assign your elevation rule to your device. then on your device, perform a sync from company portal, it can take 5-10 minutes before the policy is applied on your device.
+Once you are satisfised with everything, lets take our new elevation rule for a spin. Assign your scope tags where required, then assign your elevation rule to your device. then on your device, perform a sync from company portal, it can take 5-10 minutes before the policy is applied on your device.
 
-> **_NOTE:_** **EPM has it's own PowerShell module for troubleshooting/debugging purporses. cd to C:\Program Files\Microsoft EPM Agent\EpmTools and run import-module .\epmcmdlets.dll - then run Get-Policies -PolicyType ElevationRules to see if any elevationrules has applied to the device. If nothing is returned, policies has not yet applied. More inforation [here](https://learn.microsoft.com/en-us/mem/intune/protect/epm-overview#install-the-epmtools-powershell-module).**
+> **_NOTE:_** **EPM has it's own PowerShell module for troubleshooting/debugging purposes. cd to C:\Program Files\Microsoft EPM Agent\EpmTools and run import-module .\epmcmdlets.dll - then run Get-Policies -PolicyType ElevationRules to see if any elevationrules has applied to the device. If nothing is returned, policies has not yet applied. More information [here](https://learn.microsoft.com/en-us/mem/intune/protect/epm-overview#install-the-epmtools-powershell-module).**
 > 
 >![EPM](/_posts/Images/2024-04-01-GettingStarted-With-EPM/EPM-GetPolicies-ElevationRules_extra.png?raw=true "EPM Elevation Rules PowerShell")
 
@@ -122,9 +122,9 @@ Now we can go to the [7zip website](https://www.7-zip.org/download.html) and dow
 
 ### Craft elevation rule to allow Adobe Reader using Signing Certificate
 In our elevation rule for 7zip, we used a file hash for detection. Now we are going to create an elevation rule using a signing certificate instead. Using a signing certificate adds an extra layer of security, as it will reference a Windows API to verify the certificate validity and revocation status. 
-Let's say we allowed Adobe Reader to be elevated, using a certificate. But after 1 week, Adobe decides to revoke the certificate for security reasons. That will prevent any further elevations using EPM for any elevation rules that uses that signing certificate, until both the executeable and the certificate is replaced..
+Let's say we allowed Adobe Reader to be elevated, using a certificate. But after 1 week, Adobe decides to revoke the certificate for security reasons. That will prevent any further elevations using EPM for any elevation rules that uses that signing certificate, until both the executable and the certificate is replaced..
 
-But how do we know if an executeable is signed? Simply right click the file and press properties. If a "Digital Signatures" tab is present, the file is signed. 
+But how do we know if an executable is signed? Simply right click the file and press properties. If a "Digital Signatures" tab is present, the file is signed. 
 Next up, is to validate if it's signed by a valid certificate. Press the "Details" button. First to check is the "Digital signature information" if it's ok. Next up is the validity period by pressing "View Certificate". In the below example you can see I have downloaded an english version of adobe reader where everything looks ok.
 
 ![EPM](/_posts/Images/2024-04-01-GettingStarted-With-EPM/EPM-ElevationRules-Adobe-1.png?raw=true "Adobe Reader File information")
@@ -162,7 +162,10 @@ In this blog post we learned the following:
 * How to craft elevation rules, using the different levers and toggles at our disposal
 
 ## Things I didn't cover in this blog that you can check out or should know:
-1. **Support Approved**: Try to craft an elevation rule and then choose "Support approved" and go through and elevation so you can see the flow. This can save you valuable time for one-time configuration changes and one-time installs requests. Why have ServiceDesk spend time doing this manually, when you can empower the end-user to do it themselves?
+1. **Support Approved**: Try to craft an elevation rule and then choose "Support approved" and go through and elevation so you can see the flow. This can save you valuable time for one-time configuration changes and one-time installs requests. Why have ServiceDesk spend time doing this manually, when you can empower the end-user to do it themselves? See more about Support approved [here](https://techcommunity.microsoft.com/t5/microsoft-intune-blog/endpoint-privilege-management-adds-support-approved-elevations/ba-p/4101196)
 2. **Reporting**: Under the Endpoint Privilege Manager section in Intune, you can press "Reports" to see reports of how EPM and Administrator rights is used in your org. 
 TL;DR: Managed Elevation = An elevation rule facilitated an elevation on an endpoint. Unmanaged Elevation = A local administrator on the device elevated a process, not using EPM.
-3. **Secure Virtual Account**: When you elevate a process it is elevated in a virtual account that EPM creates. it goes like so: MEM\<domain>_username_$. This is for security reasons. The EPM team has also explained this is done because EPM and UAC is 2 different technlogies. EPM doesn't integrate or communicate with UAC today. Some 
+3. **Secure Virtual Account**: When you elevate a process it is elevated in a virtual account that EPM creates. it goes like so: MEM\<domain>_username_$. This is for security reasons. This basically means it's a seperate userprofile. So consider the impact of this, when you are using apps that are instaled in the current-user context or that store settings in the current user context. If you elevate a process with EPM, that could cause issues with some apps.
+* The EPM team has also explained this is done because EPM and UAC is 2 different technologies. EPM doesn't integrate or communicate with UAC today, EPM is a seperate functionality. This might change soon though, but don't expect this secure virtual account to go away.
+4. **Missing elevation handlers in OS**: The "Run with elevated access" button is only visible currently when you right click .exe files in the file explorer. You cannot elevate any other files like .MSIs or use the "Run as administrator" button from the start menu. You can also not uninstall programs using the add/remove programs, or change system settings from the settings apps. Microsoft is aware of this issue, and it's multi-faceted, and has let us know that the EPM team is working closely with the Windows team to improve this during 2024 to become more user friendly.
+5. **Windows Store Apps requiring elevation doesn't work**: It's currently not possible to install most Windows Store apps that requires local admin right. Granted, it's not a lot of apps that require this, but it's something that the EPM team is aware of.
