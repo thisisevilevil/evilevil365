@@ -50,7 +50,7 @@ For now, let's just choose "Not Configured" and leave everything as the default.
 > **_NOTE:_** **Microsoft recommends choosing "Not Configured" as the default elevation requests, for the majority of your users, to ensure full control of how administrator rights is used in your organizations endpoints!**
 
 ## The nuts and bolts
-As soon as you assign the EPM policy to your test device, shortly after, the device should automatically get the EPM Client installed. It works the same way with the Intune Management Extension: IF you have any PowerShell Scripts, Remediations, Win32 or Windows Store apps assigned to the device, the Intune Management extension will also automatically install. Not need to manually maintain these binaries, Microsoft will do this for you!
+As soon as you assign the EPM policy to your test device, shortly after, the device should automatically get the EPM Client installed. It works the same way with the Intune Management Extension: If you have any PowerShell Scripts, Remediations, Win32 or Windows Store apps assigned to the device, the Intune Management extension will also automatically install. Not need to manually maintain these binaries, Microsoft will do this for you!
 Once the client installs, the most obvious things you will notice is of course when users right click, they will notice "Run with elevated access". The EPM Client will also install under the folder C:\Program Files\Microsoft EPM Agent whilst it will also install a service which will leave a process in task manager as well.
 
 ![EPM](/assets/images/2024-04-01-GettingStarted-With-EPM/EPM-Folder.png?raw=true "EPM Folder")
