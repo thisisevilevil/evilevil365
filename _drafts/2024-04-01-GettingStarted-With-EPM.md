@@ -13,7 +13,7 @@ tags:
 ---
 
 # What is EPM?
-EPM, short for {Endpoint Privilege Management](https://learn.microsoft.com/en-us/mem/intune/protect/epm-overview), is Microsofts own tool to control, audit and manage administrators rights on windows endpoints (MacOS soon to come as well!). This is also under a category of what we refer to as a [PAM Solution for Endpoints](https://www.microsoft.com/en/security/business/security-101/what-is-privileged-access-management-pam#:~:text=Privileged%20access%20management%20(PAM)%20is,privileged%20access%20to%20critical%20resources). Having a PAM Solution for endpoints is absolutely vital to control and audit the usage of elevating processes.
+EPM, short for {Endpoint Privilege Management](https://learn.microsoft.com/en-us/mem/intune/protect/epm-overview), is Microsofts new tool from the Intune Suite to control, audit and manage administrators rights on windows endpoints (MacOS soon to come as well!). This is also under a category of what we refer to as a [PAM Solution for Endpoints](https://www.microsoft.com/en/security/business/security-101/what-is-privileged-access-management-pam#:~:text=Privileged%20access%20management%20(PAM)%20is,privileged%20access%20to%20critical%20resources). Having a PAM Solution for endpoints is absolutely vital to control and audit the usage of elevating processes.
 
 Some organizations have chosen to remove local admin rights altogether, but there can be certain times where users needs these admin rights to do their job, i.e: Changing system settings for development purposes, installing apps not present in the existing app catalogs or just general supportability, the list is can be endless. 
 
@@ -153,7 +153,6 @@ Now for the interesting bit, so pay attention here, as this is really important!
 * Once you have added the signing certificate, you can save the rule already. But consider the impact of this: All files signed with this exact Adobe signing certificate, can be elevated with admin permissions, using EPM. Is this what you want?
 * Consider adding more attributes. If you only want to allow Adobe Reader for instance, you can consider also adding a file name. However, also consider this: Simply adding the file name, then the user can download another adobe product, and simply rename the installer to that given filename, and elevate that file. So if you only want a specific app, consider adding more metadata for the file! Think Get-FileAttributes again
 3. After adding the signing adobe signing certificate, let's save and apply the elevation rule and take it for a spin.
-
 
 
 # Wrapping up
