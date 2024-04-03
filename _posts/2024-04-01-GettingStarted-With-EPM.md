@@ -98,7 +98,7 @@ Let's select "Allow all child processes to run elevated" for now:
 ![EPM](/_posts/Images/2024-04-01-GettingStarted-With-EPM/EPM-ElevationRules-4.png?raw=true "EPM Elevation Rules 4")
 
 Finally we need to provide some file information. Since we are using file hash to craft this elevation rule, we will set "Signature Source" to "Not Configured". Notice when we set it to not configured, then we only need to give it a filename and a filehash. Getting the filename is easy, but to get the filehash, we have a few different methods at our disposal. Let's open a PowerShell and use the Get-FileHash  cmdlet
-![EPM](/_posts/Images/2024-04-01-GettingStarted-With-EPM/EPM-ElevationRules-5.png?raw=true "EPM Elevation Rules 5")
+
 ![EPM](/_posts/Images/2024-04-01-GettingStarted-With-EPM/EPM-ElevationRules-6.png?raw=true "EPM Elevation Rules 6")
 ![EPM](/_posts/Images/2024-04-01-GettingStarted-With-EPM/EPM-ElevationRules-7.png?raw=true "EPM Elevation Rules 7")
 
@@ -152,7 +152,11 @@ Now for the interesting bit, so pay attention here, as this is really important!
 2. In certificate type, select "Publisher". Because remember we selected the signing certificate of Adobe, which is a Publisher certificate. This is the most commonly used scenario. Very rarely would we ever choose to whitelist certificate authorities, as this could cause unpredictable and unexpected elevations using EPM!
 * Once you have added the signing certificate, you can save the rule already. But consider the impact of this: All files signed with this exact Adobe signing certificate, can be elevated with admin permissions, using EPM. Is this what you want?
 * Consider adding more attributes. If you only want to allow Adobe Reader for instance, you can consider also adding a file name. However, also consider this: Simply adding the file name, then the user can download another adobe product, and simply rename the installer to that given filename, and elevate that file. So if you only want a specific app, consider adding more metadata for the file! Think Get-FileAttributes again
-3. After adding the signing adobe signing certificate, let's save and apply the elevation rule and take it for a spin.
+3. After adding the signing adobe signing certificate, let's save and apply the elevation rule without adding a name or a path, only  the certificate.
+
+Sync from company portal and wait a few minutes to ensure you get the new policy. When you are ready, right click reader_en_install.exe and press "Run with elevated access". If it's working correctly, you should get the EPM Screen, but now the user needs to put in a business justification, and will then be able to complete the installation.
+
+![EPM](/_posts/Images/2024-04-01-GettingStarted-With-EPM/EPM-ElevationRules-Adobe-8.png?raw=true "Adobe Reader Installation")
 
 
 # Wrapping up
@@ -162,6 +166,8 @@ In this blog post we learned the following:
 * How does EPM Deploy and work on the Windows Endpoint
 * How to craft elevation rules, using the different levers and toggles at our disposal
 
+Thanks for sticking around, and I hope you found it useful :)
+
 ## Things I didn't cover in this blog that you can check out or should know:
 1. **Support Approved**: Try to craft an elevation rule and then choose "Support approved" and go through and elevation so you can see the flow. This can save you valuable time for one-time configuration changes and one-time installs requests. Why have ServiceDesk spend time doing this manually, when you can empower the end-user to do it themselves? See more about Support approved [here](https://techcommunity.microsoft.com/t5/microsoft-intune-blog/endpoint-privilege-management-adds-support-approved-elevations/ba-p/4101196)
 2. **Reporting**: Under the Endpoint Privilege Manager section in Intune, you can press "Reports" to see reports of how EPM and Administrator rights is used in your org. 
@@ -170,3 +176,7 @@ TL;DR: Managed Elevation = An elevation rule facilitated an elevation on an endp
 * The EPM team has also explained this is done because EPM and UAC is 2 different technologies. EPM doesn't integrate or communicate with UAC today, EPM is a seperate functionality. This might change soon though, but don't expect this secure virtual account to go away.
 4. **Missing elevation handlers in OS**: The "Run with elevated access" button is only visible currently when you right click .exe files in the file explorer. You cannot elevate any other files like .MSIs or use the "Run as administrator" button from the start menu. You can also not uninstall programs using the add/remove programs, or change system settings from the settings apps. Microsoft is aware of this issue, and it's multi-faceted, and has let us know that the EPM team is working closely with the Windows team to improve this during 2024 to become more user friendly.
 5. **Windows Store Apps requiring elevation doesn't work**: It's currently not possible to install most Windows Store apps that requires local admin right. Granted, it's not a lot of apps that require this, but it's something that the EPM team is aware of.
+6. **"Run with elevated access" button is missing**: If the button is missing and you have verified EPM is installed and running, first try and reboot the device. If it's still not present, navigate to this path: C:\Program Files\Microsoft EPM Agent\EPMShellExtension
+* Run the file EpmShellExtension.msix as the current user, not as an administrator. Once opened, it should say that it's already installed. Simply hit the reinstall button to reinstall the shell extension. That should resolve the issue.
+
+![EPM](/_posts/Images/2024-04-01-GettingStarted-With-EPM/EPM-MSIXShellExtension.png?raw=true "EPM Shell Extension")
