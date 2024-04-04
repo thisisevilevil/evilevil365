@@ -29,6 +29,10 @@ Let's look at the new option we now have in Intune. Head over to Intune -> Devic
 * If you are not ready to manage BIOS Passwords as of yet, remember to select "Yes" here instead. If you roll this policy out to all of your devices and they all set a random password, be aware we currently can't modify the password strength of the BIOS Password. It has Upper/Lower Case characters, numbers and symbols as well. The latter is the tricky one, since the Keyboard language on Dell Laptops in the BIOS is by default set to US
 3. Configuration file: This requires a .cctk file. And how is this done? [Dell Command | Configure!](https://www.dell.com/support/kbdoc/en-us/000178000/dell-command-configure)
 
+![DellBIOS](/assets/images/XXXX-XX-XX-Randomize-BIOSPasswords-Dell/CreateConfigurationProfile-1.png?raw=true "BIOS Configuration Intune")
+![DellBIOS](/assets/images/XXXX-XX-XX-Randomize-BIOSPasswords-Dell/CreateConfigurationProfile-2.png?raw=true "BIOS Configuration Intune")
+
+
 Let us craft the .cctk file now!
 Download and install Dell Command | Configure on a Dell machine. Preferably from a newer Dell Machine with an update BIOS. One installed, open Dell Command | Configure. 
 
@@ -37,12 +41,26 @@ Let's enable some BIOS options required by [Device Guard](https://techcommunity.
 2. [Intel Trusted Execution Technology](https://www.intel.com/content/www/us/en/support/articles/000025873/processors.html)
 3. [Secure Boot](https://learn.microsoft.com/en-us/windows-hardware/design/device-experiences/oem-secure-boot)
 
+Once you have set all 3 settings to "enabled" in Dell Command | Configure, select the "export config" button.
 
+![DellBIOS](/assets/images/XXXX-XX-XX-Randomize-BIOSPasswords-Dell/DellCommandConfigure-1.png?raw=true "Dell Command | Configure")
+![DellBIOS](/assets/images/XXXX-XX-XX-Randomize-BIOSPasswords-Dell/DellCommandConfigure-2.png?raw=true "Dell Command | Configure")
+![DellBIOS](/assets/images/XXXX-XX-XX-Randomize-BIOSPasswords-Dell/DellCommandConfigure-3.png?raw=true "Dell Command | Configure")
 
+Once you have the .cctk file, you can see it's a very simple text file, just in a .cctk file format, no hocus pocus.
+![DellBIOS](/assets/images/XXXX-XX-XX-Randomize-BIOSPasswords-Dell/DellCCTKFile.png?raw=true "Dell Command | Configure")
+if you want to cheat and just the functionality really quickly, you can grab the .cctk file I just crafted from here.
+
+It should contain the following
+`[cctk]
+SecureBoot=Enabled
+TrustExecution=Enabled
+Virtualization=Enabled
+`
 
 
 ### Verifying settings applied
 
-### Fetching the BIOS Password
+## Fetching the BIOS Password
 
 ## Things to be aware of
