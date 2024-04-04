@@ -1,6 +1,6 @@
 ---
-title: "Use Intune to randomize BIOS Passwords and set BIOS Settings on Dell devices"
-date: 2024-04-03
+title: "DRAFT: Use Intune to randomize BIOS Passwords and set BIOS Settings on Dell devices"
+date: DRAFT2024-04-03:DRAFT
 categories:
   - Dell
   - Getting Started
@@ -24,3 +24,23 @@ Let's get into it!
 
 ## Creating the configuration profile
 Let's look at the new option we now have in Intune. Head over to Intune -> Devices -> Configuration -> Create, New Policy -> Select Windows 10 and later -> Select Templates. Finally select "BIOS Configurations and other settings"
+
+1. As of this blogs post, you can only select "Dell" in hardware. Let's hope Lenovo and HP shows up here soon as well.
+2. Note the setting "Disable per-device BIOS password protection". Be aware of the reverse logic here. By default this is set to "No" meaning it will manage and randomize the password. If we select "Yes", the randomizing of the BIOS password will not be enabled.
+* If you are not ready to manage BIOS Passwords as of yet, remember to select "Yes" here instead. If you roll this policy out to all of your devices and they all set a random password, be aware we currently can't modify the password strength of the BIOS Password. It has Upper/Lower Case characters, numbers and symbols as well. The latter is the tricky one, since the Keyboard language on Dell Laptops in the BIOS is by default set to US
+3. Configuration file: This requires a .cctk file. And how is this done? [Dell Command | Configure!](https://www.dell.com/support/kbdoc/en-us/000178000/dell-command-configure)
+
+Let us craft the .cctk file now!
+Download and install Dell Command | Configure on a Dell machine. Preferably from a newer Dell Machine with an update BIOS. One installed, open Dell Command | Configure. 
+
+Let's enable some BIOS options required by [Device Guard](https://techcommunity.microsoft.com/t5/iis-support-blog/windows-10-device-guard-and-credential-guard-demystified/ba-p/376419). That would be the following on an Intel-device:
+1. Intel Virtualization Technology
+2. Intel TXT (Trusted Execution Technology)
+3. Secure Boot
+
+
+### Verifying settings applied
+
+### Fetching the BIOS Password
+
+## Things to be aware of
