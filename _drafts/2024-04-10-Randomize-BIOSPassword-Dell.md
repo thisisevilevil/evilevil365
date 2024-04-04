@@ -34,9 +34,10 @@ Let us craft the .cctk file now!
 Download and install Dell Command | Configure on a Dell machine. Preferably from a newer Dell Machine with an update BIOS. One installed, open Dell Command | Configure. 
 
 Let's enable some BIOS options required by [Device Guard](https://techcommunity.microsoft.com/t5/iis-support-blog/windows-10-device-guard-and-credential-guard-demystified/ba-p/376419). That would be the following on an Intel-device:
-1. Intel Virtualization Technology
-2. Intel TXT (Trusted Execution Technology)
-3. Secure Boot
+1. [Intel Virtualization Technology](https://www.intel.com/content/www/us/en/support/articles/000005486/processors.html)
+2. [Intel Trusted Execution Technology](https://www.intel.com/content/www/us/en/support/articles/000025873/processors.html)
+3. [Secure Boot](https://learn.microsoft.com/en-us/windows-hardware/design/device-experiences/oem-secure-boot)
+
 
 
 ### Verifying settings applied
