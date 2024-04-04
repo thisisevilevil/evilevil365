@@ -3,12 +3,11 @@ title: "DRAFT: Use Intune to randomize BIOS Passwords and set BIOS Settings on D
 date: DRAFT2024-04-03:DRAFT
 categories:
   - Dell
-  - Getting Started
+  - BIOS
 tags:
-  - EPM
-  - Endpoint Privilege Manager
-  - PAM Solution
-  - Local Administrator
+  - Randomize BIOS Password
+  - Manage BIOS Password
+  - Manage BIOS Settings
   - Endpoint Security
 ---
 
@@ -37,6 +36,8 @@ Let's enable some BIOS options required by [Device Guard](https://techcommunity.
 1. [Intel Virtualization Technology](https://www.intel.com/content/www/us/en/support/articles/000005486/processors.html)
 2. [Intel Trusted Execution Technology](https://www.intel.com/content/www/us/en/support/articles/000025873/processors.html)
 3. [Secure Boot](https://learn.microsoft.com/en-us/windows-hardware/design/device-experiences/oem-secure-boot)
+
+
 
 
 
