@@ -1,0 +1,4 @@
+[cctk]
+SecureBoot=Enabled
+TrustExecution=Enabled
+Virtualization=Enabled
