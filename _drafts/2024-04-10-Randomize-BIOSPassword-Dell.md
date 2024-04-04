@@ -51,6 +51,8 @@ Once you have the .cctk file, you can see it's a very simple text file, just in 
 ![DellBIOS](/assets/images/XXXX-XX-XX-Randomize-BIOSPasswords-Dell/DellCCTKFile.png?raw=true "Dell Command | Configure")
 if you want to cheat and just the functionality really quickly, you can grab the .cctk file I just crafted from [here]()
 
+<a id="raw-url" href="https://raw.githubusercontent.com/thisisevilevil/evilevil365/master/assets/images/XXXX-XX-XX-Randomize-BIOSPasswords-Dell/multiplatform_202404041905.cctk">here</a>
+
 It should contain the following
 `[cctk]
 SecureBoot=Enabled
