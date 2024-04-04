@@ -83,7 +83,7 @@ For now, let us choose User Confirmed.
 
 **In validation we have 2 optional boxes we can tick:**
 1. **Business Justification**: User will have to present a business justification before being allowed to elevate a process
-2. **Windows Authentication**: User will have to authentication using their login to Windows. This can be a password, but also works for Windows Hello and FIDO Keys
+2. **Windows Authentication**: User will need to authenticate using their login to Windows. This can be a password, but also works with Windows Hello and FIDO Keys
 
 For now, let us only choose Windows Authentication:
 ![EPM](/assets/images/2024-04-01-GettingStarted-With-EPM/EPM-ElevationRules-3.png?raw=true "EPM Elevation Rules 3")
