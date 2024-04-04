@@ -97,7 +97,7 @@ Lastly to finish specifying our elevation conditions, we need to select child pr
 Let's select "Allow all child processes to run elevated" for now:
 ![EPM](/assets/images/2024-04-01-GettingStarted-With-EPM/EPM-ElevationRules-4.png?raw=true "EPM Elevation Rules 4")
 
-Finally we need to provide some file information. Since we are using file hash to craft this elevation rule, we will set "Signature Source" to "Not Configured". Notice when we set it to not configured, then we only need to give it a filename and a filehash. Getting the filename is easy, but to get the filehash, we have a few different methods at our disposal. Let's open a PowerShell and use the Get-FileHash  cmdlet
+Finally we need to provide some file information. Since we are using file hash to craft this elevation rule, we will set "Signature Source" to "Not Configured". Notice when we set it to not configured, then we only need to give it a filename and a filehash. Getting the filename is easy, but to get the filehash, we have a few different methods at our disposal. Let's open a PowerShell and use the Get-FileHash cmdlet
 
 ![EPM](/assets/images/2024-04-01-GettingStarted-With-EPM/EPM-ElevationRules-6.png?raw=true "EPM Elevation Rules 6")
 ![EPM](/assets/images/2024-04-01-GettingStarted-With-EPM/EPM-ElevationRules-7.png?raw=true "EPM Elevation Rules 7")
