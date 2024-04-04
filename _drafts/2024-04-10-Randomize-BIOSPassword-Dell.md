@@ -33,6 +33,7 @@ Let's look at the new option we now have in Intune. Head over to Intune -> Devic
 ![DellBIOS](/assets/images/XXXX-XX-XX-Randomize-BIOSPasswords-Dell/CreateConfigurationProfile-2.png?raw=true "BIOS Configuration Intune")
 
 
+### Preparing the .cctk file
 Let us craft the .cctk file now!
 Download and install Dell Command | Configure on a Dell machine. Preferably from a newer Dell Machine with an update BIOS. One installed, open Dell Command | Configure. 
 
@@ -50,11 +51,16 @@ Once you have set all 3 settings to "enabled" in Dell Command | Configure, selec
 Once you have the .cctk file, you can see it's a very simple text file, just in a .cctk file format, no hocus pocus.
 ![DellBIOS](/assets/images/XXXX-XX-XX-Randomize-BIOSPasswords-Dell/DellCCTKFile.png?raw=true "Dell Command | Configure")
 
-if you want to cheat and just the functionality really quickly, you can grab the .cctk file I just crafted from <a id="raw-url" href="https://raw.githubusercontent.com/thisisevilevil/evilevil365/master/assets/images/XXXX-XX-XX-Randomize-BIOSPasswords-Dell/multiplatform_202404041905.cctk">here</a>
+if you want to cheat and want to test the functionality really quickly, you can grab the .cctk file I just crafted from <a id="raw-url" href="https://raw.githubusercontent.com/thisisevilevil/evilevil365/master/assets/images/XXXX-XX-XX-Randomize-BIOSPasswords-Dell/multiplatform_202404041905.cctk">here</a>
 
+Once you have the .cctk file, now we have what we need to craft the BIOS Configuration profile
 
 ### Verifying settings applied
 
 ## Fetching the BIOS Password
 
 ## Things to be aware of
+* If Wiping -> Reusing devices, Intune cannot manage the BIOS password/Settings until manually removed. Microsoft is working on it
+* No support for service principals to delegate fetching BIOS Passwords. Not super relevant
+* As of this blogs date, it's currently not possible to change the keyboard language or see what you type, when entering BIOS Password
+* Not possible to modify BIOS Password strength. Long password with special characters. Can be tricky to type.
