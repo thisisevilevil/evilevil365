@@ -1,12 +1,14 @@
 ---
-title: "Letting end users help themselves - without needing local admin rights!"
+title: "Letting users help themselves - without needing local admin rights!"
 date: 2024-04-04
 categories:
   - Intune Configuration Profiles
+  - User self-service
 tags:
   - Visual Studio code update
   - Office Language pack
-  - User self-service
+  - Office display language
+  - Let users change system time
 ---
 
 Did you know there is some cool settings in Settings catalog to make things much easier for your end users and your self as an IT Admin? There is a few cool settings that let users perform actions on their devices, that usually require administrator rights, but without being local administrator. Sounds too good to be true? Well read here and find out :)
@@ -32,11 +34,11 @@ Create a new settings catalog policy, then do a search for "visual studio code".
 
 Then deploy using the scope tags and to a group of your choice to make the setting take effect. Once deployed, the users can freely update their visual studio code, without needing local admin rights.
 
-![VSCodeUpdate](/assets/images/2024-04-06-AllowUsers-WhoArentAdmin/SettingsCatalog-OfficeAppInstall.png?raw=true "VS Code Updates")
+![VSCodeUpdate](/assets/images/2024-04-06-AllowUsers-WhoArentAdmin/SettingsCatalog-VisualStudioCodeUpdates.png?raw=true "VS Code Updates")
 
 ## Other honorable mentions
 
-1. **Let standard users manage their LAN Connections - Consider this for developers/special users**
+1. **Let standard users manage the LAN Connection - Consider this for developers/special users**
 * "Ability to rename LAN connections (User)"
 * "Ability to Enable/Disable a LAN connection (User)"
 * "Ability to rename LAN connections or remote access connections available to all users (User)"
