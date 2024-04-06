@@ -19,13 +19,13 @@ Instead of you spending time on preparing and assigning Office suite with extra 
 
 You can allow users who are not local administrator to add language packs in office. Open up Intune and create a new settings catalog. Do a search for "allow users who aren" - That should give you 1 search result: Microsoft Office 2016\Language Preferences\Display Language. Press it, and select "Allow users who aren’t admins to install language accessory packs (User)". Finally "enable" this setting
 
-![OfficeLP](/assets/images/2024-04-06-AllowUsers-WhoArentAdmin/SettingsCatalog-OfficeAppInstall.png?raw=true "Office Language Pack")
+![OfficeLP](/assets/images/2024-04-06-AllowUsers-WhoArentAdmin/SettingsCatalog-OfficeAppInstall.png?raw=true "Intune Settings Catalog")
 
 Then deploy using the scope tags and to a group of your choice to make the setting take effect. Once deployed, users can go to the options of any app in the office suite and then go to language -> Add Language. The user should now be able to add language packs themselves. They can also tick "Store my authoring languages in the cloud for my account" to make their choice of language follow them to other devices.
 
 Once you have set this up, the ideal choice for most would be to deploy an english version of office, then create self-help guides for end-users to let them know they can install their own language packs, and voila! You just saved you and your colleagues a bunch of time managing Office suite installations in your org!
 
-![OfficeLP](/assets/images/2024-04-06-AllowUsers-WhoArentAdmin/SettingsCatalog-OfficeAppInstall.png?raw=true "Office Language Pack")
+![OfficeLP](/assets/images/2024-04-06-AllowUsers-WhoArentAdmin/InstallLanaugagePack-Word.png?raw=true "Office Language Pack")
 
 ## Visual Studio Code Updates
 You can allow end-users to patch their own Visual Studio code, even if it's installed in system context.
