@@ -1,6 +1,6 @@
 ---
 title: "Letting users help themselves - without needing local admin rights!"
-date: 2024-04-04
+date: 2024-04-06
 categories:
   - Intune Configuration Profiles
   - User self-service
