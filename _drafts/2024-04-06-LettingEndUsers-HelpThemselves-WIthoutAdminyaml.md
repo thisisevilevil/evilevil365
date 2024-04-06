@@ -32,6 +32,8 @@ Create a new settings catalog policy, then do a search for "visual studio code".
 
 Then deploy using the scope tags and to a group of your choice to make the setting take effect. Once deployed, the users can freely update their visual studio code, without needing local admin rights.
 
+![VSCodeUpdate](/assets/images/2024-04-06-AllowUsers-WhoArentAdmin/SettingsCatalog-OfficeAppInstall.png?raw=true "VS Code Updates")
+
 ## Other honorable mentions
 
 1. **Let standard users manage their LAN Connections - Consider this for developers/special users**
@@ -40,5 +42,6 @@ Then deploy using the scope tags and to a group of your choice to make the setti
 * "Ability to rename LAN connections or remote access connections available to all users (User)"
 
 2. **Allow standard users to change system time**
-* Create Custom profile, OMA-URI: ./Vendor/MSFT/Policy/Config/UserRights/ChangeSystemTime
-
+* Create Custom profile in Intune, OMA-URI: ./Vendor/MSFT/Policy/Config/UserRights/ChangeSystemTime
+* Data type, string: `*S-1-5-19*S-1-5-32-544*S-1-5-32-545`
+> **_NOTE:_** **That is the SIDs for LOCAL SERVICE, Administrators and Users - The reason we are using SIDs instead of names, is to add support for Windows devices that is not using english as the base language**
