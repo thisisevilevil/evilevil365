@@ -52,3 +52,5 @@ Then deploy using the scope tags and to a group of your choice to make the setti
 
 
 > **_NOTE:_** **That is the SIDs for LOCAL SERVICE, Administrators and Users - The reason we are using SIDs instead of names, is to add support for Windows devices that is not using english as the base language**
+
+That's it. I hope you found it useful :)
