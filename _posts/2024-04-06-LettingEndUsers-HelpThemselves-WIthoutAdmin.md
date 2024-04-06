@@ -11,7 +11,7 @@ tags:
   - Let users change system time
 ---
 
-Did you know there is some cool settings in Settings catalog to make things much easier for your end users and your self as an IT Admin? There is a few cool settings that you can enable to let users perform actions on their devices, that usually require administrator rights. Sounds too good to be true? Well read here and find out :)
+Did you know there is some cool settings in Settings catalog to make things much easier for your end users and your self as an IT Admin? There is a few settings that you can enable to let users perform actions on their devices, that usually require administrator rights. Sounds too good to be true? Well read here and find out :)
 
 
 ## Office Language Packs
