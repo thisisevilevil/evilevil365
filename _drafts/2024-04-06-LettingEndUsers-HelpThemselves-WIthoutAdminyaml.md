@@ -46,6 +46,7 @@ Then deploy using the scope tags and to a group of your choice to make the setti
 2. **Allow standard users to change system time**
 * Create Custom profile in Intune, OMA-URI: ./Vendor/MSFT/Policy/Config/UserRights/ChangeSystemTime
 * Data type, string: `*S-1-5-19*S-1-5-32-544*S-1-5-32-545`
+
 ![TimezoneOmaURI](/assets/images/2024-04-06-AllowUsers-WhoArentAdmin/TimeZone-OMAURI.png?raw=true "Timezone-OMAURI")
 
 
