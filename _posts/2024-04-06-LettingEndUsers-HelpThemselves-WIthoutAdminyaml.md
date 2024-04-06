@@ -17,7 +17,7 @@ Did you know there is some cool settings in Settings catalog to make things much
 ## Office Language Packs
 Instead of you spending time on preparing and assigning Office suite with extra language packs for different users in different countries, it is much easier to let end-users self-service and do it themselves, rather than maintaining language packs and proofing packs, in IT. Especially in large multi-national orgs, this can be very time consuming.
 
-You should allow users who are not local administrator to add language packs in office. Open up Intune and create a new settings catalog. Do a search for "allow users who aren" - That should give you 1 search result: Microsoft Office 2016\Language Preferences\Display Language. Press it, and select "Allow users who aren’t admins to install language accessory packs (User)". Finally "enable" this setting
+You can allow users who are not local administrator to add language packs in office. Open up Intune and create a new settings catalog. Do a search for "allow users who aren" - That should give you 1 search result: Microsoft Office 2016\Language Preferences\Display Language. Press it, and select "Allow users who aren’t admins to install language accessory packs (User)". Finally "enable" this setting
 
 ![OfficeLP](/assets/images/2024-04-06-AllowUsers-WhoArentAdmin/SettingsCatalog-OfficeAppInstall.png?raw=true "Office Language Pack")
 
