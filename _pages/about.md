@@ -16,3 +16,4 @@ I hold +10 Microsoft certifications and around the same in HPE Certifications, b
 
 Lately I have spent a lot of time testing and working on products in the Intune suite, also with my customers, so do not be surprised if you hear me speaking or blogging about the Intune suite. It's the latest and greatest thing from Microsoft in the modern workplace space, and it's super exciting that Microsoft has finally entered this space, and I can't wait to see what it's store for the future of the Intune Suite!
 
+![MadsVia](/assets/images/MadsVia.jpg?raw=true "Mads and Via")
