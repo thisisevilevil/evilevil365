@@ -21,6 +21,7 @@ In case you don't have Dell Command | Update in Intune as a Win32 app, you can s
 * Required disk space: 500MB
 * Detection, MSI String: `{E40C2C69-CA25-454A-AB4D-C675988EC101}`
 
+Set return code 2 as "Success" as well, to ensure it doesn't fail during ESP.
 
 ### Importing ADMX Templates
 To get the ADMX templates you will need to download Dell Command Update. You can always find the latest version here: https://www.dell.com/support/kbdoc/en-us/000177325/dell-command-update
@@ -42,6 +43,7 @@ All the settings we are looking for, is placed under the folder "Update Settings
 
 Test these settings out and see if they work out fo you. Change the settings accordingly based on your testing and your orgs needs. The settings "System restart deferral", "Installation Deferral" and "Delay" is the ones you can adjust based on your needs and deployment rings.
 
+You can also check if the settings deployed by navigating to the following reg key on the device: HLKM:\SOFTWARE\Policies\Dell\UpdateService\Clients\CommandUpdate\Preferences\Settings
 
 #### Sample deployment rings
 
@@ -52,7 +54,7 @@ Test these settings out and see if they work out fo you. Change the settings acc
 | Ring 2   | 48 hours           | 48 hours        | 5 dasy  |
 | Ring 3   | 72 hours           | 72 hours        | 15 days |
 
-> **_PROTIP:_** **If you don't have any deployment rings, consider reusing your autopatch groups, so you can roll things out in a staggered approach, to avoid deploying big changest o all devices at the same time. Autopatch automatically divides your devices in rings. Default is 1% For Ring 1 (First), 9% for Ring 2 (Fast) and 90% for Ring 3 (Broad) . The default group names starts with "Modern Workplace Devices-Windows Autopatch-"**
+> **_PROTIP:_** **If you don't have any deployment rings, consider reusing your autopatch groups, so you can roll things out in a staggered approach, to avoid deploying big changes t o all your devices at the same time. Autopatch automatically divides your devices in rings. Default is 1% For Ring 1 (First), 9% for Ring 2 (Fast) and 90% for Ring 3 (Broad). Ring 0 (Test) can be reserved for members of your team, and needs to be manually assigned in autopatch. The default group names for autopatch starts with "Modern Workplace Devices-Windows Autopatch-"**
 
 ### On-Demand update remediation
 It's possible to run a one-time update of all dell drivers/firmware using a remediation or a PowerShell Script. The PowerShell script can be assigned to a group of devices, whilst the remediation the be run on-demand for troubleshooting purposes.
