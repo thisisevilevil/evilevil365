@@ -23,7 +23,7 @@ In case you don't have Dell Command | Update in Intune as a Win32 app, you can s
 
 Set return code 2 as "Success" as well, to ensure it doesn't fail during ESP.
 
-### Importing ADMX Templates
+## Importing ADMX Templates
 To get the ADMX templates you will need to download Dell Command Update. You can always find the latest version here: https://www.dell.com/support/kbdoc/en-us/000177325/dell-command-update
 
 Once you have it downloaded, open it and click extract. Extract to a folder of your choice. Navigate to the extracted folder and find the "Templates" folder. That would be your admx templates we need to import into intune now. Head on over to Intune -> Devices -> Configuration. Then click "Import ADMX" in the top. 
@@ -31,7 +31,7 @@ Once you have it downloaded, open it and click extract. Extract to a folder of y
 Start by importing the Dell.ADMX file. For the .ADML file, you can find it under the subfolder en-US. Then hit next and create. Wait 1-2 minutes, then hit "Refresh". The Dell template should be "Available" (Sometimes it can be a bit sluggish, so be patient with this one). Once the Dell template is available, import the Dell Command Update.ADMX and ADML file similarly. Once finished, it should look something like this:
 
 
-### Deploying update policies
+## Deploying update policies
 Let's go and create a new configuration profile. Select "Windows 10 and later" -> Templates -> Imported administratives templates (preview). Let's give the policy a nice name like "Dell Command Update Settings". Then hit next. Then you should be able to see the Dell folder with all the Dell Command | Update settings.
 
 All the settings we are looking for, is placed under the folder "Update Settings". Lets configure our Dell Command | Update Policy to adjust the following:
@@ -45,7 +45,7 @@ Test these settings out and see if they work out fo you. Change the settings acc
 
 You can also check if the settings deployed by navigating to the following reg key on the device: HLKM:\SOFTWARE\Policies\Dell\UpdateService\Clients\CommandUpdate\Preferences\Settings
 
-#### Sample deployment rings
+### Sample deployment rings
 
 | Ring     | Sys Restart Defer. | Install Defer.  | Delay   |
 |----------|--------------------|-----------------|---------|
@@ -56,5 +56,5 @@ You can also check if the settings deployed by navigating to the following reg k
 
 > **_PROTIP:_** **If you don't have any deployment rings, consider reusing your autopatch groups, so you can roll things out in a staggered approach, to avoid deploying big changes t o all your devices at the same time. Autopatch automatically divides your devices in rings. Default is 1% For Ring 1 (First), 9% for Ring 2 (Fast) and 90% for Ring 3 (Broad). Ring 0 (Test) can be reserved for members of your team, and needs to be manually assigned in autopatch. The default group names for autopatch starts with "Modern Workplace Devices-Windows Autopatch-"**
 
-### On-Demand update remediation
+## On-Demand update remediation
 It's possible to run a one-time update of all dell drivers/firmware using a remediation or a PowerShell Script. The PowerShell script can be assigned to a group of devices, whilst the remediation the be run on-demand for troubleshooting purposes.
