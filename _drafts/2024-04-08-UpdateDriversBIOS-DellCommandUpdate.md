@@ -40,6 +40,18 @@ All the settings we are looking for, is placed under the folder "Update Settings
 4. "Installation deferral": "Enabled" and set it to 48 hours. Then assign 3 deferrals. (This gives the user 48 hours to start installing updates, and can postpone up to 3 times - Consider not setting this option, if you want to reduce the notifications the end-user sees)
 5. "Maximum retry attempts": Set this to "3"
 
+Test these settings out and see if they work out fo you. Change the settings accordingly based on your testing and your orgs needs. The settings "System restart deferral", "Installation Deferral" and "Delay" is the ones you can adjust based on your needs and deployment rings.
+
+
+#### Sample deployment rings
+
+| Ring     | Sys Restart Defer. | Install Defer.  | Delay  |
+| ---------| -------------------| ----------------|--------|
+| Ring 0   | 24 hours           | 8 hours         | 0      |
+| Ring 1   | 36 hours           | 24 hours        | 3      |
+| Ring 2   | 48 hours           | 48 hours        | 5      |
+| Ring 3   | 72 hours           | 72 hours        | 15     |
+
 
 ### On-Demand update remediation
 It's possible to run a one-time update of all dell drivers/firmware using a remediation or a PowerShell Script. The PowerShell script can be assigned to a group of devices, whilst the remediation the be run on-demand for troubleshooting purposes.
