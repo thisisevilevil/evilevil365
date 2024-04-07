@@ -18,10 +18,10 @@ The one reason you should consider using the hardware vendors own tool is speed 
 
 ### Packaging Dell Command | Update
 In case you don't have Dell Command | Update in Intune, you can steal my .intunewin file here for version 5.2. Add the app into intune as a Win32 app:
-* Install command:
-* Uninstall command:
-* Detection:
-
+* Install command: `Dell-Command-Update-Windows-Universal-Application_0XNVX_WIN_5.2.0_A00.EXE /s /l=C:\Windows\Logs\Dell_Command_Update_5.2_exe_installer.log`
+* Uninstall command: `msiexec /X {E40C2C69-CA25-454A-AB4D-C675988EC101} /qn`
+* Required disk space: 500MB
+* Detection, MSI String: `{E40C2C69-CA25-454A-AB4D-C675988EC101}`
 
 
 ### Importing ADMX Templates
@@ -33,13 +33,15 @@ Start by importing the Dell.ADMX file. For the .ADML file, you can find it under
 
 
 ### Deploying update policies
-Let's go and create a new configuration profile. Select "Windows 10 and later" -> Templates -> Imported administratives templates (preview). Let's give the policy a nice name like "Dell Driver/Firmware update Policy - Ring 3". Then hit next. Then you should be able to see the Dell folder with all the Dell Command | Update settings.
+Let's go and create a new configuration profile. Select "Windows 10 and later" -> Templates -> Imported administratives templates (preview). Let's give the policy a nice name like "Dell Command Update Settings". Then hit next. Then you should be able to see the Dell folder with all the Dell Command | Update settings.
 
 All the settings we are looking for, is placed under the folder "Update Settings". To configure your Dell Command | Update Policy adjust the following:
 1. "What do when updates are found": Set this to "Enabled" and to "Download and install updates (Notify after complete)
-2. "Update Settings": Set the "Update Interval to "Weekly". "Time of day" to 1PM, and then "Day of the week" to "Monday"
+2. "Update Settings": Set the "Update Interval to "Weekly". "Time of day" to 1PM, and then "Day of the week" to "Monday" (If you set it to "Automatic" it will trigger every 3 days)
 3. "System Restart deferral": "Enabled" and set it to 24 hours. Then assign 3 deferrals (This gives the user 24 hours to perform a reboot after updates are installed. They can defer up to 3 times)
 4. "Installation deferral": "Enabled" and set it to 48 hours. Then assign 3 deferrals. (This gives the user 48 hours to start installing updates, and can postpone up to 3 times - Consider not setting this option, if you want to reduce the notifications the end-user sees)
 5. "Maximum retry attempts": Set this to "3"
+
+
 
 ### On-Demand update remediation
