@@ -52,6 +52,7 @@ Test these settings out and see if they work out fo you. Change the settings acc
 | Ring 2   | 48 hours           | 48 hours        | 5      |
 | Ring 3   | 72 hours           | 72 hours        | 15     |
 
+> **_PROTIP:_** **If you don't have any deployment rings, consider reusing your autopatch groups, so you can roll things out in a staggered approach, to avoid deploying big changest o all devices at the same time. Autopatch automatically divides your devices in rings. Default is 1% For Ring 1 (First), 9% for Ring 2 (Fast) and 90% for Ring 3 (Broad) . The default group names starts with "Modern Workplace Devices-Windows Autopatch-"**
 
 ### On-Demand update remediation
 It's possible to run a one-time update of all dell drivers/firmware using a remediation or a PowerShell Script. The PowerShell script can be assigned to a group of devices, whilst the remediation the be run on-demand for troubleshooting purposes.
