@@ -46,7 +46,7 @@ Test these settings out and see if they work out fo you. Change the settings acc
 #### Sample deployment rings
 
 | Ring     | Sys Restart Defer. | Install Defer.  | Delay   |
-|----------| -------------------| ----------------|---------|
+|----------|--------------------|-----------------|---------|
 | Ring 0   | 24 hours           | 8 hours         | 0 days  |
 | Ring 1   | 36 hours           | 24 hours        | 3 days  |
 | Ring 2   | 48 hours           | 48 hours        | 5 dasy  |
