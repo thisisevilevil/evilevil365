@@ -76,15 +76,18 @@ author:
 
 footer:
   links:
-    - label: "Twitter"
-      icon: "fab fa-fw fa-twitter-square"
-      url: "https://twitter.com/"
+    - label: "Steam"
+      icon: "fab fa-fw fa-steam"
+      url: "https://steamcommunity.com/id/thisisevilevil"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/"
     - label: "Linkedin"
       icon: "fab fa-fw fa-linkedin"
       url: "https://www.linkedin.com/in/mads-johansen/"
+    - label: "Sessionize"
+      icon: "fab fa-fw fa-sessionize"
+      url: "https://sessionize.com/madsjohansen/"
 
 defaults:
   # _posts
