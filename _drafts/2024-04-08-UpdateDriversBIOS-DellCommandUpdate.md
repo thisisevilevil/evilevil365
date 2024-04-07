@@ -10,13 +10,11 @@ tags:
   - Endpoint Security
 ---
 
-In todays day and age it's super important to ensure your drivers and BIOS is up-to-date. Not only is there always a bunch of functionality fixes but security issues is also patched. Depending on your flavor of hardware vendor, Dell, HP or Lenovo, each of them have their own tools to manage and push driver and BIOS updates. However, it's also worth mentioning, since the release of the [driver update management module in Intune}(https://learn.microsoft.com/en-us/mem/intune/protect/windows-driver-updates-overview) the reasons to use the hardware vendors own tools is less and less, as the Intune Driver Update management module gets better.
+In todays day and age it's super important to ensure your drivers and BIOS is up-to-date. Not only is there always a bunch of functionality fixes but security issues is also patched. Depending on your flavor of hardware vendor, Dell, HP or Lenovo, each of them have their own tools to manage and push driver and BIOS updates. However, it's also worth mentioning, since the release of the [driver update management module in Intune}(https://learn.microsoft.com/en-us/mem/intune/protect/windows-driver-updates-overview) the reasons to use the hardware vendors own tools grows less and less, as the Intune Driver Update management module gets better.
 
-The one reason you should consider using the hardware vendors own tool is speed of delivery. Driver and BIOS updates are released instantly, and depending on the hardware vendor, there can be several months delay before they are released via Windows Update. That's not neccessarily the fault of Microsoft, it's actually the hardware vendors themselves that decides when and if to release updates via Windows Update.
+The one reason you should still consider using the hardware vendors own tool is speed of delivery. Driver and BIOS updates are released instantly, and depending on the hardware vendor, there can be several months delay before they are released via Windows Update. That's not neccessarily the fault of Microsoft, it's actually the hardware vendors themselves that decides when and if to release updates via Windows Update.
 
-## Getting started
-
-### Packaging Dell Command | Update
+## Getting started - Packaging Dell Command | Update
 In case you don't have Dell Command | Update in Intune, you can steal my .intunewin file <a id="raw-url" href="https://raw.githubusercontent.com/thisisevilevil/evilevil365/master/assets/Dell-Command-Update-Windows-Universal-Application_0XNVX_WIN_5.2.0_A00.intunewin">here</a> for version 5.2. Add the app into intune as a Win32 app:
 * Install command: `Dell-Command-Update-Windows-Universal-Application_0XNVX_WIN_5.2.0_A00.EXE /s /l=C:\Windows\Logs\Dell_Command_Update_5.2_exe_installer.log`
 * Uninstall command: `msiexec /X {E40C2C69-CA25-454A-AB4D-C675988EC101} /qn`
@@ -43,5 +41,5 @@ All the settings we are looking for, is placed under the folder "Update Settings
 5. "Maximum retry attempts": Set this to "3"
 
 
-
 ### On-Demand update remediation
+It's possible to a one-time update of all dell drivers/firmware using a remediation or a PowerShell Script. The PowerShell script can be assigned to a group of devices, whilst the remediation the be run on-demand for troubleshooting purposes.
