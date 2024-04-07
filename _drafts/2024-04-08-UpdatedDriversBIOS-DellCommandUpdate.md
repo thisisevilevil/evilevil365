@@ -17,7 +17,7 @@ The one reason you should consider using the hardware vendors own tool is speed 
 ## Getting started
 
 ### Packaging Dell Command | Update
-In case you don't have Dell Command | Update in Intune, you can steal my .intunewin file here for version 5.2. Add the app into intune as a Win32 app:
+In case you don't have Dell Command | Update in Intune, you can steal my .intunewin file <a id="raw-url" href="https://raw.githubusercontent.com/thisisevilevil/evilevil365/master/assets/Dell-Command-Update-Windows-Universal-Application_0XNVX_WIN_5.2.0_A00.intunewin">here</a> for version 5.2. Add the app into intune as a Win32 app:
 * Install command: `Dell-Command-Update-Windows-Universal-Application_0XNVX_WIN_5.2.0_A00.EXE /s /l=C:\Windows\Logs\Dell_Command_Update_5.2_exe_installer.log`
 * Uninstall command: `msiexec /X {E40C2C69-CA25-454A-AB4D-C675988EC101} /qn`
 * Required disk space: 500MB
