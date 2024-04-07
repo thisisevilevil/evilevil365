@@ -3,7 +3,7 @@ permalink: /about/
 title: "About"
 ---
 
-My name is Mads and I live in a little country known as Denmark. We are famous for LEGO, Vikings and of course Carlsberg! I currently live in a city called Aalborg in the northern parts of Denmark.
+My name is Mads and I live in a little country known as Denmark. We are famous for LEGO, Vikings and of course Carlsberg! I currently live in a city called Aalborg in the northern parts of Denmark, with my beautiful wife. Since I got my wife, I actually got really fat, I don't know what happened. So the picture you see here in the left side, doesn't actually look like me anymore.
 
 I began my career at an early age, where I subsequently worked as a Support Rep. for companies like Telenor, Stream Global Services (Support for Dell Laptops/Desktops), and Hewlett-Packard that then split up in 2, where I continued in Hewlett-Packard Enterprise. In all of those jobs, one thing became very clear: I had a knack for break/fix and solving complex problems. 
 
