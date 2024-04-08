@@ -14,6 +14,8 @@ In todays day and age it's super important to ensure your drivers and BIOS is up
 
 The one reason you should still consider using the hardware vendors own tools is speed of delivery. Driver and BIOS updates are released instantly, and depending on the hardware vendor, there can be several months delay before they are released via Windows Update. That's not neccessarily the fault of Microsoft, it's actually the hardware vendors themselves that decides when and if to release updates via Windows Update.
 
+This topic is not sexy at all to talk about in IT, but it is nonetheless getting more important for security reasons.
+
 ## Getting started - Packaging Dell Command | Update
 In case you don't have Dell Command | Update in Intune as a Win32 app, you can steal my .intunewin file <a id="raw-url" href="https://raw.githubusercontent.com/thisisevilevil/evilevil365/master/assets/Dell-Command-Update-Windows-Universal-Application_0XNVX_WIN_5.2.0_A00.intunewin">here</a> for version 5.2. Add the app into intune as a Win32 app:
 * Install command: `Dell-Command-Update-Windows-Universal-Application_0XNVX_WIN_5.2.0_A00.EXE /s /l=C:\Windows\Logs\Dell_Command_Update_5.2_exe_installer.log`
@@ -37,24 +39,26 @@ Let's go and create a new configuration profile. Select "Windows 10 and later" -
 All the settings we are looking for, is placed under the folder "Update Settings". Lets configure our Dell Command | Update Policy to adjust the following:
 1. "What do when updates are found": Set this to "Enabled" and to "Download and install updates (Notify after complete)
 2. "Update Settings": Set the "Update Interval to "Weekly". "Time of day" to 1PM, and then "Day of the week" to "Monday" (If you set it to "Automatic" it will trigger every 3 days)
-3. "System Restart deferral": "Enabled" and set it to 24 hours. Then assign 3 deferrals (This gives the user 24 hours to perform a reboot after updates are installed. They can defer up to 3 times)
-4. "Installation deferral": "Enabled" and set it to 48 hours. Then assign 3 deferrals. (This gives the user 48 hours to start installing updates, and can postpone up to 3 times - Consider not setting this option, if you want to reduce the notifications the end-user sees)
+3. "System Restart deferral": "Enabled" and set it to 8 hours. Then assign 3 deferrals (This gives the user 24 hours to perform a reboot after updates are installed. They can defer up to 3 times)
+4. "Installation deferral": "Enabled" and set it to 48 hours. Then assign 3 deferrals. (This gives the user 48 hours to start installing updates, and can postpone up to 3 times - Consider not setting this option, if you want to reduce the notifications/actions required for the end-user. If the end-user fails to install the updates within 48hours it will auto-install)
 5. "Maximum retry attempts": Set this to "3"
 
-Test these settings out and see if they work out fo you. Change the settings accordingly based on your testing and your orgs needs. The settings "System restart deferral", "Installation Deferral" and "Delay" is the ones you can adjust based on your needs and deployment rings.
+Change these settings accordingly based on your testing and your orgs needs. The settings "System restart deferral", "Installation Deferral" and "Delay" is the ones you can adjust based on your needs and deployment rings, that will have an impact to the end-user experience.
 
-You can also check if the settings deployed by navigating to the following reg key on the device: HLKM:\SOFTWARE\Policies\Dell\UpdateService\Clients\CommandUpdate\Preferences\Settings
+You can also check if the settings deployed by opening Dell Command | Update on the device, hit the settings button in the rop right corner. Then you should see a red text saying "
 
 ### Sample deployment rings
 
-| Ring     | Sys Restart Defer. | Install Defer.  | Delay   |                 Autopatch group                  |
-|----------|--------------------|-----------------|---------|--------------------------------------------------|
-| Ring 0   | 24 hours           | 0 hours         | 0 days  | Modern Workplace Devices-Windows Autopatch-Test  |
-| Ring 1   | 36 hours           | 24 hours        | 3 days  | Modern Workplace Devices-Windows Autopatch-First |
-| Ring 2   | 48 hours           | 48 hours        | 5 days  | Modern Workplace Devices-Windows Autopatch-Fast  |
-| Ring 3   | 72 hours           | 72 hours        | 15 days | Modern Workplace Devices-Windows Autopatch-Broad |
+| Ring     | Sys. Restart Hours | Sys. restart def.| Install Hours   | Install Def. | Delay   |                Assignment group                  |
+|----------|--------------------|----------------- |-----------------|--------------|---------|--------------------------------------------------|
+| Ring 0   | 8  hours           | 0 Def.           | 0 hours         | 0 Def.       | 0 days  | Modern Workplace Devices-Windows Autopatch-Test w. Dell filter  |
+| Ring 1   | 36 hours           | 1 Def.           | 8 hours         | 1 Def.       | 3 days  | Modern Workplace Devices-Windows Autopatch-First w. Dell filter |
+| Ring 2   | 48 hours           | 2 Def.           | 12 hours        | 2 Def.       | 7 days  | Modern Workplace Devices-Windows Autopatch-Fast w. Dell filter |
+| Ring 3   | 72 hours           | 3 Def.           | 48 hours        | 3 Def.       | 15 days | Modern Workplace Devices-Windows Autopatch-Broad w. Dell filter|
 
-> **_PROTIP:_** **If you don't have any deployment rings, consider reusing your autopatch groups, so you can roll things out in a staggered approach, to avoid deploying big changes t o all your devices at the same time. Autopatch automatically divides your devices in rings. Default is 1% For Ring 1 (First), 9% for Ring 2 (Fast) and 90% for Ring 3 (Broad). Ring 0 (Test) can be reserved for members of your team, and needs to be manually assigned in autopatch. The default group names for autopatch starts with "Modern Workplace Devices-Windows Autopatch-"**
+> **_PROTIP:_** **If you don't have any deployment rings, consider reusing your autopatch groups as shown in the above sample, so you can deploy updates out in a staggered approach, to avoid deploying big changes to all your devices at the same time. Autopatch automatically divides your devices in rings, so need to do it manually. Default is 1% For Ring 1 (First), 9% for Ring 2 (Fast) and 90% for Ring 3 (Broad). Ring 0 (Test) can be reserved for members of your team, and needs to be manually assigned in autopatch. The default group names for autopatch starts with "Modern Workplace Devices-Windows Autopatch-" You can manually assign you and your colleagues devices in the Intune team to the Test group in autopatch**
 
-## Remediation and PowerShell script for on-demand updates
+## Bonus: Remediation and PowerShell script for on-demand updates
 It's possible to run a one-time update of all dell drivers/firmware using a remediation or a PowerShell Script. The PowerShell script can be assigned to a group of devices, whilst the remediation the be run on-demand for troubleshooting purposes.
+
+### PowerShell script
