@@ -94,7 +94,8 @@ Finally, all updates deployed via Dell Command | Update is logged to C:\ProgramD
 
 ## Bonus: Remediation and PowerShell script for on-demand updates
 It's possible to run a one-time update of all dell drivers/firmware, where we trigger dcu-cli.exe from Command Update, using a remediation or a PowerShell Script. The PowerShell script can be assigned to a group of devices, whilst the remediation the be run on-demand for troubleshooting purposes. Try this out on your Dell devices with Dell Command Update already installed:
-`$currentdate = Get-Date -format 'ddMMyyyy_HHmmss'
+```
+$currentdate = Get-Date -format 'ddMMyyyy_HHmmss'
 $dcucli = "${env:ProgramFiles}\Dell\CommandUpdate\dcu-cli.exe"
 
 if (!(test-path $dcucli)) {
@@ -107,7 +108,7 @@ Start-Sleep -Seconds 10
 
 #Apply all updates if any is found - including BIOS
 Start-Process $dcucli -ArgumentList "/ApplyUpdates -outputlog=C:\Windows\Logs\dcucli_applyupdates_$currentdate.log" -Verbose -Wait
-`
+```
 
 Find the docs for dcu-cli to experiment with different switches [here](https://www.dell.com/support/manuals/en-us/command-update/dellcommandupdate_rg/dell-command-update-cli-commands?guid=guid-92619086-5f7c-4a05-bce2-0d560c15e8ed&lang=en-us)
 
