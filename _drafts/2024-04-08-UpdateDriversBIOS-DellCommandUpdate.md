@@ -8,7 +8,7 @@ tags:
   - Update BIOS
   - Update Firmware
   - Endpoint Security
-  - Import ADMX
+  - Import ADMX Templates
 ---
 
 This topic is not sexy at all to talk about in IT, but it is nonetheless getting more important for security reasons, due to the many security updates now included in BIOS, Driver and firmware updates in newer times.
@@ -16,7 +16,6 @@ This topic is not sexy at all to talk about in IT, but it is nonetheless getting
 In todays day and age it's super important to ensure your drivers and BIOS is up-to-date. Not only is there always a bunch of functionality fixes but security issues is also patched. Depending on your flavor of hardware vendor, Dell, HP or Lenovo, each of them have their own tools to manage and push driver and BIOS updates. However, it's also worth mentioning, since the release of the [driver update management module in Intune](https://learn.microsoft.com/en-us/mem/intune/protect/windows-driver-updates-overview) the reasons to use the hardware vendors own tools grows less and less, as the Intune Driver Update management module gets better.
 
 The one reason you should still consider using the hardware vendors own tools. is speed of delivery. Driver and BIOS updates are released instantly, and depending on the hardware vendor, there can be several months delay before they are released via Windows Update. That's not neccessarily the fault of Microsoft, it's mostly the hardware vendors themselves that decides when and if to release updates via Windows Update.
-
 
 ## Getting started - Packaging Dell Command | Update
 In case you don't have Dell Command | Update in Intune as a Win32 app, you can steal my .intunewin file <a id="raw-url" href="https://raw.githubusercontent.com/thisisevilevil/evilevil365/master/assets/Dell-Command-Update-Windows-Universal-Application_0XNVX_WIN_5.2.0_A00.intunewin">here</a> for version 5.2. Add the app into intune as a Win32 app:
@@ -73,7 +72,8 @@ Change these settings accordingly based on your testing and your orgs needs. The
 You can also check if the settings deployed by opening Dell Command | Update on the device, hit the settings button in the rop right corner. Then you should see a red text saying "Some settings are managed by your organization" in the top of the settings windows.
 ![DellDCUAPP](/assets/images/2024-04-08-DellBIOSUpdates-Intune/DellDCU-SomeSettingsManagedByYourOrg.png?raw=true "Dell Command | Update ADMX Templates")
 
-Based on the settings, the user will get different notifications, they need to react to, and if they do not do anything, updates will eventually auto-install, and after that the user will get several notifications about a pending reboot. They will popup in tray and the notification area.
+Based on the settings, the user will get various notifications, based on the settings you push to the users device. It can notifications regarding installing updates, but you can also just choose to not show them notifications regarding installing updates, to only show them notifications once after the updates has been installed, and a reboot is pending. The notifications can look like the following:
+
 ![DellDCUAPP](/assets/images/2024-04-08-DellBIOSUpdates-Intune/DellDCU-InstallationNotification.png?raw=true "Dell Command | Update ADMX Templates")
 ![DellDCUAPP](/assets/images/2024-04-08-DellBIOSUpdates-Intune/DellDCU-RestartNotification-2.png?raw=true "Dell Command | Update ADMX Templates")
 ![DellDCUAPP](/assets/images/2024-04-08-DellBIOSUpdates-Intune/DellDCU-RestartNotification-3.png?raw=true "Dell Command | Update ADMX Templates")
