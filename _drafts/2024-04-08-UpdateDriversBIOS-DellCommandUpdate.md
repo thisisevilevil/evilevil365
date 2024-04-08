@@ -50,6 +50,7 @@ The Dell template should be "Available" (Sometimes it can be a bit sluggish, so 
 ## Deploying update policies
 Let's go and create a new configuration profile. Select "Windows 10 and later" -> Templates -> Imported administratives templates (preview). Let's give the policy a nice name like "Dell Command Update Settings". Then hit next. Then you should be able to see the Dell folder with all the Dell Command | Update settings.
 ![DellDCUAPP](/assets/images/2024-04-08-DellBIOSUpdates-Intune/DeployPolicy-1.png?raw=true "Dell Command | Update ADMX Templates")
+![DellDCUAPP](/assets/images/2024-04-08-DellBIOSUpdates-Intune/DeployPolicy-2.png?raw=true "Dell Command | Update ADMX Templates")
 
 
 All the settings we are looking for, is placed under the folder "Update Settings". Lets configure our Dell Command | Update Policy to adjust the following:
@@ -59,10 +60,16 @@ All the settings we are looking for, is placed under the folder "Update Settings
 4. **"Installation deferral":** "Enabled" and set it to 24 hours. Then assign 3 deferrals. (This gives the user 24 hours to start installing updates, and can postpone up to 3 times - Consider not setting this option, if you want to reduce the notifications/actions required for the end-user. If the end-user fails to install the updates within 24hours it will auto-install)
 5. **"Maximum retry attempts":** Set this to "3"
 6. **"Delay":**: Set this to "0" days. This is only for testing purpose for now, but this will delay any updates for X amount of days. This is similar to the policy we have in windows update known as "Quality update deferral period (days)"
+![DellDCUAPP](/assets/images/2024-04-08-DellBIOSUpdates-Intune/DeployPolicy-3.png?raw=true "Dell Command | Update ADMX Templates")
+![DellDCUAPP](/assets/images/2024-04-08-DellBIOSUpdates-Intune/DeployPolicy-4.png?raw=true "Dell Command | Update ADMX Templates")
+
 
 Change these settings accordingly based on your testing and your orgs needs. The settings "System restart deferral", "Installation Deferral" and "Delay" is the ones you can adjust based on your needs and deployment rings, that will have an impact to the end-user experience.
 
 You can also check if the settings deployed by opening Dell Command | Update on the device, hit the settings button in the rop right corner. Then you should see a red text saying "Some settings are managed by your organization" in the top of the settings windows.
+![DellDCUAPP](/assets/images/2024-04-08-DellBIOSUpdates-Intune/DellDCU-SomeSettingsManagedByYourOrg.png?raw=true "Dell Command | Update ADMX Templates")
+
+Based on the settings, the user will get different notifications, they need to react to, and if they do not do anything, updates will eventually auto-install, and after that the user will get several notifications about a pending reboot.
 
 Finally, all updates deployed via Dell Command | Update is logged to C:\ProgramData\Dell\UpdateService\Log - Look for the "activity.log" log to see what updates has been downloaded along with the install status, success or failed, where the "service.log" is more for the app itself, to see connectivity to update servers and whether a reboot is pending or not.
 
