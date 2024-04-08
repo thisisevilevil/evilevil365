@@ -114,5 +114,6 @@ Find the docs for dcu-cli to experiment with different switches [here](https://w
 
 
 ## Final words
-I hope you found this walkthrough useful. There is some pros/cons to using the hardware vendors tools compared to just using the windows update functionality to pushing drivers/BIOS. For instance, the notifications and snooze options you get with windows updates is much better for the end-user, but on the other hand if you use Dell Command | Update as it is right now, you will get updates and fixes much faster. If spending the right amount of ressources and time on user adoptability for using Dell Command | Update, it could also work really well. 
-I will let you test it and decide what to use for now, but if you are deep into security, using Dell's own tool to manage these updates is probably a good choice for now.
+I hope you found this walkthrough useful. There is some pros/cons to using the hardware vendors tools compared to just using the windows update functionality to pushing drivers/BIOS. For instance, the notifications and snooze options you get with windows updates is much better for the end-user, but on the other hand if you use Dell Command | Update as it is right now, you will get updates and fixes much faster.
+
+That's all folks :)
