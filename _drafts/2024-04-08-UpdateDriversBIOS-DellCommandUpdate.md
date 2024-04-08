@@ -93,11 +93,23 @@ Finally, all updates deployed via Dell Command | Update is logged to C:\ProgramD
 > **_PROTIP:_** **If you don't have any deployment rings, consider reusing your autopatch groups as shown in the above sample, so you can deploy updates in a staggered approach, to avoid deploying big changes to all your devices at the same time. Autopatch automatically divides your devices in rings, so need to do it manually. Default is 1% For Ring 1 (First), 9% for Ring 2 (Fast) and 90% for Ring 3 (Broad). Ring 0 (Test) can be reserved for members of your team, and needs to be manually assigned in autopatch. The default group names for autopatch starts with "Modern Workplace Devices-Windows Autopatch-" You can manually assign you and your colleagues devices in the Intune team to the Test group in autopatch**
 
 ## Bonus: Remediation and PowerShell script for on-demand updates
-It's possible to run a one-time update of all dell drivers/firmware, where we trigger dcu-cli.exe from Command Update, using a remediation or a PowerShell Script. The PowerShell script can be assigned to a group of devices, whilst the remediation the be run on-demand for troubleshooting purposes. PowerShell scripts only runs once, after it has been run succesfully, and if it fails 3 times, then it will also stop running.
+It's possible to run a one-time update of all dell drivers/firmware, where we trigger dcu-cli.exe from Command Update, using a remediation or a PowerShell Script. The PowerShell script can be assigned to a group of devices, whilst the remediation the be run on-demand for troubleshooting purposes. Try this out on your Dell devices with Dell Command Update already installed:
+`$currentdate = Get-Date -format 'ddMMyyyy_HHmmss'
+$dcucli = "${env:ProgramFiles}\Dell\CommandUpdate\dcu-cli.exe"
 
-### PowerShell script
+if (!(test-path $dcucli)) {
+$uri = 'https://dl.dell.com/FOLDER11201586M/1/Dell-Command-Update-Windows-Universal-Application_0XNVX_WIN_5.2.0_A00.EXE'
+Write-Host "DCU Cli doesn't seem to be present.. Attempting to download and install now.."
+Invoke-WebRequest -uri $uri -outfile 'C:\Windows\temp\dcu52.exe' 
+Start-Process "C:\Windows\Temp\dcu52.exe" -ArgumentList '/s' -Wait
+Start-Sleep -Seconds 10
+}
 
-### Remediation script
+#Apply all updates if any is found - including BIOS
+Start-Process $dcucli -ArgumentList "/ApplyUpdates -outputlog=C:\Windows\Logs\dcucli_applyupdates_$currentdate.log" -Verbose -Wait
+`
+
+Find the docs for dcu-cli to experiment with different switches [here](https://www.dell.com/support/manuals/en-us/command-update/dellcommandupdate_rg/dell-command-update-cli-commands?guid=guid-92619086-5f7c-4a05-bce2-0d560c15e8ed&lang=en-us)
 
 
 ## Final words
