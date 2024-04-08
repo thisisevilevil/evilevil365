@@ -61,7 +61,6 @@ All the settings we are looking for, is placed under the folder "Update Settings
 4. **"Installation deferral":** "Enabled" and set it to 24 hours. Then assign 3 deferrals. (This gives the user 24 hours to start installing updates, and can postpone up to 3 times - Consider not setting this option, if you want to reduce the notifications/actions required for the end-user. If the end-user fails to install the updates within 24hours it will auto-install)
 5. **"Maximum retry attempts":** Set this to "3"
 6. **"Delay":**: Set this to "0" days. This is only for testing purpose for now, but this will delay any updates for X amount of days. This is similar to the policy we have in windows update known as "Quality update deferral period (days)"
-![DellDCUAPP](/assets/images/2024-04-08-DellBIOSUpdates-Intune/DeployPolicy-3.png?raw=true "Dell Command | Update ADMX Templates")
 ![DellDCUAPP](/assets/images/2024-04-08-DellBIOSUpdates-Intune/DeployPolicy-4.png?raw=true "Dell Command | Update ADMX Templates")
 
 
@@ -70,7 +69,10 @@ Change these settings accordingly based on your testing and your orgs needs. The
 You can also check if the settings deployed by opening Dell Command | Update on the device, hit the settings button in the rop right corner. Then you should see a red text saying "Some settings are managed by your organization" in the top of the settings windows.
 ![DellDCUAPP](/assets/images/2024-04-08-DellBIOSUpdates-Intune/DellDCU-SomeSettingsManagedByYourOrg.png?raw=true "Dell Command | Update ADMX Templates")
 
-Based on the settings, the user will get different notifications, they need to react to, and if they do not do anything, updates will eventually auto-install, and after that the user will get several notifications about a pending reboot.
+Based on the settings, the user will get different notifications, they need to react to, and if they do not do anything, updates will eventually auto-install, and after that the user will get several notifications about a pending reboot. They will popup in tray and the notification area.
+![DellDCUAPP](/assets/images/2024-04-08-DellBIOSUpdates-Intune/DellDCU-InstallationNotification.png?raw=true "Dell Command | Update ADMX Templates")
+![DellDCUAPP](/assets/images/2024-04-08-DellBIOSUpdates-Intune/DellDCU-RestartNotification-2.png?raw=true "Dell Command | Update ADMX Templates")
+![DellDCUAPP](/assets/images/2024-04-08-DellBIOSUpdates-Intune/DellDCU-RestartNotification-3.png?raw=true "Dell Command | Update ADMX Templates")
 
 Finally, all updates deployed via Dell Command | Update is logged to C:\ProgramData\Dell\UpdateService\Log - Look for the "activity.log" log to see what updates has been downloaded along with the install status, success or failed, where the "service.log" is more for the app itself, to see connectivity to update servers and whether a reboot is pending or not.
 
@@ -86,6 +88,7 @@ Finally, all updates deployed via Dell Command | Update is logged to C:\ProgramD
 | Ring 3   | 72 hours           | 3 Def.           | 48 hours        | 3 Def.       | 15 days | Modern Workplace Devices-Windows Autopatch-Broad |
 
 **Apply a Dell Device filter if you use the autopatch groups for assignment, as shown in the above example**
+![DellDCUAPP](/assets/images/2024-04-08-DellBIOSUpdates-Intune/DellDeviceFilter.png?raw=true "Dell Command | Update ADMX Templates")
 
 > **_PROTIP:_** **If you don't have any deployment rings, consider reusing your autopatch groups as shown in the above sample, so you can deploy updates in a staggered approach, to avoid deploying big changes to all your devices at the same time. Autopatch automatically divides your devices in rings, so need to do it manually. Default is 1% For Ring 1 (First), 9% for Ring 2 (Fast) and 90% for Ring 3 (Broad). Ring 0 (Test) can be reserved for members of your team, and needs to be manually assigned in autopatch. The default group names for autopatch starts with "Modern Workplace Devices-Windows Autopatch-" You can manually assign you and your colleagues devices in the Intune team to the Test group in autopatch**
 
