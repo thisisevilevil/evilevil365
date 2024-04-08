@@ -40,15 +40,16 @@ Let's go and create a new configuration profile. Select "Windows 10 and later" -
 All the settings we are looking for, is placed under the folder "Update Settings". Lets configure our Dell Command | Update Policy to adjust the following:
 1. **"What do when updates are found":** Set this to "Enabled" and to "Download and install updates (Notify after complete)
 2. **"Update Settings":** Set the "Update Interval to "Weekly". "Time of day" to 1PM, and then "Day of the week" to "Monday" (If you set it to "Automatic" it will trigger every 3 days)
-3. **"System Restart deferral":** "Enabled" and set it to 8 hours. Then assign 3 deferrals (This gives the user 24 hours to perform a reboot after updates are installed. They can defer up to 3 times)
-4. **"Installation deferral":** "Enabled" and set it to 48 hours. Then assign 3 deferrals. (This gives the user 48 hours to start installing updates, and can postpone up to 3 times - Consider not setting this option, if you want to reduce the notifications/actions required for the end-user. If the end-user fails to install the updates within 48hours it will auto-install)
+3. **"System Restart deferral":** "Enabled" and set it to 8 hours. Then assign 3 deferrals (This gives the user 8 hours to perform a reboot after updates are installed. They can defer up to 3 times)
+4. **"Installation deferral":** "Enabled" and set it to 24 hours. Then assign 3 deferrals. (This gives the user 24 hours to start installing updates, and can postpone up to 3 times - Consider not setting this option, if you want to reduce the notifications/actions required for the end-user. If the end-user fails to install the updates within 24hours it will auto-install)
 5. **"Maximum retry attempts":** Set this to "3"
+6. **"Delay":**: Set this to "0" days. This is only for testing purpose for now, but this will delay any updates for X amount of days. This is similar to the policy we have in windows update known as "Quality update deferral period (days)"
 
 Change these settings accordingly based on your testing and your orgs needs. The settings "System restart deferral", "Installation Deferral" and "Delay" is the ones you can adjust based on your needs and deployment rings, that will have an impact to the end-user experience.
 
 You can also check if the settings deployed by opening Dell Command | Update on the device, hit the settings button in the rop right corner. Then you should see a red text saying "
 
-### Sample deployment rings
+### Sample deployment rings - 1 policy pr. ring
 
 | Ring     | Sys. Restart Hours | Sys. restart def.| Install Hours   | Install Def. | Delay   |                Assignment group                  |
 |----------|--------------------|----------------- |-----------------|--------------|---------|--------------------------------------------------|
@@ -62,7 +63,7 @@ You can also check if the settings deployed by opening Dell Command | Update on 
 > **_PROTIP:_** **If you don't have any deployment rings, consider reusing your autopatch groups as shown in the above sample, so you can deploy updates in a staggered approach, to avoid deploying big changes to all your devices at the same time. Autopatch automatically divides your devices in rings, so need to do it manually. Default is 1% For Ring 1 (First), 9% for Ring 2 (Fast) and 90% for Ring 3 (Broad). Ring 0 (Test) can be reserved for members of your team, and needs to be manually assigned in autopatch. The default group names for autopatch starts with "Modern Workplace Devices-Windows Autopatch-" You can manually assign you and your colleagues devices in the Intune team to the Test group in autopatch**
 
 ## Bonus: Remediation and PowerShell script for on-demand updates
-It's possible to run a one-time update of all dell drivers/firmware using a remediation or a PowerShell Script. The PowerShell script can be assigned to a group of devices, whilst the remediation the be run on-demand for troubleshooting purposes. PowerShell scripts only runs once, after it has been run succesfully, and if it fails 3 times, then it will also stop running.
+It's possible to run a one-time update of all dell drivers/firmware, where we trigger dcu-cli.exe from Command Update, using a remediation or a PowerShell Script. The PowerShell script can be assigned to a group of devices, whilst the remediation the be run on-demand for troubleshooting purposes. PowerShell scripts only runs once, after it has been run succesfully, and if it fails 3 times, then it will also stop running.
 
 ### PowerShell script
 
@@ -70,4 +71,5 @@ It's possible to run a one-time update of all dell drivers/firmware using a reme
 
 
 ## Final words
-
+I hope you found this walkthrough useful. There is some pros/cons to using the hardware vendors tools compared to just using the windows update functionality to pushing drivers/BIOS. For instance, the notifications and snooze options you get with windows updates is much better for the end-user, but on the other hand if you use Dell Command | Update as it is right now, you will get updates and fixes much faster. If spending the right amount of ressources and time on user adoptability for using Dell Command | Update, it could also work really well. 
+I will let you test it and decide what to use for now, but if you are deep into security, using Dell's own tool to manage these updates is probably a good choice for now.

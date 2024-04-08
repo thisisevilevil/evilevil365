@@ -11,13 +11,11 @@ tags:
   - Endpoint Security
 ---
 
-# Want to randomize BIOS password on Dell devices, using Intune? Look ahead!
-
 A new feature has been added to Intune where we now natively can randomize the BIOS Password for Dell devices and also set BIOS Settings. This is great on so many levels, because:
 * Randomizing BIOS Passwords today, requires custom tooling/custom scripting. Can be time consuming
 * How should the BIOS Passwords be set and stored? Not in plain text and available for everyone, right? :)
 * Streamline BIOS settings across your estate to ensure they are configured correctly.
--> I know this is possible in Dell TechDirect, but it's time consuming having to create BIOS Profiles for each model, especially in large enterprises. Also Dell TechDirect is very sluggish. Something Dell is aware of though.
+-> I know this is possible in Dell TechDirect, but it's time consuming having to create BIOS Profiles for each model, especially in large enterprises. Also Dell TechDirect is very sluggish to navigate which exacerbates the problem. Something Dell is aware of though.
 
 Let's get into it!
 
