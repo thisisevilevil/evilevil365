@@ -32,14 +32,17 @@ Set return code 2 as "Success" as well, to ensure it doesn't fail during ESP whe
 To get the ADMX templates you will need to download Dell Command Update. You can always find the latest version here: https://www.dell.com/support/kbdoc/en-us/000177325/dell-command-update
 
 Once you have it downloaded, open it and click extract. Extract to a folder of your choice. 
+
 ![DellDCUAPP](/assets/images/2024-04-08-DellBIOSUpdates-Intune/DellCommandUpdate-2.png?raw=true "Dell Command | Update ADMX Templates")
 
 Navigate to the extracted folder and find the "Templates" folder. That would be your admx templates we need to import into intune now. Head on over to Intune -> Devices -> Configuration. Then click "Import ADMX" in the top. 
+
 ![DellDCUAPP](/assets/images/2024-04-08-DellBIOSUpdates-Intune/ImportADMX-1.png?raw=true "Dell Command | Update ADMX Templates")
 ![DellDCUAPP](/assets/images/2024-04-08-DellBIOSUpdates-Intune/ImportADMX-2.png?raw=true "Dell Command | Update ADMX Templates")
 ![DellDCUAPP](/assets/images/2024-04-08-DellBIOSUpdates-Intune/ImportADMX-3.png?raw=true "Dell Command | Update ADMX Templates")
 
 Start by importing the Dell.ADMX file. For the .ADML file, you can find it under the subfolder en-US. Then hit next and create. Wait 1-2 minutes, then hit "Refresh". 
+
 ![DellDCUAPP](/assets/images/2024-04-08-DellBIOSUpdates-Intune/ImportADMX-6.png?raw=true "Dell Command | Update ADMX Templates")
 
 
