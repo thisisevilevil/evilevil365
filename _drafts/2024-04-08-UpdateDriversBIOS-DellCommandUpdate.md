@@ -26,18 +26,31 @@ In case you don't have Dell Command | Update in Intune as a Win32 app, you can s
 
 Set return code 2 as "Success" as well, to ensure it doesn't fail during ESP when deploying devices with autopilot.
 
-![DellBIOS](/assets/images/XXXX-XX-XX-Randomize-BIOSPasswords-Dell/CreateConfigurationProfile-1.png?raw=true "BIOS Configuration Intune")
+![DellDCUAPP](/assets/images/2024-04-08-DellBIOSUpdates-Intune/DellCommandUpdate-App-1.png?raw=true "Dell Command | Update app")
 
 ## Importing ADMX Templates
 To get the ADMX templates you will need to download Dell Command Update. You can always find the latest version here: https://www.dell.com/support/kbdoc/en-us/000177325/dell-command-update
 
-Once you have it downloaded, open it and click extract. Extract to a folder of your choice. Navigate to the extracted folder and find the "Templates" folder. That would be your admx templates we need to import into intune now. Head on over to Intune -> Devices -> Configuration. Then click "Import ADMX" in the top. 
+Once you have it downloaded, open it and click extract. Extract to a folder of your choice. 
+![DellDCUAPP](/assets/images/2024-04-08-DellBIOSUpdates-Intune/DellCommandUpdate-2.png?raw=true "Dell Command | Update ADMX Templates")
 
-Start by importing the Dell.ADMX file. For the .ADML file, you can find it under the subfolder en-US. Then hit next and create. Wait 1-2 minutes, then hit "Refresh". The Dell template should be "Available" (Sometimes it can be a bit sluggish, so be patient with this one). Once the Dell template is available, import the Dell Command Update.ADMX and ADML file similarly. Once finished, it should look something like this:
+Navigate to the extracted folder and find the "Templates" folder. That would be your admx templates we need to import into intune now. Head on over to Intune -> Devices -> Configuration. Then click "Import ADMX" in the top. 
+![DellDCUAPP](/assets/images/2024-04-08-DellBIOSUpdates-Intune/ImportADMX-1.png?raw=true "Dell Command | Update ADMX Templates")
+![DellDCUAPP](/assets/images/2024-04-08-DellBIOSUpdates-Intune/ImportADMX-2.png?raw=true "Dell Command | Update ADMX Templates")
+![DellDCUAPP](/assets/images/2024-04-08-DellBIOSUpdates-Intune/ImportADMX-3.png?raw=true "Dell Command | Update ADMX Templates")
+
+Start by importing the Dell.ADMX file. For the .ADML file, you can find it under the subfolder en-US. Then hit next and create. Wait 1-2 minutes, then hit "Refresh". 
+![DellDCUAPP](/assets/images/2024-04-08-DellBIOSUpdates-Intune/ImportADMX-6.png?raw=true "Dell Command | Update ADMX Templates")
+
+
+The Dell template should be "Available" (Sometimes it can be a bit sluggish, so be patient with this one). Once the Dell template is available, import the Dell Command Update.ADMX and ADML file similarly. Once finished, you should see "Dell.ADMX" and "Dell Command Update.ADMX":
+![DellDCUAPP](/assets/images/2024-04-08-DellBIOSUpdates-Intune/ImportADMX-7.png?raw=true "Dell Command | Update ADMX Templates")
 
 
 ## Deploying update policies
 Let's go and create a new configuration profile. Select "Windows 10 and later" -> Templates -> Imported administratives templates (preview). Let's give the policy a nice name like "Dell Command Update Settings". Then hit next. Then you should be able to see the Dell folder with all the Dell Command | Update settings.
+![DellDCUAPP](/assets/images/2024-04-08-DellBIOSUpdates-Intune/DeployPolicy-1.png?raw=true "Dell Command | Update ADMX Templates")
+
 
 All the settings we are looking for, is placed under the folder "Update Settings". Lets configure our Dell Command | Update Policy to adjust the following:
 1. **"What do when updates are found":** Set this to "Enabled" and to "Download and install updates (Notify after complete)
