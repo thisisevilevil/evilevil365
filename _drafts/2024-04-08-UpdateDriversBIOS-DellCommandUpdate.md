@@ -8,6 +8,7 @@ tags:
   - Update BIOS
   - Update Firmware
   - Endpoint Security
+  - Import ADMX
 ---
 
 This topic is not sexy at all to talk about in IT, but it is nonetheless getting more important for security reasons, due to the many security updates now included in BIOS, Driver and firmware updates in newer times.
@@ -29,7 +30,7 @@ Set return code 2 as "Success" as well, to ensure it doesn't fail during ESP whe
 ![DellDCUAPP](/assets/images/2024-04-08-DellBIOSUpdates-Intune/DellCommandUpdate-App-1.png?raw=true "Dell Command | Update app")
 
 ## Importing ADMX Templates
-To get the ADMX templates you will need to download Dell Command Update. You can always find the latest version here: https://www.dell.com/support/kbdoc/en-us/000177325/dell-command-update
+To get the ADMX templates required from managing DCU, you will need to download Dell Command Update. You can always find the latest version here: https://www.dell.com/support/kbdoc/en-us/000177325/dell-command-update
 
 Once you have it downloaded, open it and click extract. Extract to a folder of your choice. 
 
