@@ -1,5 +1,5 @@
 ---
-title: "Update Drivers and BIOS with Dell Command | Update managed using Intune"
+title: "Update Drivers and BIOS with Dell Command | Update managed using Configuration Profiles in Microsoft Intune"
 date: DRAFT2024-04-08
 categories:
   - Dell
