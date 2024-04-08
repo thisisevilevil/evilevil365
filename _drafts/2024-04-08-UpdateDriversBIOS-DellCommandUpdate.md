@@ -44,6 +44,7 @@ Start by importing the Dell.ADMX file. For the .ADML file, you can find it under
 
 
 The Dell template should be "Available" (Sometimes it can be a bit sluggish, so be patient with this one). Once the Dell template is available, import the Dell Command Update.ADMX and ADML file similarly. Once finished, you should see "Dell.ADMX" and "Dell Command Update.ADMX":
+
 ![DellDCUAPP](/assets/images/2024-04-08-DellBIOSUpdates-Intune/ImportADMX-7.png?raw=true "Dell Command | Update ADMX Templates")
 
 
