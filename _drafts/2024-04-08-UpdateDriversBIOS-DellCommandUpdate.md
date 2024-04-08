@@ -5,16 +5,17 @@ categories:
   - Dell
 tags:
   - Update drivers
-  - Updated BIOS
-  - Updated Firmware
+  - Update BIOS
+  - Update Firmware
   - Endpoint Security
 ---
 
+This topic is not sexy at all to talk about in IT, but it is nonetheless getting more important for security reasons, due to the many security updates now included in BIOS, Driver and firmware updates in newer times.
+
 In todays day and age it's super important to ensure your drivers and BIOS is up-to-date. Not only is there always a bunch of functionality fixes but security issues is also patched. Depending on your flavor of hardware vendor, Dell, HP or Lenovo, each of them have their own tools to manage and push driver and BIOS updates. However, it's also worth mentioning, since the release of the [driver update management module in Intune](https://learn.microsoft.com/en-us/mem/intune/protect/windows-driver-updates-overview) the reasons to use the hardware vendors own tools grows less and less, as the Intune Driver Update management module gets better.
 
-The one reason you should still consider using the hardware vendors own tools is speed of delivery. Driver and BIOS updates are released instantly, and depending on the hardware vendor, there can be several months delay before they are released via Windows Update. That's not neccessarily the fault of Microsoft, it's actually the hardware vendors themselves that decides when and if to release updates via Windows Update.
+The one reason you should still consider using the hardware vendors own tools. is speed of delivery. Driver and BIOS updates are released instantly, and depending on the hardware vendor, there can be several months delay before they are released via Windows Update. That's not neccessarily the fault of Microsoft, it's mostly the hardware vendors themselves that decides when and if to release updates via Windows Update.
 
-This topic is not sexy at all to talk about in IT, but it is nonetheless getting more important for security reasons.
 
 ## Getting started - Packaging Dell Command | Update
 In case you don't have Dell Command | Update in Intune as a Win32 app, you can steal my .intunewin file <a id="raw-url" href="https://raw.githubusercontent.com/thisisevilevil/evilevil365/master/assets/Dell-Command-Update-Windows-Universal-Application_0XNVX_WIN_5.2.0_A00.intunewin">here</a> for version 5.2. Add the app into intune as a Win32 app:
@@ -23,7 +24,7 @@ In case you don't have Dell Command | Update in Intune as a Win32 app, you can s
 * **Required disk space:** 500MB
 * **Detection, MSI String:** `{E40C2C69-CA25-454A-AB4D-C675988EC101}`
 
-Set return code 2 as "Success" as well, to ensure it doesn't fail during ESP.
+Set return code 2 as "Success" as well, to ensure it doesn't fail during ESP when deploying devices with autopilot.
 
 ## Importing ADMX Templates
 To get the ADMX templates you will need to download Dell Command Update. You can always find the latest version here: https://www.dell.com/support/kbdoc/en-us/000177325/dell-command-update
@@ -51,14 +52,22 @@ You can also check if the settings deployed by opening Dell Command | Update on 
 
 | Ring     | Sys. Restart Hours | Sys. restart def.| Install Hours   | Install Def. | Delay   |                Assignment group                  |
 |----------|--------------------|----------------- |-----------------|--------------|---------|--------------------------------------------------|
-| Ring 0   | 8  hours           | 0 Def.           | 0 hours         | 0 Def.       | 0 days  | Modern Workplace Devices-Windows Autopatch-Test w. Dell filter  |
-| Ring 1   | 36 hours           | 1 Def.           | 8 hours         | 1 Def.       | 3 days  | Modern Workplace Devices-Windows Autopatch-First w. Dell filter |
-| Ring 2   | 48 hours           | 2 Def.           | 12 hours        | 2 Def.       | 7 days  | Modern Workplace Devices-Windows Autopatch-Fast w. Dell filter |
-| Ring 3   | 72 hours           | 3 Def.           | 48 hours        | 3 Def.       | 15 days | Modern Workplace Devices-Windows Autopatch-Broad w. Dell filter|
+| Ring 0   | 8  hours           | 0 Def.           | 0 hours         | 0 Def.       | 0 days  | Modern Workplace Devices-Windows Autopatch-Test  |
+| Ring 1   | 36 hours           | 1 Def.           | 8 hours         | 1 Def.       | 3 days  | Modern Workplace Devices-Windows Autopatch-First |
+| Ring 2   | 48 hours           | 2 Def.           | 12 hours        | 2 Def.       | 7 days  | Modern Workplace Devices-Windows Autopatch-Fast  |
+| Ring 3   | 72 hours           | 3 Def.           | 48 hours        | 3 Def.       | 15 days | Modern Workplace Devices-Windows Autopatch-Broad |
 
-> **_PROTIP:_** **If you don't have any deployment rings, consider reusing your autopatch groups as shown in the above sample, so you can deploy updates out in a staggered approach, to avoid deploying big changes to all your devices at the same time. Autopatch automatically divides your devices in rings, so need to do it manually. Default is 1% For Ring 1 (First), 9% for Ring 2 (Fast) and 90% for Ring 3 (Broad). Ring 0 (Test) can be reserved for members of your team, and needs to be manually assigned in autopatch. The default group names for autopatch starts with "Modern Workplace Devices-Windows Autopatch-" You can manually assign you and your colleagues devices in the Intune team to the Test group in autopatch**
+**Apply a Dell Device filter if you use the autopatch groups for assignment, as shown in the above example**
+
+> **_PROTIP:_** **If you don't have any deployment rings, consider reusing your autopatch groups as shown in the above sample, so you can deploy updates in a staggered approach, to avoid deploying big changes to all your devices at the same time. Autopatch automatically divides your devices in rings, so need to do it manually. Default is 1% For Ring 1 (First), 9% for Ring 2 (Fast) and 90% for Ring 3 (Broad). Ring 0 (Test) can be reserved for members of your team, and needs to be manually assigned in autopatch. The default group names for autopatch starts with "Modern Workplace Devices-Windows Autopatch-" You can manually assign you and your colleagues devices in the Intune team to the Test group in autopatch**
 
 ## Bonus: Remediation and PowerShell script for on-demand updates
-It's possible to run a one-time update of all dell drivers/firmware using a remediation or a PowerShell Script. The PowerShell script can be assigned to a group of devices, whilst the remediation the be run on-demand for troubleshooting purposes.
+It's possible to run a one-time update of all dell drivers/firmware using a remediation or a PowerShell Script. The PowerShell script can be assigned to a group of devices, whilst the remediation the be run on-demand for troubleshooting purposes. PowerShell scripts only runs once, after it has been run succesfully, and if it fails 3 times, then it will also stop running.
 
 ### PowerShell script
+
+### Remediation script
+
+
+## Final words
+
