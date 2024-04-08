@@ -119,7 +119,6 @@ I hope you found this walkthrough useful. There is some pros/cons to using the D
 Other thing worth mentioning is Dell is also looking into heavily modifying how updates are managed through Dell SupportAssist, that you can access through TechDirect. But I'm quite sure it will be locked down behind ProSupport Plus warranty or higher, so a lot of customers won't be able to access it. Let's see once we get it.
 ![DellDCUAPP](/assets/images/2024-04-08-DellBIOSUpdates-Intune/DCU5.2-ReleaseNotes.png?raw=true "Dell Command | Update ADMX Templates")
 
-
-Lastly, if you want some more inspiration for custom tools in Intune, such as Prebaked Remediation scripts and custom compliance rules to check for things like Warranty, Missing Critical drivers, Battery health and other cool stuff, I would recommend you check out Sven Riebe's github repository. He's a very skilled fella working at Dell, you can find his repo [here](https://github.com/svenriebedell)
+Lastly, if you want some more inspiration for custom Dell tools in Intune, such as Prebaked Remediation scripts and custom compliance rules to check for things like Warranty, Missing Critical drivers, Battery health and other cool stuff, I would recommend you check out Sven Riebe's github repository. He's a very skilled fella working at Dell, and he likes sharing his work. You can find his repo [here](https://github.com/svenriebedell)
 
 That's all folks :)
