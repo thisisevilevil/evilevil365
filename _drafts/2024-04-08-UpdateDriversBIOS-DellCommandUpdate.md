@@ -47,14 +47,14 @@ You can also check if the settings deployed by navigating to the following reg k
 
 ### Sample deployment rings
 
-| Ring     | Sys Restart Defer. | Install Defer.  | Delay   |
-|----------|--------------------|-----------------|---------|
-| Ring 0   | 24 hours           | 8 hours         | 0 days  |
-| Ring 1   | 36 hours           | 24 hours        | 3 days  |
-| Ring 2   | 48 hours           | 48 hours        | 5 dasy  |
-| Ring 3   | 72 hours           | 72 hours        | 15 days |
+| Ring     | Sys Restart Defer. | Install Defer.  | Delay   |                 Autopatch group                  |
+|----------|--------------------|-----------------|---------|--------------------------------------------------|
+| Ring 0   | 24 hours           | 0 hours         | 0 days  | Modern Workplace Devices-Windows Autopatch-Test  |
+| Ring 1   | 36 hours           | 24 hours        | 3 days  | Modern Workplace Devices-Windows Autopatch-First |
+| Ring 2   | 48 hours           | 48 hours        | 5 days  | Modern Workplace Devices-Windows Autopatch-Fast  |
+| Ring 3   | 72 hours           | 72 hours        | 15 days | Modern Workplace Devices-Windows Autopatch-Broad |
 
 > **_PROTIP:_** **If you don't have any deployment rings, consider reusing your autopatch groups, so you can roll things out in a staggered approach, to avoid deploying big changes t o all your devices at the same time. Autopatch automatically divides your devices in rings. Default is 1% For Ring 1 (First), 9% for Ring 2 (Fast) and 90% for Ring 3 (Broad). Ring 0 (Test) can be reserved for members of your team, and needs to be manually assigned in autopatch. The default group names for autopatch starts with "Modern Workplace Devices-Windows Autopatch-"**
 
-## On-Demand update remediation
+## Remediation and PowerShell script for on-demand updates
 It's possible to run a one-time update of all dell drivers/firmware using a remediation or a PowerShell Script. The PowerShell script can be assigned to a group of devices, whilst the remediation the be run on-demand for troubleshooting purposes.
