@@ -17,10 +17,10 @@ In todays day and age it's super important to ensure your drivers and BIOS is up
 
 The one reason you should still consider using the hardware vendors own tools. is speed of delivery. Driver and BIOS updates are released instantly, and depending on the hardware vendor, there can be several months delay before they are released via Windows Update. That's not neccessarily the fault of Microsoft, it's mostly the hardware vendors themselves that decides when and if to release updates via Windows Update.
 
-In this blog post, we will go through what we can do with Dell devices using Dell's own Dell Command | Update.
+In this blog post, we will go through what we can do with Dell devices using Dell's own Dell Command Update.
 
-## Getting started - Packaging Dell Command | Update
-In case you don't have Dell Command | Update in Intune as a Win32 app, you can steal my .intunewin file <a id="raw-url" href="https://raw.githubusercontent.com/thisisevilevil/evilevil365/master/assets/Dell-Command-Update-Windows-Universal-Application_0XNVX_WIN_5.2.0_A00.intunewin">here</a> for version 5.2. Add the app into intune as a Win32 app:
+## Getting started - Packaging Dell Command Update
+In case you don't have Dell Command Update in Intune as a Win32 app, you can steal my .intunewin file <a id="raw-url" href="https://raw.githubusercontent.com/thisisevilevil/evilevil365/master/assets/Dell-Command-Update-Windows-Universal-Application_0XNVX_WIN_5.2.0_A00.intunewin">here</a> for version 5.2. Add the app into intune as a Win32 app:
 * **Install command:** `Dell-Command-Update-Windows-Universal-Application_0XNVX_WIN_5.2.0_A00.EXE /s /l=C:\Windows\Logs\Dell_Command_Update_5.2_exe_installer.log`
 * **Uninstall command:** `msiexec /X {E40C2C69-CA25-454A-AB4D-C675988EC101} /qn`
 * **Required disk space:** 500MB
@@ -55,12 +55,12 @@ The Dell template should be "Available" (Sometimes it can be a bit sluggish, so 
 
 
 ## Deploying update policies
-Let's go and create a new configuration profile. Select "Windows 10 and later" -> Templates -> Imported administratives templates (preview). Let's give the policy a nice name like "Dell Command Update Settings". Then hit next. Then you should be able to see the Dell folder with all the Dell Command | Update settings.
+Let's go and create a new configuration profile. Select "Windows 10 and later" -> Templates -> Imported administratives templates (preview). Let's give the policy a nice name like "Dell Command Update Settings". Then hit next. Then you should be able to see the Dell folder with all the Dell Command Update settings.
 ![DellDCUAPP](/assets/images/2024-04-08-DellBIOSUpdates-Intune/DeployPolicy-1.png?raw=true "Dell Command Update ADMX Templates")
 ![DellDCUAPP](/assets/images/2024-04-08-DellBIOSUpdates-Intune/DeployPolicy-2.png?raw=true "Dell Command Update ADMX Templates")
 
 
-All the settings we are looking for, is placed under the folder "Update Settings". Lets configure our Dell Command | Update Policy to adjust the following:
+All the settings we are looking for, is placed under the folder "Update Settings". Lets configure our Dell Command Update Policy to adjust the following:
 1. **"What do when updates are found":** Set this to "Enabled" and to "Download and install updates (Notify after complete)
 2. **"Update Settings":** Set the "Update Interval to "Weekly". "Time of day" to 1PM, and then "Day of the week" to "Monday" (If you set it to "Automatic" it will trigger every 3 days)
 3. **"System Restart deferral":** "Enabled" and set it to 8 hours. Then assign 3 deferrals (This gives the user 8 hours to perform a reboot after updates are installed. They can defer up to 3 times)
@@ -72,7 +72,7 @@ All the settings we are looking for, is placed under the folder "Update Settings
 
 Change these settings accordingly based on your testing and your orgs needs. The settings "System restart deferral", "Installation Deferral" and "Delay" is the ones you can adjust based on your needs and deployment rings, that will have an impact to the end-user experience.
 
-You can also check if the settings deployed by opening Dell Command | Update on the device, hit the settings button in the rop right corner. Then you should see a red text saying "Some settings are managed by your organization" in the top of the settings windows.
+You can also check if the settings deployed by opening Dell Command Update on the device, hit the settings button in the rop right corner. Then you should see a red text saying "Some settings are managed by your organization" in the top of the settings windows.
 ![DellDCUAPP](/assets/images/2024-04-08-DellBIOSUpdates-Intune/DellDCU-SomeSettingsManagedByYourOrg.png?raw=true "Dell Command Update ADMX Templates")
 
 Based on the settings, the user will get various notifications, based on the settings you push to the users device. It can notifications regarding installing updates, but you can also just choose to not show them notifications regarding installing updates, to only show them notifications once after the updates has been installed, and a reboot is pending. The notifications can look like the following:
@@ -85,7 +85,7 @@ The final restart reminder, will linger in the system tray until the user clicks
 > **_If the user closes the last reboot reminder, there will be no "final" reminder.. it will abruptly reboot the device, without warning, after 30 minutes_** 
 
 
-Finally, all updates deployed via Dell Command | Update is logged to C:\ProgramData\Dell\UpdateService\Log - Look for the "activity.log" log to see what updates has been downloaded along with the install status, success or failed, where the "service.log" is more for the app itself, to see connectivity to update servers and whether a reboot is pending or not.
+Finally, all updates deployed via Dell Command Update is logged to C:\ProgramData\Dell\UpdateService\Log - Look for the "activity.log" log to see what updates has been downloaded along with the install status, success or failed, where the "service.log" is more for the app itself, to see connectivity to update servers and whether a reboot is pending or not.
 
 
 
@@ -112,7 +112,7 @@ $currentdate = Get-Date -format 'ddMMyyyy_HHmmss'
 $dcucli = "${env:ProgramFiles}\Dell\CommandUpdate\dcu-cli.exe"
 $logsfolder = "$env:Programdata\Dell\Logs"
 
-#Download and install Dell Command | Update 5.2 if it doesn't exist
+#Download and install Dell Command Update 5.2 if it doesn't exist
 if (!(test-path $dcucli)) {
 $uri = 'https://dl.dell.com/FOLDER11201586M/1/Dell-Command-Update-Windows-Universal-Application_0XNVX_WIN_5.2.0_A00.EXE'
 Write-Host "DCU Cli doesn't seem to be present.. Attempting to download and install now.."
@@ -134,7 +134,7 @@ Find the docs for dcu-cli to experiment with different switches [here](https://w
 
 
 ## Final words
-I hope you found this walkthrough useful. There is some pros/cons to using the Dell Command | Update for managing updates compared to just using the Windows Update functionality to pushing drivers/BIOS. For instance, the notifications and snooze options you get with windows updates is much better for the end-user, but on the other hand if you use Dell Command | Update as it is right now, you will get updates and fixes much faster, and with a bit of communication and user adoption of Dell Command | Update, it could work. Just make sure your user don't close the last reboot reminder, and teach your users to start closing their work, to prepare for the reboot.
+I hope you found this walkthrough useful. There is some pros/cons to using the Dell Command Update for managing updates compared to just using the Windows Update functionality to pushing drivers/BIOS. For instance, the notifications and snooze options you get with windows updates is much better for the end-user, but on the other hand if you use Dell Command Update as it is right now, you will get updates and fixes much faster, and with a bit of communication and user adoption of Dell Command Update, it could work. Just make sure your user don't close the last reboot reminder, and teach your users to start closing their work, to prepare for the reboot.
 
 Other thing worth mentioning is Dell is also looking into heavily modifying how updates are managed through Dell SupportAssist, that you can access through TechDirect. But I'm quite sure it will be locked down behind ProSupport Plus warranty or higher, so a lot of customers won't be able to access it. Let's see once we get it. We can kinda see they are preparing for it, in the release notes for DCU 5.2:
 
