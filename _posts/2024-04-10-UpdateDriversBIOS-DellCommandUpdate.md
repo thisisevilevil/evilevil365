@@ -28,7 +28,7 @@ In case you don't have Dell Command | Update in Intune as a Win32 app, you can s
 
 Set return code 2 as "Success" as well, to ensure it doesn't fail during ESP when deploying devices with autopilot.
 
-![DellDCUAPP](/assets/images/2024-04-08-DellBIOSUpdates-Intune/DellCommandUpdate-App-1.png?raw=true "Dell Command | Update app")
+![DellDCUAPP](/assets/images/2024-04-08-DellBIOSUpdates-Intune/DellCommandUpdate-App-1.png?raw=true "Dell Command Update app")
 
 
 ## Importing ADMX Templates
@@ -36,28 +36,28 @@ To get the ADMX templates required from managing DCU, you will need to download 
 
 Once you have it downloaded, open it and click extract. Extract to a folder of your choice. 
 
-![DellDCUAPP](/assets/images/2024-04-08-DellBIOSUpdates-Intune/DellCommandUpdate-2.png?raw=true "Dell Command | Update ADMX Templates")
+![DellDCUAPP](/assets/images/2024-04-08-DellBIOSUpdates-Intune/DellCommandUpdate-2.png?raw=true "Dell Command Update ADMX Templates")
 
 Navigate to the extracted folder and find the "Templates" folder. That would be your admx templates we need to import into intune now. Head on over to Intune -> Devices -> Configuration. Then click "Import ADMX" in the top. 
 
-![DellDCUAPP](/assets/images/2024-04-08-DellBIOSUpdates-Intune/ImportADMX-1.png?raw=true "Dell Command | Update ADMX Templates")
-![DellDCUAPP](/assets/images/2024-04-08-DellBIOSUpdates-Intune/ImportADMX-2.png?raw=true "Dell Command | Update ADMX Templates")
-![DellDCUAPP](/assets/images/2024-04-08-DellBIOSUpdates-Intune/ImportADMX-3.png?raw=true "Dell Command | Update ADMX Templates")
+![DellDCUAPP](/assets/images/2024-04-08-DellBIOSUpdates-Intune/ImportADMX-1.png?raw=true "Dell Command Update ADMX Templates")
+![DellDCUAPP](/assets/images/2024-04-08-DellBIOSUpdates-Intune/ImportADMX-2.png?raw=true "Dell Command Update ADMX Templates")
+![DellDCUAPP](/assets/images/2024-04-08-DellBIOSUpdates-Intune/ImportADMX-3.png?raw=true "Dell Command Update ADMX Templates")
 
 Start by importing the Dell.ADMX file. For the .ADML file, you can find it under the subfolder en-US. Then hit next and create. Wait 1-2 minutes, then hit "Refresh". 
 
-![DellDCUAPP](/assets/images/2024-04-08-DellBIOSUpdates-Intune/ImportADMX-6.png?raw=true "Dell Command | Update ADMX Templates")
+![DellDCUAPP](/assets/images/2024-04-08-DellBIOSUpdates-Intune/ImportADMX-6.png?raw=true "Dell Command Update ADMX Templates")
 
 
 The Dell template should be "Available" (Sometimes it can be a bit sluggish, so be patient with this one). Once the Dell template is available, import the Dell Command Update.ADMX and ADML file similarly. Once finished, you should see "Dell.ADMX" and "Dell Command Update.ADMX":
 
-![DellDCUAPP](/assets/images/2024-04-08-DellBIOSUpdates-Intune/ImportADMX-7.png?raw=true "Dell Command | Update ADMX Templates")
+![DellDCUAPP](/assets/images/2024-04-08-DellBIOSUpdates-Intune/ImportADMX-7.png?raw=true "Dell Command Update ADMX Templates")
 
 
 ## Deploying update policies
 Let's go and create a new configuration profile. Select "Windows 10 and later" -> Templates -> Imported administratives templates (preview). Let's give the policy a nice name like "Dell Command Update Settings". Then hit next. Then you should be able to see the Dell folder with all the Dell Command | Update settings.
-![DellDCUAPP](/assets/images/2024-04-08-DellBIOSUpdates-Intune/DeployPolicy-1.png?raw=true "Dell Command | Update ADMX Templates")
-![DellDCUAPP](/assets/images/2024-04-08-DellBIOSUpdates-Intune/DeployPolicy-2.png?raw=true "Dell Command | Update ADMX Templates")
+![DellDCUAPP](/assets/images/2024-04-08-DellBIOSUpdates-Intune/DeployPolicy-1.png?raw=true "Dell Command Update ADMX Templates")
+![DellDCUAPP](/assets/images/2024-04-08-DellBIOSUpdates-Intune/DeployPolicy-2.png?raw=true "Dell Command Update ADMX Templates")
 
 
 All the settings we are looking for, is placed under the folder "Update Settings". Lets configure our Dell Command | Update Policy to adjust the following:
@@ -67,18 +67,18 @@ All the settings we are looking for, is placed under the folder "Update Settings
 4. **"Installation deferral":** "Enabled" and set it to 24 hours. Then assign 3 deferrals. (This gives the user 24 hours to start installing updates, and can postpone up to 3 times - Consider not setting this option, if you want to reduce the notifications/actions required for the end-user. If the end-user fails to install the updates within 24hours it will auto-install)
 5. **"Maximum retry attempts":** Set this to "3"
 6. **"Delay":**: Set this to "0" days. This is only for testing purpose for now, but this will delay any updates for X amount of days. This is similar to the policy we have in windows update known as "Quality update deferral period (days)"
-![DellDCUAPP](/assets/images/2024-04-08-DellBIOSUpdates-Intune/DeployPolicy-4.png?raw=true "Dell Command | Update ADMX Templates")
+![DellDCUAPP](/assets/images/2024-04-08-DellBIOSUpdates-Intune/DeployPolicy-4.png?raw=true "Dell Command Update ADMX Templates")
 
 
 Change these settings accordingly based on your testing and your orgs needs. The settings "System restart deferral", "Installation Deferral" and "Delay" is the ones you can adjust based on your needs and deployment rings, that will have an impact to the end-user experience.
 
 You can also check if the settings deployed by opening Dell Command | Update on the device, hit the settings button in the rop right corner. Then you should see a red text saying "Some settings are managed by your organization" in the top of the settings windows.
-![DellDCUAPP](/assets/images/2024-04-08-DellBIOSUpdates-Intune/DellDCU-SomeSettingsManagedByYourOrg.png?raw=true "Dell Command | Update ADMX Templates")
+![DellDCUAPP](/assets/images/2024-04-08-DellBIOSUpdates-Intune/DellDCU-SomeSettingsManagedByYourOrg.png?raw=true "Dell Command Update ADMX Templates")
 
 Based on the settings, the user will get various notifications, based on the settings you push to the users device. It can notifications regarding installing updates, but you can also just choose to not show them notifications regarding installing updates, to only show them notifications once after the updates has been installed, and a reboot is pending. The notifications can look like the following:
 
-![DellDCUAPP](/assets/images/2024-04-08-DellBIOSUpdates-Intune/DCU-Reboot.png?raw=true "Dell Command | Update ADMX Templates")
-![DellDCUAPP](/assets/images/2024-04-08-DellBIOSUpdates-Intune/DCU-Reboot2.png?raw=true "Dell Command | Update ADMX Templates")
+![DellDCUAPP](/assets/images/2024-04-08-DellBIOSUpdates-Intune/DCU-Reboot.png?raw=true "Dell Command Update ADMX Templates")
+![DellDCUAPP](/assets/images/2024-04-08-DellBIOSUpdates-Intune/DCU-Reboot2.png?raw=true "Dell Command Update ADMX Templates")
 
 The final restart reminder, will linger in the system tray until the user clicks "restart now" or clicks the notification away. 
 
@@ -99,11 +99,11 @@ Finally, all updates deployed via Dell Command | Update is logged to C:\ProgramD
 | Ring 3   | 72 hours           | 3 Def.           | 48 hours        | 3 Def.       | 15 days | Modern Workplace Devices-Windows Autopatch-Broad |
 
 **Apply a Dell Device filter if you use the autopatch groups for assignment, as shown in the above example**
-![DellDCUAPP](/assets/images/2024-04-08-DellBIOSUpdates-Intune/DellDeviceFilter.png?raw=true "Dell Command | Update ADMX Templates")
+![DellDCUAPP](/assets/images/2024-04-08-DellBIOSUpdates-Intune/DellDeviceFilter.png?raw=true "Dell Command Update ADMX Templates")
 
 > **_PROTIP:_** **If you don't have any deployment rings, consider reusing your autopatch groups as shown in the above sample, so you can deploy updates in a staggered approach, to avoid deploying big changes to all your devices at the same time. Autopatch automatically divides your devices in rings, so need to do it manually. Default is 1% For Ring 1 (First), 9% for Ring 2 (Fast) and 90% for Ring 3 (Broad). Ring 0 (Test) can be reserved for members of your team, and needs to be manually assigned in autopatch. The default group names for autopatch starts with "Modern Workplace Devices-Windows Autopatch-" You can manually assign you and your colleagues devices in the Intune team to the Test group in autopatch**
 >
-> ![DellDCUAPP](/assets/images/2024-04-08-DellBIOSUpdates-Intune/AutoPatch-1.png?raw=true "Dell Command | Update ADMX Templates")
+> ![DellDCUAPP](/assets/images/2024-04-08-DellBIOSUpdates-Intune/AutoPatch-1.png?raw=true "Dell Command Update ADMX Templates")
 
 ## Bonus: Remediation and PowerShell script for on-demand updates
 It's possible to run a one-time update of all dell drivers/firmware, where we trigger dcu-cli.exe from Command Update, using a remediation or a PowerShell Script. The PowerShell script can be assigned to a group of devices, whilst the remediation the be run on-demand for troubleshooting purposes. Try this out on your Dell devices with Dell Command Update already installed:
@@ -138,7 +138,7 @@ I hope you found this walkthrough useful. There is some pros/cons to using the D
 
 Other thing worth mentioning is Dell is also looking into heavily modifying how updates are managed through Dell SupportAssist, that you can access through TechDirect. But I'm quite sure it will be locked down behind ProSupport Plus warranty or higher, so a lot of customers won't be able to access it. Let's see once we get it. We can kinda see they are preparing for it, in the release notes for DCU 5.2:
 
-![DellDCUAPP](/assets/images/2024-04-08-DellBIOSUpdates-Intune/DCU5.2-ReleaseNotes.png?raw=true "Dell Command | Update ADMX Templates")
+![DellDCUAPP](/assets/images/2024-04-08-DellBIOSUpdates-Intune/DCU5.2-ReleaseNotes.png?raw=true "Dell Command Update ADMX Templates")
 
 Lastly, if you want some more inspiration for custom Dell tools in Intune, such as Prebaked Remediation scripts and custom compliance rules to check for things like Warranty, Missing Critical drivers, Battery health and other cool stuff, I would recommend you check out Sven Riebe's github repository. He's a very skilled fella working at Dell, and he likes sharing his work. You can find his repo [here](https://github.com/svenriebedell)
 
