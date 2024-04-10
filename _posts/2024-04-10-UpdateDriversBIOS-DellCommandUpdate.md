@@ -30,6 +30,7 @@ Set return code 2 as "Success" as well, to ensure it doesn't fail during ESP whe
 
 ![DellDCUAPP](/assets/images/2024-04-08-DellBIOSUpdates-Intune/DellCommandUpdate-App-1.png?raw=true "Dell Command | Update app")
 
+
 ## Importing ADMX Templates
 To get the ADMX templates required from managing DCU, you will need to download Dell Command Update. You can always find the latest version here: https://www.dell.com/support/kbdoc/en-us/000177325/dell-command-update
 
