@@ -75,7 +75,7 @@ Change these settings accordingly based on your testing and your orgs needs. The
 You can also check if the settings deployed by opening Dell Command Update on the device, hit the settings button in the rop right corner. Then you should see a red text saying "Some settings are managed by your organization" in the top of the settings windows.
 ![DellDCUAPP](/assets/images/2024-04-08-DellBIOSUpdates-Intune/DellDCU-SomeSettingsManagedByYourOrg.png?raw=true "Dell Command Update ADMX Templates")
 
-Based on the settings, the user will get various notifications, based on the settings you push to the users device. It can notifications regarding installing updates, but you can also just choose to not show them notifications regarding installing updates, to only show them notifications once after the updates has been installed, and a reboot is pending. The notifications can look like the following:
+Based on the settings, the user will get various notifications, based on the settings you push to the users device. It can show notifications regarding installing updates, but you can also just choose to not show them notifications regarding installing updates, and then only show them reboot notifications, if updates has been installed that requires a reboot. The notifications will be shown as toast notifications, and will look like below:
 
 ![DellDCUAPP](/assets/images/2024-04-08-DellBIOSUpdates-Intune/DCU-Reboot.png?raw=true "Dell Command Update ADMX Templates")
 ![DellDCUAPP](/assets/images/2024-04-08-DellBIOSUpdates-Intune/DCU-Reboot2.png?raw=true "Dell Command Update ADMX Templates")
