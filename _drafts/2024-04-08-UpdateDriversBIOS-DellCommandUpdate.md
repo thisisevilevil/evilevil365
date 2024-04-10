@@ -1,6 +1,6 @@
 ---
 title: "Update Drivers and BIOS with Dell Command | Update managed using Configuration Profiles in Microsoft Intune"
-date: DRAFT2024-04-08
+date: DRAFT2024-04-10
 categories:
   - Dell
 tags:
@@ -76,9 +76,13 @@ You can also check if the settings deployed by opening Dell Command | Update on 
 
 Based on the settings, the user will get various notifications, based on the settings you push to the users device. It can notifications regarding installing updates, but you can also just choose to not show them notifications regarding installing updates, to only show them notifications once after the updates has been installed, and a reboot is pending. The notifications can look like the following:
 
-![DellDCUAPP](/assets/images/2024-04-08-DellBIOSUpdates-Intune/DellDCU-InstallationNotification.png?raw=true "Dell Command | Update ADMX Templates")
-![DellDCUAPP](/assets/images/2024-04-08-DellBIOSUpdates-Intune/DellDCU-RestartNotification-2.png?raw=true "Dell Command | Update ADMX Templates")
-![DellDCUAPP](/assets/images/2024-04-08-DellBIOSUpdates-Intune/DellDCU-RestartNotification-3.png?raw=true "Dell Command | Update ADMX Templates")
+![DellDCUAPP](/assets/images/2024-04-08-DellBIOSUpdates-Intune/DCU-Reboot.png?raw=true "Dell Command | Update ADMX Templates")
+![DellDCUAPP](/assets/images/2024-04-08-DellBIOSUpdates-Intune/DCU-Reboot2.png?raw=true "Dell Command | Update ADMX Templates")
+
+The final restart reminder, will linger in the system tray until the user clicks "restart now" or clicks the notification away. 
+
+> **_If the user closes the last reboot reminder, there will be no "final" reminder.. it will abruptly reboot the device, without warning, after 30 minutes_** 
+
 
 Finally, all updates deployed via Dell Command | Update is logged to C:\ProgramData\Dell\UpdateService\Log - Look for the "activity.log" log to see what updates has been downloaded along with the install status, success or failed, where the "service.log" is more for the app itself, to see connectivity to update servers and whether a reboot is pending or not.
 
@@ -105,7 +109,9 @@ It's possible to run a one-time update of all dell drivers/firmware, where we tr
 ```
 $currentdate = Get-Date -format 'ddMMyyyy_HHmmss'
 $dcucli = "${env:ProgramFiles}\Dell\CommandUpdate\dcu-cli.exe"
+$logsfolder = "$env:Programdata\Dell\Logs"
 
+#Download and install Dell Command | Update 5.2 if it doesn't exist
 if (!(test-path $dcucli)) {
 $uri = 'https://dl.dell.com/FOLDER11201586M/1/Dell-Command-Update-Windows-Universal-Application_0XNVX_WIN_5.2.0_A00.EXE'
 Write-Host "DCU Cli doesn't seem to be present.. Attempting to download and install now.."
@@ -114,15 +120,20 @@ Start-Process "C:\Windows\Temp\dcu52.exe" -ArgumentList '/s' -Wait
 Start-Sleep -Seconds 10
 }
 
+#Create new folder for logs in ProgramData - Change this based on your environment
+if (!(Test-path $logsfolder)) {New-item $logsfolder -ItemType Directory}
+
 #Apply all updates if any is found - including BIOS
-Start-Process $dcucli -ArgumentList "/ApplyUpdates -outputlog=C:\Windows\Logs\dcucli_applyupdates_$currentdate.log" -Verbose -Wait
+Start-Process $dcucli -Wait -ArgumentList "/ApplyUpdates -outputlog=$logsfolder\dcucli_applyupdates_$currentdate.log"
 ```
+
+The script needs to run in 64-bit context and in SYSTEM context.
 
 Find the docs for dcu-cli to experiment with different switches [here](https://www.dell.com/support/manuals/en-us/command-update/dellcommandupdate_rg/dell-command-update-cli-commands?guid=guid-92619086-5f7c-4a05-bce2-0d560c15e8ed&lang=en-us)
 
 
 ## Final words
-I hope you found this walkthrough useful. There is some pros/cons to using the Dell Command | Update for managing updates compared to just using the Windows Update functionality to pushing drivers/BIOS. For instance, the notifications and snooze options you get with windows updates is much better for the end-user, but on the other hand if you use Dell Command | Update as it is right now, you will get updates and fixes much faster, and with a bit of communication and user adoption of Dell Command | Update, it could work. 
+I hope you found this walkthrough useful. There is some pros/cons to using the Dell Command | Update for managing updates compared to just using the Windows Update functionality to pushing drivers/BIOS. For instance, the notifications and snooze options you get with windows updates is much better for the end-user, but on the other hand if you use Dell Command | Update as it is right now, you will get updates and fixes much faster, and with a bit of communication and user adoption of Dell Command | Update, it could work. Just make sure your user don't close the last reboot reminder, and teach your users to start closing their work, to prepare for the reboot.
 
 Other thing worth mentioning is Dell is also looking into heavily modifying how updates are managed through Dell SupportAssist, that you can access through TechDirect. But I'm quite sure it will be locked down behind ProSupport Plus warranty or higher, so a lot of customers won't be able to access it. Let's see once we get it. We can kinda see they are preparing for it, in the release notes for DCU 5.2:
 
