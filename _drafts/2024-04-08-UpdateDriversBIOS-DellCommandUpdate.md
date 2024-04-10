@@ -17,6 +17,8 @@ In todays day and age it's super important to ensure your drivers and BIOS is up
 
 The one reason you should still consider using the hardware vendors own tools. is speed of delivery. Driver and BIOS updates are released instantly, and depending on the hardware vendor, there can be several months delay before they are released via Windows Update. That's not neccessarily the fault of Microsoft, it's mostly the hardware vendors themselves that decides when and if to release updates via Windows Update.
 
+In this blog post, we will go through what we can do with Dell devices using Dell's own Dell Command | Update.
+
 ## Getting started - Packaging Dell Command | Update
 In case you don't have Dell Command | Update in Intune as a Win32 app, you can steal my .intunewin file <a id="raw-url" href="https://raw.githubusercontent.com/thisisevilevil/evilevil365/master/assets/Dell-Command-Update-Windows-Universal-Application_0XNVX_WIN_5.2.0_A00.intunewin">here</a> for version 5.2. Add the app into intune as a Win32 app:
 * **Install command:** `Dell-Command-Update-Windows-Universal-Application_0XNVX_WIN_5.2.0_A00.EXE /s /l=C:\Windows\Logs\Dell_Command_Update_5.2_exe_installer.log`
@@ -95,6 +97,8 @@ Finally, all updates deployed via Dell Command | Update is logged to C:\ProgramD
 ![DellDCUAPP](/assets/images/2024-04-08-DellBIOSUpdates-Intune/DellDeviceFilter.png?raw=true "Dell Command | Update ADMX Templates")
 
 > **_PROTIP:_** **If you don't have any deployment rings, consider reusing your autopatch groups as shown in the above sample, so you can deploy updates in a staggered approach, to avoid deploying big changes to all your devices at the same time. Autopatch automatically divides your devices in rings, so need to do it manually. Default is 1% For Ring 1 (First), 9% for Ring 2 (Fast) and 90% for Ring 3 (Broad). Ring 0 (Test) can be reserved for members of your team, and needs to be manually assigned in autopatch. The default group names for autopatch starts with "Modern Workplace Devices-Windows Autopatch-" You can manually assign you and your colleagues devices in the Intune team to the Test group in autopatch**
+>
+> ![DellDCUAPP](/assets/images/2024-04-08-DellBIOSUpdates-Intune/AutoPatch-1.png?raw=true "Dell Command | Update ADMX Templates")
 
 ## Bonus: Remediation and PowerShell script for on-demand updates
 It's possible to run a one-time update of all dell drivers/firmware, where we trigger dcu-cli.exe from Command Update, using a remediation or a PowerShell Script. The PowerShell script can be assigned to a group of devices, whilst the remediation the be run on-demand for troubleshooting purposes. Try this out on your Dell devices with Dell Command Update already installed:
