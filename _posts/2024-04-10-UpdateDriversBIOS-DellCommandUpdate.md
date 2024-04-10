@@ -1,5 +1,5 @@
 ---
-title: "Update Drivers and BIOS with Dell Command | Update using Intune"
+title: "Update Dell devices with Dell Command | Update using Intune"
 date: 2024-04-10
 categories:
   - Dell
