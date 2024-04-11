@@ -72,7 +72,7 @@ All the settings we are looking for, is placed under the folder "Update Settings
 
 Change these settings accordingly based on your testing and your orgs needs. The settings "System restart deferral", "Installation Deferral" and "Delay" is the ones you can adjust based on your needs and deployment rings, that will have an impact to the end-user experience.
 
-You can also check if the settings deployed by opening Dell Command Update on the device, hit the settings button in the rop right corner. Then you should see a red text saying "Some settings are managed by your organization" in the top of the settings windows.
+You can also check if the settings deployed by opening Dell Command Update on the device, hit the settings button in the top right corner. Then you should see a red text saying "Some settings are managed by your organization" in the top of the settings windows.
 ![DellDCUAPP](/assets/images/2024-04-08-DellBIOSUpdates-Intune/DellDCU-SomeSettingsManagedByYourOrg.png?raw=true "Dell Command Update ADMX Templates")
 
 Based on the settings, the user will get various notifications, based on the settings you push to the users device. It can show notifications regarding installing updates, but you can also just choose to not show them notifications regarding installing updates, and then only show them reboot notifications, if updates has been installed that requires a reboot. The notifications will be shown as toast notifications, and will look like below:
