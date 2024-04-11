@@ -105,7 +105,7 @@ Finally, all updates deployed via Dell Command Update is logged to C:\ProgramDat
 > ![DellDCUAPP](/assets/images/2024-04-08-DellBIOSUpdates-Intune/AutoPatch-1.png?raw=true "Dell Command Update ADMX Templates")
 
 ## Bonus: Remediation and PowerShell script for on-demand updates
-It's possible to run a one-time update of all dell drivers/firmware, where we trigger dcu-cli.exe from Command Update, using a remediation or a PowerShell Script. The PowerShell script can be assigned to a group of devices, whilst the remediation the be run on-demand for troubleshooting purposes. Try this out on your Dell devices with Dell Command Update already installed:
+It's possible to run a one-time update of all dell drivers/firmware, where we trigger dcu-cli.exe from Command Update, using a remediation or a PowerShell Script. The PowerShell script can be assigned to a group of devices, whilst the remediation the be run on-demand for troubleshooting purposes. Try this out on your Dell devices:
 ```
 $currentdate = Get-Date -format 'ddMMyyyy_HHmmss'
 $dcucli = "${env:ProgramFiles}\Dell\CommandUpdate\dcu-cli.exe"
