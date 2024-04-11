@@ -55,7 +55,7 @@ The Dell template should be "Available" (Sometimes it can be a bit sluggish, so 
 
 
 ## Deploying update policies
-Let's go and create a new configuration profile. Select "Windows 10 and later" -> Templates -> Imported administratives templates (preview). Let's give the policy a nice name like "Dell Command Update Settings". Then hit next. Then you should be able to see the Dell folder with all the Dell Command Update settings.
+Let's go and create a new configuration profile. Select "Windows 10 and later" -> Templates -> Imported administrative templates (preview). Let's give the policy a nice name like "Dell Command Update Settings". Then hit next. Then you should be able to see the Dell folder with all the Dell Command Update settings.
 ![DellDCUAPP](/assets/images/2024-04-08-DellBIOSUpdates-Intune/DeployPolicy-1.png?raw=true "Dell Command Update ADMX Templates")
 ![DellDCUAPP](/assets/images/2024-04-08-DellBIOSUpdates-Intune/DeployPolicy-2.png?raw=true "Dell Command Update ADMX Templates")
 
