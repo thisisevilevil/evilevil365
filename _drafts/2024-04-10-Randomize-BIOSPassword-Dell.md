@@ -114,10 +114,8 @@ For now, let's explore how we can fetch the BIOS Passowrd using [Graph Explorer]
 
 ![DellBIOS](/assets/images/XXXX-XX-XX-Randomize-BIOSPasswords-Dell/Graph-GetBIOSPassword.png?raw=true "Get BIOS password using Graph")
 
-**_If you use custom roles in your org, you will also need to assign the Read BIOS password permissions under roles. Go to Intune -> Tenant Administration -> Roles -> Click your custom role -> Managed Devices -> And select "Yes" in "Read Bios password"
+**_If you use custom roles in your org, you will also need to assign the Read BIOS password permissions under roles. Go to Intune -> Tenant Administration -> Roles -> Click your custom role -> Managed Devices -> And select "Yes" in "Read Bios password"_**
 ![DellBIOS](/assets/images/XXXX-XX-XX-Randomize-BIOSPasswords-Dell/ManagedDevices_RBAC_Role.png?raw=true "Get BIOS password using Graph")
-
-_**
 
 
 
