@@ -114,7 +114,7 @@ For now, let's explore how we can fetch the BIOS Passowrd using [Graph Explorer]
 
 **_If you use custom roles in your org, you will also need to assign the Read BIOS password permissions under roles. Go to Intune -> Tenant Administration -> Roles -> Click your custom role -> Managed Devices -> And select "Yes" in "Read Bios password"_**
 
-## Tips/Hints
+## Things to be aware of/Tips
 * If Wiping -> Reusing devices, Intune cannot manage the BIOS password/Settings until manually removed. Consider only using Autopilot Reset or Fresh Start, if possible.
 * No support for service principals to delegate fetching BIOS Passwords. Not super relevant, unless you are creating your own tools
 * Not possible to modify BIOS Password strength. The password is generated with special characters. Can be tricky to type.
