@@ -1,5 +1,5 @@
 ---
-title: "Configure BIOS settings on and set BIOS passwords on Dell devices"
+title: "Configure BIOS settings and BIOS Password on Dell devices using Intue"
 date: 2024-04-13
 categories:
   - Dell
