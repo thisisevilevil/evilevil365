@@ -83,7 +83,7 @@ Let's look at the new option we now have in Intune. Head over to Intune -> Devic
 
 3. Configuration file for BIOS settings: This requires the .cctk file we previously crafted.
 
-> **_Currently it's not suported to have multiple BIOS Configuration profiles that sets different BIOS settings, targetted to the same device. You need to consolidate your settings into 1 profile. Also remember older models might supported different BIOS settings compared to newer ones, so be sure to test things out before deploying broadly._**
+> **_Currently it's not suported to have multiple BIOS Configuration profiles that sets different BIOS settings, targetted to the same device. You need to consolidate your settings into 1 profile. Also older models might support different BIOS settings compared to newer ones, so be sure to test things out before deploying broadly._**
 
 ![DellBIOS](/assets/images/2014-04-13-Randomize-BIOSPasswords-Dell/CreateConfigurationProfile-1.png?raw=true "BIOS Configuration Intune")
 ![DellBIOS](/assets/images/2014-04-13-Randomize-BIOSPasswords-Dell/CreateConfigurationProfile-2.png?raw=true "BIOS Configuration Intune")
