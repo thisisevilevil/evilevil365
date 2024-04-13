@@ -135,4 +135,4 @@ A part of me still wants Dell to pivot towards DFCI, but I know they had their r
 
 You can find the user guides for all of this stuff we went through, from Dell's website [here](https://www.dell.com/support/home/en-us/product-support/product/command-endpoint-configure/docs). You can also follow Microsoft's official docs for this feature [here](https://learn.microsoft.com/en-us/mem/intune/configuration/bios-configuration). I also imagine this feature will undergo a lot of changes, so I will try and keep this blog updated as it evolves, it's still very fresh.
 
-That's it for now. I hope you found it useful. :)
+That's it for now. I hope you found it useful.
