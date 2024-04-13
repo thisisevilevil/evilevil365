@@ -18,7 +18,7 @@ A new feature has been added to Intune where we now natively can Manage the BIOS
 
 I know configuring BIOS Settings is possible in Dell TechDirect, but it's time consuming having to create BIOS Profiles for each model, especially in large enterprises. Also Dell TechDirect is very sluggish to navigate which exacerbates the problem.
 
-Microsoft already has it's own feature for doing these things, known as DFCI (Device Firmware Configuration Interface). It's been here for a while, and currently supports Microsoft Surface, Acer, Asus, Toshiba Dynabook, Fujitsu and Panasonic. If you ask me, it would be a lot nicer if Dell would just play ball with DFCI. But for reasons I won't get into here, Dell has decided to go a seperate route rather than using DFCI.
+Microsoft already has it's own feature for doing these things, known as DFCI (Device Firmware Configuration Interface). It's been here for a while, and currently supports Microsoft Surface, Acer, Asus, Toshiba Dynabook, Fujitsu and Panasonic. If you ask me, it would be a lot nicer if Dell would just play ball with DFCI. But for reasons I won't get into here, Dell has decided to take a different route rather than using DFCI.
 Either way, to stay updated in the BIOS Configuration vs DFCI feature comparison, Microsoft has a good comparison [here](https://learn.microsoft.com/en-us/mem/intune/configuration/bios-configuration#bios-configuration-vs-dfci)
 
 Let's get into BIOS Configuration for Dell.
