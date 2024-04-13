@@ -1,5 +1,5 @@
 ---
-title: "DRAFT: Use Intune to randomize BIOS Passwords and set BIOS Settings on Dell devices"
+title: "DRAFT: Configure BIOS settings on and set BIOS passwords on Dell devices"
 date: DRAFT2024-04-03:DRAFT
 categories:
   - Dell
@@ -55,10 +55,12 @@ Once you have the .cctk file, now we have what we need to craft the BIOS Configu
 
 ### Verifying settings applied
 
+
+
 ## Fetching the BIOS Password
 
 ## Things to be aware of
 * If Wiping -> Reusing devices, Intune cannot manage the BIOS password/Settings until manually removed. Microsoft is working on it
-* No support for service principals to delegate fetching BIOS Passwords. Not super relevant
-* As of this blogs date, it's currently not possible to change the keyboard language or see what you type, when entering BIOS Password
+* No support for service principals to delegate fetching BIOS Passwords. Not super relevant, unless you make your own tools
 * Not possible to modify BIOS Password strength. Long password with special characters. Can be tricky to type.
+* As of this blogs date, it's currently not possible to change the keyboard language or see what you type, when entering BIOS Password
