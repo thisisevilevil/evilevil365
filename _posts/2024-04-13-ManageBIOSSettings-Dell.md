@@ -35,7 +35,7 @@ I also packaged version .NET Runtime 6.0.29 x64, as an .intunewin / Win32 app wh
 * **Required disk space:** 1000MB
 * **Detection, Path:** `Path: C:\Program Files\dotnet\shared\Microsoft.NETCore.App\` `File or folder: 6.0.29` `File or folder exist`
 
-![DellBIOS](/assets/images/2014-04-13-Randomize-BIOSPasswords-Dell/NETruntime_Detection.png?raw=true ".NET Runtime Detection")
+![DellBIOS](/assets/images/2024-04-13-Randomize-BIOSPasswords-Dell/NETruntime_Detection.png?raw=true ".NET Runtime Detection")
 
 Once the .NET Runtime has been packaged as a Win32 app, let's continue to package the Dell Command Endpoint Configure as well.
 
@@ -47,7 +47,7 @@ Grab my .intunewin file for the Dell Command Endpoint Configure app from here <a
 * **Detection, MSI String:** `{0D30F8A0-D0A5-40C9-A9AF-CEDE89934A45}`
 * **Dependency:** `Set dependency to .NET Runtime 6.0.29 - Automatically install: Yes`
 
-![DellBIOS](/assets/images/2014-04-13-Randomize-BIOSPasswords-Dell/NETRunetime6.0.29x64-Dependency.png?raw=true "Dependency towards .NET Runtime")
+![DellBIOS](/assets/images/2024-04-13-Randomize-BIOSPasswords-Dell/NETRunetime6.0.29x64-Dependency.png?raw=true "Dependency towards .NET Runtime")
 
 Assign both the .NET Runtime and Dell Command Endpoint Configure app to scope tags and a group of your choosing. For testing purposes, you can assign it to a test group, but once it's done testing, and you are ready to roll it out to everyone, I would recommend using "All Devices" with a Dell Manufacturer filter, for swift evaluation.
 
@@ -62,12 +62,12 @@ Let's enable some BIOS options required by [Device Guard](https://techcommunity.
 
 Once you have set all 3 settings to "enabled" in Dell Command Configure, select the "export config" button.
 
-![DellBIOS](/assets/images/2014-04-13-Randomize-BIOSPasswords-Dell/DellCommandConfigure-1.png?raw=true "Dell Command Configure")
-![DellBIOS](/assets/images/2014-04-13-Randomize-BIOSPasswords-Dell/DellCommandConfigure-2.png?raw=true "Dell Command Configure")
-![DellBIOS](/assets/images/2014-04-13-Randomize-BIOSPasswords-Dell/DellCommandConfigure-3.png?raw=true "Dell Command Configure")
+![DellBIOS](/assets/images/2024-04-13-Randomize-BIOSPasswords-Dell/DellCommandConfigure-1.png?raw=true "Dell Command Configure")
+![DellBIOS](/assets/images/2024-04-13-Randomize-BIOSPasswords-Dell/DellCommandConfigure-2.png?raw=true "Dell Command Configure")
+![DellBIOS](/assets/images/2024-04-13-Randomize-BIOSPasswords-Dell/DellCommandConfigure-3.png?raw=true "Dell Command Configure")
 
 Once you have the .cctk file, you can see it's a very simple text file, in a .cctk file format, no hocus pocus.
-![DellBIOS](/assets/images/2014-04-13-Randomize-BIOSPasswords-Dell/DellCCTKFile.png?raw=true "Dell Command Configure")
+![DellBIOS](/assets/images/2024-04-13-Randomize-BIOSPasswords-Dell/DellCCTKFile.png?raw=true "Dell Command Configure")
 
 if you want to cheat and want to test the functionality really quickly, you can grab the .cctk file I just crafted from <a id="raw-url" href="https://raw.githubusercontent.com/thisisevilevil/evilevil365/master/assets/images/2014-04-13-Randomize-BIOSPasswords-Dell/multiplatform_202404041905.cctk">here</a>
 
@@ -85,17 +85,17 @@ Let's look at the new option we now have in Intune. Head over to Intune -> Devic
 
 > **_Currently it's not suported to have multiple BIOS Configuration profiles that sets different BIOS settings, targetted to the same device. You need to consolidate your settings into 1 profile. Also older models might support different BIOS settings compared to newer ones, so be sure to test things out before deploying broadly._**
 
-![DellBIOS](/assets/images/2014-04-13-Randomize-BIOSPasswords-Dell/CreateConfigurationProfile-1.png?raw=true "BIOS Configuration Intune")
-![DellBIOS](/assets/images/2014-04-13-Randomize-BIOSPasswords-Dell/CreateConfigurationProfile-2.png?raw=true "BIOS Configuration Intune")
+![DellBIOS](/assets/images/2024-04-13-Randomize-BIOSPasswords-Dell/CreateConfigurationProfile-1.png?raw=true "BIOS Configuration Intune")
+![DellBIOS](/assets/images/2024-04-13-Randomize-BIOSPasswords-Dell/CreateConfigurationProfile-2.png?raw=true "BIOS Configuration Intune")
 
 ### Verifying settings applied
 From intune, you can verify settings has applied using the configuration profile. Note it will say "Pending" for a while, and it's a bit slow to report back when it's successfully applied, so just know that's normal. It should eventually change to "Success".
-![DellBIOS](/assets/images/2014-04-13-Randomize-BIOSPasswords-Dell/BIOSConfig-1.png?raw=true "BIOS Configuration Intune")
-![DellBIOS](/assets/images/2014-04-13-Randomize-BIOSPasswords-Dell/BIOSConfig-2.png?raw=true "BIOS Configuration Intune")
+![DellBIOS](/assets/images/2024-04-13-Randomize-BIOSPasswords-Dell/BIOSConfig-1.png?raw=true "BIOS Configuration Intune")
+![DellBIOS](/assets/images/2024-04-13-Randomize-BIOSPasswords-Dell/BIOSConfig-2.png?raw=true "BIOS Configuration Intune")
 
 From the client side, you can go to %programdata%\Dell\EndpointConfigure and review the EndpointConfigure.log to verify the agent is installed along with the .NET 6 dependency correctly loads. You should eventually see in the log "Key configuration sucessful" followed by "Key applied/updated". Finally it should say "Updated Results upon successful BIOS configuration operation" 
 
-![DellBIOS](/assets/images/2014-04-13-Randomize-BIOSPasswords-Dell/Dell_EndpointConfigureLogs.png?raw=true "BIOS Configuration Intune")
+![DellBIOS](/assets/images/2024-04-13-Randomize-BIOSPasswords-Dell/Dell_EndpointConfigureLogs.png?raw=true "BIOS Configuration Intune")
 
 ## Fetching the BIOS Password
 Currently it's only possible to view the password via Graph calls. It can be a blocker for many, but luckily, we can create tools and frontends to make it easier to fetch BIOS Passwords for ServiceDesk teams, when required. 
@@ -105,9 +105,9 @@ For now, let's explore how we can fetch the BIOS Password using [Graph Explorer]
 2. Sign-in with your account
 3. If not already done, press your profile picture in the top right corner -> Press Consent To Permissions -> Scroll all the way down to "DeviceManagementConfiguration" and press "Consent" for both permissions in this category. Do the same for the DeviceManagementManagedDevices category.
 
-![DellBIOS](/assets/images/2014-04-13-Randomize-BIOSPasswords-Dell/ConsentPermissions.png?raw=true "Consent for permissions")
-![DellBIOS](/assets/images/2014-04-13-Randomize-BIOSPasswords-Dell/ConsentPermissions-1.png?raw=true "Consent for permissions")
-![DellBIOS](/assets/images/2014-04-13-Randomize-BIOSPasswords-Dell/ConsentPermissions-2.png?raw=true "Consent for permissions")
+![DellBIOS](/assets/images/2024-04-13-Randomize-BIOSPasswords-Dell/ConsentPermissions.png?raw=true "Consent for permissions")
+![DellBIOS](/assets/images/2024-04-13-Randomize-BIOSPasswords-Dell/ConsentPermissions-1.png?raw=true "Consent for permissions")
+![DellBIOS](/assets/images/2024-04-13-Randomize-BIOSPasswords-Dell/ConsentPermissions-2.png?raw=true "Consent for permissions")
 
 **_NOTE: If you don't have the correct permissions to consent for these permissions, log a ticket to the relevant team in your org and describe the use case for why you need it. Feel free to link to this article as well, as documentation._**
 
@@ -115,10 +115,10 @@ For now, let's explore how we can fetch the BIOS Password using [Graph Explorer]
 * Retrieve for all devices: `https://graph.microsoft.com/beta/deviceManagement/hardwarePasswordInfo`
 * Retrieve for Specific devices: `https://graph.microsoft.com/beta/deviceManagement/hardwarePasswordInfo('<InsertIntuneDeviceID>')`
 
-![DellBIOS](/assets/images/2014-04-13-Randomize-BIOSPasswords-Dell/Graph-GetBIOSPassword.png?raw=true "Get BIOS password using Graph")
+![DellBIOS](/assets/images/2024-04-13-Randomize-BIOSPasswords-Dell/Graph-GetBIOSPassword.png?raw=true "Get BIOS password using Graph")
 
 **_If you use custom roles in your org, you will also need to assign the Read BIOS password permissions under roles. Go to Intune -> Tenant Administration -> Roles -> Click your custom role -> Managed Devices -> And select "Yes" in "Read Bios password"_**
-![DellBIOS](/assets/images/2014-04-13-Randomize-BIOSPasswords-Dell/ManagedDevices_RBAC_Role.png?raw=true "Get BIOS password using Graph")
+![DellBIOS](/assets/images/2024-04-13-Randomize-BIOSPasswords-Dell/ManagedDevices_RBAC_Role.png?raw=true "Get BIOS password using Graph")
 
 
 
