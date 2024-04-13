@@ -60,7 +60,7 @@ Let's enable some BIOS options required by [Device Guard](https://techcommunity.
 2. [Intel Trusted Execution Technology](https://www.intel.com/content/www/us/en/support/articles/000025873/processors.html)
 3. [Secure Boot](https://learn.microsoft.com/en-us/windows-hardware/design/device-experiences/oem-secure-boot)
 
-Once you have set all 3 settings to "enabled" in Dell Command | Configure, select the "export config" button.
+Once you have set all 3 settings to "enabled" in Dell Command Configure, select the "export config" button.
 
 ![DellBIOS](/assets/images/2014-04-13-Randomize-BIOSPasswords-Dell/DellCommandConfigure-1.png?raw=true "Dell Command | Configure")
 ![DellBIOS](/assets/images/2014-04-13-Randomize-BIOSPasswords-Dell/DellCommandConfigure-2.png?raw=true "Dell Command | Configure")
