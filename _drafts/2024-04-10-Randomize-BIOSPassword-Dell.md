@@ -96,7 +96,7 @@ From the client side, you can go to %programdata%\Dell\EndpointConfigure and rev
 
 ## Fetching the BIOS Password
 Currently it's only possible to view the password with a Graph. It can be a blocker for many, but luckily, we can create tools and frontends to make it easier to fetch BIOS Passwords for ServiceDesk teams, when required. 
-For now, let's explore how we can fetch the BIOS Passowrd using [Graph Explorer](https://developer.microsoft.com/en-us/graph/graph-explorer). Based on the [docs from Microsoft](https://learn.microsoft.com/en-us/graph/api/intune-deviceconfig-hardwarepasswordinfo-get?view=graph-rest-beta) we will need the following permissions: `DeviceManagementConfiguration.Read.All`, `DeviceManagementConfiguration.ReadWrite.All`, `DeviceManagementManagedDevices.PrivilegedOperations.All`
+For now, let's explore how we can fetch the BIOS Password using [Graph Explorer](https://developer.microsoft.com/en-us/graph/graph-explorer). Based on the [docs from Microsoft](https://learn.microsoft.com/en-us/graph/api/intune-deviceconfig-hardwarepasswordinfo-get?view=graph-rest-beta) we will need the following permissions: `DeviceManagementConfiguration.Read.All`, `DeviceManagementConfiguration.ReadWrite.All`, `DeviceManagementManagedDevices.PrivilegedOperations.All`
 
 1. Open Graph Explorer
 2. Sign-in with your account
@@ -122,7 +122,7 @@ For now, let's explore how we can fetch the BIOS Passowrd using [Graph Explorer]
 ## Things to be aware of/Tips
 * If Wiping -> Reusing devices, Intune cannot manage the BIOS password/Settings until manually removed. Consider only using Autopilot Reset or Fresh Start, if possible.
 * No support for service principals to delegate fetching BIOS Passwords. Not super relevant, unless you are creating your own tools
-* Not possible to modify BIOS Password strength. The password is generated with special characters. Can be tricky to type correctly, since we cannot change keyboard language in BIOS (Default: US). Let's hope Dell will make this easier soon, with the release of this feature.
+* Not possible to modify BIOS Password strength. The password is generated with special characters. Can be tricky to type correctly, since we cannot change keyboard language in BIOS (Default: US). 
 * If you completely lost the BIOS Password (This happened to me, seriously... :D), you can contact Dell to get them to give you a password to unlock it. You will need to generate a Challenge code in the BIOS, that you need to provide Dell support, before they can generate the password for you.
 * If you are into scripting, know that Dell Command Configure is deployed as part of the Dell Command Endpoint Configure Intune app, no need to deploy it seperately. It is located under C:\Program Files\Dell\EndpointConfigure\X86_64\cctk.exe - You can reference this in scripts or when troubleshooting
 
