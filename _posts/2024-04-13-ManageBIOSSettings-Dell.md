@@ -52,7 +52,7 @@ Grab my .intunewin file for the Dell Command Endpoint Configure app from here <a
 Assign both the .NET Runtime and Dell Command Endpoint Configure app to scope tags and a group of your choosing. For testing purposes, you can assign it to a test group, but once it's done testing, and you are ready to roll it out to everyone, I would recommend using "All Devices" with a Dell Manufacturer filter, for swift evaluation.
 
 ### Preparing the .cctk file
-To craft a BIOS Configuration rule, we need a .cctk file. .cctk files are simple little .ini files that simply states which BIOS Settings should be enabled or disabled, usually reserved for Dell Command Configure.
+To craft a BIOS Configuration rule, we need a .cctk file. .cctk files are simple little .ini-like files that simply states which BIOS Settings should be enabled or disabled, usually reserved for Dell Command Configure.
 Download and install Dell Command | Configure on a Dell machine. Preferably from a newer Dell Machine with an update BIOS. One installed, open Dell Command | Configure. 
 
 Let's enable some BIOS options required by [Device Guard](https://techcommunity.microsoft.com/t5/iis-support-blog/windows-10-device-guard-and-credential-guard-demystified/ba-p/376419). That would be the following on an Intel-device:
