@@ -92,7 +92,7 @@ From intune, you can verify settings has applied using the configuration profile
 ![DellBIOS](/assets/images/2014-04-13-Randomize-BIOSPasswords-Dell/BIOSConfig-1.png?raw=true "BIOS Configuration Intune")
 ![DellBIOS](/assets/images/2014-04-13-Randomize-BIOSPasswords-Dell/BIOSConfig-2.png?raw=true "BIOS Configuration Intune")
 
-From the client side, you can go to %programdata%\Dell\EndpointConfigure and review the EndpointConfigure.log to verify the agent is installed along with the .NET 6 dependency correctly loads. You should eventually see in the log "Key configuration sucessful" followed by "Key applied/updated". Finally it should say "Updated results upon successful BIOS configuration operating" 
+From the client side, you can go to %programdata%\Dell\EndpointConfigure and review the EndpointConfigure.log to verify the agent is installed along with the .NET 6 dependency correctly loads. You should eventually see in the log "Key configuration sucessful" followed by "Key applied/updated". Finally it should say "Updated Results upon successful BIOS configuration operation" 
 
 ![DellBIOS](/assets/images/2014-04-13-Randomize-BIOSPasswords-Dell/Dell_EndpointConfigureLogs.png?raw=true "BIOS Configuration Intune")
 
