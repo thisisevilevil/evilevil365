@@ -26,7 +26,7 @@ Let's get into BIOS Configuration for Dell.
 ## Getting started - Packaging the Dell Command Endpoint Configure Intune app
 To receive the settings you send down to the device from Intune, on Dell devices, you will need to package and deploy the Dell Command Endpoint Configure Intune app. If you don't do this, you will simply get an error "OEM agent was not installed" when trying to apply the BIOS Config profile. This app also has a dependency to .NET Runtime 6 for x64 Windows. You can find everything you need [here](https://www.dell.com/support/kbdoc/en-us/000214308/dell-command-endpoint-configure-for-microsoft-intune) if you want to dive into this yourself.
 
-For the dependency .NET Runtime, know that is receives security updates frequently through Windows Update. You can always find the latest version [here](https://dotnet.microsoft.com/en-us/download). There is a small button "All .NET Version", you need to click. Then Click .NET 6.0. In the lower right corner, under the .NET Runtime section, click the x64 button to download the correct file you need. I also packaged version 6.0.29 x64, which you can download from <a id="raw-url" href="https://raw.githubusercontent.com/thisisevilevil/evilevil365/master/assets/dotnet-runtime-6.0.29-win-x64.intunewin">here</a>
+For the dependency .NET Runtime, know that it receives security updates frequently through Windows Update. You can always find the latest version [here](https://dotnet.microsoft.com/en-us/download). There is a small button "All .NET Version", you need to click. Then Click .NET 6.0. In the lower right corner, under the .NET Runtime section, click the x64 button to download the correct file you need. I also packaged version 6.0.29 x64, which you can download from <a id="raw-url" href="https://raw.githubusercontent.com/thisisevilevil/evilevil365/master/assets/dotnet-runtime-6.0.29-win-x64.intunewin">here</a>
 
 * **Install command:** `dotnet-runtime-6.0.29-win-x64.exe /install /quiet /norestart`
 * **Uninstall command:** `dotnet-runtime-6.0.29-win-x64.exe /uninstall /quiet /norestart`
@@ -37,7 +37,7 @@ For the dependency .NET Runtime, know that is receives security updates frequent
 
 Once the .NET Runtime has been packaged as a Win32 app, let's continue to package the Dell Command Endpoint Configure as well.
 
-Grab my.intunewin file for the Dell Command Endpoint Configure app, you can fetch it here <a id="raw-url" href="https://raw.githubusercontent.com/thisisevilevil/evilevil365/master/assets/Dell-Command-Endpoint-Configure-for-Microsoft-Intune_T88X8_WIN_1.2.0.76_A00.intunewin">here</a>
+Grab my .intunewin file for the Dell Command Endpoint Configure app from here <a id="raw-url" href="https://raw.githubusercontent.com/thisisevilevil/evilevil365/master/assets/Dell-Command-Endpoint-Configure-for-Microsoft-Intune_T88X8_WIN_1.2.0.76_A00.intunewin">here</a>
 
 * **Install command:** `Dell-Command-Endpoint-Configure-for-Microsoft-Intune_T88X8_WIN_1.2.0.76_A00.EXE /s /l=C:\Windows\Logs\Dell_Command_EndpointConfigure_1.2_exe_installer.log`
 * **Uninstall command:** `msiexec /X {0D30F8A0-D0A5-40C9-A9AF-CEDE89934A45} /qn`
@@ -47,10 +47,10 @@ Grab my.intunewin file for the Dell Command Endpoint Configure app, you can fetc
 
 ![DellBIOS](/assets/images/XXXX-XX-XX-Randomize-BIOSPasswords-Dell/NETRunetime6.0.29x64-Dependency.png?raw=true "Dependency towards .NET Runtime")
 
-Assign both the .NET Runtime and Dell Command Endpoint Configure app to scope tags and a group of your choosing.
+Assign both the .NET Runtime and Dell Command Endpoint Configure app to scope tags and a group of your choosing. For testing purposes, you can assign it to a test group, but once it's done testing, and you are ready to roll it out to everyone, I would recommend using "All Devices" with a Dell Manufacturer filter, for swift evaluation.
 
 ### Preparing the .cctk file
-To craft a BIOS Configuration rule, we need a .cctk file. .cctk files are simple little .ini files that simply states if a BIOS Settings should be enabled or disabled.
+To craft a BIOS Configuration rule, we need a .cctk file. .cctk files are simple little .ini files that simply states which BIOS Settings should be enabled or disabled, usually reserved for Dell Command Configure.
 Download and install Dell Command | Configure on a Dell machine. Preferably from a newer Dell Machine with an update BIOS. One installed, open Dell Command | Configure. 
 
 Let's enable some BIOS options required by [Device Guard](https://techcommunity.microsoft.com/t5/iis-support-blog/windows-10-device-guard-and-credential-guard-demystified/ba-p/376419). That would be the following on an Intel-device:
