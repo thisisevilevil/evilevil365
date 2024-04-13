@@ -64,7 +64,7 @@ Once you have set all 3 settings to "enabled" in Dell Command | Configure, selec
 ![DellBIOS](/assets/images/XXXX-XX-XX-Randomize-BIOSPasswords-Dell/DellCommandConfigure-2.png?raw=true "Dell Command | Configure")
 ![DellBIOS](/assets/images/XXXX-XX-XX-Randomize-BIOSPasswords-Dell/DellCommandConfigure-3.png?raw=true "Dell Command | Configure")
 
-Once you have the .cctk file, you can see it's a very simple text file, just in a .cctk file format, no hocus pocus.
+Once you have the .cctk file, you can see it's a very simple text file, in a .cctk file format, no hocus pocus.
 ![DellBIOS](/assets/images/XXXX-XX-XX-Randomize-BIOSPasswords-Dell/DellCCTKFile.png?raw=true "Dell Command | Configure")
 
 if you want to cheat and want to test the functionality really quickly, you can grab the .cctk file I just crafted from <a id="raw-url" href="https://raw.githubusercontent.com/thisisevilevil/evilevil365/master/assets/images/XXXX-XX-XX-Randomize-BIOSPasswords-Dell/multiplatform_202404041905.cctk">here</a>
