@@ -108,16 +108,18 @@ For now, let's explore how we can fetch the BIOS Passowrd using [Graph Explorer]
 
 **_NOTE: If you don't have the correct permissions to consent for these permissions, log a ticket to the relevant team in your org and describe the use case for why you need it. Feel free to link to this article as well, as documentation._**
 
-
-
-
 4. Once done, we can use the the following Graph calls to retrieves BIOS Passwords:
 * Retrieve for all devices: `https://graph.microsoft.com/beta/deviceManagement/hardwarePasswordInfo`
 * Retrieve for Specific devices: `https://graph.microsoft.com/beta/deviceManagement/hardwarePasswordInfo('<InsertIntuneDeviceID>')`
 
 ![DellBIOS](/assets/images/XXXX-XX-XX-Randomize-BIOSPasswords-Dell/Graph-GetBIOSPassword.png?raw=true "Get BIOS password using Graph")
 
-**_If you use custom roles in your org, you will also need to assign the Read BIOS password permissions under roles. Go to Intune -> Tenant Administration -> Roles -> Click your custom role -> Managed Devices -> And select "Yes" in "Read Bios password"_**
+**_If you use custom roles in your org, you will also need to assign the Read BIOS password permissions under roles. Go to Intune -> Tenant Administration -> Roles -> Click your custom role -> Managed Devices -> And select "Yes" in "Read Bios password"
+![DellBIOS](/assets/images/XXXX-XX-XX-Randomize-BIOSPasswords-Dell/ManagedDevices_RBAC_Role.png?raw=true "Get BIOS password using Graph")
+
+_**
+
+
 
 ## Things to be aware of/Tips
 * If Wiping -> Reusing devices, Intune cannot manage the BIOS password/Settings until manually removed. Consider only using Autopilot Reset or Fresh Start, if possible.
