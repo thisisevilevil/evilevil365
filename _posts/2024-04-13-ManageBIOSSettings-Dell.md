@@ -78,6 +78,7 @@ Let's look at the new option we now have in Intune. Head over to Intune -> Devic
 
 1. As of this date, you can only select "Dell" in hardware.
 2. Note the setting "Disable per-device BIOS password protection". Be aware of the reverse logic here. By default this is set to "No" meaning it will manage and randomize the password. If we select "Yes", the randomizing of the BIOS password will not be enabled.
+
 **_If you are not ready to manage BIOS Passwords as of yet, remember to select "Yes" here instead. If you roll this policy out to all of your devices and they all set a random password, be aware we currently can't modify the password strength of the BIOS Password. It has Upper/Lower Case characters, numbers and special characters. The latter is the tricky one, since the Keyboard language on Dell Laptops in the BIOS is by default set to US_**
 
 3. Configuration file for BIOS settings: This requires the .cctk file we previously crafted.
