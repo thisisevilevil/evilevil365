@@ -102,9 +102,13 @@ For now, let's explore how we can fetch the BIOS Passowrd using [Graph Explorer]
 2. Sign-in with your account
 3. If not already done, press your profile picture in the top right corner -> Press Consent To Permissions -> Scroll all the way down to "DeviceManagementConfiguration" and press "Consent" for both permissions in this category. Do the same for the DeviceManagementManagedDevices category.
 
+![DellBIOS](/assets/images/XXXX-XX-XX-Randomize-BIOSPasswords-Dell/ConsentPermissions.png?raw=true "Consent for permissions")
+![DellBIOS](/assets/images/XXXX-XX-XX-Randomize-BIOSPasswords-Dell/ConsentPermissions-1.png?raw=true "Consent for permissions")
+![DellBIOS](/assets/images/XXXX-XX-XX-Randomize-BIOSPasswords-Dell/ConsentPermissions-2.png?raw=true "Consent for permissions")
+
 **_NOTE: If you don't have the correct permissions to consent for these permissions, log a ticket to the relevant team in your org and describe the use case for why you need it. Feel free to link to this article as well, as documentation._**
 
-![DellBIOS](/assets/images/XXXX-XX-XX-Randomize-BIOSPasswords-Dell/ConsentPermissions.png?raw=true "Consent for permissions")
+
 
 
 4. Once done, we can use the the following Graph calls to retrieves BIOS Passwords:
