@@ -12,11 +12,11 @@ tags:
 ---
 
 A new feature has been added to Intune where we now natively can randomize the BIOS Password for Dell devices and also set BIOS Settings. This is great on so many levels, because:
-* Randomizing BIOS Passwords today, requires custom tooling/custom scripting. Can be time consuming
-* How should the BIOS Passwords be set and stored? Not in plain text and available for everyone, right? :)
+* Randomizing BIOS Passwords today, requires custom tooling/custom scripting. Can be time consuming, and needs to be maintained.
+* How should the BIOS Passwords be set and stored? Not in plain text, right? :)
 * Streamline BIOS settings across your estate to ensure they are configured correctly.
 
-I know this is possible in Dell TechDirect, but it's time consuming having to create BIOS Profiles for each model, especially in large enterprises. Also Dell TechDirect is very sluggish to navigate which exacerbates the problem. Something Dell is aware of though.
+I know configuring BIOS Settings is possible in Dell TechDirect, but it's time consuming having to create BIOS Profiles for each model, especially in large enterprises. Also Dell TechDirect is very sluggish to navigate which exacerbates the problem.
 
 Microsoft already has it's own feature for doing these things, known as DFCI (Device Firmware Configuration Interface). It's been here for a while, and currently supports Surface, Acer, Asus, Toshiba Dynabook, Fujitsu and Panasonic. If you ask me, it would be a lot nicer if Dell would just play ball with DFCI. But for reasons I won't get into here, Dell has decided to go a seperate route rather than using DFCI.
 Either way, to stay updated in the BIOS Configuration vs DFCI feature comparison, Microsoft has a good comparison [here](https://learn.microsoft.com/en-us/mem/intune/configuration/bios-configuration#bios-configuration-vs-dfci)
@@ -24,9 +24,11 @@ Either way, to stay updated in the BIOS Configuration vs DFCI feature comparison
 Let's get into BIOS Configuration for Dell.
 
 ## Getting started - Packaging the Dell Command Endpoint Configure Intune app
-To receive the settings you send down to the device from Intune, on Dell devices, you will need to package and deploy the Dell Command Endpoint Configure Intune app. If you don't do this, you will simply get an error "OEM agent was not installed" when trying to apply the BIOS Config profile. This app also has a dependency to .NET Runtime 6 for x64 Windows. You can find everything you need [here](https://www.dell.com/support/kbdoc/en-us/000214308/dell-command-endpoint-configure-for-microsoft-intune) if you want to dive into this yourself.
+To receive the settings you send down to the device from Intune, on Dell devices, you will need to package and deploy the Dell Command Endpoint Configure Intune app. This app also has a dependency to .NET Runtime 6 for x64 Windows. You can find everything you need [here](https://www.dell.com/support/kbdoc/en-us/000214308/dell-command-endpoint-configure-for-microsoft-intune) if you want to dive into this yourself.
 
-For the dependency .NET Runtime, know that it receives security updates frequently through Windows Update. You can always find the latest version [here](https://dotnet.microsoft.com/en-us/download). There is a small button "All .NET Version", you need to click. Then Click .NET 6.0. In the lower right corner, under the .NET Runtime section, click the x64 button to download the correct file you need. I also packaged version 6.0.29 x64, which you can download from <a id="raw-url" href="https://raw.githubusercontent.com/thisisevilevil/evilevil365/master/assets/dotnet-runtime-6.0.29-win-x64.intunewin">here</a>
+For the dependency .NET Runtime, know that it receives security updates frequently through Windows Update. You can always find the latest version [here](https://dotnet.microsoft.com/en-us/download). There is a small button "All .NET Version", you need to click. Then Click .NET 6.0. In the lower right corner, under the .NET Runtime section, click the x64 button to download the correct file you need. 
+
+I also packaged version .NET Runtime 6.0.29 x64, as an .intunewin / Win32 app which you can download from <a id="raw-url" href="https://raw.githubusercontent.com/thisisevilevil/evilevil365/master/assets/dotnet-runtime-6.0.29-win-x64.intunewin">here</a>
 
 * **Install command:** `dotnet-runtime-6.0.29-win-x64.exe /install /quiet /norestart`
 * **Uninstall command:** `dotnet-runtime-6.0.29-win-x64.exe /uninstall /quiet /norestart`
