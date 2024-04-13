@@ -53,7 +53,7 @@ Assign both the .NET Runtime and Dell Command Endpoint Configure app to scope ta
 
 ### Preparing the .cctk file
 To craft a BIOS Configuration rule, we need a .cctk file. .cctk files are simple little .ini-like files that simply states which BIOS Settings should be enabled or disabled, usually reserved for Dell Command Configure.
-Download and install Dell Command | Configure on a Dell machine. Preferably from a newer Dell Machine with an update BIOS. One installed, open Dell Command | Configure. 
+Download and install Dell Command Configure on a Dell machine. Preferably from a newer Dell Machine with an update BIOS. One installed, open Dell Command Configure. 
 
 Let's enable some BIOS options required by [Device Guard](https://techcommunity.microsoft.com/t5/iis-support-blog/windows-10-device-guard-and-credential-guard-demystified/ba-p/376419). That would be the following on an Intel-device:
 1. [Intel Virtualization Technology](https://www.intel.com/content/www/us/en/support/articles/000005486/processors.html)
@@ -62,12 +62,12 @@ Let's enable some BIOS options required by [Device Guard](https://techcommunity.
 
 Once you have set all 3 settings to "enabled" in Dell Command Configure, select the "export config" button.
 
-![DellBIOS](/assets/images/2014-04-13-Randomize-BIOSPasswords-Dell/DellCommandConfigure-1.png?raw=true "Dell Command | Configure")
-![DellBIOS](/assets/images/2014-04-13-Randomize-BIOSPasswords-Dell/DellCommandConfigure-2.png?raw=true "Dell Command | Configure")
-![DellBIOS](/assets/images/2014-04-13-Randomize-BIOSPasswords-Dell/DellCommandConfigure-3.png?raw=true "Dell Command | Configure")
+![DellBIOS](/assets/images/2014-04-13-Randomize-BIOSPasswords-Dell/DellCommandConfigure-1.png?raw=true "Dell Command Configure")
+![DellBIOS](/assets/images/2014-04-13-Randomize-BIOSPasswords-Dell/DellCommandConfigure-2.png?raw=true "Dell Command Configure")
+![DellBIOS](/assets/images/2014-04-13-Randomize-BIOSPasswords-Dell/DellCommandConfigure-3.png?raw=true "Dell Command Configure")
 
 Once you have the .cctk file, you can see it's a very simple text file, in a .cctk file format, no hocus pocus.
-![DellBIOS](/assets/images/2014-04-13-Randomize-BIOSPasswords-Dell/DellCCTKFile.png?raw=true "Dell Command | Configure")
+![DellBIOS](/assets/images/2014-04-13-Randomize-BIOSPasswords-Dell/DellCCTKFile.png?raw=true "Dell Command Configure")
 
 if you want to cheat and want to test the functionality really quickly, you can grab the .cctk file I just crafted from <a id="raw-url" href="https://raw.githubusercontent.com/thisisevilevil/evilevil365/master/assets/images/2014-04-13-Randomize-BIOSPasswords-Dell/multiplatform_202404041905.cctk">here</a>
 
