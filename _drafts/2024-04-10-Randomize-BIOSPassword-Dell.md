@@ -106,14 +106,16 @@ Currently it's only possible to view the password with a Graph. It can be a bloc
 
 **_If you use custom roles in your org, you will also need to assign the Read BIOS password permissions under roles. Go to Intune -> Tenant Administration -> Roles -> Click your custom role -> Managed Devices -> And select "Yes" in "Read Bios password"_**
 
-## Things to be aware of
-* If Wiping -> Reusing devices, Intune cannot manage the BIOS password/Settings until manually removed. Consider only using Autopilot Reset or Fresh Start
+## Tips/Hints
+* If Wiping -> Reusing devices, Intune cannot manage the BIOS password/Settings until manually removed. Consider only using Autopilot Reset or Fresh Start, if possible.
 * No support for service principals to delegate fetching BIOS Passwords. Not super relevant, unless you are creating your own tools
-* Not possible to modify BIOS Password strength. Long password with special characters. Can be tricky to type.
+* Not possible to modify BIOS Password strength. The password is generated with special characters. Can be tricky to type.
 * As of this blogs date, it's currently not possible to change the keyboard language or see what you type, when entering BIOS Password
 * If you completely lost the BIOS Password (This happened to me, seriously... :D), you can contact Dell to get them to give you a password to unlock it. You will need to generate a Challenge code in the BIOS, that you need to provide Dell support, before they can generate the password for you.
+* If you are into scripting, know that Dell Command Configure is deployed as part of the Dell Command Endpoint Configure Intune app. It is located under C:\Program Files\Dell\EndpointConfigure\X86_64\cctk.exe - You can reference this in scripts or when troubleshooting
+
 
 ## Wrapping up
 That's it for now. I hope you found it useful. A part of me still wants Dell to pivot towards DFCI, but I know they had their reasons to go their own way, still working together with Microsoft though. It's still cool that we now have this option. In the past I've simply use Remediations to set BIOS settings + BIOS Passwords, but it's not super pretty to do it that way. But hey, we'll take what we can get for now :)
 
-You can find the user guides for all of this stuff we went through, from Dell's website [here](https://www.dell.com/support/home/en-us/product-support/product/command-endpoint-configure/docs). I also imagine this feature will undergo a lot of changes, so I will try and keep this blog updated as it evolves. You can also follow Microsoft's official docs for this feature [here](https://learn.microsoft.com/en-us/mem/intune/configuration/bios-configuration).
+You can find the user guides for all of this stuff we went through, from Dell's website [here](https://www.dell.com/support/home/en-us/product-support/product/command-endpoint-configure/docs). You can also follow Microsoft's official docs for this feature [here](https://learn.microsoft.com/en-us/mem/intune/configuration/bios-configuration). I also imagine this feature will undergo a lot of changes, so I will try and keep this blog updated as it evolves, it's still very fresh.
