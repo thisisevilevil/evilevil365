@@ -15,12 +15,13 @@ A new feature has been added to Intune where we now natively can randomize the B
 * Randomizing BIOS Passwords today, requires custom tooling/custom scripting. Can be time consuming
 * How should the BIOS Passwords be set and stored? Not in plain text and available for everyone, right? :)
 * Streamline BIOS settings across your estate to ensure they are configured correctly.
--> I know this is possible in Dell TechDirect, but it's time consuming having to create BIOS Profiles for each model, especially in large enterprises. Also Dell TechDirect is very sluggish to navigate which exacerbates the problem. Something Dell is aware of though.
 
-Microsoft already has it's own feature for doing these things, known as DFCI (Device Firmware Configuration Interface). It's been here for a while, and currently supports Surface, Acer, Asus, Toshiba Dynabook, Fujitsu and Panasonic. If you ask me, it would be a lot nicer if they would just play ball with DFCI. But for reasons I won't get into here, Dell has decided to go a seperate route rather than using DFCI.
+I know this is possible in Dell TechDirect, but it's time consuming having to create BIOS Profiles for each model, especially in large enterprises. Also Dell TechDirect is very sluggish to navigate which exacerbates the problem. Something Dell is aware of though.
+
+Microsoft already has it's own feature for doing these things, known as DFCI (Device Firmware Configuration Interface). It's been here for a while, and currently supports Surface, Acer, Asus, Toshiba Dynabook, Fujitsu and Panasonic. If you ask me, it would be a lot nicer if Dell would just play ball with DFCI. But for reasons I won't get into here, Dell has decided to go a seperate route rather than using DFCI.
 Either way, to stay updated in the BIOS Configuration vs DFCI feature comparison, Microsoft has a good comparison [here](https://learn.microsoft.com/en-us/mem/intune/configuration/bios-configuration#bios-configuration-vs-dfci)
 
-Let's get into BIOS Configuration for Dell :)
+Let's get into BIOS Configuration for Dell.
 
 ## Getting started - Packaging the Dell Command Endpoint Configure Intune app
 To receive the settings you send down to the device from Intune, on Dell devices, you will need to package and deploy the Dell Command Endpoint Configure Intune app. If you don't do this, you will simply get an error "OEM agent was not installed" when trying to apply the BIOS Config profile. This app also has a dependency to .NET Runtime 6 for x64 Windows. You can find everything you need [here](https://www.dell.com/support/kbdoc/en-us/000214308/dell-command-endpoint-configure-for-microsoft-intune) if you want to dive into this yourself.
@@ -30,7 +31,9 @@ For the dependency .NET Runtime, know that is receives security updates frequent
 * **Install command:** `dotnet-runtime-6.0.29-win-x64.exe /install /quiet /norestart`
 * **Uninstall command:** `dotnet-runtime-6.0.29-win-x64.exe /uninstall /quiet /norestart`
 * **Required disk space:** 1000MB
-* **Detection, Path:** `Path: C:\Program Files\dotnet\shared\Microsoft.NETCore.App\` `6.0.29` `File or folder exist`
+* **Detection, Path:** `Path: C:\Program Files\dotnet\shared\Microsoft.NETCore.App\` `File or folder: 6.0.29` `File or folder exist`
+
+![DellBIOS](/assets/images/XXXX-XX-XX-Randomize-BIOSPasswords-Dell/NETruntime_Detection.png?raw=true ".NET Runtime Detection")
 
 Once the .NET Runtime has been packaged as a Win32 app, let's continue to package the Dell Command Endpoint Configure as well.
 
