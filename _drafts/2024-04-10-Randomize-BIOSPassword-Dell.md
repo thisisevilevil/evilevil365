@@ -72,14 +72,15 @@ if you want to cheat and want to test the functionality really quickly, you can 
 Once you have the .cctk file, now we have what we need to craft the BIOS Configuration profile!
 
 ## Creating the configuration profile
-Let's look at the new option we now have in Intune. Head over to Intune -> Devices -> Configuration -> Create, New Policy -> Select Windows 10 and later -> Select Templates. Finally select "BIOS Configurations and other settings"
+Let's look at the new option we now have in Intune. Head over to Intune -> Devices -> Configuration -> Create New Policy -> Select Windows 10 and later -> Select Templates. Finally select "BIOS Configurations and other settings"
 
 1. As of this blogs post, you can only select "Dell" in hardware. Let's hope Lenovo and HP shows up here soon as well.
 2. Note the setting "Disable per-device BIOS password protection". Be aware of the reverse logic here. By default this is set to "No" meaning it will manage and randomize the password. If we select "Yes", the randomizing of the BIOS password will not be enabled.
-* If you are not ready to manage BIOS Passwords as of yet, remember to select "Yes" here instead. If you roll this policy out to all of your devices and they all set a random password, be aware we currently can't modify the password strength of the BIOS Password. It has Upper/Lower Case characters, numbers and symbols as well. The latter is the tricky one, since the Keyboard language on Dell Laptops in the BIOS is by default set to US
+**_If you are not ready to manage BIOS Passwords as of yet, remember to select "Yes" here instead. If you roll this policy out to all of your devices and they all set a random password, be aware we currently can't modify the password strength of the BIOS Password. It has Upper/Lower Case characters, numbers and symbols as well. The latter is the tricky one, since the Keyboard language on Dell Laptops in the BIOS is by default set to US_**
+
 3. Configuration file for BIOS settings: This requires the .cctk file we previously crafted.
 
-> **_Currently it's not suported to have multiple BIOS Configuration profiles that sets different BIOS settings, targetted to the same device. You need to consolidate into 1 profile pr. model. Also remember older models might supported different BIOS settings compared to newer ones._**
+> **_Currently it's not suported to have multiple BIOS Configuration profiles that sets different BIOS settings, targetted to the same device. You need to consolidate your settings into 1 profile. Also remember older models might supported different BIOS settings compared to newer ones, so be sure to test things out before deploying broadly._**
 
 ![DellBIOS](/assets/images/XXXX-XX-XX-Randomize-BIOSPasswords-Dell/CreateConfigurationProfile-1.png?raw=true "BIOS Configuration Intune")
 ![DellBIOS](/assets/images/XXXX-XX-XX-Randomize-BIOSPasswords-Dell/CreateConfigurationProfile-2.png?raw=true "BIOS Configuration Intune")
@@ -91,21 +92,25 @@ From intune, you can verify settings has applied using the configuration profile
 
 From the client side, you can go to %programdata%\Dell\EndpointConfigure and review the EndpointConfigure.log to verify the agent is installed along with the .NET 6 dependency correctly loads. You should eventually see in the log "Key configuration sucessful" followed by "Key applied/updated". Finally it should say "Updated results upon successful BIOS configuration operating" 
 
-![DellBIOS](/assets/images/XXXX-XX-XX-Randomize-BIOSPasswords-Dell/Dell_EndpointConfigureLogs?raw=true "BIOS Configuration Intune")
+![DellBIOS](/assets/images/XXXX-XX-XX-Randomize-BIOSPasswords-Dell/Dell_EndpointConfigureLogs.png?raw=true "BIOS Configuration Intune")
 
 ## Fetching the BIOS Password
-Currently it's only possible to view the password with a Graph. It can be a blocker for many, but luckily, we can create tools and frontends to make it easier to fetch BIOS Passwords for ServiceDesk teams, when required. For now, let's explore how we can fetch the BIOS Passowrd using [Graph Explorer](https://developer.microsoft.com/en-us/graph/graph-explorer). Based on the [docs from Microsoft](https://learn.microsoft.com/en-us/graph/api/intune-deviceconfig-hardwarepasswordinfo-get?view=graph-rest-beta) we will need the following permissions: DeviceManagementConfiguration.Read.All, DeviceManagementConfiguration.ReadWrite.All, DeviceManagementManagedDevices.PrivilegedOperations.All
+Currently it's only possible to view the password with a Graph. It can be a blocker for many, but luckily, we can create tools and frontends to make it easier to fetch BIOS Passwords for ServiceDesk teams, when required. 
+For now, let's explore how we can fetch the BIOS Passowrd using [Graph Explorer](https://developer.microsoft.com/en-us/graph/graph-explorer). Based on the [docs from Microsoft](https://learn.microsoft.com/en-us/graph/api/intune-deviceconfig-hardwarepasswordinfo-get?view=graph-rest-beta) we will need the following permissions: `DeviceManagementConfiguration.Read.All`, `DeviceManagementConfiguration.ReadWrite.All`, `DeviceManagementManagedDevices.PrivilegedOperations.All`
 
 1. Open Graph Explorer
 2. Sign-in with your account
 3. If not already done, press your profile picture in the top right corner -> Press Consent To Permissions -> Scroll all the way down to "DeviceManagementConfiguration" and press "Consent" for both permissions in this category. Do the same for the DeviceManagementManagedDevices cateogry.
 **_NOTE: If you don't have the correct permissions to consent for these permissions, log a ticket to the relevant team in your org and describe the use case for why you need it. Feel free to link to this article as well, as documentation._**
-![DellBIOS](/assets/images/XXXX-XX-XX-Randomize-BIOSPasswords-Dell/CreateConfigurationProfile-2.png?raw=true "BIOS Configuration Intune")
+
+![DellBIOS](/assets/images/XXXX-XX-XX-Randomize-BIOSPasswords-Dell/ConsentPermissions.png?raw=true "Consent for permissions")
 
 
 4. Once done, we can use the the following Graph calls to retrieves BIOS Passwords:
 * Retrieve for all devices: https://graph.microsoft.com/beta/deviceManagement/hardwarePasswordInfo
 * Retrieve for Specific devices: https://graph.microsoft.com/beta/deviceManagement/hardwarePasswordInfo('<IntuneDeviceID>')
+
+![DellBIOS](/assets/images/XXXX-XX-XX-Randomize-BIOSPasswords-Dell/Graph-GetBIOSPassword.png?raw=true "Get BIOS password using Graph")
 
 **_If you use custom roles in your org, you will also need to assign the Read BIOS password permissions under roles. Go to Intune -> Tenant Administration -> Roles -> Click your custom role -> Managed Devices -> And select "Yes" in "Read Bios password"_**
 
