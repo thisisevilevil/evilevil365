@@ -133,7 +133,7 @@ If you want to be able to fetch all BIOS passwords stored in your tenant, you wi
 
 
 ## Wrapping up
-A part of me still wants Dell to pivot towards DFCI, but I know they had their reasons to go their own way, still working together with Microsoft though. It's still cool that we now have this option. In the past I've simply use Remediations to set BIOS settings + BIOS Passwords, but it's not super pretty to do it that way. But hey, we'll take what we can get for now :)
+A part of me still wants Dell to pivot towards DFCI, but I know they had their reasons to go their own way, still working together with Microsoft though. It's still cool that we now have this option. In the past I've simply used Remediations to set BIOS settings + BIOS Passwords, but it's not super pretty to do it that way. But hey, we'll take what we can get for now :)
 
 You can find the user guides for all of this stuff we went through, from Dell's website [here](https://www.dell.com/support/home/en-us/product-support/product/command-endpoint-configure/docs). You can also follow Microsoft's official docs for this feature [here](https://learn.microsoft.com/en-us/mem/intune/configuration/bios-configuration). I also imagine this feature will undergo a lot of changes, so I will try and keep this blog updated as it evolves, it's still very fresh.
 
