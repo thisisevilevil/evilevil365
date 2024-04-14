@@ -33,7 +33,7 @@ I also packaged version .NET Runtime 6.0.29 x64, as an .intunewin / Win32 app wh
 * **Install command:** `dotnet-runtime-6.0.29-win-x64.exe /install /quiet /norestart`
 * **Uninstall command:** `dotnet-runtime-6.0.29-win-x64.exe /uninstall /quiet /norestart`
 * **Required disk space:** 1000MB
-* **Detection, Path:** `Path: C:\Program Files\dotnet\shared\Microsoft.NETCore.App\` `File or folder: 6.0.29` `File or folder exist`
+* **Detection, Path:** `Path: C:\Program Files\dotnet\shared\Microsoft.NETCore.App\` `File or folder: 6.0.29` `File or folder exists`
 
 ![DellBIOS](/assets/images/2024-04-13-Randomize-BIOSPasswords-Dell/NETruntime_Detection.png?raw=true ".NET Runtime Detection")
 
