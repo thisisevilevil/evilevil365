@@ -26,7 +26,7 @@ Let's get into BIOS Configuration for Dell.
 ## Getting started - Packaging the Dell Command Endpoint Configure Intune app
 To receive the settings you send down to the device from Intune, on Dell devices, you will need to package and deploy the Dell Command Endpoint Configure Intune app. This app also has a dependency to .NET Runtime 6 for x64 Windows. You can find everything you need [here](https://www.dell.com/support/kbdoc/en-us/000214308/dell-command-endpoint-configure-for-microsoft-intune) if you want to dive into this yourself.
 
-For the dependency .NET Runtime, know that it receives security updates frequently through Windows Update. You can always find the latest version [here](https://dotnet.microsoft.com/en-us/download). There is a small button "All .NET Version", you need to click. Then Click .NET 6.0. In the lower right corner, under the .NET Runtime section, click the x64 button to download the correct file you need. 
+For the dependency .NET Runtime, know that it receives security updates frequently through Windows Update. You can always find the latest version [here](https://dotnet.microsoft.com/en-us/download). There is a small button "All .NET Versions", you need to click. Then Click .NET 6.0. In the lower right corner, under the .NET Runtime section, click the x64 button to download the correct file you need. 
 
 I also packaged version .NET Runtime 6.0.29 x64, as an .intunewin / Win32 app which you can download from <a id="raw-url" href="https://raw.githubusercontent.com/thisisevilevil/evilevil365/master/assets/dotnet-runtime-6.0.29-win-x64.intunewin">here</a>
 
