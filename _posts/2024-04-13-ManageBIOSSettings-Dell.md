@@ -125,7 +125,7 @@ If you want to be able to fetch all BIOS passwords stored in your tenant, you wi
 
 
 ## Things to be aware of/Tips
-* If Wiping -> Reusing devices, Intune cannot manage the BIOS password/Settings until manually removed. Consider only using Autopilot Reset or Fresh Start, if possible.
+* If Wiping -> Reusing devices, Intune cannot manage the BIOS password/Settings until the BIOS password is manually removed. Consider only using Autopilot Reset or Fresh Start, if possible.
 * No support for service principals to delegate fetching BIOS Passwords. Not super relevant, unless you are creating your own tools
 * Not possible to modify BIOS Password strength. The password is generated with special characters. Can be tricky to type correctly, since we cannot change keyboard language in BIOS (Default: US). 
 * If you completely lost the BIOS Password (This happened to me, seriously... :D), you can contact Dell to get them to give you a password to unlock it. You will need to generate a Challenge code in the BIOS, that you need to provide Dell support, before they can generate the password for you.
