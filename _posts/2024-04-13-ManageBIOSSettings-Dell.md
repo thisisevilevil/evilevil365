@@ -69,7 +69,7 @@ Once you have set all 3 settings to "enabled" in Dell Command Configure, select 
 Once you have the .cctk file, you can see it's a very simple text file, in a .cctk file format, no hocus pocus.
 ![DellBIOS](/assets/images/2024-04-13-Randomize-BIOSPasswords-Dell/DellCCTKFile.png?raw=true "Dell Command Configure")
 
-if you want to cheat and want to test the functionality really quickly, you can grab the .cctk file I just crafted from <a id="raw-url" href="https://raw.githubusercontent.com/thisisevilevil/evilevil365/master/assets/images/2024-04-13-Randomize-BIOSPasswords-Dell/multiplatform_202404041905.cctk">here</a>
+You can also grab the .cctk file I just crafted from <a id="raw-url" href="https://raw.githubusercontent.com/thisisevilevil/evilevil365/master/assets/images/2024-04-13-Randomize-BIOSPasswords-Dell/multiplatform_202404041905.cctk">here</a>
 
 Once you have the .cctk file, now we have what we need to craft the BIOS Configuration profile!
 
