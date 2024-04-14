@@ -98,7 +98,7 @@ From the client side, you can go to %programdata%\Dell\EndpointConfigure and rev
 ![DellBIOS](/assets/images/2024-04-13-Randomize-BIOSPasswords-Dell/Dell_EndpointConfigureLogs.png?raw=true "BIOS Configuration Intune")
 
 ## Fetching the BIOS Password
-Currently it's only possible to view the password via Graph calls. It can be a blocker for many, but luckily, we can create tools and frontends to make it easier to fetch BIOS Passwords for ServiceDesk teams, when required. We can also hope it will be added to Intune on the device object.
+Currently it's only possible to view the password via Graph calls. It can be a blocker for many, but luckily, we can create tools and frontends to make it easier to fetch BIOS Passwords for ServiceDesk teams, when required. We can also hope it will be added to Intune on the device object, sometime in the future.
 
 For now, let's explore how we can fetch the BIOS Password using [Graph Explorer](https://developer.microsoft.com/en-us/graph/graph-explorer). Based on the [docs from Microsoft](https://learn.microsoft.com/en-us/graph/api/intune-deviceconfig-hardwarepasswordinfo-get?view=graph-rest-beta) we will need the following permissions: `DeviceManagementConfiguration.Read.All`, `DeviceManagementConfiguration.ReadWrite.All`
 
