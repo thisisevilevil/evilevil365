@@ -11,7 +11,7 @@ tags:
   - Endpoint Security
 ---
 
-A new feature has been added to Intune where we now natively can Manage the BIOS Settings on Dell Devices whilst also randomizing and managing the BIOS Password. This is great on so many levels, because:
+A new feature has been added to Intune where we now natively can manage the BIOS Settings on Dell Devices whilst also randomizing and managing the BIOS Password. This is great on so many levels, because:
 * Streamline BIOS settings across your estate to ensure they are configured correctly.
 * Randomizing BIOS Passwords today, requires custom tooling/custom scripting. Can be time consuming, and needs to be maintained.
 * How should the BIOS Passwords be set and stored? Not in plain text, right? :)
