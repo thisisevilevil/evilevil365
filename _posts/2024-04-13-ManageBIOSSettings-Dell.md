@@ -83,7 +83,7 @@ Let's look at the new option we now have in Intune. Head over to Intune -> Devic
 
 3. Configuration file for BIOS settings: This requires the .cctk file we previously crafted.
 
-> **_Currently it's not suported to have multiple BIOS Configuration profiles that sets different BIOS settings, targetted to the same device. You need to consolidate your settings into 1 profile. Also older models might support different BIOS settings compared to newer ones, so be sure to test things out before deploying broadly._**
+> **_Currently it's not supported to have multiple BIOS Configuration profiles that sets different BIOS settings, targeted to the same device. You need to consolidate your settings into 1 profile. Also older models might support different BIOS settings compared to newer ones, so be sure to test things out before deploying broadly._**
 
 ![DellBIOS](/assets/images/2024-04-13-Randomize-BIOSPasswords-Dell/CreateConfigurationProfile-1.png?raw=true "BIOS Configuration Intune")
 ![DellBIOS](/assets/images/2024-04-13-Randomize-BIOSPasswords-Dell/CreateConfigurationProfile-2.png?raw=true "BIOS Configuration Intune")
@@ -130,7 +130,7 @@ If you want to be able to fetch all BIOS passwords stored in your tenant, you wi
 * No support for service principals to delegate fetching BIOS Passwords. Not super relevant, unless you are creating your own tools
 * Not possible to modify BIOS Password strength. The password is generated with special characters. Can be tricky to type correctly, since we cannot change keyboard language in BIOS (Default: US). 
 * If you completely lost the BIOS Password for a device (This happened to me, seriously... :D), you can contact Dell to get them to give you a one-time password to unlock your device. You will need to generate a Challenge code in the BIOS, that you need to provide Dell support, before they can generate the password for you.
-* If you are into scripting, know that Dell Command Configure is deployed as part of the Dell Command Endpoint Configure Intune app, no need to deploy it seperately. It is located under C:\Program Files\Dell\EndpointConfigure\X86_64\cctk.exe - You can reference this in scripts or when troubleshooting
+* If you are into scripting, know that Dell Command Configure is deployed as part of the Dell Command Endpoint Configure Intune app, no need to deploy it separately. It is located under C:\Program Files\Dell\EndpointConfigure\X86_64\cctk.exe - You can reference this in scripts or when troubleshooting
 
 
 ## Wrapping up
