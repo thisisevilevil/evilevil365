@@ -21,7 +21,7 @@ Policy Sets allow you to bundle policies and apps into 1 assignable "set" of pol
 
 ## So what is the problem?
 Well, where do I begin. For starters, Policy Sets lacks support for using filters, which is definitely here to stay. But it also lacks support for things like Remediations, PowerShell scripts and Win32 apps. It has been like this for many years. Also, by the time settings catalog was introduced, I started seeing configuration profiles created as "Settings catalog" didn't always apply if it was applied through a policy set. 
-So what does that tell us? This feature has most likely been abandoned and has been left to suffer a very slow and painful death! The whole idea of policy sets die when we can't use all assignable policies, apps in the policy set.
+So what does that tell us? This feature has most likely been abandoned and has been left to suffer a very slow and painful death! The whole idea of policy sets die when we can't use all assignable policies, apps in the policy set, and it sure does look like Microsoft is not giving this one any love anymore.
 
 
 ## What is the alternative: Device Filters!
