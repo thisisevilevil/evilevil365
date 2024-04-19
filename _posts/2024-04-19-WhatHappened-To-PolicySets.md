@@ -31,11 +31,11 @@ Well, consider this when you assign things to an EntraID group. The EntraID Grou
 
 ![VirtualGroups](/assets/images/2024-04-19-WhatHappened-To-PolicySets/VirtualGroups-vs-EntraID.png?raw=true "VirtualGroups-vs-EntraID")
 
-One other great thing you get with the device filters, is the "Associated Assignments" button. In that view, you can see exactly where the filter is used, which gives you that all-around view of where the filter is used. While it doesn't replace the need to take a collection of policies, apps and settings as 1 assignable object, you still get that overview of where the filter is assigned.
+One other great thing you get with the device filters, is the "Associated Assignments" button. In that view, you can see exactly where the filter is used, when navigating to the filter. This gives you that all-around view of where the filter is used. While it doesn't replace the need to take a collection of policies, apps and settings as 1 assignable object, you still get that overview of where the filter is assigned.
 
 ![AssociatedAssignments](/assets/images/2024-04-19-WhatHappened-To-PolicySets/AssociatedAssignments.png?raw=true "Associated Assignments")
 
 ## The end (Perhaps also for policy sets..)
 I hope you learned something. If you haven't started using Device Filters in Intune yet, I highly recommend you get started now. Now is always the best time :)
 
-To stay updated in the Groupting, Targetting and Filtering space with Intune, I recommend you give [this article a read](https://learn.microsoft.com/en-us/mem/intune/fundamentals/filters-performance-recommendations)
+If you want to learn more about device filters, you can read about them here: [this article a read](https://learn.microsoft.com/en-us/mem/intune/fundamentals/filters-performance-recommendations)
