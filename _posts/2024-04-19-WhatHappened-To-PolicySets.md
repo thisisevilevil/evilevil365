@@ -38,4 +38,4 @@ One other great thing you get with the device filters, is the "Associated Assign
 ## The end (Perhaps also for policy sets..)
 I hope you learned something. If you haven't started using Device Filters in Intune yet, I highly recommend you get started now. Now is always the best time :)
 
-If you want to learn more about device filters, you can read about them here: [this article a read](https://learn.microsoft.com/en-us/mem/intune/fundamentals/filters-performance-recommendations)
+If you want to learn more about device filters and performance, you can read about it here: [this article a read](https://learn.microsoft.com/en-us/mem/intune/fundamentals/filters-performance-recommendations)
