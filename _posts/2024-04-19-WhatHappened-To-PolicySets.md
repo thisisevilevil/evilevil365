@@ -1,5 +1,5 @@
 ---
-title: "What happened to Policy Sets and the rise of device filters"
+title: "What happened to Policy Sets and the rise of Device Filters"
 date: 2024-04-19
 categories:
   - Microsoft Intune
@@ -9,7 +9,7 @@ tags:
   - Grouping, Targetting, Filtering
 ---
 
-If you have been using Intune for a few years, I'm sure you at the very least have noticed the ["Policy Sets"](https://learn.microsoft.com/en-us/mem/intune/fundamentals/policy-sets) button in Intune. It's one of those features that's been in preview forever. You might also be one of those who actually use policy sets.
+If you have been using Intune for a few years, I'm sure you at the very least have noticed the [Policy Sets](https://learn.microsoft.com/en-us/mem/intune/fundamentals/policy-sets) button in Intune. It's one of those features that's been in preview forever. You might also be one of those who actually use policy sets.
 I used to leverage policy sets at my customers some 2-3 years ago, but I stopped doing it, and I'm now recommending to migrate away from Policy Sets. Why? Well let's first go through what Policy Sets is.
 
 ![PolicySets](/assets/images/2024-04-19-WhatHappened-To-PolicySets/PolicySets.png?raw=true "Policy Sets in Intune")
