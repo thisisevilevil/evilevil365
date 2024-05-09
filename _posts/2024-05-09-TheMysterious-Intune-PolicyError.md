@@ -36,7 +36,9 @@ I created my support ticket with Microsoft, and sent screenshots + videos showin
 
 ![Policy](/assets/images/2024-05-09-TheMysterious-PolicyLimit/GeneratingHARLog.png?raw=true "GeneratingHARLog.png")
 
-After a short while he came back to me, and wanted to show me what he discovered. I was sent towards the [HAR Analyzer Tool created by Google](https://toolbox.googleapps.com/apps/har_analyzer/). We imported the HAR log to the tool, I previously sent to the support rep, navigated to a HTTP 400 Response -> Pressed "Response content". In that view, the cause of the error was clear as day.
+After a short while he came back to me, and wanted to show me what he discovered. I was sent towards the [HAR Analyzer Tool created by Google](https://toolbox.googleapps.com/apps/har_analyzer/). We imported the HAR log to the tool, I previously sent to the support rep, navigated to a HTTP 400 Response -> Pressed "Response content". 
+
+In that view, the cause of the error was clear as day.
 ```
 {
   "error": {
