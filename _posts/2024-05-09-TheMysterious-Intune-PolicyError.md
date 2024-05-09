@@ -8,7 +8,7 @@ tags:
   - Configuration Profile
 ---
 
-So here I am on a bank holiday in Denmark, helping a customer migrate old group policies into Intune. Everything is going fine, until I get their Internet Explorer Policy. They have a whopping 410 entries in the [Site to Zone assignment list](https://learn.microsoft.com/en-us/deployedge/per-site-configuration-by-policy#windows-security-zones).
+So here I am on a bank holiday in Denmark, helping a customer migrate old group policies into Intune. Everything is going fine, until I get to their Internet Explorer Policy. They have a whopping 410 entries in the [Site to Zone assignment list](https://learn.microsoft.com/en-us/deployedge/per-site-configuration-by-policy#windows-security-zones).
 For those of you who don't know what they are, it's basically a list of sites you would specify to be put in the "Local Intranet", "Trusted Sites" or maybe even "Restricted Sites". When you add sites to the policy, you can add your URL and then the corresponding number to specify what kind of site it is. It goes like so:
 * (1) Intranet zone
 * (2) Trusted Sites zone
@@ -22,9 +22,10 @@ So here I am migrating all of these sites to an Intune policy. I'm using Setting
 ![Policy](/assets/images/2024-05-09-TheMysterious-PolicyLimit/SiteToZoneAssignmentBegin.png?raw=true "Site to Zone Assigment List")
 
 However, as I'm almost halfway through adding all of my customers sites from the old GPO, i start receiving a generic error in Intune, "Failed to edit policy, try again later"? What could the reason be?
+
 ![Policy](/assets/images/2024-05-09-TheMysterious-PolicyLimit/NotificationError.png?raw=true "Error")
 
-I tried using a different browser, different PC nothing seems to work, keep getting the same error when I add additional sites. So obviously this is where I figured I hit some kind of hard limit in the policy. But looking through the docs, no such limit is described anywhere. I thought about trying my luck with the [PolicyCSP and Custom OMA-URI](https://learn.microsoft.com/en-us/windows/client-management/mdm/policy-csp-internetexplorer#allowsitetozoneassignmentlist) but with that amount of trusted sites, I don't think the customer will be too happy with how to add new sites, the formatting etc.. While it can be relatively easy for someone whose daily life is in Intune, GraphAPI etc, we as consultants also have to remember we have to help our customers so they can also help themselves in case we are not there anymore. So no PolicyCSP for site to zone assignments this time.
+I tried using a different browser, different PC nothing seemed to work, kept getting the same error when I add additional sites. So obviously this is where I figured I hit some kind of hard limit in the policy. But looking through the docs, no such limit is described anywhere. I thought about trying my luck with the [PolicyCSP and Custom OMA-URI](https://learn.microsoft.com/en-us/windows/client-management/mdm/policy-csp-internetexplorer#allowsitetozoneassignmentlist) but with that amount of trusted sites, I don't think the customer will be too happy with how to add new sites, the formatting etc.. While it can be relatively easy for someone whose daily life is in Intune, GraphAPI etc, we as consultants also have to remember we have to help our customers so they can also help themselves in case we are not there anymore. So no PolicyCSP for site to zone assignments this time.
 
 So what to do? I decided to raise a support ticket to the Microsoft Intune support team
 
@@ -33,7 +34,7 @@ I created my support ticket with Microsoft, and sent screenshots + videos showin
 
 ![Policy](/assets/images/2024-05-09-TheMysterious-PolicyLimit/NotificationError.png?raw=true "GeneratingHARLog.png")
 
-After a short while he came back to me, and he wanted to show me what he discovered. He sent me towards the [HAR Analyzer Tool created by Google}(https://toolbox.googleapps.com/apps/har_analyzer/). We imported the HAR log to the tool, I previously sent to the support rep, navigated to a HTTP 400 Response -> Pressed Response content. In that view, the cause of the error was clear as day.
+After a short while he came back to me, and he wanted to show me what he discovered. He sent me towards the [HAR Analyzer Tool created by Google](https://toolbox.googleapps.com/apps/har_analyzer/). We imported the HAR log to the tool, I previously sent to the support rep, navigated to a HTTP 400 Response -> Pressed Response content. In that view, the cause of the error was clear as day.
 ```
 {
   "error": {
