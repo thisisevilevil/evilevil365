@@ -32,7 +32,7 @@ I tried using a different browser, different PC nothing seemed to work, kept get
 So what to do? I decided to raise a support ticket to the Microsoft Intune support team
 
 # The mystery unravelled
-I created my support ticket with Microsoft, and sent screenshots + videos showing the issue. Within a short while a friendly Microsoft-support rep reached out to me via teams and asked me to provide something known as a "HAR" log. I was in instructed to open the developer tools in Edge, press the "Network" tab, and the reproduce the issue. Then there is a very small button (at least in my Edge version), where we can export what is known as the "HAR" log (Which I later learned more about [here](https://support.hmhco.com/s/article/Creating-a-HAR-file-in-Microsoft-Edge-Chromium)). The export button is otherwise very easy to miss. I exported it and sent it to the friendly Microsoft support rep.
+I created my support ticket with Microsoft, and sent screenshots + videos showing the issue. Within a short while a friendly Microsoft-support rep reached out to me via teams and asked me to provide something known as a "HAR" log. I was in instructed to open the developer tools in Edge, press the "Network" tab, and then reproduce the issue. Then there is a very small button (at least in my Edge version), where we can export what is known as the "HAR" log (Which I later learned more about [here](https://support.hmhco.com/s/article/Creating-a-HAR-file-in-Microsoft-Edge-Chromium)). The export button is otherwise very easy to miss. I exported it and sent it to the friendly Microsoft support rep.
 
 ![Policy](/assets/images/2024-05-09-TheMysterious-PolicyLimit/GeneratingHARLog.png?raw=true "GeneratingHARLog.png")
 
