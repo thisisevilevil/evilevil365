@@ -11,7 +11,7 @@ tags:
 ---
 
 So here I am on a bank holiday in Denmark, helping a customer migrate old group policies into Intune. Everything is going fine, until I get to their Internet Explorer Policy. They have a whopping 410 entries in the [Site to Zone assignment list](https://learn.microsoft.com/en-us/deployedge/per-site-configuration-by-policy#windows-security-zones).
-For those of you who don't know what they are, it's basically a list of sites you would specify to be put in the "Local Intranet", "Trusted Sites" or maybe even "Restricted Sites". When you add sites to the policy, you can add your URL and then the corresponding number to specify what zone the site should divert to. It goes like so:
+For those of you who doesn't know site to zone assignment: It's basically a list of sites you would specify to be put in the "Local Intranet", "Trusted Sites" or maybe even "Restricted Sites". When you add sites to the policy, you can add your URL and then the corresponding number to specify what zone the site should divert to. It goes like so:
 * (1) Intranet zone
 * (2) Trusted Sites zone
 * (3) Internet zone
