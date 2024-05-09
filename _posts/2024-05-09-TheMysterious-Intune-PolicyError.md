@@ -34,7 +34,7 @@ I created my support ticket with Microsoft, and sent screenshots + videos showin
 
 ![Policy](/assets/images/2024-05-09-TheMysterious-PolicyLimit/GeneratingHARLog.png?raw=true "GeneratingHARLog.png")
 
-After a short while he came back to me, and he wanted to show me what he discovered. He sent me towards the [HAR Analyzer Tool created by Google](https://toolbox.googleapps.com/apps/har_analyzer/). We imported the HAR log to the tool, I previously sent to the support rep, navigated to a HTTP 400 Response -> Pressed Response content. In that view, the cause of the error was clear as day.
+After a short while he came back to me, and wanted to show me what he discovered. I was sent towards the [HAR Analyzer Tool created by Google](https://toolbox.googleapps.com/apps/har_analyzer/). We imported the HAR log to the tool, I previously sent to the support rep, navigated to a HTTP 400 Response -> Pressed "Response content". In that view, the cause of the error was clear as day.
 ```
 {
   "error": {
@@ -54,6 +54,8 @@ After a short while he came back to me, and he wanted to show me what he discove
 
 Somebody in the Microsoft Intune team had decided to set the limit to this policy to 200 entries, and just forgot to document it anywhere.
 
-Well I'm happy he did, because now I know what a HAR log is and also know how to use Google's HAR Analyzer, so thank you Intune-man. And special thanks to the Microsoft support rep for the quick and awesome support. He also did promise to raise a request internally to have this limitation documented and the policy limit increased. In the mean time, we can simply create an additional policy with our trusted sites to workaround the 200 policy limit. :)
+Well I'm happy he did, because now I know what a HAR log is and also know how to use Google's HAR Analyzer, so thank you Intune-man. And special thanks to the Microsoft support rep for the quick and awesome support. 
+
+He also did promise to raise a request internally to have this limitation documented and the policy limit increased. In the mean time, we can simply create an additional policy with our trusted sites to workaround the 200 policy limit. :)
 
 
