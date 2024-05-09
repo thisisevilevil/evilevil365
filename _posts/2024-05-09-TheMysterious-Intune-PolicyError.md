@@ -6,6 +6,7 @@ categories:
 tags:
   - Bugs and Limitations
   - Configuration Profile
+  - Group Policy
   - Site to Zone Assignment
 ---
 
