@@ -6,6 +6,7 @@ categories:
 tags:
   - Bugs and Limitations
   - Configuration Profile
+  - Site to Zone Assignment
 ---
 
 So here I am on a bank holiday in Denmark, helping a customer migrate old group policies into Intune. Everything is going fine, until I get to their Internet Explorer Policy. They have a whopping 410 entries in the [Site to Zone assignment list](https://learn.microsoft.com/en-us/deployedge/per-site-configuration-by-policy#windows-security-zones).
