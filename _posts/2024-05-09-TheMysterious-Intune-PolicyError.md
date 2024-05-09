@@ -56,6 +56,6 @@ Somebody in the Microsoft Intune team had decided to set the limit to this polic
 
 Well I'm happy he did, because now I know what a HAR log is and also know how to use Google's HAR Analyzer, so thank you Intune-man. And special thanks to the Microsoft support rep for the quick and awesome support. 
 
-He also did promise to raise a request internally to have this limitation documented and the policy limit increased. In the mean time, we can simply create an additional policy with our trusted sites to workaround the 200 policy limit. :)
+The Microsoft support rep promises to raise a request internally to have this limitation documented and the policy limit increased. In the mean time, we can simply create an additional policy with our trusted sites to workaround the 200 policy limit. :)
 
 
