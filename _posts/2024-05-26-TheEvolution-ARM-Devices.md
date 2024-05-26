@@ -16,7 +16,8 @@ tags:
 
 If you had asked me 10 years ago if ARM-based devices would ever go mainstream for Laptops I would probably say "Never - They are only good for tablets and mobile phones!". Fast forward a few years, and now the outlook for the future regarding hardware in end-user compute has been turned on it's head, due to the progress made in the ARM space, primarily by the people at Apple and Qualcomm. [Apple released their own CPUs back in 2020](https://www.apple.com/newsroom/2020/11/apple-unleashes-m1/) based on ARM, while Qualcomm has been on the market for a while with a large market share in the smartphone industry.
 
-For those of you unaware, Apple and Qualcomm has actually been in competition in the ARM space for the past few years, and you'll also find that both companies have poached engineers in eachothers backyard, much to the opposing companies dismay. While they still partner in some capacity, you can be sure the competition is going to be stiff the next few years, much like we have seen the past 2 decades between Intel and AMD. It started way back in 2016-2017, where it's clear that [Apple already got a taste of building their own CPUs](https://fortune.com/2017/05/30/apple-qualcomm-esin-terzioglu/) rather than relying on Intel to supply CPUs to their entire product portfolio, as they recruited top-talent from Qualcomm.
+For those of you unaware, Apple and Qualcomm has actually been in competition in the ARM space for the past few years, and you'll also find that both companies have poached engineers in each others backyard, much to the opposing companies dismay. While they still partner in some capacity, you can be sure the competition is going to be stiff the next few years, much like we have seen the past 2 decades between Intel and AMD. It started way back in 2016-2017, where it's clear that [Apple already got a taste of building their own CPUs](https://fortune.com/2017/05/30/apple-qualcomm-esin-terzioglu/) rather than relying on Intel to supply CPUs to their entire product portfolio, as they recruited top-talent from Qualcomm.
+
 Meanwhile Pat Gelsinger, the CEO of Intel, [publicly rubbed off the threat of ARM-based CPUs](https://www.techpowerup.com/315228/intel-ceo-doesnt-see-arm-based-chips-as-competition-in-the-pc-sector?cp=2) towards Intel dominance on the market, last October. If things goes to plan according to Qualcomm, I suspect Mr. Gelsinger will have to eat his words very soon, time will tell.
 
 There is a great video from Coldfusion which I recommend you watch regarding this topic, you can find it [here](https://www.youtube.com/watch?v=V68RE0M8zhk).
@@ -43,7 +44,7 @@ Most of your apps are going to work on ARM-based devices, but if you want the be
 
 Based on all of the above, also think about File-based detection rules, any scripts/tools you are using that are referencing C:\Program Files etc.
 
-* Example: Some scripts will have some logic based on the %PROCESSOR_ARCHITECTURE% variable. If this returns "AMD64" we know we are running in 64-bit mode, else we assume x86 (32-bit). That logic will likely break your script on an ARM-device as the %PROCESSOR_ARCHITECTURE% variable will return "ARM64" on ARM-based devices.
+* **Example**: Some scripts will have some logic based on the %PROCESSOR_ARCHITECTURE% variable. If this returns "AMD64" we know we are running in 64-bit mode, else we assume x86 (32-bit). That logic will likely break your script on an ARM-device as the %PROCESSOR_ARCHITECTURE% variable will return "ARM64" on ARM-based devices.
 
 ![ProcessorArchitecture](/assets/images/2014-05-26-TheEvolution-ARM-Devices/ProcessorArchitectureVariable.png?raw=true "Processor Architecture Variable")
 
@@ -55,11 +56,11 @@ Based on all of the above, also think about File-based detection rules, any scri
 * **App-vendor support**: Microsoft is encouraging all app vendors to add support for ARM64. Vendors that already [support ARM32 should migrate to ARM64 ASAP](https://learn.microsoft.com/en-us/windows/arm/arm32-to-arm64) - Note if the app vendors doesn't migrate in time, it will still run on Windows. It will just revert to running emulated rather than ARM-native, where the app might suffer a performance impact as a result.
 
 All of the above should be essential information for IT Admins to prepare themselves for ARM devices. Some of you probably have a lot of automation and scripts built to specifically reference C:\Program Files. Some of you will probably also be deploying ARM-based device enrolled to Intune very soon. 
-If alot of your apps will not deploy on an ARM-based device, listed as "Not Applicable" in Intue, ensure the 32-bit requirement is selected, then it should deploy using the [previously mentioned emulation in the IME](https://learn.microsoft.com/en-us/windows/arm/apps-on-arm-x86-emulation).
+If alot of your apps will not deploy on an ARM-based device, listed as "Not Applicable" in Intune, ensure the 32-bit requirement is selected, then it should deploy using the [previously mentioned emulation in the IME](https://learn.microsoft.com/en-us/windows/arm/apps-on-arm-x86-emulation).
 
 ## Finalizing words
 
-I hope this post has been useful to you. ARM-based devices is now coming to market more broadly and swiftly than we have ever seen before, where the ones based on Snapdragon X Elite CPus will seemingly be branded "Copilot+ PCs". Just look at [this blog post by Microsoft](https://blogs.microsoft.com/blog/2024/05/20/introducing-copilot-pcs/)
+I hope this post has been useful to you. ARM-based windows devices is now coming to market more broadly and swiftly than we have ever seen before, where the ones based on Snapdragon X Elite CPUs will seemingly be branded "Copilot+ PCs". Just look at [this blog post by Microsoft](https://blogs.microsoft.com/blog/2024/05/20/introducing-copilot-pcs/)
 
 Personally, I think ARM-based windows devices is now here to stay, but the driver aspect is going to be problematic during the first 1-2 years for a lot of companies
 
@@ -69,4 +70,4 @@ What you can already start doing today to plan for ARM-based devices, as an IT A
 * Check if your core apps in your organisation supports ARM CPUs, starting with your Antivirus solution
 * Check all your devices and gadgets you use in your company, if the manufacturer has added ARM64 drivers for their products
 * Go through any automation/scripts you have put into place where you have used logic based on %PROCESSOR_ARCHITECTURE% or similar
-* Create a Dynamic Group + Filter to filter on ARM-based apps for grouping/targetting/filtering purposes.
+* Create a Dynamic Group + Filter to filter on ARM-based apps for grouping/targeting/filtering purposes.
