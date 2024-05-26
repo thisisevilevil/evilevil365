@@ -11,6 +11,7 @@ tags:
   - AMD
   - Qualcomm
   - Snapdragon
+  - Microsoft Intune
 ---
 
 If you had asked me 10 years ago if ARM-based devices would ever go mainstream for Laptops I would probably say "Never - They are only good for tablets and mobile phones!". Fast forward a few years, and now the outlook for the future regarding hardware in end-user compute has been turned on it's head, due to the progress made in the ARM space, primarily by the people at Apple and Qualcomm. [Apple released their own CPUs back in 2020](https://www.apple.com/newsroom/2020/11/apple-unleashes-m1/) based on ARM, while Qualcomm has been on the market for a while with a large market share in the smartphone industry.
@@ -24,13 +25,9 @@ As I'm writing this blogpost it's May 2024. All the big hardware suppliers (Micr
 
 ## Intune, Windows 10/11 with ARM-based Laptops
 
-I will quote something from the Microsoft docs:
+I will quote something from the [Microsoft docs](https://learn.microsoft.com/en-us/windows/arm/add-arm-support):
+> Windows 10 enables existing unmodified x86 apps to run on Arm devices. Windows 11 adds the ability to run unmodified x64 Windows apps on Arm devices! This ability to run x86 & x64 apps on Arm devices gives end-users confidence that the majority of their existing apps & tools will run well even on new Arm-powered devices. For the best performance, responsiveness, and battery life, users will want and need Arm-native Windows apps, which means that developers will need to build or port Arm-native Windows apps
 
-`
-Windows 10 enables existing unmodified x86 apps to run on Arm devices. Windows 11 adds the ability to run unmodified x64 Windows apps on Arm devices! This ability to run x86 & x64 apps on Arm devices gives end-users confidence that the majority of their existing apps & tools will run well even on new Arm-powered devices.
-
-For the best performance, responsiveness, and battery life, users will want and need Arm-native Windows apps, which means that developers will need to build or port Arm-native Windows apps`
-`
 
 Most of your apps are going to work on ARM-based devices, but if you want the best performance you will need to go native! Large enterprises today will definitely struggle if they use a lot of in-house apps and in-house tools that relies on a driver, but if you look to the future, and you want to bet on ARM, you have the leverage to influence your preferred app-vendors to start pivoting towards the ARM Architecture. No small feat for some.
 
@@ -39,20 +36,20 @@ Most of your apps are going to work on ARM-based devices, but if you want the be
 1. ARM-native apps deploys to C:\Program Files (Arm)
 2. 32-bit ARM apps will leave reg keys under HKLM:\SOFTWARE\WowAA32Node
 3. Ensure the 32-bit requirement is selected for your Win32 apps as the IME emulates 32-bit on ARM-based devices
-4. Deploy ARM-native apps to your ARM devices where possible, for best performance! Look for "ARM64" instead of "64-bit" when downloading your apps. (I suspect the list of vendors starting to support ARM-native will be steadily growing during the next few years)
+4. Deploy ARM-native apps to your ARM devices where possible, for best performance! Look for "ARM64" or "Aarch64" instead of "64-bit" when downloading your apps. (I suspect the list of vendors starting to support ARM-native will be steadily growing during the next few years)
 5. Intune win32 apps still doesn't officially natively support ARM64, but if we poke around using MS Graph, we can observe it's been added a while ago already ([Source](https://learn.microsoft.com/en-us/graph/api/resources/intune-apps-windowsarchitecture?view=graph-rest-beta)) but not visible if you use the Intune portal.
 
 * In the meantime, for Win32 apps, you can write your own custom PowerShell Requirement script to make sure it only targets ARM64 devices
 
 Based on all of the above, also think about File-based detection rules, any scripts/tools you are using that are referencing C:\Program Files etc.
 
-* Example: Some scripts will have some logic based on the %PROCESSOR_ARCHITECTURE% variable. If this returns "AMD64" we know we are running in 64-bit mode, else we assume x86 (32-bit). That logic will likely break your script on an ARM-device as the %PROCESSOR_ARCHITECTURE% variable will return "ARM64" on newew ARM-based devices.
+* Example: Some scripts will have some logic based on the %PROCESSOR_ARCHITECTURE% variable. If this returns "AMD64" we know we are running in 64-bit mode, else we assume x86 (32-bit). That logic will likely break your script on an ARM-device as the %PROCESSOR_ARCHITECTURE% variable will return "ARM64" on ARM-based devices.
 
 ### Other notable mentions
 
 * **Drivers**: Your hardware vendors needs to have driver support for ARM64. Think Printers, Webcams, Headsets anything that needs a driver! The same goes for Antivirus solutions and VPN Products
 * **Some games will not work**: Specifically if the game utilizes an anticheat functionality, those usually deploy drivers in the operating system. If that hasn't been made to support ARM, your game will most likely not work on an ARM device.
-* **If you are not Using Microsoft Defender/MDE**: Ensure your Antivirus vendor supports ARM! If not, it's a good time to migrate to Defender already :)
+* **Antivirus**: Ensure your Antivirus vendor supports ARM! If not, it's a good time to migrate to Defender already :)
 * **App-vendor support**: Microsoft is encouraging all app vendors to add support for ARM64. Vendors that already [support ARM32 should migrate to ARM64 ASAP](https://learn.microsoft.com/en-us/windows/arm/arm32-to-arm64) - Note if the app vendors doesn't migrate in time, it will still run on Windows. It will just revert to running emulated rather than ARM-native, where the app might suffer a performance impact as a result.
 
 All of the above should be essential information for IT Admins to prepare themselves for ARM devices. Some of you probably have a lot of automation and scripts built to specifically reference C:\Program Files. Some of you will probably also be deploying ARM-based device enrolled to Intune very soon. 
@@ -60,12 +57,12 @@ If alot of your apps will not deploy on an ARM-based device, listed as "Not Appl
 
 ## Finalizing words
 
-I hope this post has been useful to you. ARM-based devices is now coming to market more broadly than we have ever seen before, where the ones based on Snapdragon X Elite will be branded "Copilot+ PCs". Just look at [this blog post by Microsoft](https://blogs.microsoft.com/blog/2024/05/20/introducing-copilot-pcs/)
+I hope this post has been useful to you. ARM-based devices is now coming to market more broadly and swiftly than we have ever seen before, where the ones based on Snapdragon X Elite will be branded "Copilot+ PCs". Just look at [this blog post by Microsoft](https://blogs.microsoft.com/blog/2024/05/20/introducing-copilot-pcs/)
 
 What you can already start doing today as an IT Admin:
 
 * Prepare apps in Intune: Ensure 32-bit support is ticked but also start looking for ARM-based versions of your apps where possible.
 * Check if your core apps in your organisation supports ARM CPUs, starting with your Antivirus solution
-* Create a Dynamic Group + Filter to filter on ARM-based apps for grouping/targetting/filtering purposes.
+* Check all your devices and gadgets you use in your company, if the manufacturer has added ARM64 drivers for their products
 * Go through any automation/scripts you have put into place where you have used logic based on %PROCESSOR_ARCHITECTURE% or similar
-* If you have in-house app developers, communicate these changes to them.
+* Create a Dynamic Group + Filter to filter on ARM-based apps for grouping/targetting/filtering purposes.
