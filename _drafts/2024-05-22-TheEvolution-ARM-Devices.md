@@ -32,28 +32,40 @@ Windows 10 enables existing unmodified x86 apps to run on Arm devices. Windows 1
 For the best performance, responsiveness, and battery life, users will want and need Arm-native Windows apps, which means that developers will need to build or port Arm-native Windows apps`
 `
 
-Most of your apps are going to work on ARM-based devices, but if you want the best performance you will need to go native! I know large enterprises today, don't have this luxury to this immediately, but if you look to the future, and you want to bet on ARM, you have the leverage to influence your preferred app-vendors to start pivoting towards the ARM Architecture. No small feat for some.
+Most of your apps are going to work on ARM-based devices, but if you want the best performance you will need to go native! Large enterprises today will definitely struggle if they use a lot of in-house apps and in-house tools that relies on a driver, but if you look to the future, and you want to bet on ARM, you have the leverage to influence your preferred app-vendors to start pivoting towards the ARM Architecture. No small feat for some.
 
 ### Some quickies regarding ARM vs Windows management vs Intune
 
 1. ARM-native apps deploys to C:\Program Files (Arm)
 2. 32-bit ARM apps will leave reg keys under HKLM:\SOFTWARE\WowAA32Node
 3. Ensure the 32-bit requirement is selected for your Win32 apps as the IME emulates 32-bit on ARM-based devices
-4. Deploy ARM-native apps to your ARM devices where possible, for best performance! Look for "ARM64" instead of "64-bit" when downloading your apps. (I suspect the list of vendors starting to support ARM-native will be steadily growing during the next 1-2 years.)
-5. Intune win32 apps still doesn't officially natively support ARM64, but if we poke around using MS Graph, we can observe it's been added a while ago already ([Source](https://learn.microsoft.com/en-us/graph/api/resources/intune-apps-windowsarchitecture?view=graph-rest-beta)) but not visible if you use the Intune portal - Not really sure why that is.
+4. Deploy ARM-native apps to your ARM devices where possible, for best performance! Look for "ARM64" instead of "64-bit" when downloading your apps. (I suspect the list of vendors starting to support ARM-native will be steadily growing during the next few years)
+5. Intune win32 apps still doesn't officially natively support ARM64, but if we poke around using MS Graph, we can observe it's been added a while ago already ([Source](https://learn.microsoft.com/en-us/graph/api/resources/intune-apps-windowsarchitecture?view=graph-rest-beta)) but not visible if you use the Intune portal.
 
-* In the meantime, for Win32 apps, you can write your own custom PowerShell script to make sure it only targets ARM64 devices, and simply tick the 32bit and 64bit requirement in Intune.
+* In the meantime, for Win32 apps, you can write your own custom PowerShell Requirement script to make sure it only targets ARM64 devices
 
-6. Based on all of the above, think about File-based detection rules, any scripts/tools you are using that are referencing C:\Program Files
+Based on all of the above, also think about File-based detection rules, any scripts/tools you are using that are referencing C:\Program Files etc.
 
-* Example: Some scripts will have some logic based on the %PROCESSOR_ARCHITECTURE% variable. If this returns "AMD64" we know we are running in 64-bit mode, else we assume x86 (32-bit). That logic will likely break your script on an ARM-device as the %PROCESSOR_ARCHITECTURE% variable will return "ARM64"
-* File-based detection rule example:: If the app is a native ARM app, you will need to point it towards C:\Program Files (Arm)\YourApp\App.exe if you want to use file-based detection rules, which is common for self-updating apps.
+* Example: Some scripts will have some logic based on the %PROCESSOR_ARCHITECTURE% variable. If this returns "AMD64" we know we are running in 64-bit mode, else we assume x86 (32-bit). That logic will likely break your script on an ARM-device as the %PROCESSOR_ARCHITECTURE% variable will return "ARM64" on newew ARM-based devices.
 
 ### Other notable mentions
 
-* Driver-mania: Your hardware vendors needs to have driver support for ARM64. Think Printers, Webcams, Headsets anything that needs a driver! The same goes for Antivirus solutions and VPN Products
-* Some games will not work: Specifically if the game utilizes an anticheat functionality, those usually deploy drivers in the operating system. If that hasn't been made to support ARM, your game will most likely cease to function.
-* If you are not Using Microsoft Defender/MDE: Ensure your Antivirus vendor supports ARM! If not, it's a good time to migrate to Defender already :)
-* Microsoft is encouraging all app vendors to add support for ARM64. Vendors that already [support ARM32 should migrate to ARM64 ASAP](https://learn.microsoft.com/en-us/windows/arm/arm32-to-arm64) - Note if the app vendors doesn't migrate in time, it will still run on Windows. It will just revert to running emulated rather than ARM-native, where the app will suffer a performance impact as a result.
+* **Drivers**: Your hardware vendors needs to have driver support for ARM64. Think Printers, Webcams, Headsets anything that needs a driver! The same goes for Antivirus solutions and VPN Products
+* **Some games will not work**: Specifically if the game utilizes an anticheat functionality, those usually deploy drivers in the operating system. If that hasn't been made to support ARM, your game will most likely not work on an ARM device.
+* **If you are not Using Microsoft Defender/MDE**: Ensure your Antivirus vendor supports ARM! If not, it's a good time to migrate to Defender already :)
+* **App-vendor support**: Microsoft is encouraging all app vendors to add support for ARM64. Vendors that already [support ARM32 should migrate to ARM64 ASAP](https://learn.microsoft.com/en-us/windows/arm/arm32-to-arm64) - Note if the app vendors doesn't migrate in time, it will still run on Windows. It will just revert to running emulated rather than ARM-native, where the app might suffer a performance impact as a result.
 
-All of the above should be essential information for IT Admins to prepare themselves for ARM devices. Some of you probably have a lot of automation and scripts built to specifically reference C:\Program Files. Some of you will probably also be deploying ARM-based device enrolled to Intune very soon. If alot of your apps will not deploy, listed as "Not Applicable" just ensure the 32-bit requirement is selected, then it should deploy using the [previously mentioned emulation in the IME](https://learn.microsoft.com/en-us/windows/arm/apps-on-arm-x86-emulation).
+All of the above should be essential information for IT Admins to prepare themselves for ARM devices. Some of you probably have a lot of automation and scripts built to specifically reference C:\Program Files. Some of you will probably also be deploying ARM-based device enrolled to Intune very soon. 
+If alot of your apps will not deploy on an ARM-based device, listed as "Not Applicable" in Intue, ensure the 32-bit requirement is selected, then it should deploy using the [previously mentioned emulation in the IME](https://learn.microsoft.com/en-us/windows/arm/apps-on-arm-x86-emulation).
+
+## Finalizing words
+
+I hope this post has been useful to you. ARM-based devices is now coming to market more broadly than we have ever seen before, where the ones based on Snapdragon X Elite will be branded "Copilot+ PCs". Just look at [this blog post by Microsoft](https://blogs.microsoft.com/blog/2024/05/20/introducing-copilot-pcs/)
+
+What you can already start doing today as an IT Admin:
+
+* Prepare apps in Intune: Ensure 32-bit support is ticked but also start looking for ARM-based versions of your apps where possible.
+* Check if your core apps in your organisation supports ARM CPUs, starting with your Antivirus solution
+* Create a Dynamic Group + Filter to filter on ARM-based apps for grouping/targetting/filtering purposes.
+* Go through any automation/scripts you have put into place where you have used logic based on %PROCESSOR_ARCHITECTURE% or similar
+* If you have in-house app developers, communicate these changes to them.
