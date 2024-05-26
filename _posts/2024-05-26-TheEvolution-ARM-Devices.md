@@ -62,7 +62,7 @@ If alot of your apps will not deploy on an ARM-based device, listed as "Not Appl
 
 I hope this post has been useful to you. ARM-based windows devices is now coming to market more broadly and swiftly than we have ever seen before, where the ones based on Snapdragon X Elite CPUs will seemingly be branded "Copilot+ PCs". Just look at [this blog post by Microsoft](https://blogs.microsoft.com/blog/2024/05/20/introducing-copilot-pcs/)
 
-Personally, I think ARM-based windows devices is now here to stay, but the driver aspect is going to be problematic during the first 1-2 years for a lot of companies
+Personally, I think ARM-based windows devices is now here to stay, but the driver aspect is going to be problematic during the first 1-2 years for a lot of companies.
 
 What you can already start doing today to plan for ARM-based devices, as an IT Admin:
 
@@ -70,4 +70,4 @@ What you can already start doing today to plan for ARM-based devices, as an IT A
 * Check if your core apps in your organisation supports ARM CPUs, starting with your Antivirus solution
 * Check all your devices and gadgets you use in your company, if the manufacturer has added ARM64 drivers for their products
 * Go through any automation/scripts you have put into place where you have used logic based on %PROCESSOR_ARCHITECTURE% or similar
-* Create a Dynamic Group + Filter to filter on ARM-based apps for grouping/targeting/filtering purposes.
+* Create a Dynamic Group + Filter to filter on ARM-based devices for grouping/targeting/filtering purposes.
