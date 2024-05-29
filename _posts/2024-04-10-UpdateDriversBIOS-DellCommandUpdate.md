@@ -113,12 +113,12 @@ $currentdate = Get-Date -format 'ddMMyyyy_HHmmss'
 $dcucli = "${env:ProgramFiles}\Dell\CommandUpdate\dcu-cli.exe"
 $logsfolder = "$env:Programdata\Dell\Logs"
 
-#Download and install Dell Command Update 5.2 if it doesn't exist
+#Download and install Dell Command Update 5.3 if it doesn't exist
 if (!(test-path $dcucli)) {
-$uri = 'https://dl.dell.com/FOLDER11201586M/1/Dell-Command-Update-Windows-Universal-Application_0XNVX_WIN_5.2.0_A00.EXE'
+$uri = 'https://dl.dell.com/FOLDER11563484M/1/Dell-Command-Update-Windows-Universal-Application_P83K5_WIN_5.3.0_A00.EXE'
 Write-Host "DCU Cli doesn't seem to be present.. Attempting to download and install now.."
-Invoke-WebRequest -uri $uri -outfile 'C:\Windows\temp\dcu52.exe' 
-Start-Process "C:\Windows\Temp\dcu52.exe" -ArgumentList '/s' -Wait
+Invoke-WebRequest -uri $uri -outfile 'C:\Windows\temp\dcu53.exe' 
+Start-Process "C:\Windows\Temp\dcu53.exe" -ArgumentList '/s' -Wait
 Start-Sleep -Seconds 10
 }
 
