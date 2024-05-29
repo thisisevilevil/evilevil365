@@ -22,7 +22,7 @@ The one reason you should still consider using the hardware vendors own tools. i
 In this blog post, we will go through what we can do with Dell devices using Dell's own Dell Command Update.
 
 ## Getting started - Packaging Dell Command Update
-In case you don't have Dell Command Update in Intune as a Win32 app, you can steal my .intunewin file <a id="raw-url" href="https://raw.githubusercontent.com/thisisevilevil/evilevil365/master/assets/Dell-Command-Update-Windows-Universal-Application_P83K5_WIN_5.3.0_A00.intunewin">here</a> for version 5.2. Add the app into intune as a Win32 app:
+In case you don't have Dell Command Update in Intune as a Win32 app, you can steal my .intunewin file <a id="raw-url" href="https://raw.githubusercontent.com/thisisevilevil/evilevil365/master/assets/Dell-Command-Update-Windows-Universal-Application_P83K5_WIN_5.3.0_A00.intunewin">here</a> for version 5.3. Add the app into intune as a Win32 app:
 * **Install command:** `Dell-Command-Update-Windows-Universal-Application_P83K5_WIN_5.3.0_A00.EXE /s /l=C:\Windows\Logs\Dell_Command_Update_5.3_exe_installer.log`
 * **Uninstall command:** `msiexec /X {9343B24C-A595-4B19-B941-C5A1218FEF0C} /qn`
 * **Required disk space:** 500MB
