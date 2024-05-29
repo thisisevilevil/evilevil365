@@ -11,6 +11,8 @@ tags:
   - Import ADMX Templates
 ---
 
+**UPDATED: 29th of May 2024 w. DCU 5.3**
+
 This topic is not sexy at all to talk about in IT, but it is nonetheless getting more important for security reasons, due to the many security updates now included in BIOS, Driver and firmware updates in newer times.
 
 In todays day and age it's super important to ensure your drivers and BIOS is up-to-date. Not only is there always a bunch of functionality fixes but security issues is also patched. Depending on your flavor of hardware vendor, Dell, HP or Lenovo, each of them have their own tools to manage and push driver and BIOS updates. However, it's also worth mentioning, since the release of the [driver update management module in Intune](https://learn.microsoft.com/en-us/mem/intune/protect/windows-driver-updates-overview) the reasons to use the hardware vendors own tools grows less and less, as the Intune Driver Update management module gets better.
@@ -20,11 +22,11 @@ The one reason you should still consider using the hardware vendors own tools. i
 In this blog post, we will go through what we can do with Dell devices using Dell's own Dell Command Update.
 
 ## Getting started - Packaging Dell Command Update
-In case you don't have Dell Command Update in Intune as a Win32 app, you can steal my .intunewin file <a id="raw-url" href="https://raw.githubusercontent.com/thisisevilevil/evilevil365/master/assets/Dell-Command-Update-Windows-Universal-Application_0XNVX_WIN_5.2.0_A00.intunewin">here</a> for version 5.2. Add the app into intune as a Win32 app:
-* **Install command:** `Dell-Command-Update-Windows-Universal-Application_0XNVX_WIN_5.2.0_A00.EXE /s /l=C:\Windows\Logs\Dell_Command_Update_5.2_exe_installer.log`
-* **Uninstall command:** `msiexec /X {E40C2C69-CA25-454A-AB4D-C675988EC101} /qn`
+In case you don't have Dell Command Update in Intune as a Win32 app, you can steal my .intunewin file <a id="raw-url" href="https://raw.githubusercontent.com/thisisevilevil/evilevil365/master/assets/Dell-Command-Update-Windows-Universal-Application_P83K5_WIN_5.3.0_A00.intunewin">here</a> for version 5.2. Add the app into intune as a Win32 app:
+* **Install command:** `Dell-Command-Update-Windows-Universal-Application_P83K5_WIN_5.3.0_A00.EXE /s /l=C:\Windows\Logs\Dell_Command_Update_5.3_exe_installer.log`
+* **Uninstall command:** `msiexec /X {9343B24C-A595-4B19-B941-C5A1218FEF0C} /qn`
 * **Required disk space:** 500MB
-* **Detection, MSI String:** `{E40C2C69-CA25-454A-AB4D-C675988EC101}`
+* **Detection, MSI String:** `{9343B24C-A595-4B19-B941-C5A1218FEF0C}`
 
 Set return code 2 as "Success" as well, to ensure it doesn't fail during ESP when deploying devices with autopilot.
 
