@@ -9,11 +9,12 @@ tags:
   - PowerShell
 ---
 
-ProActive remediations or just [remediations](https://learn.microsoft.com/en-us/mem/intune/fundamentals/remediations) as it has now been renamed to, has been around for a while now, but even today when I visit customers, I still see a lack of awareness or basic understanding of them. Nevertheless, this post will take us back to basics in regards how Remediations work, so you can get started writing your own. If you are already savvy with PowerShell, you will find it's super easy to get into. But fret not, if you are not good with PowerShell, you can often find assistance using CoPilot or googling to find some good remediations out there. I have written loads of Remediations over the years, and in the end of this post, I will share the ones that I've made over the years, that are not customer specific, for some inspiration as well.
+ProActive remediations or just [remediations](https://learn.microsoft.com/en-us/mem/intune/fundamentals/remediations) as it has now called, has been around for a while now, but even today when I visit customers, I still see a lack of awareness or basic understanding of them. Nevertheless, this post will take us back to basics in regards how Remediations work, so you can get started creating your own. If you are already savvy with PowerShell, you will find it's super easy to get into. But fret not, if you are not good with PowerShell, you can often find assistance using CoPilot or googling to find some good remediations out there. I have written loads of Remediations over the years, and in the end of this post, I will share the ones that I've made over the years for some inspiration as well.
 
 Let's dive into it! :)
 
-# Getting started
+## Getting started
+
 There are some pre-reqs to using Remediations in Intune, I won't list them all here, but basically you will need E3, E5 or A3 or A5 licenses in your tenant. You can find all the pre-reqs [here](https://learn.microsoft.com/en-us/mem/intune/fundamentals/remediations)
 
 When you create Remediations, you can't copy/paste the code directly into the editor in Intune, you will need to have them as .ps1 files on your drive.
@@ -35,7 +36,8 @@ Anything you can think of with PowerShell to check for, the sky is the limit her
 But what if you also wanted to run a remediation in attempts to fix the condition?
 
 ## Creating a remediation script
-Let's pretend you also want your remediation to actually fix the issue it's detecting for. Well, that's also relatively simple in this case. Let's follow our example with the folder detection.
+
+Let's pretend you also want your remediation to actually fix the issue it's detecting for. Well, that's also simple in this case. Let's follow our example with the folder detection.
 
 Let's say we wanted to delete the folder to save disk space, then you can use the below code and add it as a remediation script. Save this script to a .ps1 file and activate the remediation as well.
 
@@ -46,9 +48,9 @@ if (Test-path C:\SWSetup) {Remove-Item C:\SWSetup -recurse -force}
 it's only your PowerShell skills that will set the limit here.
 
 ## On-Demand Remediations
-Let's say you dont want to wait for your remediation to trigger because of testing reasons or just for ad-hoc problem solving. Intune supports runnings Remediations on-demand. Go to any supported Windows device in Intune -> Press the elipses (3 dots) -> Run remediation on demand (preview)
+IF you dont want to wait for your remediation to trigger because of testing reasons or just for ad-hoc problem solving, Intune supports runnings Remediations on-demand. Go to any supported Windows device in Intune -> Press the elipses (3 dots) -> Run remediation on demand (preview)
 
-You should now see all your remediations, which you can run on demand. Previously this was very slow to trigger, but this has since then been resolved so it's now super fast. The device just needs to be turned on and online.
+You should now see all your remediations, which you can run on demand. Previously this was very slow to trigger, but this has since then been resolved so it's now super fast. The device just needs to be turned on and online, and usually it triggers within 1-2 minutes after running the remediation.
 
 ## Wrapping up
 I hope you found this useful, and it's enough to get you started with remediations. The advantage remediations have over PowerShell (Platform scripts) in Intune is the following
@@ -56,8 +58,8 @@ I hope you found this useful, and it's enough to get you started with remediatio
 * Run your scripts on a specific recurring schedule
 * Usage of device filters when assigning to groups
 * Use the "output" view in the remediation to print useful information to the Intune console
-* Support running [on-demand remediations](https://learn.microsoft.com/en-us/mem/intune/fundamentals/remediations#run-a-remediation-script-on-demand-preview)
+* Supports running [on-demand remediations](https://learn.microsoft.com/en-us/mem/intune/fundamentals/remediations#run-a-remediation-script-on-demand-preview)
 
 ## Reference Remediations
 
-You can always check my github for inspiration regarding remediations, I will share as many as I can, that are not customer-specific.
+You can always check my github for inspiration regarding remediations.
