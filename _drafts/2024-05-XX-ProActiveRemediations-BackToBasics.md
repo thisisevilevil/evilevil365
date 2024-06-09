@@ -9,7 +9,7 @@ tags:
   - PowerShell
 ---
 
-ProActive remediations or just [remediations](https://learn.microsoft.com/en-us/mem/intune/fundamentals/remediations) as it has now called, has been around for a while now, but even today when I visit customers, I still see a lack of awareness or basic understanding of them. Nevertheless, this post will take us back to basics in regards how Remediations work, so you can get started creating your own. If you are already savvy with PowerShell, you will find it's super easy to get into. But fret not, if you are not good with PowerShell, you can often find assistance using CoPilot or googling to find some good remediations out there. I have written loads of Remediations over the years, and in the end of this post, I will share the ones that I've made over the years for some inspiration as well.
+ProActive Remediations or just [Remediations](https://learn.microsoft.com/en-us/mem/intune/fundamentals/remediations) or just remediations, has been around for a while now, but even today when I visit customers, I still see a lack of awareness or basic understanding of them. Nevertheless, this post will take us back to basics in regards how Remediations work, so you can get started creating your own. If you are already savvy with PowerShell, you will find it's super easy to get into. But fret not, if you are not good with PowerShell, you can often find assistance using CoPilot or googling to find some good remediations out there. I have written loads of Remediations over the years, and in the end of this post, I will share the ones that I've made over the years for some inspiration as well.
 
 Let's dive into it! :)
 
@@ -45,12 +45,17 @@ Let's say we wanted to delete the folder to save disk space, then you can use th
 if (Test-path C:\SWSetup) {Remove-Item C:\SWSetup -recurse -force}
 ```
 
+When you create the remediation you will also be asked how often you want to run this remediation. Every hour, every day, weekly etc.
+
+
 it's only your PowerShell skills that will set the limit here.
 
-## On-Demand Remediations
+## On Demand Remediations
 IF you dont want to wait for your remediation to trigger because of testing reasons or just for ad-hoc problem solving, Intune supports runnings Remediations on-demand. Go to any supported Windows device in Intune -> Press the elipses (3 dots) -> Run remediation on demand (preview)
 
 You should now see all your remediations, which you can run on demand. Previously this was very slow to trigger, but this has since then been resolved so it's now super fast. The device just needs to be turned on and online, and usually it triggers within 1-2 minutes after running the remediation.
+
+If you just want to utilize your remediation On Demand, then don't assign it to any group, just leave it unassigned. It will still be visible under Remediations. Also consider making remediations available for ServiceDesk personnel for ad-hoc problem solving. You can utilize scope tags and custom roles in Intune to only show remediations for ServiceDesk, that you make available to them.
 
 ## Wrapping up
 I hope you found this useful, and it's enough to get you started with remediations. The advantage remediations have over PowerShell (Platform scripts) in Intune is the following
@@ -62,4 +67,4 @@ I hope you found this useful, and it's enough to get you started with remediatio
 
 ## Reference Remediations
 
-You can always check my github for inspiration regarding remediations.
+You can always check my github for inspiration regarding remediations. You can find them [here](insertlink.com)
