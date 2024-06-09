@@ -55,7 +55,7 @@ IF you dont want to wait for your remediation to trigger because of testing reas
 
 You should now see all your remediations, which you can run on demand. Previously this was very slow to trigger, but this has since then been resolved so it's now super fast. The device just needs to be turned on and online, and usually it triggers within 1-2 minutes after running the remediation.
 
-If you just want to utilize your remediation On Demand, then don't assign it to any group, just leave it unassigned. It will still be visible under Remediations. Also consider making remediations available for ServiceDesk personnel for ad-hoc problem solving. You can utilize scope tags and custom roles in Intune to only show remediations for ServiceDesk, that you make available to them.
+If you just want to utilize your remediation On Demand, then don't assign it to any group, just leave it unassigned. It will still be visible under Remediations. Also consider making remediations available for ServiceDesk personnel for ad-hoc problem solving. You can utilize scope tags and custom roles in Intune to only show select Remediations for ServiceDesk, when running them On Demand, which can be a great tool and time saver for them, rather than hopping on to the users device manually in a remote session.
 
 ## Wrapping up
 I hope you found this useful, and it's enough to get you started with remediations. The advantage remediations have over PowerShell (Platform scripts) in Intune is the following
