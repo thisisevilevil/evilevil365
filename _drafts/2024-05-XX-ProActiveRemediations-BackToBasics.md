@@ -67,4 +67,4 @@ I hope you found this useful, and it's enough to get you started with remediatio
 
 ## Reference Remediations
 
-You can always check my github for inspiration regarding remediations. You can find them [here](insertlink.com)
+You can always check my github for inspiration regarding remediations. You can find them [here](https://github.com/thisisevilevil/IntunePublic)
