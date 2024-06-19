@@ -19,7 +19,7 @@ What if I told you there is an alternative path for old and unsupported hardware
 
 There are companies out there that really needs this information, to take an informed decision about how to continue, as they might not in a financial position to replace their aging hardware, or purchase ESU licenses. And as you all know, to take an informed decision, you need all the information required to make that informed decision regarding how to proceed.
 
-**Disclaimer: This solution will also be presented as-is. Be aware that Microsoft might choose to make changes on how to bypass the Windows 11 requirements, and the workarounds I present here might also stop working. The best option is to replace unsupported hardware with supported hardware, where possible. Also find the official risks as outlined by Microsoft [here](https://support.microsoft.com/en-us/windows/installing-windows-11-on-devices-that-don-t-meet-minimum-system-requirements-0b2dc4a2-5933-4ad4-9c09-ef0a331518f1).**
+**Disclaimer: This solution will be presented as-is, without any warranties. Be aware that Microsoft might choose to make changes on how to bypass the Windows 11 requirements, and the workarounds I present here might also stop working. The best option is to replace unsupported hardware with supported hardware, where possible. Also find the official risks as outlined by Microsoft [here](https://support.microsoft.com/en-us/windows/installing-windows-11-on-devices-that-don-t-meet-minimum-system-requirements-0b2dc4a2-5933-4ad4-9c09-ef0a331518f1).**
 
 ## Windows 11 requirements
 
@@ -42,18 +42,22 @@ There is otherwise a super easy way to get a list of your unsupported Windows 11
 We can set a registry value to override the hardware requirements. Be aware that setting this specific value, overrides the TPM 2.0 and CPU requirement, but for some reason, TPM 1.2 is still required, you can read more about this option [here](https://support.microsoft.com/en-us/windows/ways-to-install-windows-11-e0edbbfb-cfc5-4011-868b-2ce77ac7c70e). So if there is no TPM, then this option won't work for you. You will need to reinstall Windows 11, then it's possible to override the hardware requirements. This can be done using Rufus when creating a bootable USB but also using tools like SCCM and MDT using the unattend.xml file to apply the correct registry values to override the hardware requirements.
 
 1. Deploy PowerShell Script from Intune that sets the correct registry value to override hardware requirements. You can fetch the one I made from [here](https://github.com/thisisevilevil/IntunePublic/blob/main/Scripts/Win11Unsupported/DeployWin11HWOverrideKeys.ps1)
-2. Deploy PC Health Check app as a Win32 or LoB app, as the Windows Update Assistant relies on this to be present. You can download it from [here](https://aka.ms/GetPCHealthCheckApp)
+2. **(Optional)** Since we are already cutting the red tape here, we might as well keep going. You can override any [safeguard holds](https://learn.microsoft.com/en-us/windows/deployment/update/safeguard-holds) by applying the a policy using Settings catalog. We can disable Safeguard Holds:
+![SettingsCatalog](/assets/images/2024-06-20-UpgradeWindows11-UnsupportedHardware/DisableSafeguardsWufB.png?raw=true "Disable WufB Safeguards Settings Catalog")
+
+This will override any safeguard holds applied from Microsoft end because of Apps, Drivers or even certain BIOS Versions that Microsoft has deemed problematic for Windows 11 23H2. There is otherwise a nice report in Intune where you can also identify these devices. Navigate to Reports -> Windows Updates -> Reports -> Windows feature update device readiness report. You can also go to the Compatibility Risks report to see the specific Drivers and apps that you have in your org that might be blocking an upgrade.
+
+3. Deploy PC Health Check app as a Win32 or LoB app, as the Windows Update Assistant relies on this to be present. You can download it from [here](https://aka.ms/GetPCHealthCheckApp)
 
 Note when deploying the PC Health Check app, the app might popup on the end-users device. You can simply instruct them to close it, if it happens to you as well.
 
 ### Option #1: Forcefully applying Windows 11 from Intune on unsupported hardware
 
-I have created a script that downloads the [Windows 11 update assistant](https://www.microsoft.com/software-download/windows11) and runs it silently in the background. I have actually used this script for the past year and a half to nudge stubborn devices over to the latest version of Windows 11. If you want to examine the code you can find it [here](https://github.com/thisisevilevil/IntunePublic/blob/main/Scripts/Win11Unsupported/UpgradeToWindows11.ps1) The code is very simple as you can see.
+I have created a script that downloads the [Windows 11 update assistant](https://www.microsoft.com/software-download/windows11) and runs it silently in the background. I have actually used this script for the past year and a half to nudge stubborn devices over to the latest version of Windows 11. If you want to examine the code you can find it [here](https://github.com/thisisevilevil/IntunePublic/blob/main/Scripts/Win11Unsupported/UpgradeToWindows11.ps1). The code is very simple as you can see.
 
 To deploy the app using Intune perform the following steps:
 
-1. Download the .intunewin file containing the script from <a id="raw-url" href="https://raw.githubusercontent.com/thisisevilevil/evilevil365/master/assets/Windows11Logo.png">here</a>
--> Note that this script also deploys the correct reg value to override the hardware requirements, automatically.
+1. Download the .intunewin file containing the script from <a id="raw-url" href="https://raw.githubusercontent.com/thisisevilevil/evilevil365/master/assets/UpgradeToWindows11.intunewin">here</a>
 2. Upload it to intune as a win32 app
 3. Specify the following when uploading the package:
 
@@ -61,20 +65,20 @@ To deploy the app using Intune perform the following steps:
 * **Uninstall command:** `not required`
 * **Device restart hehaviour:** `Intune will force a mandatory device restart`
 * **Required disk space:** 10000MB
-* **Detection, Custom Script:** `Use custom detection script. Download from [here](https://github.com/thisisevilevil/IntunePublic/blob/main/Scripts/Win11Unsupported/Detect-Win11Installed.ps1)`
+* **Detection, Custom Script:** Use custom detection script. Download from [here](https://github.com/thisisevilevil/IntunePublic/blob/main/Scripts/Win11Unsupported/Detect-Win11Installed.ps1)
 * **Installation time required (mins)** 120 minutes
 * **Logo**: Download <a id="raw-url" href="https://raw.githubusercontent.com/thisisevilevil/evilevil365/master/assets/Windows11Logo.png">here</a>
 
 As you can see, we have selected "Intune will force a mandatory device restart". This will actually not come into play, if everything goes according to plan. The user will get a popup from the Windows 11 Update Assistant where they have 30 minutes to perform a reboot, where they can restart now or restart later. There is no way to alter the reboot timer or message, so keep this in mind. You will see that later in the User Experience section.
-However, if there are any pending reboots or any other reasons the Windows 11 update might not correctly apply, the Intune Management Extension will attempt to restart the device. **For this reason, remember to enable the "Restart Grace" period in your app assignment, to show reboot notifications/snooze options to the end-user. Note that it's disabled by default for each group where you assign the app. If you forget to set it, the user will experience an abrupt reboot without any warning whatsoever.**.
+However, if there are any pending reboots or any other reasons the Windows 11 update might not correctly apply, the Intune Management Extension will attempt to restart the device.
+
+**For this reason, remember to enable the "Restart Grace" period in your app assignment, to show reboot notifications/snooze options to the end-user. Note that it's disabled by default for each group where you assign the app. If you forget to set it, the user will experience an abrupt reboot without any warning whatsoever.**.
+
 ![RestartPeriod1](/assets/images/2024-06-20-UpgradeWindows11-UnsupportedHardware/RestartGracePeriod-1.png?raw=true "Restart Grace Period")
 ![RestartPeriod1](/assets/images/2024-06-20-UpgradeWindows11-UnsupportedHardware/RestartGracePeriod-2.png?raw=true "Restart Grace Period")
+
 If you don't want this to be the case here, just go back to the package and set the device restart behvaiour to "No specific action" instead.
 
-Since we are already cutting the red tape here, we might as well keep going. You can override any [safeguard holds](https://learn.microsoft.com/en-us/windows/deployment/update/safeguard-holds) by applying the a policy using Settings catalog. We can disable Safeguard Holds:
-![SettingsCatalog](/assets/images/2024-06-20-UpgradeWindows11-UnsupportedHardware/DisableSafeguardsWufB.png?raw=true "Disable WufB Safeguards Settings Catalog")
-
-This will override any safeguard holds applied from Microsoft end because of Apps, Drivers or even certain BIOS Versions that Microsoft has deemed problematic for Windows 11 23H2. There is otherwise a nice report in Intune where you can also identify these devices. Navigate to Reports -> Windows Updates -> Reports -> Windows feature update device readiness report. You can also go to the Compatibility Risks report to see the specific Drivers and apps that you have in your org that might be blocking an upgrade.
 
 ### Option #2: Making the Windows 11 Update Assistant available in company portal for unsupported hardware
 
@@ -92,7 +96,7 @@ Let's upload it it to Intune as a Win32app and deploy it as "Available" to perti
 * **Uninstall command:** `not required`
 * **Device restart hehaviour:** `No specific action`
 * **Required disk space:** 10000MB
-* **Detection, Custom Script:** `Use custom detection script. Download from [here](https://github.com/thisisevilevil/IntunePublic/blob/main/Scripts/Win11Unsupported/Detect-Win11Installed.ps1)`
+* **Detection, Custom Script:** Use custom detection script. Download from [here](https://github.com/thisisevilevil/IntunePublic/blob/main/Scripts/Win11Unsupported/Detect-Win11Installed.ps1)
 * **Installation time required (mins)** 120 minutes
 * **Logo**: Download <a id="raw-url" href="https://raw.githubusercontent.com/thisisevilevil/evilevil365/master/assets/ServiceUI-Win11UpdateAssistant.intunewin">here</a>
 
@@ -145,4 +149,4 @@ There is many different ways to apply the reg key to override the HW requirement
 Otherwise be aware that if the update attempts to apply but fails, you can actually fetch that from the registry. Use the following command in PowerShell to detect if an update has been applied but failed: `Get-ItemPropertValue -Path 'HKLM:\SYSTEM\Setup\MoSetup\Tracking' -Name 'FailureCount'
 One thing that could be worth setting up is a Remediation that detect for the FailureCount and outputs it to the console, to get an overview of how many times the upgrade failed to apply, and then you could consider doing manual checks and perhaps excluding it from getting the upgrade.
 
-I hope you found this blog useful, and I sincerely hope you won't need it and you will find yourself in a position to replace the aging hardware instead. Imagine the hardware that doesn't support Windows 11 is slowly coming up to 8 years old now.
+I hope you found this blog useful, and I sincerely hope you won't need it and you will find yourself in a position to replace the aging hardware instead. Imagine the hardware that doesn't support Windows 11 is slowly coming up to 8 years old now, as of this blogs date.
