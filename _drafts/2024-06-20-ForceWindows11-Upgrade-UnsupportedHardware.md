@@ -53,6 +53,9 @@ Since we are already cutting the red tape here, we might as well keep going. You
 
 This will override any safeguard holds applied from Microsoft end because of Apps, Drivers or even certain BIOS Versions that Microsoft has deemed problematic for Windows 11 23H2. There is otherwise a nice report in Intune where you can also identify these devices. Navigate to Reports -> Windows Updates -> Reports -> Windows feature update device readiness report. You can also go to the Compatibility Risks report to see the specific Drivers and apps that you have in your org that might be blocking an upgrade.
 
+![ReadinessReport](/assets/images/2024-06-20-UpgradeWindows11-UnsupportedHardware/FeatureUpdateReadiness-CompatRisks.png?raw=true "Readiness report")
+![ReadinessReport](/assets/images/2024-06-20-UpgradeWindows11-UnsupportedHardware/FeatureUpdateReadiness-CompatRisks-1.png?raw=true "Readiness report")
+
 ### Option #1: Forcefully applying Windows 11 from Intune on unsupported hardware
 
 I have created a script that downloads the [Windows 11 update assistant](https://www.microsoft.com/software-download/windows11) and runs it silently in the background. I have actually used this script for the past year and a half to nudge stubborn devices over to the latest version of Windows 11. If you want to examine the code you can find it [here](https://github.com/thisisevilevil/IntunePublic/blob/main/Scripts/Win11Unsupported/UpgradeToWindows11.ps1). The code is very simple as you can see.
