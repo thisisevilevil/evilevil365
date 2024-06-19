@@ -130,14 +130,6 @@ Note, first time when launching the update, If the health check app hasn't perfo
 ![Win11UpdateAssistant](/assets/images/2024-06-20-UpgradeWindows11-UnsupportedHardware/Win11_CompanyPortal_5.png?raw=true "Windows 11 Update Assistant - Company Portal")
 ![Win11UpdateAssistant](/assets/images/2024-06-20-UpgradeWindows11-UnsupportedHardware/Win11_CompanyPortal_6.png?raw=true "Windows 11 Update Assistant - Company Portal")
 
-## What to expect and look for when applying and running Windows 11 on unsupported devices
-
-* Unsupported apps will automatically be uninstalled (Example: Snipping tool, outdated)
-* Best effort: If things stop breaking, don't expect any support from the hardware vendor or from Microsoft
-* It's likely some of your devices cannot upgrade, due to driver compatibility issues. If any issues is detected during the upgrade process, I.E: BsoD upon bootup etc., the updater will automatically rollback to Windows 10. If it fails, try to update drivers, BIOS and uninstall any old and uneccessary applications on the device, then attempt the upgrade process again. If it keeps failing, then I guess you are out of luck. The last thing you can try is a clean reinstall of Windows 11 with the override reg values applied.
-* Remember if you get it working on Windows 11 23H2 it's all well and good. But Microsoft always releases new features, changes GUI Elements in the operating system etc, that might make future iterations of Windows 11 less functional on older and unsupported devices. Take special note of devices with very old graphics drivers, that can easily break stuff on Windows 11.
-* If the Windows 11 Upgrade app in Intune is marked as "Installed" in Intune, under device install status, but the build number is still 10.0.19045.xxx be aware that it's just the intune reporting that is a bit sluggish. The device is updated as soon as it's listed as "Installed".
-
 ## Rolling back to Windows 10 in case of issues
 
 In case you need to rollback to Windows 10, there is a few options at our disposal. But remember for these rollback options to work, in all instances, you still need to have the windows.old folder available. This gets cleaned up automatically after X amount of days, dictated by your Update ring policy in Intune. Before you do this, I would recommend you set it to at least 30 days, giving you ample time to perform the rollback if any issues should occur.
@@ -158,6 +150,15 @@ You can apply a seperate Update Ring Policy for the target devices in Intune, fr
 ### Option #3: Perform Rollback using on-demand remediation
 
 Another option is to create a Remediation, with the following command: `DISM /Online /Initiate-OSUninstall /Quiet` - Don't assign the remediation to any group, it can be used on-demand using the [new remediation on-demand feature](https://learn.microsoft.com/en-us/mem/intune/fundamentals/remediations#run-a-remediation-script-on-demand-preview). Be aware that when the rollback triggers, it will trigger an abrupt reboot on the end-users device, without any warning. If this is a problem, there are ways we can send notifications etc. using PowerShell, before triggering the rollback from command line. I will not cover that here.
+
+## What to expect and look for when applying and running Windows 11 on unsupported devices
+
+* Unsupported apps will automatically be uninstalled (Example: Snipping tool, outdated)
+* After the device restarts to finish the Windows 11 update, it normally only takes 5-10 minutes to complete the upgrade
+* Best effort: If things stop breaking, don't expect any support from the hardware vendor or from Microsoft
+* It's likely some of your devices cannot upgrade, due to driver compatibility issues. If any issues is detected during the upgrade process, I.E: BsoD upon bootup etc., the updater will automatically rollback to Windows 10. If it fails, try to update drivers, BIOS and uninstall any old and uneccessary applications on the device, then attempt the upgrade process again. If it keeps failing, then I guess you are out of luck. The last thing you can try is a clean reinstall of Windows 11 with the override reg values applied.
+* Remember if you get it working on Windows 11 23H2 it's all well and good. But Microsoft always releases new features, changes GUI Elements in the operating system etc, that might make future iterations of Windows 11 less functional on older and unsupported devices. Take special note of devices with very old graphics drivers, that can easily break stuff on Windows 11.
+* If the Windows 11 Upgrade app in Intune is marked as "Installed" in Intune, under device install status, but the build number is still 10.0.19045.xxx be aware that it's just the intune reporting that is a bit sluggish. The device is updated as soon as it's listed as "Installed". The build number will change to 10.0.22xxx.xxx eventually.
 
 ## Final words
 
