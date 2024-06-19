@@ -148,6 +148,7 @@ Now it's time to craft the actual rule. Let's go in and edit our old "Default El
 ![EPM](/assets/images/2024-04-01-GettingStarted-With-EPM/EPM-ElevationRules-Adobe-7.png?raw=true "Adobe Reader Elevation Rules")
 
 Now for the interesting bit, so pay attention here, as this is really important!
+
 1. In the certificate section press the add or remove a certificate. This will open a new view, where you should be able to select the signing certificate we imported before. Then hit select in the bottom
 2. In certificate type, select "Publisher". Because remember we selected the signing certificate of Adobe, which is a Publisher certificate. This is the most commonly used scenario. Very rarely would we ever choose to whitelist certificate authorities, as this could cause unpredictable and unexpected elevations using EPM!
 * Once you have added the signing certificate, you can save the rule already. But consider the impact of this: All files signed with this exact Adobe signing certificate, can be elevated with admin permissions, using EPM. Is this what you want?

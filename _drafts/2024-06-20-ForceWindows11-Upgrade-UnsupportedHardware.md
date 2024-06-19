@@ -97,6 +97,7 @@ Some of you folks probably remember ServiceUI from MDT. We can utilize ServiceUI
 
 Let's upload it it to Intune as a Win32app and deploy it as "Available" to pertinent users/devices:
 
+* **Application name:** `Upgrade to Windows 11`
 * **Install command:** `ServiceUI.exe -process:explorer.exe Windows11InstallationAssistant.exe`
 * **Uninstall command:** `not required`
 * **Device restart hehaviour:** `No specific action`
@@ -112,11 +113,17 @@ Let's upload it it to Intune as a Win32app and deploy it as "Available" to perti
 If the Windows 11 upgrade applies successfully, they will see a popup from the Windows 11 assistant, saying a reboot is required and they have 30 minutes to complete the reboot. The user can choose to reboot right away, or choose to "Restart later". If the user chooses restart later, the update assistant will go to tray and sit there until the user manually reboots their PC. Note if the user chooses to restart later, you will see the package fail in Intune with the error "The unmonitored process is in progress, however it may timeout" which is by design.
 If no actions is performed, the device will automatically reboot after 30 minutes. This can be a deal-breaker for some, so be sure to check the alternative method by making the updater available in the company portal.
 
-Otherwise note if the Windows 11 update assistant for whatever reasons fail to apply, there is no visible popup for the user, indicating it would have failed. But based on the device restart behaviour, the user would be prompted to reboot within 24 hours.
+Otherwise note if the Windows 11 update assistant for whatever reasons fail to apply, there is no visible popup for the user, indicating it would have failed. But based on the device restart behaviour, the user would be prompted to reboot within 24 hours, unless you chose not to enable the mandatory device restart.
 
 ![Win11UpdateAssistant](/assets/images/2024-06-20-UpgradeWindows11-UnsupportedHardware/WIn11UpdateRebootPrompt.png?raw=true "Windows 11 Update Assistant popup")
 
 ### UX Option #2: User self-service from company portal
+
+The user can open company portal and launch the "Upgrade to Windows 11" app. This will launch the Windows 11 Update Assistant and guide the user to start the upgrade. The update assistant will download and install Windows 11. Once it's finished, the user will get 30 minutes to perform a reboot or choose to restart at a later time to finish the update.
+
+Note, first time when launching the update, If the health check app hasn't performed an assesment on the PC yet, simply open the health check app and hit "refresh". Then head back in the Windows 11 Update Assistant and hit the "refresh" button as well, this should allow the user to continue the update.
+
+![Win11UpdateAssistant](/assets/images/2024-06-20-UpgradeWindows11-UnsupportedHardware/WIn11UpdateRebootPrompt.png?raw=true "Windows 11 Update Assistant popup")
 
 ## What to expect and look for when applying and running Windows 11 on unsupported devices
 
