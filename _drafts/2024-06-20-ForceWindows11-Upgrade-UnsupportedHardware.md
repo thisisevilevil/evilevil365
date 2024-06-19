@@ -32,7 +32,7 @@ So in other words just to translate all of this for the non-techies: If your dev
 
 There is otherwise a super easy way to get a list of your unsupported Windows 11 devices, through Intune. Go to intune, Reports -> Endpoint Analytics -> Work from Anywhere -> Windows -> "Add Filter" -> Windows 11 Readiness -> Select "Not Capable". From there, you can clearly see how many devices is not supported and why they are not supported, and you can also easily export this view to a .csv file.
 
-<Insert screenshot>
+![Win11Readiness](/assets/images/2024-06-20-UpgradeWindows11-UnsupportedHardware/UnsupportedHardware.png?raw=true "Windows 11 readiness report")
 
 ## Prereqs
 We can set a registry value to override the hardware requirements. Be aware that setting this specific value, overrides the TPM 2.0 and CPU requirement, but for some reason, TPM 1.2 is still required, you can read more about this option [here](https://support.microsoft.com/en-us/windows/ways-to-install-windows-11-e0edbbfb-cfc5-4011-868b-2ce77ac7c70e). So if there is no TPM, then this option won't work for you. You will need to reinstall Windows 11, then it's possible to override the hardware requirements. This can be done using Rufus when creating a bootable USB but also using tools like SCCM and MDT using the unattend.xml file to apply the correct registry values to override the hardware requirements.
@@ -51,7 +51,7 @@ I have created a script that downloads the [Windows 11 update assistant](https:/
 
 
 To deploy the app using Intune perform the following steps:
-1. Download the .intunewin file containing the script from [here]()
+1. Download the .intunewin file containing the script from <a id="raw-url" href="https://raw.githubusercontent.com/thisisevilevil/evilevil365/master/assets/Windows11Logo.png">here</a>
 -> Note that this script also deploys the correct reg value to override the hardware requirements, automatically.
 2. Upload it to intune as a win32 app
 3. Specify the following when uploading the package:
@@ -81,7 +81,9 @@ Making the Windows 11 Update Assistant available in the Company portal, gives th
 
 NOTE: Be aware for fully supported devices, you can deploy optional feature updates, to the user, so users can go to windows update instead to apply the update. This is the recommended approach in supported scenarios, see more info about this [here](https://techcommunity.microsoft.com/t5/windows-it-pro-blog/more-flexible-windows-feature-updates/ba-p/4139230#:~:text=How%20to%20deploy%20and%20monitor,and%20select%20Create%20new%20Profile.)
 
-Some of you folks probably remember ServiceUI from MDT. We can utilize ServiceUI in our Windows 11 Update Assistant package, to let users run the app from company portal and interact with the Windows 11 Update Assistant, even though it's running in System Context. I have prepared the .intunewin file for your convenience, but you can also see the contents of the package [here]()
+Some of you folks probably remember ServiceUI from MDT. We can utilize ServiceUI in our Windows 11 Update Assistant package, to let users run the app from company portal and interact with the Windows 11 Update Assistant, even though it's running in System Context. I have prepared the .intunewin file for your convenience, with the ServiceUI.exe and Windows11InstallationAssistant.exe file.
+
+Let's upload it it to Intune as a Win32app and deploy it as "Available" to pertinent users/devices:
 
 * **Install command:** `ServiceUI.exe -process:explorer.exe Windows11InstallationAssistant.exe`
 * **Uninstall command:** `not required`
@@ -89,7 +91,7 @@ Some of you folks probably remember ServiceUI from MDT. We can utilize ServiceUI
 * **Required disk space:** 10000MB
 * **Detection, Custom Script:** `Use custom detection script. Download from [here](https://github.com/thisisevilevil/IntunePublic/blob/main/Scripts/Win11Unsupported/Detect-Win11Installed.ps1)`
 * **Installation time required (mins)** 120 minutes
-* **Logo**: Download <a id="raw-url" href="https://raw.githubusercontent.com/thisisevilevil/evilevil365/master/assets/Windows11Logo.png">here</a>
+* **Logo**: Download <a id="raw-url" href="https://raw.githubusercontent.com/thisisevilevil/evilevil365/master/assets/ServiceUI-Win11UpdateAssistant.intunewin">here</a>
 
 
 ## User Experience
@@ -113,14 +115,14 @@ If the Windows 11 upgrade applies successfully, they will see a popup from the W
 
 ## Rolling back to Windows 10 in case of issues
 
-In case you need to rollback to Windows 10, there is a few options at our disposal. But remember for these rollback options to work, in all instances, you still need to have the windows.old folder. This gets cleaned up automatically after X amount of days, dictated by your Update ring policy in Intune. Before you do this, I would recommend you set it to at least 30 days, giving you ample time to perfor mthe rollback if any issues should occur.
+In case you need to rollback to Windows 10, there is a few options at our disposal. But remember for these rollback options to work, in all instances, you still need to have the windows.old folder available. This gets cleaned up automatically after X amount of days, dictated by your Update ring policy in Intune. Before you do this, I would recommend you set it to at least 30 days, giving you ample time to perform the rollback if any issues should occur.
 
 ![Win11Rollback](/assets/images/2024-06-20-UpgradeWindows11-UnsupportedHardware/FeatureUpdate-Retention.png?raw=true "Feature Update Retention")
 
 
 ### Option #1: Perform Rollback locally from the device settings
 
-have the user navigate to Settings -> Windows Update -> Update History -> Recovery. Then press the "Go Back" button to start the rollback. Note that this option requires local admin rights. You could hand the user a LAPS Password or have ServiceDesk jump on to the device and start the rollback
+have the user navigate to Settings -> Windows Update -> Update History -> Recovery. Then press the "Go Back" button to start the rollback. In the past this option required local admin rights, but this is no longer the case.
 
 ![Win11Rollback](/assets/images/2024-06-20-UpgradeWindows11-UnsupportedHardware/Win11-Rollback.png?raw=true "Rollback to Windows 10")
 
