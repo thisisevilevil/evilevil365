@@ -123,7 +123,11 @@ The user can open company portal and launch the "Upgrade to Windows 11" app. Thi
 
 Note, first time when launching the update, If the health check app hasn't performed an assesment on the PC yet, simply open the health check app and hit "refresh". Then head back in the Windows 11 Update Assistant and hit the "refresh" button as well, this should allow the user to continue the update.
 
-![Win11UpdateAssistant](/assets/images/2024-06-20-UpgradeWindows11-UnsupportedHardware/WIn11UpdateRebootPrompt.png?raw=true "Windows 11 Update Assistant popup")
+![Win11UpdateAssistant](/assets/images/2024-06-20-UpgradeWindows11-UnsupportedHardware/Win11_CompanyPortal_1.png?raw=true "Windows 11 Update Assistant - Company Portal")
+![Win11UpdateAssistant](/assets/images/2024-06-20-UpgradeWindows11-UnsupportedHardware/Win11_CompanyPortal_2.png?raw=true "Windows 11 Update Assistant - Company Portal")
+![Win11UpdateAssistant](/assets/images/2024-06-20-UpgradeWindows11-UnsupportedHardware/Win11_CompanyPortal_3.png?raw=true "Windows 11 Update Assistant - Company Portal")
+![Win11UpdateAssistant](/assets/images/2024-06-20-UpgradeWindows11-UnsupportedHardware/Win11_CompanyPortal_4.png?raw=true "Windows 11 Update Assistant - Company Portal")
+![Win11UpdateAssistant](/assets/images/2024-06-20-UpgradeWindows11-UnsupportedHardware/Win11_CompanyPortal_5.png?raw=true "Windows 11 Update Assistant - Company Portal")
 
 ## What to expect and look for when applying and running Windows 11 on unsupported devices
 
