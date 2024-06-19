@@ -20,6 +20,7 @@ What if I told you there is an alternative path for old and unsupported hardware
 There are companies out there that really needs this information, to take an informed decision about how to continue, as they might not in a financial position to replace their aging hardware, or purchase ESU licenses. And as you all know, to take an informed decision, you need all the information required to make that informed decision regarding how to proceed.
 
 ## Windows 11 requirements
+
 Let's examine the [Windows 11 requirements](https://www.microsoft.com/en-us/windows/windows-11-specifications).
 
 * 4GB of RAM
@@ -34,7 +35,8 @@ There is otherwise a super easy way to get a list of your unsupported Windows 11
 
 ![Win11Readiness](/assets/images/2024-06-20-UpgradeWindows11-UnsupportedHardware/UnsupportedHardware.png?raw=true "Windows 11 readiness report")
 
-## Prereqs
+## Prerequisites
+
 We can set a registry value to override the hardware requirements. Be aware that setting this specific value, overrides the TPM 2.0 and CPU requirement, but for some reason, TPM 1.2 is still required, you can read more about this option [here](https://support.microsoft.com/en-us/windows/ways-to-install-windows-11-e0edbbfb-cfc5-4011-868b-2ce77ac7c70e). So if there is no TPM, then this option won't work for you. You will need to reinstall Windows 11, then it's possible to override the hardware requirements. This can be done using Rufus when creating a bootable USB but also using tools like SCCM and MDT using the unattend.xml file to apply the correct registry values to override the hardware requirements.
 
 1. Deploy PowerShell Script that sets the correct registry value to override hardware requirements. You can fetch the one I made from [here]()
@@ -42,15 +44,14 @@ We can set a registry value to override the hardware requirements. Be aware that
 
 Note when deploying the PC Health Check app, it might popup on the end-users device. You can simply instruct them to close it, if it happens to you as well.
 
-
-## Option #1: Forcefully applying Windows 11 from Intune on unsupported hardware
+### Option #1: Forcefully applying Windows 11 from Intune on unsupported hardware
 
 Disclaimer: This solution will also be presented as-is. Also be aware that Microsoft might choose to make changes on how to bypass the Windows 11 requirements, and the workaround I present here might also stop working. The best option is to replace unsupported hardware.
 
 I have created a script that downloads the [Windows 11 update assistant](https://www.microsoft.com/software-download/windows11) and runs it silently in the background. I have actually used this script for the past year and a half to nudge stubborn devices over to the latest version of Windows 11. If you want to examine the code you can find it [here](https://github.com/thisisevilevil/IntunePublic/blob/main/Scripts/Win11Unsupported/UpgradeToWindows11.ps1) The oode is very simple.
 
-
 To deploy the app using Intune perform the following steps:
+
 1. Download the .intunewin file containing the script from <a id="raw-url" href="https://raw.githubusercontent.com/thisisevilevil/evilevil365/master/assets/Windows11Logo.png">here</a>
 -> Note that this script also deploys the correct reg value to override the hardware requirements, automatically.
 2. Upload it to intune as a win32 app
@@ -73,7 +74,7 @@ Since we are already cutting the red tape here, we might as well keep going. You
 
 This will override any safeguard holds applied from Microsoft end because of Apps, Drivers or even certain BIOS Versions that Microsoft has deemed problematic for Windows 11 23H2. There is otherwise a nice report in Intune where you can also identify these devices. Navigate to Reports -> Windows Updates -> Reports -> Windows feature update device readiness report. You can also go to the Compatibility Risks report to see the specific Drivers and apps that you have in your org that might be blocking an upgrade.
 
-## Option #2: Making the Windows 11 Update Assistant available in company portal for unsupported hardware
+### Option #2: Making the Windows 11 Update Assistant available in company portal for unsupported hardware
 
 There is a way you can make the Windows 11 Update assistant available in the company portal. I'm aware you can just download the ISO of Windows 11, package it as a Win32 app then run setup.exe silently in system context, but you have to package the full ISO contents in the Win32 app, which can be super clunky due to the large package size but still viable in some scenarios. The good thing about the Windows 11 Update Assistant is that it's very lightweight, the file is only around 4mb in size.
 
@@ -93,7 +94,6 @@ Let's upload it it to Intune as a Win32app and deploy it as "Available" to perti
 * **Installation time required (mins)** 120 minutes
 * **Logo**: Download <a id="raw-url" href="https://raw.githubusercontent.com/thisisevilevil/evilevil365/master/assets/ServiceUI-Win11UpdateAssistant.intunewin">here</a>
 
-
 ## User Experience
 
 ### Option #1: Silent upgrade in the background
@@ -112,13 +112,11 @@ If the Windows 11 upgrade applies successfully, they will see a popup from the W
 * Remember if you get it working on Windows 11 23H2 it's all well and good. But Microsoft always releases new features, changes GUI Elements in the operating system etc, that might make future iterations of Windows 11 less functional on older and unsupported devices. Take special note of devices with very old graphics drivers, that can easily break stuff on Windows 11.
 * If the Windows 11 Upgrade app in Intune is marked as "Installed" in Intune, under device install status, but the build number is still 10.0.19045.xxx be aware that it's just the intune reporting that is a bit sluggish. The device is updated as soon as it's listed as "Installed".
 
-
 ## Rolling back to Windows 10 in case of issues
 
 In case you need to rollback to Windows 10, there is a few options at our disposal. But remember for these rollback options to work, in all instances, you still need to have the windows.old folder available. This gets cleaned up automatically after X amount of days, dictated by your Update ring policy in Intune. Before you do this, I would recommend you set it to at least 30 days, giving you ample time to perform the rollback if any issues should occur.
 
 ![Win11Rollback](/assets/images/2024-06-20-UpgradeWindows11-UnsupportedHardware/FeatureUpdate-Retention.png?raw=true "Feature Update Retention")
-
 
 ### Option #1: Perform Rollback locally from the device settings
 
@@ -127,12 +125,10 @@ have the user navigate to Settings -> Windows Update -> Update History -> Recove
 ![Win11Rollback](/assets/images/2024-06-20-UpgradeWindows11-UnsupportedHardware/Win11-Rollback.png?raw=true "Rollback to Windows 10")
 
 ### Option #2: Perform Rollback using Intune Update Ring Policy
+
 You can apply a seperate Update Ring Policy for the target devices in Intune, from there you can enable the "Uninstall -> Feature" button to perform the rollback. Hoever just remember, that all target devices will perform the rollback
 ![Win11Rollback](/assets/images/2024-06-20-UpgradeWindows11-UnsupportedHardware/UninstallFeatureUpdate-Intune.png?raw=true "Uninstall feature update Intune")
-
 
 ### Option #3: Perform Rollback using on-demand remediation
 
 Another option is to create a Remediation, with the following command: `DISM /Online /Initiate-OSUninstall /Quiet` - Don't assign the remediation to any group, it can be used on-demand using the [new remediation on-demand feature](https://learn.microsoft.com/en-us/mem/intune/fundamentals/remediations#run-a-remediation-script-on-demand-preview). Be aware that when the rollback triggers, it will trigger an abrupt reboot on the end-users device, without any warning. If this is a problem, there are ways we can send notifications etc. using PowerShell, before triggering the rollback from command line. I will not cover that here.
-
-
