@@ -1,5 +1,5 @@
 ---
-title: "YOLO Upgrade to Windows 11"
+title: "Upgrade unsupported hardware to Windows 11 using Intune"
 date: 2024-06-20
 categories:
   - Windows 11
@@ -31,15 +31,15 @@ Let's examine the [Windows 11 requirements](https://www.microsoft.com/en-us/wind
 * TPM 2.0
 * 8th Generation Intel CPU or Higher (There is a few exceptions to this rule in the 7th Generation Intel's but needs to be an extreme version)
 
-So in other words just to translate all of this for the non-techies: If your device is before the year of ~2017 there is very high chance your device doesn't support Windows 11, due to the CPU being unsupported. Most devices after ~2017 already have TPM 2.0 and an 8th Gen Intel CPU or higher. If the TPM doesn't appear on your device, you usually just have to enable it in the BIOS, not a biggie. This is especeially relevant on any devices purchased for Gaming.. a few years ago the TPM commonly came disabled by default from the Motherboard manufacturers. All you need to do is to go to the BIOS and enable it, to get Windows 11 support.
+So in other words just to translate all of this for the non-techies: If your device is before the year of ~2017 there is very high chance your device doesn't support Windows 11, due to the CPU being unsupported. Most devices after ~2017 already have TPM 2.0 and an 8th Gen Intel CPU or higher. If the TPM doesn't appear on your device, you usually just have to enable it in the BIOS, not a biggie. This is especeially relevant on any devices purchased for Gaming.. Up until recently, TPM commonly came disabled by default from the Motherboard manufacturers. All you need to do is to go to the BIOS and enable it, to get Windows 11 support. On Intel boards it might be called TPM, Trusted Platform Computing or Intel PTT. On AMD Boards it will be called TPM, Trusted Platform Computing or AMD PSP.
 
-There is otherwise a super easy way to get a list of your unsupported Windows 11 devices, through Intune. Go to intune, Reports -> Endpoint Analytics -> Work from Anywhere -> Windows -> "Add Filter" -> Windows 11 Readiness -> Select "Not Capable". From there, you can clearly see how many devices is not supported and why they are not supported, and you can also easily export this view to a .csv file.
+There is otherwise a super easy way to get a list of your unsupported Windows 11 devices, through Intune. Go to intune, Reports -> Endpoint Analytics -> Work from Anywhere -> Windows -> "Add Filter" -> Windows 11 Readiness -> Select "Not Capable". From there, you can clearly see how many devices is not supported and why they are not supported, and you can also easily export this to a .csv file.
 
 ![Win11Readiness](/assets/images/2024-06-20-UpgradeWindows11-UnsupportedHardware/UnsupportedHardware.png?raw=true "Windows 11 readiness report")
 
 ## Prerequisites
 
-We can set a registry value to override the hardware requirements. Be aware that setting this specific value, overrides the TPM 2.0 and CPU requirement, but for some reason, TPM 1.2 is still required, you can read more about this option [here](https://support.microsoft.com/en-us/windows/ways-to-install-windows-11-e0edbbfb-cfc5-4011-868b-2ce77ac7c70e). So if there is no TPM, then this option won't work for you. You will need to reinstall Windows 11, then it's possible to override the hardware requirements. This can be done using Rufus when creating a bootable USB but also using tools like SCCM and MDT using the unattend.xml file to apply the correct registry values to override the hardware requirements.
+We can set a registry value to override the hardware requirements. Be aware that setting this specific value, overrides the TPM 2.0 and CPU requirement, but for some reason TPM 1.2 is still required, you can read more about this option [here](https://support.microsoft.com/en-us/windows/ways-to-install-windows-11-e0edbbfb-cfc5-4011-868b-2ce77ac7c70e). So if there is no TPM, then this option won't work for you. You will need to reinstall Windows 11, then it's possible to override the hardware requirements. This can be done using Rufus when creating a bootable USB but also using tools like SCCM and MDT using the unattend.xml file to apply the correct registry values to override the hardware requirements.
 
 1. Deploy PowerShell Script from Intune that sets the correct registry value to override hardware requirements. You can fetch the one I made from [here](https://github.com/thisisevilevil/IntunePublic/blob/main/Scripts/Win11Unsupported/DeployWin11HWOverrideKeys.ps1)
 2. Deploy PC Health Check app as a Win32 or LoB app, as the Windows Update Assistant relies on this to be present. You can download it from [here](https://aka.ms/GetPCHealthCheckApp)
@@ -128,6 +128,7 @@ Note, first time when launching the update, If the health check app hasn't perfo
 ![Win11UpdateAssistant](/assets/images/2024-06-20-UpgradeWindows11-UnsupportedHardware/Win11_CompanyPortal_3.png?raw=true "Windows 11 Update Assistant - Company Portal")
 ![Win11UpdateAssistant](/assets/images/2024-06-20-UpgradeWindows11-UnsupportedHardware/Win11_CompanyPortal_4.png?raw=true "Windows 11 Update Assistant - Company Portal")
 ![Win11UpdateAssistant](/assets/images/2024-06-20-UpgradeWindows11-UnsupportedHardware/Win11_CompanyPortal_5.png?raw=true "Windows 11 Update Assistant - Company Portal")
+![Win11UpdateAssistant](/assets/images/2024-06-20-UpgradeWindows11-UnsupportedHardware/Win11_CompanyPortal_6.png?raw=true "Windows 11 Update Assistant - Company Portal")
 
 ## What to expect and look for when applying and running Windows 11 on unsupported devices
 
