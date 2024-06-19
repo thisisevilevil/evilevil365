@@ -19,7 +19,7 @@ What if I told you there is an alternative path for old and unsupported hardware
 
 There are companies out there that really needs this information, to take an informed decision about how to continue, as they might not in a financial position to replace their aging hardware, or purchase ESU licenses. And as you all know, to take an informed decision, you need all the information required to make that informed decision regarding how to proceed.
 
-**Disclaimer: This solution will be presented as-is, without any warranties. Be aware that Microsoft might choose to make changes on how to bypass the Windows 11 requirements, and the workarounds I present here might also stop working. The best option is to replace unsupported hardware with supported hardware, where possible. Also find the official risks as outlined by Microsoft [here](https://support.microsoft.com/en-us/windows/installing-windows-11-on-devices-that-don-t-meet-minimum-system-requirements-0b2dc4a2-5933-4ad4-9c09-ef0a331518f1).**
+**Disclaimer: This solution will be presented as-is, without any warranties. Be aware that Microsoft might choose to make changes on how to bypass the Windows 11 requirements, and the workarounds I present here might also stop working. No support will be provided by the hardware vendor or by Microsoft for this scenario. The best option is to replace unsupported hardware with supported hardware, where possible. Also find the official risks as outlined by Microsoft [here](https://support.microsoft.com/en-us/windows/installing-windows-11-on-devices-that-don-t-meet-minimum-system-requirements-0b2dc4a2-5933-4ad4-9c09-ef0a331518f1).**
 
 ## Windows 11 requirements
 
@@ -156,9 +156,7 @@ Another option is to create a Remediation, with the following command: `DISM /On
 
 ## What to expect and look for when applying and running Windows 11 on unsupported devices
 
-* Unsupported apps will automatically be uninstalled (Example: Snipping tool, outdated)
-* After the device restarts to finish the Windows 11 update, it normally only takes 5-10 minutes to complete the upgrade
-* Best effort: If things stop breaking, don't expect any support from the hardware vendor or from Microsoft
+* Unsupported apps will automatically be uninstalled if the upgrade is successful (Example: Snipping tool, outdated)
 * It's likely some of your devices cannot upgrade, due to driver compatibility issues. If any issues is detected during the upgrade process, I.E: BsoD upon bootup etc., the updater will automatically rollback to Windows 10. If it fails, try to update drivers, BIOS and uninstall any old and uneccessary applications on the device, then attempt the upgrade process again. If it keeps failing, then I guess you are out of luck. The last thing you can try is a clean reinstall of Windows 11 with the override reg values applied.
 * Remember if you get it working on Windows 11 23H2 it's all well and good. But Microsoft always releases new features, changes GUI Elements in the operating system etc, that might make future iterations of Windows 11 less functional on older and unsupported devices. Take special note of devices with very old graphics drivers, that can easily break stuff on Windows 11.
 * If the Windows 11 Upgrade app in Intune is marked as "Installed" in Intune, under device install status, but the build number is still 10.0.19045.xxx be aware that it's just the intune reporting that is a bit sluggish. The device is updated as soon as it's listed as "Installed". The build number will change to 10.0.22xxx.xxx eventually.
@@ -170,4 +168,4 @@ There is many different ways to apply the reg key to override the HW requirement
 Otherwise be aware that if the update attempts to apply but fails, you can actually fetch that from the registry. Use the following command in PowerShell to detect if an update has been applied but failed: `Get-ItemPropertValue -Path 'HKLM:\SYSTEM\Setup\MoSetup\Tracking' -Name 'FailureCount'
 One thing that could be worth setting up is a Remediation that detect for the FailureCount and outputs it to the console, to get an overview of how many times the upgrade failed to apply, and then you could consider doing manual checks and perhaps excluding it from getting the upgrade.
 
-I hope you found this blog useful, and I sincerely hope you won't need it and you will find yourself in a position to replace the aging hardware instead. Imagine the hardware that doesn't support Windows 11 is slowly coming up to 8 years old now, as of this blogs date.
+I hope you found this blog useful, and I sincerely hope you won't need it and you will find yourself in a position to replace the aging hardware instead.The hardware that doesn't support Windows 11 is slowly coming up to 8 years old now, as of this blogs date, so it's already very old. If you are in the position where you are upgrading your unsupported hardware, just be sure to consider all the risks involved.
