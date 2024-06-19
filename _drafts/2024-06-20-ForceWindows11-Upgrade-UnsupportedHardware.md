@@ -66,6 +66,7 @@ To deploy the app using Intune perform the following steps:
 2. Upload it to intune as a win32 app
 3. Specify the following when uploading the package:
 
+* **Application name:** `Upgrade to Windows 11`
 * **Install command:** `%windir%\Sysnative\WindowsPowerShell\v1.0\Powershell.exe -ExecutionPolicy Bypass -File UpgradeToWindows11.ps1`
 * **Uninstall command:** `not required`
 * **Device restart hehaviour:** `Intune will force a mandatory device restart`
@@ -95,7 +96,9 @@ Making the Windows 11 Update Assistant available in the Company portal, gives th
 
 Some of you folks probably remember ServiceUI from MDT. We can utilize ServiceUI in our Windows 11 Update Assistant package, to let users run the app from company portal and interact with the Windows 11 Update Assistant, even though it's running in System Context. I have prepared the .intunewin file for your convenience, with the ServiceUI.exe and Windows11InstallationAssistant.exe file.
 
-Let's upload it it to Intune as a Win32app and deploy it as "Available" to pertinent users/devices:
+1. Download the .intunewin file containing the script from <a id="raw-url" href="https://raw.githubusercontent.com/thisisevilevil/evilevil365/master/assets/ServiceUI-Win11UpdateAssistant.intunewin">here</a>
+2. Upload it to intune as a win32 app - Make sure to deploy it as "available"
+3. Specify the following when uploading the package:
 
 * **Application name:** `Upgrade to Windows 11`
 * **Install command:** `ServiceUI.exe -process:explorer.exe Windows11InstallationAssistant.exe`
@@ -104,7 +107,7 @@ Let's upload it it to Intune as a Win32app and deploy it as "Available" to perti
 * **Required disk space:** 10000MB
 * **Detection, Custom Script:** Use custom detection script. Download from [here](https://github.com/thisisevilevil/IntunePublic/blob/main/Scripts/Win11Unsupported/Detect-Win11Installed.ps1)
 * **Installation time required (mins)** 120 minutes
-* **Logo**: Download <a id="raw-url" href="https://raw.githubusercontent.com/thisisevilevil/evilevil365/master/assets/ServiceUI-Win11UpdateAssistant.intunewin">here</a>
+* **Logo**: Download <a id="raw-url" href="https://raw.githubusercontent.com/thisisevilevil/evilevil365/master/assets/Windows11Logo.png">here</a>
 
 ## User Experience
 
