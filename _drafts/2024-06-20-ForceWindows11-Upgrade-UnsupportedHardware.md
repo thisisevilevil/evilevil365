@@ -11,6 +11,17 @@ tags:
   - Force Windows 11 Upgrade
 ---
 
+# Table of Contents
+
+1. [Intro](## Intro)
+2. [Windows 11 Requirements](## Windows Requirements)
+3. [Prequisites](## Prequisites)
+4. [Deploying the PreReqs](### Deploying the PreReqs)
+
+
+## Intro
+
+
 Are you looking to upgrade your ancient and seemingly unsupported hardware to Windows 11 using Microsoft Intune? Well look no further, you have come to the right place.
 
 Windows 10 support is quickly coming to an end. [October 14, 2025](https://learn.microsoft.com/en-us/lifecycle/products/windows-10-home-and-pro) is the date your organization either have to have all your devices upgraded to Windows 11 or replaced with hardware that does support Windows 11. Well there is also the 3rd option that will make your companies wallet suffer, [you can choose to pay 61$ pr. device](https://techcommunity.microsoft.com/t5/windows-it-pro-blog/when-to-use-windows-10-extended-security-updates/ba-p/4102628) to get extended patching (ESU Licenses) for Windows 10 for up to 3 years.
@@ -18,6 +29,10 @@ Windows 10 support is quickly coming to an end. [October 14, 2025](https://learn
 What if I told you there is an alternative path for old and unsupported hardware, for those with empty wallets? And just to be clear, before I continue this blog post, I highly discourage this path, it's the aboslute worst option of them all. Or well.. the worst option of them all is to do nothing, because then you won't get any patches come October next year.
 
 There are companies out there that really needs this information, to take an informed decision about how to continue, as they might not be in a financial position to replace their aging hardware, or purchase ESU licenses. And as you all know, to take an informed decision, you need all the information required to make that informed decision regarding how to proceed.
+
+This blog will outline how you can use the consumer tool known as [Windows 11 Update Assistant](https://www.microsoft.com/software-download/windows11) along with some registry keys to override the Windows 11 hardware requirements set by Microsoft. I'm also aware you can just download the ISO of Windows 11, package it as a Win32 app then run setup.exe silently in system context, but you have to package the full ISO contents in the Win32 app, which can be super clunky due to the large package size but still viable in some scenarios. The good thing about the Windows 11 Update Assistant is that it's very lightweight, the file is only around 4mb in size.
+
+Let's get into it :)
 
 **Disclaimer: This solution will be presented as-is, without any warranties. Be aware that Microsoft might choose to make changes on how to bypass the Windows 11 requirements, and the workarounds I present here might also stop working. No support will be provided by the hardware vendor or by Microsoft for this scenario. The best option is to replace unsupported hardware with supported hardware, where possible. Also find the official risks as outlined by Microsoft [here](https://support.microsoft.com/en-us/windows/installing-windows-11-on-devices-that-don-t-meet-minimum-system-requirements-0b2dc4a2-5933-4ad4-9c09-ef0a331518f1).**
 
@@ -97,8 +112,6 @@ If you don't want this to be the case here, just go back to the package and set 
 ### Option #2: Making the Windows 11 Update Assistant available in company portal for unsupported hardware
 
 > NOTE: Be aware for fully supported devices, you can deploy optional feature updates, to the user, so users can go to windows update instead to apply the update. This is the recommended approach in supported scenarios, see more info about this [here](https://techcommunity.microsoft.com/t5/windows-it-pro-blog/more-flexible-windows-feature-updates/ba-p/4139230#:~:text=How%20to%20deploy%20and%20monitor,and%20select%20Create%20new%20Profile.)
-
-There is a way you can make the Windows 11 Update assistant available in the company portal. I'm aware you can just download the ISO of Windows 11, package it as a Win32 app then run setup.exe silently in system context, but you have to package the full ISO contents in the Win32 app, which can be super clunky due to the large package size but still viable in some scenarios. The good thing about the Windows 11 Update Assistant is that it's very lightweight, the file is only around 4mb in size.
 
 Making the Windows 11 Update Assistant available in the Company portal, gives the user the option of when to start the upgrade at a convenient time.
 
