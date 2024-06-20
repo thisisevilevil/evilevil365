@@ -95,7 +95,7 @@ To deploy the app using Intune perform the following steps:
 As you can see, we have selected "Intune will force a mandatory device restart". This will actually not come into play, if everything goes according to plan. The user will get a popup from the Windows 11 Update Assistant where they have 30 minutes to perform a reboot, where they can restart now or restart later. There is no way to alter the reboot timer or message, so keep this in mind. You will see that later in the User Experience section.
 However, if there are any pending reboots or any other reasons the Windows 11 update might not correctly apply, the Intune Management Extension will attempt to restart the device. When the device has restarted, Intune will attempt to apply the update again.
 
-**For this reason, remember to enable the "Restart Grace" period in your app assignment, to show reboot notifications/snooze options to the end-user. Note that it's disabled by default for each group where you assign the app. If you forget to set it, the user will experience an abrupt reboot without any warning whatsoever.**.
+**For this reason, remember to enable the "Restart Grace period" in your app assignment, to show reboot notifications/snooze options to the end-user. Note that it's disabled by default for each group where you assign the app. If you forget to set it, the user will experience an abrupt reboot without any warning whatsoever.**.
 
 ![RestartPeriod1](/assets/images/2024-06-20-UpgradeWindows11-UnsupportedHardware/RestartGracePeriod-1.png?raw=true "Restart Grace Period")
 ![RestartPeriod1](/assets/images/2024-06-20-UpgradeWindows11-UnsupportedHardware/RestartGracePeriod-2.png?raw=true "Restart Grace Period")
