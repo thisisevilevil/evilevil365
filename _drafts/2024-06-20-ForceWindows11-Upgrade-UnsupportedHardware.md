@@ -21,7 +21,9 @@ There are companies out there that really needs this information, to take an inf
 
 This blog will outline how you can use the consumer tool known as [Windows 11 Update Assistant](https://www.microsoft.com/software-download/windows11) along with some registry keys to override the Windows 11 hardware requirements set by Microsoft. I'm also aware you can just download the ISO of Windows 11, package it as a Win32 app then run setup.exe silently in system context, but you have to package the full ISO contents in the Win32 app, which can be super clunky due to the large package size but still viable in some scenarios. The good thing about the Windows 11 Update Assistant is that it's very lightweight, the file is only around 4mb in size.
 
-Let's get into it :)
+Let's get into it.. and might I say.. proceed with caution :)
+
+![Caution](/assets/images/2024-06-20-UpgradeWindows11-UnsupportedHardware/Caution-WatchYourstep.png?raw=true "Caution")
 
 **Disclaimer: This solution will be presented as-is, without any warranties. Be aware that Microsoft might choose to make changes on how to bypass the Windows 11 requirements, and the workarounds I present here might also stop working. No support will be provided by the hardware vendor or by Microsoft for this scenario. The best option is to replace unsupported hardware with supported hardware, where possible. Also find the official risks as outlined by Microsoft [here](https://support.microsoft.com/en-us/windows/installing-windows-11-on-devices-that-don-t-meet-minimum-system-requirements-0b2dc4a2-5933-4ad4-9c09-ef0a331518f1).**
 
@@ -60,10 +62,12 @@ Before going any further, also be sure to test these settings first on a few tes
 
 ### Optional Step
 
-Since we are already cutting the red tape here, we might as well keep going. You can override any [safeguard holds](https://learn.microsoft.com/en-us/windows/deployment/update/safeguard-holds) by applying the a policy using Settings catalog. We can disable Safeguard Holds:
+Since we are already cutting the red tape here, we might as well keep going. You can override any [safeguard holds](https://learn.microsoft.com/en-us/windows/deployment/update/safeguard-holds) by applying the a policy using Settings catalog. Proceed to Disable Safeguard Holds:
 ![SettingsCatalog](/assets/images/2024-06-20-UpgradeWindows11-UnsupportedHardware/DisableSafeguardsWufB.png?raw=true "Disable WufB Safeguards Settings Catalog")
 
-This will override any safeguard holds applied from Microsoft end because of Apps, Drivers or even certain BIOS Versions that Microsoft has deemed problematic for Windows 11 23H2. There is otherwise a nice report in Intune where you can also identify these devices. Navigate to Reports -> Windows Updates -> Reports -> Windows feature update device readiness report. You can also go to the Compatibility Risks report to see the specific Drivers and apps that you have in your org that might be blocking an upgrade.
+This will override any safeguard holds applied from Microsoft end because of Apps, Drivers or even certain BIOS Versions that Microsoft has deemed problematic for Windows 11 23H2. Sometimes, the Safeguard hold has been applied because of a printer or just a very old app like old versions of VMware Player. We don't really care about this in this scenario. Otherwise be aware, there is obviously also an increased risk when applying this policy.
+
+There is otherwise a nice report in Intune where you can also identify these devices. Navigate to Reports -> Windows Updates -> Reports -> Windows feature update device readiness report. You can also go to the Compatibility Risks report to see the specific Drivers and apps that you have in your org that might be blocking an upgrade.
 
 ![ReadinessReport](/assets/images/2024-06-20-UpgradeWindows11-UnsupportedHardware/FeatureUpdateReadiness-CompatRisks.png?raw=true "Readiness report")
 ![ReadinessReport](/assets/images/2024-06-20-UpgradeWindows11-UnsupportedHardware/FeatureUpdateReadiness-CompatRisks-1.png?raw=true "Readiness report")
