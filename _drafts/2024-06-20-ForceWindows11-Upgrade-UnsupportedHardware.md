@@ -65,7 +65,7 @@ Before going any further, also be sure to test these settings first on a few tes
 Since we are already cutting the red tape here, we might as well keep going. You can override any [safeguard holds](https://learn.microsoft.com/en-us/windows/deployment/update/safeguard-holds) by applying the a policy using Settings catalog. Proceed to Disable Safeguard Holds:
 ![SettingsCatalog](/assets/images/2024-06-20-UpgradeWindows11-UnsupportedHardware/DisableSafeguardsWufB.png?raw=true "Disable WufB Safeguards Settings Catalog")
 
-This will override any safeguard holds applied from Microsoft end because of Apps, Drivers or even certain BIOS Versions that Microsoft has deemed problematic for Windows 11 23H2. Sometimes, the Safeguard hold has been applied because of a printer or just a very old app like old versions of VMware Player. We don't really care about this in this scenario. Otherwise be aware, there is obviously also an increased risk when applying this policy.
+This will override any safeguard holds applied from Microsoft end because of Apps, Drivers or even certain BIOS Versions that Microsoft has deemed problematic for Windows 11 23H2. Sometimes, the Safeguard hold has been applied because of a printer or just a very old app like old versions of VMware Player. We don't really care about this in this scenario. Otherwise be aware, there is obviously also an increased risk with old hardware of driver incompatibility. Attempting to force upgrade, might just result in a blue screen loop. If possible, proceed to apply all the latest driver you can for Sound, Video and Network. If your hardware vendor doesn't have any newer drivers for the last 3-4 years, you can try your luck by going directly to the vendor of the part, website like Intel or Realtek. Chances are they have newer versions available than your hardware vendor published.
 
 There is otherwise a nice report in Intune where you can also identify these devices. Navigate to Reports -> Windows Updates -> Reports -> Windows feature update device readiness report. You can also go to the Compatibility Risks report to see the specific Drivers and apps that you have in your org that might be blocking an upgrade.
 
@@ -101,7 +101,6 @@ However, if there are any pending reboots or any other reasons the Windows 11 up
 
 If you don't want this to be the case here, just go back to the package and set the device restart behvaiour to "No specific action" instead.
 
-
 ### Option #2: Making the Windows 11 Update Assistant available in company portal for unsupported hardware
 
 > NOTE: Be aware for fully supported devices, you can deploy optional feature updates, to the user, so users can go to windows update instead to apply the update. This is the recommended approach in supported scenarios, see more info about this [here](https://techcommunity.microsoft.com/t5/windows-it-pro-blog/more-flexible-windows-feature-updates/ba-p/4139230#:~:text=How%20to%20deploy%20and%20monitor,and%20select%20Create%20new%20Profile.)
@@ -127,7 +126,7 @@ Some of you folks probably remember ServiceUI from MDT. We can utilize ServiceUI
 
 ### UX Option #1: Silent upgrade in the background
 
-If the Windows 11 upgrade applies successfully, they will see a popup from the Windows 11 assistant, saying a reboot is required and they have 30 minutes to complete the reboot. The user can choose to reboot right away, or choose to "Restart later". If the user chooses restart later, the update assistant will go to tray and sit there until the user manually reboots their PC. Note if the user chooses to restart later, you will see the package fail in Intune with the error "The unmonitored process is in progress, however it may timeout" which is by design.
+If the Windows 11 upgrade applies successfully, the user will see a popup from the Windows 11 assistant, saying a reboot is required and they have 30 minutes to complete the reboot. The user can choose to reboot right away, or choose to "Restart later". If the user chooses restart later, the update assistant will go to tray and sit there until the user manually reboots the PC. Note if the user chooses to restart later, you will see the package fail in Intune with the error "The unmonitored process is in progress, however it may timeout" which is by design.
 If no actions is performed, the device will automatically reboot after 30 minutes. This can be a deal-breaker for some, so be sure to check the alternative method by making the updater available in the company portal.
 
 Otherwise note if the Windows 11 update assistant for whatever reasons fail to apply, there is no visible popup for the user, indicating it would have failed. But based on the device restart behaviour, the user would be prompted to reboot within 24 hours, unless you chose not to enable the mandatory device restart.
@@ -155,7 +154,7 @@ In case you need to rollback to Windows 10, there is a few options at our dispos
 
 ### Option #1: Perform Rollback locally from the device settings
 
-have the user navigate to Settings -> Windows Update -> Update History -> Recovery. Then press the "Go Back" button to start the rollback. In the past this option required local admin rights, but this is no longer the case.
+have the user navigate to Settings -> Windows Update -> Update History -> Recovery. Then press the "Go Back" button to start the rollback.
 
 ![Win11Rollback](/assets/images/2024-06-20-UpgradeWindows11-UnsupportedHardware/Win11-Rollback.png?raw=true "Rollback to Windows 10")
 
@@ -177,9 +176,9 @@ Another option is to create a Remediation, with the following command: `DISM /On
 
 ## Final words
 
-There is many different ways to apply the reg key to override the HW requirements and also a plethora of different ways to trigger the Windows 11 update assistant or just the setup.exe from the Windows 11 ISO. GPOs, Logon Scripts, Task sequence, On-Demand remediation etc. - This is just one way to do it. The key is to just navigate the different options and weighing the pros/cons for your organization.
+There is many different ways to apply the reg key to override the HW requirements and also a plethora of different ways to trigger the Windows 11 update assistant or just the setup.exe from the Windows 11 ISO. GPOs, Logon Scripts, Task sequence, On-Demand remediation, you name it. This is just one way to do it. The key is to just navigate the different options and weighing the pros/cons for your organization on how to proceed.
 
-Otherwise be aware that if the update attempts to apply but fails, you can actually fetch that from the registry. Use the following command in PowerShell to detect if an update has been applied but failed: `Get-ItemPropertValue -Path 'HKLM:\SYSTEM\Setup\MoSetup\Tracking' -Name 'FailureCount'
-One thing that could be worth setting up is a Remediation that detect for the FailureCount and outputs it to the console, to get an overview of how many times the upgrade failed to apply, and then you could consider doing manual checks and perhaps excluding it from getting the upgrade.
+Otherwise be aware that if the update attempts to apply but fails, you can actually fetch that from the registry. Use the following command in PowerShell to detect if an update has been applied but failed: `Get-ItemPropertValue -Path 'HKLM:\SYSTEM\Setup\MoSetup\Tracking' -Name 'FailureCount'.
+One thing that could be worth setting up is a Remediation that detect for the FailureCount and outputs it to the console, to get an overview of how many times the upgrade failed to apply, and then you could consider doing manual checks and perhaps excluding it from getting the upgrade. When a feature update fails, you can always find the logs under C:\$Windows.~BT hidden folder. There are ways to analyze these logs, but I won't cover that here.
 
-I hope you found this blog useful, and I sincerely hope you won't need it and you will find yourself in a position to replace the aging hardware instead.The hardware that doesn't support Windows 11 is slowly coming up to 8 years old now, as of this blogs date, so it's already very old. If you are in the position where you are upgrading your unsupported hardware, just be sure to consider all the risks involved.
+I hope you found this blog useful, and I sincerely hope you won't need it and you will find yourself in a position to replace the aging hardware instead. The hardware that doesn't support Windows 11 is slowly coming up to 8 years old now, as of this blogs date, so it's already very old. If you are in the position where you are upgrading your unsupported hardware, just be sure to consider all the risks involved before proceeding.
