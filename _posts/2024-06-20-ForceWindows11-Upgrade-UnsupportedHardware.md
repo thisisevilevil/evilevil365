@@ -48,7 +48,7 @@ There is otherwise a super easy way to get a list of your unsupported Windows 11
 
 We can set a registry value to override the hardware requirements. Be aware that setting this specific value, overrides the TPM 2.0 and CPU requirement, but for some reason TPM 1.2 is still required, you can read more about this option [here](https://support.microsoft.com/en-us/windows/ways-to-install-windows-11-e0edbbfb-cfc5-4011-868b-2ce77ac7c70e). 
 
-If there is no TPM, then this option won't work for you. You will need to reinstall Windows 11, then it's possible to override the hardware requirements. This can be done using Rufus when creating a bootable USB but also using tools like SCCM and MDT using an unattend.xml file to apply the correct registry values to override the hardware requirements, you can find some inspiration I made, on my github page [here](https://github.com/thisisevilevil/IntunePublic/blob/main/Just%20stuff/BypassWin11Requirements-Unattend.xml).
+If there is no TPM, then this option won't work for you. You will need to reinstall Windows 11, then it's possible to override the hardware requirements. This can be done using [Rufus](https://rufus.ie/en/) when creating a bootable USB but also using tools like SCCM and MDT using an unattend.xml file to apply the correct registry values to override the hardware requirements, you can find some inspiration, on my github page [here](https://github.com/thisisevilevil/IntunePublic/blob/main/Just%20stuff/BypassWin11Requirements-Unattend.xml).
 
 ### Deploying the PreReqs
 
