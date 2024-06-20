@@ -19,7 +19,7 @@ What if I told you there is an alternative path for old and unsupported hardware
 
 There are companies out there that really needs this information, to take an informed decision about how to continue, as they might not be in a financial position to replace their aging hardware, or purchase ESU licenses. And as you all know, to take an informed decision, you need all the information required to make that informed decision regarding how to proceed.
 
-This blog will outline how you can use the consumer tool known as [Windows 11 Update Assistant](https://www.microsoft.com/software-download/windows11) along with some registry keys to override the Windows 11 hardware requirements set by Microsoft, and force an upgrade to windows 11 where possible. 
+This blog post will outline how you can use the consumer tool known as [Windows 11 Update Assistant](https://www.microsoft.com/software-download/windows11) along with some registry keys to override the Windows 11 hardware requirements set by Microsoft, and force an upgrade to windows 11 where possible. 
 I'm also aware you can just download the ISO of Windows 11, package it as a Win32 app then run setup.exe silently in system context, but you have to package the full ISO contents in the Win32 app, which can be super clunky due to the large package size but still viable in some scenarios. The good thing about the Windows 11 Update Assistant is that it's very lightweight, the file is only around 4mb in size.
 
 Let's get into it.. and might I say.. proceed with caution :)
