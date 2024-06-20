@@ -160,12 +160,12 @@ have the user navigate to Settings -> Windows Update -> Update History -> Recove
 
 ### Option #2: Perform Rollback using Intune Update Ring Policy
 
-You can apply a seperate Update Ring Policy for the target devices in Intune, from there you can enable the "Uninstall -> Feature" button to perform the rollback. Hoever just remember, that all target devices will perform the rollback
+You can apply a seperate Update Ring Policy for the target devices in Intune, from there you can enable the "Uninstall -> Feature" button to perform the rollback. Hoever just remember, that all target devices of the policy will perform the rollback.
 ![Win11Rollback](/assets/images/2024-06-20-UpgradeWindows11-UnsupportedHardware/UninstallFeatureUpdate-Intune.png?raw=true "Uninstall feature update Intune")
 
 ### Option #3: Perform Rollback using on-demand remediation
 
-Another option is to create a Remediation, with the following command: `DISM /Online /Initiate-OSUninstall /Quiet` - Don't assign the remediation to any group, it can be used on-demand using the [new remediation on-demand feature](https://learn.microsoft.com/en-us/mem/intune/fundamentals/remediations#run-a-remediation-script-on-demand-preview). Be aware that when the rollback triggers, it will trigger an abrupt reboot on the end-users device, without any warning. If this is a problem, there are ways we can send notifications etc. using PowerShell, before triggering the rollback from command line. I will not cover that here.
+Another option is to create a Remediation, with the following [DISM command](https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/dism-uninstallos-command-line-options?view=windows-11): `DISM /Online /Initiate-OSUninstall /Quiet` - Don't assign the remediation to any group, it can be used on-demand using the [new remediation on-demand feature](https://learn.microsoft.com/en-us/mem/intune/fundamentals/remediations#run-a-remediation-script-on-demand-preview). Be aware that when the rollback triggers, it will trigger an abrupt reboot on the end-users device, without any warning. It can otherwise work fine for unattended / kiosk devices.
 
 ## What to expect and look for when applying and running Windows 11 on unsupported devices
 
