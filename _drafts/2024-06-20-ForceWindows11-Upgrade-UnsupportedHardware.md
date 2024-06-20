@@ -13,10 +13,10 @@ tags:
 
 # Table of Contents
 
-1. [Intro](## Intro)
-2. [Windows 11 Requirements](## Windows Requirements)
-3. [Prequisites](## Prequisites)
-4. [Deploying the PreReqs](### Deploying the PreReqs)
+1. [Intro](##Intro)
+2. [Windows 11 Requirements](##Windows Requirements)
+3. [Prequisites](##Prequisites)
+4. [Deploying the PreReqs](###Deploying the PreReqs)
 
 
 ## Intro
