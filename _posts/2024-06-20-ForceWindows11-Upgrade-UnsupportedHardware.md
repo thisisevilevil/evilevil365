@@ -75,7 +75,7 @@ There is otherwise a nice report in Intune where you can also identify these dev
 
 ### Option #1: Forcefully applying Windows 11 from Intune on unsupported hardware
 
-I have created a script that downloads the [Windows 11 update assistant](https://www.microsoft.com/software-download/windows11) and runs it silently in the background. I have actually used this script for the past year and a half to nudge stubborn devices over to the latest version of Windows 11. If you want to examine the code you can find it [here](https://github.com/thisisevilevil/IntunePublic/blob/main/Scripts/Win11Unsupported/UpgradeToWindows11.ps1). The code is very simple as you can see.
+I have created a script that downloads the [Windows 11 update assistant](https://www.microsoft.com/software-download/windows11) and runs it silently in the background. I have actually used this script for the past year and a half to nudge stubborn devices over to the latest version of Windows 11. If you want to examine the code you can find it [here](https://github.com/thisisevilevil/IntunePublic/blob/main/Scripts/Win11UnsupportedHW/UpgradeToWindows11.ps1). The code is very simple as you can see.
 
 To deploy the app using Intune perform the following steps:
 
