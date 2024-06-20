@@ -39,12 +39,20 @@ There is otherwise a super easy way to get a list of your unsupported Windows 11
 
 ## Prerequisites
 
-We can set a registry value to override the hardware requirements. Be aware that setting this specific value, overrides the TPM 2.0 and CPU requirement, but for some reason TPM 1.2 is still required, you can read more about this option [here](https://support.microsoft.com/en-us/windows/ways-to-install-windows-11-e0edbbfb-cfc5-4011-868b-2ce77ac7c70e). So if there is no TPM, then this option won't work for you. You will need to reinstall Windows 11, then it's possible to override the hardware requirements. This can be done using Rufus when creating a bootable USB but also using tools like SCCM and MDT using an unattend.xml file to apply the correct registry values to override the hardware requirements, you can find some inspiration I made [here]().
+We can set a registry value to override the hardware requirements. Be aware that setting this specific value, overrides the TPM 2.0 and CPU requirement, but for some reason TPM 1.2 is still required, you can read more about this option [here](https://support.microsoft.com/en-us/windows/ways-to-install-windows-11-e0edbbfb-cfc5-4011-868b-2ce77ac7c70e). 
 
-1. Deploy PowerShell Script from Intune that sets the correct registry value to override hardware requirements. You can fetch the one I made from [here](https://github.com/thisisevilevil/IntunePublic/blob/main/Scripts/Win11Unsupported/DeployWin11HWOverrideKeys.ps1)
+If there is no TPM, then this option won't work for you. You will need to reinstall Windows 11, then it's possible to override the hardware requirements. This can be done using Rufus when creating a bootable USB but also using tools like SCCM and MDT using an unattend.xml file to apply the correct registry values to override the hardware requirements, you can find some inspiration I made, on my github page [here](https://github.com/thisisevilevil/IntunePublic/blob/main/Just%20stuff/BypassWin11Requirements-Unattend.xml).
+
+### Deploying the PreReqs
+
+1. Deploy PowerShell Script from Intune that sets the correct registry value to override hardware requirements. You can fetch the one I made from [here](https://github.com/thisisevilevil/IntunePublic/blob/main/Scripts/Win11Unsupported/DeployWin11HWOverrideKeys.ps1). Deploy it like so:
+![OverrideReqs](/assets/images/2024-06-20-UpgradeWindows11-UnsupportedHardware/DeployOverrideScript.png?raw=true "Deploy PowerShell Script")
+
 2. Deploy PC Health Check app as a Win32 or LoB app, as the Windows Update Assistant relies on this to be present. You can download it from [here](https://aka.ms/GetPCHealthCheckApp)
 
 Note when deploying the PC Health Check app, the app might popup on the end-users device. You can simply instruct them to close it, if it happens to you as well.
+
+Before going any further, also be sure to test these settings first on a few test devices.
 
 ### Optional Step
 
