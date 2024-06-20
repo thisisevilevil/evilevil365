@@ -84,7 +84,7 @@ To deploy the app using Intune perform the following steps:
 
 * **Application name:** `Upgrade to Windows 11`
 * **Install command:** `%windir%\Sysnative\WindowsPowerShell\v1.0\Powershell.exe -ExecutionPolicy Bypass -File UpgradeToWindows11.ps1`
-* **Uninstall command:** `not required`
+* **Uninstall command:** `DISM /Online /Initiate-OSUninstall /Quiet`
 * **Device restart hehaviour:** `Intune will force a mandatory device restart`
 * **Required disk space:** 10000MB
 * **Detection, Custom Script:** Use custom detection script. Download from [here](https://github.com/thisisevilevil/IntunePublic/blob/main/Scripts/Win11Unsupported/Detect-Win11Installed.ps1)
@@ -115,7 +115,7 @@ Some of you folks probably remember ServiceUI from MDT. We can utilize ServiceUI
 
 * **Application name:** `Upgrade to Windows 11`
 * **Install command:** `ServiceUI.exe -process:explorer.exe Windows11InstallationAssistant.exe`
-* **Uninstall command:** `not required`
+* **Uninstall command:** `DISM /Online /Initiate-OSUninstall /Quiet`
 * **Device restart hehaviour:** `No specific action`
 * **Required disk space:** 10000MB
 * **Detection, Custom Script:** Use custom detection script. Download from [here](https://github.com/thisisevilevil/IntunePublic/blob/main/Scripts/Win11Unsupported/Detect-Win11Installed.ps1)
