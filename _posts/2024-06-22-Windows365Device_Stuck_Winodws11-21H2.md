@@ -20,7 +20,7 @@ Well the first problem is the logistics. Because we couldn't reproduce it, and a
 
 Also manually analyzing the logs under `C:\$Windows.~BT\Sources\Panther` we found some seemingly interesting clues about "Microsoft XPS Document Writer" and "Microsoft Print to PDF" which I had seen many times before to be the cause of a blocking feature update. When we tried manually removing them, after the feature update applied it seemed they were just put back into the operating system. It turned out to be a red herring in the end however, was not the cause of the issue.
 
-Luckily, someone from the Customers ServiceDesk team had a CloudPC with the exact issue, which allowed us to experiment a lot, and finally capture what is known as a TSS Log for Microsoft support. This is a log collecting tool from Microsoft that basically captures the motherload of log files: https://aka.ms/GetTSSv2
+Luckily, someone from the Customers ServiceDesk team had a CloudPC with the exact issue, which allowed us to experiment a lot, Reproducing the issue and finally capture what is known as a TSS Log for Microsoft support. This is a log collecting tool from Microsoft that basically captures the motherload of log files: https://aka.ms/GetTSSv2
 
 ## Locating the root cause
 
