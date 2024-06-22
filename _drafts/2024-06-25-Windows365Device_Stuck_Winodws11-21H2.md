@@ -16,13 +16,14 @@ I used all the usual tricks up my sleeve to troubleshoot feature updates, using 
 
 ## Backstory
 
-Well the first problem is the logistics. Because we couldn't reproduce it, and almost none of their IT Personnel had a Windows 365 device with the issue. Since there is no backdoor onto a Windows 365 PC, we had to nag our users with the issue to have them share their screens, log on to their Windows 365 device, so we could perform our tests and perform diagnostics. That included Downloading the full Windows 11 ISO, then running setup.exe manually. We experimented with a few different switches with the setup.exe (I.e: setup.exe /Auto Upgrade /DynamicUpdate Disable etc. etc.), we also tried applying reg keys to override WufB safeguard and HW requirements for WIndows 11. It was attempted on multiple Windows 365 PCs with the issue, and we ran [SetupDiag.exe](https://learn.microsoft.com/en-us/windows/deployment/upgrade/setupdiag) on all of them, none of them came back with any issues found.
+Well the first problem is the logistics. Because we couldn't reproduce it, and almost none of their IT Personnel had a Windows 365 device with the issue. Since there is no backdoor onto a Windows 365 PC, we had to nag end-users with the issue to have them share their screens, log on to their Windows 365 device, so we could perform our tests and perform diagnostics. That included Downloading the full Windows 11 ISO, then running setup.exe manually. We experimented with a few different switches with the setup.exe (I.e: setup.exe /Auto Upgrade /DynamicUpdate Disable etc. etc.), we also tried applying reg keys to override WufB safeguard and HW requirements for WIndows 11. It was attempted on multiple Windows 365 PCs with the issue, and we ran [SetupDiag.exe](https://learn.microsoft.com/en-us/windows/deployment/upgrade/setupdiag) on all of them, none of them came back with any issues found.
 
 Also manually analyzing the logs under `C:\$Windows.~BT\Sources\Panther` we found some seemingly interesting clues about "Microsoft XPS Document Writer" and "Microsoft Print to PDF" which I had seen many times before to be the cause of a blocking feature update. When we tried manually removing them, after the feature update applied it seemed they were just put back into the operating system. It turned out to be a red herring in the end however, was not the cause of the issue.
 
 Luckily, someone from the Customers ServiceDesk team had a CloudPC with the exact issue, which allowed us to experiment a lot, and finally capture what is known as a TSS Log for Microsoft support. This is a log collecting tool from Microsoft that basically captures the motherload of log files: https://aka.ms/GetTSSv2
 
 ## Locating the root cause
+
 After Microsoft support received the TSS Logs, I got the strangest request which was to perform the following steps:
 
 1. Download and extract PSExec
