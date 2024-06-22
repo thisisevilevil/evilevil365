@@ -1,6 +1,6 @@
 ---
 title: "Fix Windows 365 Devices stuck running Windows 11 21H2"
-date: 2024-06-25
+date: 2024-06-22
 categories:
   - Windows 11
 tags:
