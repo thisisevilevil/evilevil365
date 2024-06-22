@@ -61,7 +61,7 @@ After the script had run on all Cloud PCs, all of the customers ~600 Cloud PCs s
 
 ## Finalizing words
 
-If there is one thing this will have taught us, don't be afraid to ask Microsoft for help. Chances are they have access to information and people that knows exactly how to solve a given problem you might have been spending weeks on troubleshooting yourself. In this case, the only possible alternative for myself and this customer was to reprovision all ~600 Cloud PCs, which would have been a really bad option, but tbh. at one point when things were a bit hopeless there was a moment we considered it.
+If there is one thing this will have taught us, don't be afraid to ask Microsoft for help. Chances are they have access to information and people that knows exactly how to solve a given problem you might have been spending weeks on troubleshooting yourself. In this case, the only possible alternative for myself and this customer was to reprovision all ~600 Cloud PCs, which would have been a really bad option.
 But thanks to Microsoft Support's help, they helped us resolve the issue and also made the customer super satisfied in the process. I know they were the ones that introduced the bug in the image, but everyone makes mistakes.
 
 Shout out to the Microsoft supporter who helped the customer and myself trough this ordeal, he was super awesome!
