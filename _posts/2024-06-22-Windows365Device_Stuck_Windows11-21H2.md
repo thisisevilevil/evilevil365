@@ -46,7 +46,7 @@ Only limit to deleting S-1-5-21 Security Ids ending in 501 Guest accounts [Refer
 
 After we manually removed that specific registry key, we were finally successful updating the Windows 365 PC.
 
-So after all of these weeks and weeks of troubleshooting, Microsoft found out that a bug had sneaked itself inside the Windows 11 21H2 Gallery Image for Windows 365. Specifically it seems like it's a bad Guest Profile in the security hive that is preventing the Windows 365 from successfully performing an inplace upgrade.
+So after all of these weeks and weeks of troubleshooting, Microsoft found out that a bug had sneaked itself inside the Windows 11 21H2 Gallery Image for Windows 365. Specifically it seems like it's a bad Guest Profile in the security hive that is preventing the Windows 365 device from successfully performing an inplace upgrade.
 
 ![Bugs](https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExZjdkaDY2MWd5cmY1dW9uNXR0OXZsZjdvNnRjbDV0aDhjajVkMndxbCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/A1SNSC8s40O64/giphy.webp)
 
