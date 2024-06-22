@@ -60,7 +60,7 @@ To remove the bad guest profile, I created the following 1-liner in PowerShell a
 gci HKLM:\Security\Policy\Accounts | Where-Object {$_.Name -like '*S-1-5-21-*-*-*-501'} | Remove-Item -Force -Recurse
 ```
 
-After this, all of the customers ~600 Cloud PCs successfully upgraded to the latest version of Windows 11.
+After the script had run on all Cloud PCs, all of the customers ~600 Cloud PCs successfully upgraded to the latest version of Windows 11.
 
 ## Finalizing words
 
