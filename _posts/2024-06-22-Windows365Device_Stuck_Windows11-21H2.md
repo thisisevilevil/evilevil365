@@ -10,7 +10,7 @@ tags:
   - Feature Updates
 ---
 
-A while back I had an issue at one of my customers, where around ~600 Windows 365 PCs was unable to complete an inplace uupgradet. After trying to manually apply the Windows 11 22H2 at the time, we found in the log files that something was causing a blue screen upon the first bootup on Windows 11 22H2, prompting the device to rollback to WIndows 11 21H2.
+A while back I had an issue at one of my customers, where around ~600 Windows 365 PCs was unable to complete an inplace upgrade. After trying to manually apply the Windows 11 22H2 at the time, we found in the log files that something was causing a blue screen upon the first bootup on Windows 11 22H2, prompting the device to rollback to WIndows 11 21H2.
 
 I used all the usual tricks up my sleeve to troubleshoot feature updates, using SetupDiag (no signatures found) and analyzing the logs under the hidden folder `C:\$Windows.~BT` for the failed upgrade, which usually helps me resolve these stubborn devices that refuses to update, but this one was just a doozy. I had to get the assistance of Microsoft support for this one.
 
