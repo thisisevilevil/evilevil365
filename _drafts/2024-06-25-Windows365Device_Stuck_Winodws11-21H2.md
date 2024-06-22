@@ -50,7 +50,7 @@ After we manually removed that specific registry key, we were finally successful
 
 So after all of these weeks of troubleshooting, Microsoft found out that a bug had sneaked itself inside the Windows 11 21H1 Gallery Image for Windows 365. Specifically it seems like it's a bad Guest Profile in the security hive that is preventing the Windows 365 from successfully performing an inplace upgrade.
 
-![Test](https://giphy.com/gifs/A1SNSC8s40O64)
+<iframe src="https://giphy.com/embed/A1SNSC8s40O64" width="480" height="274" style="" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/A1SNSC8s40O64">via GIPHY</a></p>
 
 ## Fixing the feature update issue on +600 Windows 365 Cloud PCs
 
