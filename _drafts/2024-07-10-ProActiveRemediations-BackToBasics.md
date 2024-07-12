@@ -86,4 +86,4 @@ Also consider the possibility of the On Demand feature: Making remediations avai
 
 ## Reference Remediations
 
-You can always check my github for inspiration regarding remediations. You can find them [here](https://github.com/thisisevilevil/IntunePublic) - Some of them is pretty derpy and was created a long time ago, but I hope you find them useful to inspire you to get started to creating your own. :)
+You can always check my github for inspiration regarding remediations. You can find them [here](https://github.com/thisisevilevil/IntunePublic/tree/main/Remediations) - Some of them is pretty derpy and was created a long time ago, but I hope you find them useful to inspire you to get started to creating your own. :)
