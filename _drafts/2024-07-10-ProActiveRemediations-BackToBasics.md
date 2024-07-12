@@ -21,7 +21,7 @@ There are some pre-reqs to using Remediations in Intune, I won't list them all h
 
 When you create Remediations, you can't copy/paste the code directly into the editor in Intune, you will need to have them as .ps1 files on your drive.
 
-Let's pretend you just want to check for a condition on your devices, without actually changing anything, and then have it report back if that condition is not met. Then you would just deploy a remediation with a detection script only, without a remediation. Here is some simple code you can use to check if a folder exists, and if yes, return "With issue":
+Let's pretend you just want to check for a condition on your devices, without actually changing anything, and then have it report back if that condition is not met. Then you would just deploy a remediation with a detection script only, without a remediation script. Here is some simple code you can use to check if a folder exists, and if yes, return "With issue":
 
 ```PowerShell
 if (Test-path C:\SWSetup) {Write-output "SWSetup folder has been located" ; exit 1}
@@ -38,7 +38,7 @@ Deploy it to a test group and scope tag of your choice. Also note we can have th
 ![Remediation](/assets/images/2024-07-12-BackToBasics-ProActiveRemediations/CreateRemediation-4.png?raw=true "Create Remediation")
 
 After a short while, if the folder C:\SWSetup exist on your devices, it should show up as "With Issue" in the remediation
-![Remediation](/assets/images/2024-07-12-BackToBasics-ProActiveRemediations/RemediationOverview-1?raw=true "Remediation overview")
+![Remediation](/assets/images/2024-07-12-BackToBasics-ProActiveRemediations/RemediationOverview-1.png?raw=true "Remediation overview")
 
 > [!NOTE]
 > The remediation report takes a while to update, as it stands today. If you press the "Device Status" in the left hand side, this view updates more rapidly.
@@ -62,9 +62,13 @@ it's only your PowerShell skills that will set the limit here.
 
 If you dont want to wait for your remediation to trigger because of testing reasons or just for ad-hoc problem solving, Intune supports runnings Remediations on-demand. Go to any supported Windows device in Intune -> Press the elipses (3 dots) -> Run remediation on demand (preview)
 
+![Remediation](/assets/images/2024-07-12-BackToBasics-ProActiveRemediations/RunRemediation-OnDemand-1.png?raw=true "On Demand remediation")
+
 You should now see all your remediations, including unassigned remediations, which you can run on demand. Previously this was very slow to trigger, but this has since then been resolved so it's now super fast. The device just needs to be turned on and online, and usually it triggers within 1-2 minutes after running the remediation.
 
-If you just want to utilize your remediation On Demand, then don't assign it to any group, just leave it unassigned. It will still be visible under Remediations when you use the On Demand feature. Also consider making remediations available for ServiceDesk personnel for ad-hoc problem solving. You can utilize scope tags and custom roles in Intune to only show select Remediations for ServiceDesk, in correlation with Custom ROles, when running them On Demand. This can be a great tool and time saver for them, rather than hopping on to the users device manually in a remote session.
+![Remediation](/assets/images/2024-07-12-BackToBasics-ProActiveRemediations/RunRemediation-OnDemand-2.png?raw=true "On Demand remediation")
+
+If you just want to utilize your remediation On Demand, then don't assign it to any group, just leave it unassigned. It will still be visible under On Demand remediations. Also consider the possibility of this feature: Making remediations available for ServiceDesk personnel for ad-hoc problem solving. You can utilize scope tags and custom roles in Intune to only show select Remediations for ServiceDesk, in correlation with Custom ROles, when running them On Demand. This can be a great tool and time saver for them, rather than hopping on to the users device manually in a remote session.
 
 ## Wrapping up
 
