@@ -1,6 +1,6 @@
 ---
-title: "Back to Basic: ProActive remediations"
-date: 2024-06-29
+title: "Back to Basics: ProActive remediations"
+date: 2024-07-10
 categories:
   - Intune
 tags:
@@ -9,7 +9,9 @@ tags:
   - PowerShell
 ---
 
-ProActive Remediations or just [Remediations](https://learn.microsoft.com/en-us/mem/intune/fundamentals/remediations), has been around for a while now, but even today when I visit customers, I still see a lack of awareness or basic understanding of them. In this blog post, I will take us back to basics in regards how Remediations work, so you can get started creating your own. If you are already savvy with PowerShell, you will find it's super easy to get into. But fret not, if you are not good with PowerShell, you can often find assistance using CoPilot or googling to find some good remediations out there. I have written loads of Remediations over the years, and in the end of this post, I will share the ones that I've made for some inspirations as well.
+ProActive Remediations or just [Remediations](https://learn.microsoft.com/en-us/mem/intune/fundamentals/remediations), has been around for a while now, but even today when I visit customers, I still see a lack of awareness or basic understanding of them.
+
+In this blog post, I will cover the basics regarding Remediations, so you can get started creating your own. If you are already savvy with PowerShell, you will find it's super easy to get into. But fret not, if you are not good with PowerShell, you can often find assistance using CoPilot or googling to find some good remediations out there. I have written loads of Remediations over the years, and in the end of this post, I will share some of the ones that I've made for some inspirations as well.
 
 Let's dive into it! :)
 
@@ -32,6 +34,8 @@ Let's save this script as a .ps1 and create a new remediation in Intune. Give it
 Deploy it to a test group and scope tag of your choice. Also note we can have this script run on a specific frequency. Let's just chose the default on this one: 1 day.
 
 Anything you can think of with PowerShell to check for, the sky is the limit here.
+
+
 
 But what if you also wanted to run a remediation in attempts to fix the condition?
 
