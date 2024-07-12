@@ -43,7 +43,6 @@ After a short while, if the folder C:\SWSetup exist on your devices, it should s
 > [!NOTE]
 > The remediation report takes a while to update, as it stands today. If you press the "Device Status" in the left hand side, this view updates more rapidly.
 
-
 ## Creating a remediation script
 
 Let's pretend you also want your remediation to actually fix the issue it's detecting for. That's also simple in this case. Let's follow our example with the folder detection.
@@ -53,10 +52,8 @@ Let's say we wanted to delete the folder to save disk space, then you can use th
 ```PowerShell
 if (Test-path C:\SWSetup) {Remove-Item C:\SWSetup -recurse -force}
 ```
+![Remediation](/assets/images/2024-07-12-BackToBasics-ProActiveRemediations/AddRemediation-1.png?raw=true "Add remediation script")
 
-When you create the remediation you will also be asked how often you want to run this remediation. Every hour, every day, weekly etc.
-
-it's only your PowerShell skills that will set the limit here.
 
 ## On Demand Remediations
 
@@ -68,7 +65,13 @@ You should now see all your remediations, including unassigned remediations, whi
 
 ![Remediation](/assets/images/2024-07-12-BackToBasics-ProActiveRemediations/RunRemediation-OnDemand-2.png?raw=true "On Demand remediation")
 
-If you just want to utilize your remediation On Demand, then don't assign it to any group, just leave it unassigned. It will still be visible under On Demand remediations. Also consider the possibility of this feature: Making remediations available for ServiceDesk personnel for ad-hoc problem solving. You can utilize scope tags and custom roles in Intune to only show select Remediations for ServiceDesk, in correlation with Custom ROles, when running them On Demand. This can be a great tool and time saver for them, rather than hopping on to the users device manually in a remote session.
+If you just want to utilize your remediation On Demand, then don't assign it to any group, just leave it unassigned. It will still be visible under On Demand remediations. Let's run the remediation again on demand so we can test our new remediation with the actual remediation script attached.
+
+After you run it, you should eventually
+![Remediation](/assets/images/2024-07-12-BackToBasics-ProActiveRemediations/RemediationOverview-3.png?raw=true "Remediation overview")
+
+> [!NOTE]
+> For on demand remediations to work the device needs to be online and checking into intune. Proactive remediations like other device actions uses the [WNS Service](https://learn.microsoft.com/en-us/windows/apps/design/shell/tiles-and-notifications/windows-push-notification-services--wns--overview) to send actions to devices.
 
 ## Wrapping up
 
@@ -78,6 +81,8 @@ I hope you found this useful, and it's enough to get you started with remediatio
 * Usage of device filters when assigning to groups
 * Use the "output" view in the remediation to print useful information to the Intune console
 * Supports running [on-demand remediations](https://learn.microsoft.com/en-us/mem/intune/fundamentals/remediations#run-a-remediation-script-on-demand-preview) which runs almost instantly.
+
+Also consider the possibility of the On Demand feature: Making remediations available for ServiceDesk personnel for ad-hoc problem solving. You can utilize scope tags and custom roles in Intune to only show select Remediations for ServiceDesk, in correlation with Custom Roles, when running them On Demand. This can be a great tool and time saver for them, rather than hopping on to the users device manually in a remote session.
 
 ## Reference Remediations
 
