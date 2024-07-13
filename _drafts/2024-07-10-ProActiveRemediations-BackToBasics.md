@@ -52,6 +52,7 @@ Let's say we wanted to delete the folder to save disk space, then you can use th
 ```PowerShell
 if (Test-path C:\SWSetup) {Remove-Item C:\SWSetup -recurse -force}
 ```
+
 ![Remediation](/assets/images/2024-07-12-BackToBasics-ProActiveRemediations/AddRemediation-1.png?raw=true "Add remediation script")
 
 
