@@ -50,29 +50,32 @@ Let's pretend you also want your remediation to actually fix the issue it's dete
 Let's say we wanted to delete the folder to save disk space, then you can use the below code and add it as a remediation script. Save this script to a .ps1 file and activate the remediation as well.
 
 ```PowerShell
-if (Test-path C:\SWSetup) {Remove-Item C:\SWSetup -recurse -force}
+if (Test-path C:\SWSetup) {Remove-Item C:\SWSetup -recurse -force ; Write-output "SWSetup folder was deleted"}
 ```
 
 ![Remediation](/assets/images/2024-07-12-BackToBasics-ProActiveRemediations/AddRemediation-1.png?raw=true "Add remediation script")
 
+Now we just have to wait 1 hour to test it, right? Nah, Let's just use the [On-Demand](https://learn.microsoft.com/en-us/mem/intune/fundamentals/remediations#run-a-remediation-script-on-demand-preview) Remediation feature, that makes things a bit easier :)
 
 ## On Demand Remediations
 
-If you dont want to wait for your remediation to trigger because of testing reasons or just for ad-hoc problem solving, Intune supports runnings Remediations on-demand. Go to any supported Windows device in Intune -> Press the elipses (3 dots) -> Run remediation on demand (preview)
+If you dont want to wait for your remediation to trigger because of testing reasons or just for ad-hoc problem solving, Intune supports runnings [Remediations on-demand](https://learn.microsoft.com/en-us/mem/intune/fundamentals/remediations#run-a-remediation-script-on-demand-preview). Go to any supported Windows device in Intune -> Press the elipses (3 dots) -> Run remediation on demand (preview)
 
 ![Remediation](/assets/images/2024-07-12-BackToBasics-ProActiveRemediations/RunRemediation-OnDemand-1.png?raw=true "On Demand remediation")
 
-You should now see all your remediations, including unassigned remediations, which you can run on demand. Previously this was very slow to trigger, but this has since then been resolved so it's now super fast. The device just needs to be turned on and online, and usually it triggers within 1-2 minutes after running the remediation.
+You should now see all your remediations, including unassigned remediations, which you can run on-demand. Previously this was very slow to trigger, but this has since then been resolved so it's now super fast. The device just needs to be turned on and online, and usually it triggers within 1-2 minutes after running the remediation.
 
 ![Remediation](/assets/images/2024-07-12-BackToBasics-ProActiveRemediations/RunRemediation-OnDemand-2.png?raw=true "On Demand remediation")
 
-If you just want to utilize your remediation On Demand, then don't assign it to any group, just leave it unassigned. It will still be visible under On Demand remediations. Let's run the remediation again on demand so we can test our new remediation with the actual remediation script attached.
+If you just want to utilize your remediation on-demand, then don't assign it to any group, just leave it unassigned. It will still be visible under on-demand remediations. Let's run the remediation again on demand so we can test our new remediation with the actual remediation script attached.
 
 After you run it, you should eventually
 ![Remediation](/assets/images/2024-07-12-BackToBasics-ProActiveRemediations/RemediationOverview-3.png?raw=true "Remediation overview")
 
 > [!NOTE]
 > For on demand remediations to work the device needs to be online and checking into intune. Proactive remediations like other device actions uses the [WNS Service](https://learn.microsoft.com/en-us/windows/apps/design/shell/tiles-and-notifications/windows-push-notification-services--wns--overview) to send actions to devices.
+
+## Using the P
 
 ## Wrapping up
 
@@ -81,7 +84,7 @@ I hope you found this useful, and it's enough to get you started with remediatio
 * Run your scripts on a specific recurring schedule
 * Usage of device filters when assigning to groups
 * Use the "output" view in the remediation to print useful information to the Intune console
-* Supports running [on-demand remediations](https://learn.microsoft.com/en-us/mem/intune/fundamentals/remediations#run-a-remediation-script-on-demand-preview) which runs almost instantly.
+* Supports running [on-demand remediations](https://learn.microsoft.com/en-us/mem/intune/fundamentals/remediations#run-a-remediation-script-on-demand-preview)
 
 Also consider the possibility of the On Demand feature: Making remediations available for ServiceDesk personnel for ad-hoc problem solving. You can utilize scope tags and custom roles in Intune to only show select Remediations for ServiceDesk, in correlation with Custom Roles, when running them On Demand. This can be a great tool and time saver for them, rather than hopping on to the users device manually in a remote session.
 
