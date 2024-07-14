@@ -25,6 +25,7 @@ Let's pretend you just want to check for a condition on your devices, without ac
 
 ```PowerShell
 if (Test-path C:\SWSetup) {Write-output "SWSetup folder has been located" ; exit 1}
+    else {Write-output "SWSetup folder not located, everything is good"}
 ```
 
 Note the "exit 1". Anything that exits with an error code of 1 is considered as "With issues" so this is key to ensure the detection script returns the correct error code so Intune knows that device is "With Issue". Also any message used with "Write-output" you will actually be able to see in Intune if we activate some extra columns.
