@@ -82,7 +82,7 @@ Lastly, one last thing that is good to know is that you can actually view the ou
 ![Remediation](/assets/images/2024-07-12-BackToBasics-ProActiveRemediations/Remediation-ExtraColums-2.png?raw=true "Remediation Columns")
 
 > NOTE:
-> For on demand remediations to work the device needs to be online and checking into intune. Proactive remediations like other device actions uses the [WNS Service](https://learn.microsoft.com/en-us/windows/apps/design/shell/tiles-and-notifications/windows-push-notification-services--wns--overview) to send actions to devices.
+> For on demand remediations to work the device needs to be online and checking into intune. Proactive remediations like other device actions uses the [WNS Service](https://learn.microsoft.com/en-us/windows/apps/design/shell/tiles-and-notifications/windows-push-notification-services--wns--overview).
 
 ## Wrapping up
 
