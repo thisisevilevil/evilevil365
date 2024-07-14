@@ -72,7 +72,7 @@ You should now see all your remediations, including unassigned remediations, whi
 
 If you just want to utilize your remediation on-demand, then don't assign it to any group, just leave it unassigned. It will still be visible under on-demand remediations. Let's run the remediation again on demand so we can test our new remediation with the actual remediation script attached.
 
-After you run it, you should eventually see your devices popping up under "issue fixed".
+After you run it, you should eventually see your devices popping up under "issue fixed" in case the folder was found and deleted.
 ![Remediation](/assets/images/2024-07-12-BackToBasics-ProActiveRemediations/RemediationOverview-3.png?raw=true "Remediation overview")
 Remember this is based on your Detection script, so if the condition is no longer detected, it will assume the issue is fixed, based on your code.
 
