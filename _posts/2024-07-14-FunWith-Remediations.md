@@ -15,7 +15,7 @@ In this blog post, I will cover the basics regarding Remediations, so you can ge
 
 Let's dive into it! :)
 
-## prerequisites
+## Prerequisites
 
 
 There are some PreReqs to using Remediations in Intune, I won't list them all here, but basically you will need E3, E5 or A3 or A5 licenses in your tenant. You can find all the pre-reqs [here](https://learn.microsoft.com/en-us/mem/intune/fundamentals/remediations). Be sure to review it, as it also includes some valuable best practices under the [Script Requirements](https://learn.microsoft.com/en-us/mem/intune/fundamentals/remediations#script-requirements) section in the docs.
