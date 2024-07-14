@@ -96,6 +96,6 @@ I hope you found this useful, and it's enough to get you started with remediatio
 
 Remediations otherwise uses the Intune Management Extension as well just like Platform (PowerShell) scripts does from Intune.
 
-Also consider the possibility of the On Demand feature: Making remediations available for ServiceDesk personnel for ad-hoc problem solving. You can utilize scope tags and custom roles in Intune to only show select Remediations for ServiceDesk, in correlation with Custom Roles, when running them On Demand. This can be a great tool and time saver for them, rather than hopping on to the users device manually in a remote session.
+Otherwise consider the possibility of the On Demand feature: Making remediations available for ServiceDesk personnel for ad-hoc problem solving. You can utilize scope tags and custom roles in Intune to only show select Remediations for ServiceDesk, in correlation with Custom Roles, when running them On Demand. This can be a great tool and time saver for them, rather than hopping on to the users device manually in a remote session.
 
 If you want inspiration you can always check my github for remediations [here](https://github.com/thisisevilevil/IntunePublic/tree/main/Remediations) - Some of them is pretty derpy and was created a long time ago, but I hope you find them useful to inspire you to get started to creating your own. :)
