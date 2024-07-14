@@ -75,6 +75,9 @@ Remember this is based on your Detection script, so if the condition is no longe
 
 Lastly, one last thing that is good to know is that you can actually view the output from your remediations if you add the extra columns under the device status overview. This is super useful if you want to print certain stuff to the console, i.e: Reboot Pending, Last Reboot time, device recently crashed with BSoD, lots of use cases. Simply select "Columns" and add all the pertinent columns which you want to see the output for.
 
+![Remediation](/assets/images/2024-07-12-BackToBasics-ProActiveRemediations/Remediation-ExtraColums-1.png?raw=true "Remediation Columns")
+![Remediation](/assets/images/2024-07-12-BackToBasics-ProActiveRemediations/Remediation-ExtraColums-2.png?raw=true "Remediation Columns")
+
 > [!NOTE]
 > For on demand remediations to work the device needs to be online and checking into intune. Proactive remediations like other device actions uses the [WNS Service](https://learn.microsoft.com/en-us/windows/apps/design/shell/tiles-and-notifications/windows-push-notification-services--wns--overview) to send actions to devices.
 
