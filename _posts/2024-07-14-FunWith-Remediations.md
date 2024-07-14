@@ -43,7 +43,7 @@ Deploy it to a test group and scope tag of your choice. Also note we can have th
 After a short while, if the folder C:\SWSetup exist on your devices, it should show up as "With Issue" in the remediation
 ![Remediation](/assets/images/2024-07-12-BackToBasics-ProActiveRemediations/RemediationOverview-1.png?raw=true "Remediation overview")
 
-> !NOTE
+> NOTE:
 > The remediation report takes a while to update, as it stands today. If you press the "Device Status" in the left hand side, this view updates more rapidly.
 
 ## Creating a remediation script
