@@ -88,7 +88,7 @@ To deploy the app using Intune perform the following steps:
 * **Uninstall command:** `DISM /Online /Initiate-OSUninstall /Quiet`
 * **Device restart hehaviour:** `Intune will force a mandatory device restart`
 * **Required disk space:** 10000MB
-* **Detection, Custom Script:** Use custom detection script. Download from [here](https://github.com/thisisevilevil/IntunePublic/blob/main/Scripts/Win11Unsupported/Detect-Win11Installed.ps1)
+* **Detection, Custom Script:** Use custom detection script. Download from [here](https://github.com/thisisevilevil/IntunePublic/blob/main/Scripts/Win11UnsupportedHW/Detect-Win11Installed.ps1)
 * **Installation time required (mins)** 120 minutes
 * **Logo**: Download <a id="raw-url" href="https://raw.githubusercontent.com/thisisevilevil/evilevil365/master/assets/Windows11Logo.png">here</a>
 
