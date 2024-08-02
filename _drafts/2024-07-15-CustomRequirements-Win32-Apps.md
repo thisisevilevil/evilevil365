@@ -44,7 +44,7 @@ Click ok, review & save and see your new Custom requirement rule at work. That's
 
 Here is a few more examples for you to find as inspiration, I'm using in the field as we speak.
 
-### Requirement for x86/AMD64 devices
+#### Requirement for x86/AMD64 devices
 
 ```PowerShell
 if ($env:Processor_Architecture -eq 'AMD64') {
