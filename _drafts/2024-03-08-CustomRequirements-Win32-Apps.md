@@ -1,6 +1,6 @@
 ---
 title: "Custom requirements for Win32 apps"
-date: 2024-07-20
+date: 2024-02-08
 categories:
   - Intune
 tags:
