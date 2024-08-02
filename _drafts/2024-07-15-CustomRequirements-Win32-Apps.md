@@ -10,7 +10,8 @@ tags:
   - PowerShell
 ---
 
-It's not uncommon for large companies to have issues with grouping, targeting and filtering when migrating from AD and SCCM into a Cloud Native setup. The number 1 complaint I usually hear, is lack of filtering options when assigning apps, which is particularly pertinent for companies with very large and old SCCM Installations with the strangest collection queries you can imagine. This really sets the premise for an entire blog post about grouping, targetting and filtering. However for now, I will just highlight the simply functionality that's been around for a while in Intune for Win32 apps: Requirements. When you assign apps you can choose requiremente like OS, Disk Size, CPU etc. But you can also choose custom requirements. From this view you can select File and Registry as well, but the one I want to highlight is the Script setting.
+It's not uncommon for large companies to have issues with grouping, targeting and filtering when migrating from AD and SCCM into a Cloud Native setup. The number 1 complaint I usually hear, is lack of filtering options when assigning apps, which is particularly pertinent for companies with very large and old SCCM Installations with the strangest collection queries you can imagine. This really sets the premise for an entire blog post about grouping, targetting and filtering. 
+However for now, I will just highlight the simply functionality that's been around for a while in Intune for Win32 apps: Requirements. When you assign apps you can choose requiremente like OS, Disk Size, CPU etc. But you can also choose custom requirements. From this view you can select File and Registry as well, but the one I want to highlight is the Script setting.
 
 With some basic PowerShell you can create any custom filtering you want for assigning your apps. Want to see some examples? Well glad you asked!
 
