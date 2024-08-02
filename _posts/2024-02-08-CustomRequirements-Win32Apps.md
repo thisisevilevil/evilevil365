@@ -1,6 +1,6 @@
 ---
 title: "Custom requirements for Win32 apps using PowerShell"
-date: 2024-02-08
+date: 2024-08-02
 categories:
   - Intune
 tags:
