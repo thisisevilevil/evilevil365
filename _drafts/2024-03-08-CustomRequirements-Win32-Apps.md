@@ -52,7 +52,7 @@ if ($env:Processor_Architecture -eq 'AMD64') {
 }
 ```
 
-#### Requirement for ARM Devices - Very useful since we can't filter on ARM Devices (for now - Probably coming soon? :))
+#### Requirement for ARM Devices - Very useful since we can't filter on ARM Devices natively in the Intune GUI (for now - Probably coming soon? :))
 
 ```PowerShell
 if ($env:Processor_Architecture -eq 'ARM64') {
