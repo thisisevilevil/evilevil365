@@ -35,9 +35,9 @@ if (($(gwmi win32_bios).Manufacturer -like '*Dell*')) {Write-output "1"}
 
 When you add the Custom Requirement Script on your Win32 app in Intune, you add the requirement script as a .ps1, and then choose the following values:
 
-* Select output data type: Integer
-* Operator: Equals
-* Value: 1
+* **Select output data type**: Integer
+* **Operator**: Equals
+* **Value**: 1
 
 Click ok, review & save and see your new Custom requirement rule at work. That's it, it's that simple. and now it's only your PowerShell skills setting the boundaries for how you want to target your Win32 app.
 ![Win32Requirement](/assets/images/2024-08-03-Win32app-Requirements/Requirement-Construct-1.png?raw=true "Win32 App Requirement Example 2")
