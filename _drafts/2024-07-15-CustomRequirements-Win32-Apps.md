@@ -26,7 +26,7 @@ When you add Custom requirement scripts to Intune, you can decide what apps shou
 
 ### Constructing a simple but useful requirement script
 
-To make the requirement script work, we need to output data to Intune so Intune, or more specifically, the Intune Management Extension should evaluate the resolved app intent or it should place it in "Not Applicable". There's a few ways to do this, using $true or $false statements, outputting a specific string or simply by writing outputting a specific integer, which is find the most simple in most cases.
+To make the requirement script work, we need to output data to Intune so Intune, or more specifically, the Intune Management Extension should evaluate the resolved app intent or it should place it in "Not Applicable". There's a few ways to do this, using $true or $false statements or outputting a specific string is one of the better options. The one I find the most simple to use is outputting a specific integer, a 0 or a 1.
 
 Let's take this example:
 ```PowerShell
