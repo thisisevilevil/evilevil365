@@ -67,7 +67,7 @@ $detectgp = gcim win32_product | Where {$_.Name -eq 'GlobalProtect'}
 if ($detectgp) {Write-output "1"}
 ```
 
-#### Requirement for specific app + version installed - Great for "Update Only" apps, to patch only existing installations of an app.
+#### Requirement for specific app + version installed - Great for "Update Only" apps, to patch only existing installation + version of an app.
 
 ```PowerShell
 $gpversion = gcim win32_product | Where {$_.Name -eq 'GlobalProtect'} | Select -ExpandProperty Version
