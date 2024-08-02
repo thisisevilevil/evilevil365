@@ -16,8 +16,50 @@ With some basic PowerShell you can create any custom filtering you want for assi
 
 ## How does it work?
 
-When you add Custom requirement scripts to Intune, you can decide what apps should install/uninstall based on your requirement script. If the requirement is not met, the device will be put under "Not Applicable" just like we know from [Device Filters](https://learn.microsoft.com/en-us/mem/intune/fundamentals/filters).
+When you add Custom requirement scripts to Intune, you can decide what apps should install/uninstall based on your requirement script. If the requirement is not met, the device will be put under "Not Applicable" just like we know from [Device Filters](https://learn.microsoft.com/en-us/mem/intune/fundamentals/filters). If you navigate to Device Status all devices that does not meet the requirements speciefied in the script will be designated with "PowerShell script requirement rule is not met."
 
 ![Win32Requirement](/assets/images/2024-08-03-Win32app-Requirements/Requirement-NotApplicable.png?raw=true "Win32 App Requirement Example 1")
 
 ![Win32Requirement](/assets/images/2024-08-03-Win32app-Requirements/Requirement-NotApplicable-1.png?raw=true "Win32 App Requirement Example 2")
+
+### Constructing a simple but useful requirement script
+
+To make the requirement script work, we need to output data to Intune so Intune, or more specifically, the Intune Management Extension should evaluate the resolved app intent or it should place it in "Not Applicable". There's a few ways to do this, using $true or $false statements or simply by writing outputting a specific integer, which is find the most simple in most cases.
+
+Let's take this example:
+```PowerShell
+if (($(gwmi win32_bios).Manufacturer -like '*Dell*')) {Write-output "1"}
+```
+
+When you add the Custom Requirement Script on your Win32 app in Intune, you add the requirement script as a .ps1, and then choose the following values:
+
+* Select output data type: Integer
+* Operator: Equals
+* Value: 1
+
+Click ok, review & save and see your new Custom requirement rule at work. That's it, it's that simple. and now it's only your PowerShell skills setting the boundaries for how you want to target your Win32 app.
+
+Here is a few more examples for you to find as inspiration, I'm using in the field as we speak:
+
+### Requirement for x86/AMD64 devices
+
+```PowerShell
+if ($env:Processor_Architecture -eq 'AMD64') {
+    Write-output "1"
+}
+```
+
+#### Requirement for ARM Devices - Very useful since we can't filter on ARM Devices for now
+
+```PowerShell
+if ($env:Processor_Architecture -eq 'ARM64') {
+    Write-output "1"
+}
+```
+
+#### Requirement for specific app installed - Great for "Update Only" apps, to patch only existing installations of an app.
+
+```PowerShell
+$gpversion = gwmi win32_product | Where {$_.Name -eq 'GlobalProtect'} | Select -ExpandProperty Version
+if (!($gpversion -eq '6.3.0')) {Write-output "1"}
+```
