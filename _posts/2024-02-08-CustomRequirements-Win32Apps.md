@@ -18,7 +18,7 @@ With some basic PowerShell you can create any custom filtering you want for assi
 
 ## How does it work?
 
-When you add Custom requirement scripts to Intune, you can decide what apps should install/uninstall based on your requirement script. If the requirement is not met, the device will be put under "Not Applicable" just like we know from [Device Filters](https://learn.microsoft.com/en-us/mem/intune/fundamentals/filters). If you navigate to Device Status, all devices that does not meet the requirements speciefied in the script will be designated with "PowerShell script requirement rule is not met."
+When you add Custom requirement scripts to Intune, you can decide what apps should install/uninstall based on your requirement script. If the requirement is not met, the device will be put under "Not Applicable" just like we know from [Device Filters](https://learn.microsoft.com/en-us/mem/intune/fundamentals/filters). If you navigate to Device Status, all devices that does not meet the requirements specified in your script will be designated with "PowerShell script requirement rule is not met."
 
 ![Win32Requirement](/assets/images/2024-08-03-Win32app-Requirements/Requirement-NotApplicable.png?raw=true "Win32 App Requirement Example 1")
 
