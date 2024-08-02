@@ -38,8 +38,9 @@ When you add the Custom Requirement Script on your Win32 app in Intune, you add 
 * Value: 1
 
 Click ok, review & save and see your new Custom requirement rule at work. That's it, it's that simple. and now it's only your PowerShell skills setting the boundaries for how you want to target your Win32 app.
+![Win32Requirement](/assets/images/2024-08-03-Win32app-Requirements/Requirement-Construct-1.png?raw=true "Win32 App Requirement Example 2")
 
-Here is a few more examples for you to find as inspiration, I'm using in the field as we speak:
+Here is a few more examples for you to find as inspiration, I'm using in the field as we speak.
 
 ### Requirement for x86/AMD64 devices
 
@@ -49,7 +50,7 @@ if ($env:Processor_Architecture -eq 'AMD64') {
 }
 ```
 
-#### Requirement for ARM Devices - Very useful since we can't filter on ARM Devices for now
+#### Requirement for ARM Devices - Very useful since we can't filter on ARM Devices (for now - Probably coming soon? :))
 
 ```PowerShell
 if ($env:Processor_Architecture -eq 'ARM64') {
