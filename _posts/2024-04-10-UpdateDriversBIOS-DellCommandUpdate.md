@@ -11,7 +11,7 @@ tags:
   - Import ADMX Templates
 ---
 
-**UPDATED: 29th of May 2024 w. DCU 5.3**
+**UPDATED: 9th of August 2024 w. DCU 5.4**
 
 This topic is not sexy at all to talk about in IT, but it is nonetheless getting more important for security reasons, due to the many security updates now included in BIOS, Driver and firmware updates in newer times.
 
@@ -22,11 +22,12 @@ The one reason you should still consider using the hardware vendors own tools. i
 In this blog post, we will go through what we can do with Dell devices using Dell's own Dell Command Update.
 
 ## Getting started - Packaging Dell Command Update
-In case you don't have Dell Command Update in Intune as a Win32 app, you can steal my .intunewin file <a id="raw-url" href="https://raw.githubusercontent.com/thisisevilevil/evilevil365/master/assets/Dell-Command-Update-Windows-Universal-Application_P83K5_WIN_5.3.0_A00.intunewin">here</a> for version 5.3. Add the app into intune as a Win32 app:
-* **Install command:** `Dell-Command-Update-Windows-Universal-Application_P83K5_WIN_5.3.0_A00.EXE /s /l=C:\Windows\Logs\Dell_Command_Update_5.3_exe_installer.log`
-* **Uninstall command:** `msiexec /X {9343B24C-A595-4B19-B941-C5A1218FEF0C} /qn`
+In case you don't have Dell Command Update in Intune as a Win32 app, you can steal my .intunewin file <a id="raw-url" href="https://raw.githubusercontent.com/thisisevilevil/evilevil365/master/assets/Dell-Command-Update-Windows-Universal-Application_9M35M_WIN_5.4.0_A00.intunewin">here</a> for version 5.4. Add the app into intune as a Win32 app:
+
+* **Install command:** `Dell-Command-Update-Windows-Universal-Application_9M35M_WIN_5.4.0_A00.EXE /s /l=C:\Windows\Logs\Dell_Command_Update_5.4_exe_installer.log`
+* **Uninstall command:** `msiexec /X {C7922436-4088-4256-9C99-8E48CC89AA4E} /qn`
 * **Required disk space:** 500MB
-* **Detection, MSI String:** `{9343B24C-A595-4B19-B941-C5A1218FEF0C}`
+* **Detection, MSI String:** `{C7922436-4088-4256-9C99-8E48CC89AA4E}`
 
 Set return code 2 as "Success" as well, to ensure it doesn't fail during ESP when deploying devices with autopilot.
 
@@ -113,12 +114,12 @@ $currentdate = Get-Date -format 'ddMMyyyy_HHmmss'
 $dcucli = "${env:ProgramFiles}\Dell\CommandUpdate\dcu-cli.exe"
 $logsfolder = "$env:Programdata\Dell\Logs"
 
-#Download and install Dell Command Update 5.3 if it doesn't exist
+#Download and install Dell Command Update 5.4 if it doesn't exist
 if (!(test-path $dcucli)) {
-$uri = 'https://dl.dell.com/FOLDER11563484M/1/Dell-Command-Update-Windows-Universal-Application_P83K5_WIN_5.3.0_A00.EXE'
+$uri = 'https://dl.dell.com/FOLDER11914128M/1/Dell-Command-Update-Windows-Universal-Application_9M35M_WIN_5.4.0_A00.EXE'
 Write-Host "DCU Cli doesn't seem to be present.. Attempting to download and install now.."
-Invoke-WebRequest -uri $uri -outfile 'C:\Windows\temp\dcu53.exe' 
-Start-Process "C:\Windows\Temp\dcu53.exe" -ArgumentList '/s' -Wait
+Invoke-WebRequest -uri $uri -outfile 'C:\Windows\temp\dcu43.exe' 
+Start-Process "C:\Windows\Temp\dcu54.exe" -ArgumentList '/s' -Wait
 Start-Sleep -Seconds 10
 }
 
@@ -132,7 +133,6 @@ Start-Process $dcucli -Wait -ArgumentList "/ApplyUpdates -outputlog=$logsfolder\
 The script needs to run in 64-bit context and in SYSTEM context.
 
 Find the docs for dcu-cli to experiment with different switches [here](https://www.dell.com/support/manuals/en-us/command-update/dellcommandupdate_rg/dell-command-update-cli-commands?guid=guid-92619086-5f7c-4a05-bce2-0d560c15e8ed&lang=en-us)
-
 
 ## Final words
 I hope you found this walkthrough useful. There is some pros/cons to using the Dell Command Update for managing updates compared to just using the Windows Update functionality to pushing drivers/BIOS. For instance, the notifications and snooze options you get with windows updates is much better for the end-user, but on the other hand if you use Dell Command Update as it is right now, you will get updates and fixes much faster, and with a bit of communication and user adoption of Dell Command Update, it could work. Just make sure your user don't close the last reboot reminder, and teach your users to start closing their work, to prepare for the reboot.
