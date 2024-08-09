@@ -118,7 +118,7 @@ $logsfolder = "$env:Programdata\Dell\Logs"
 if (!(test-path $dcucli)) {
 $uri = 'https://dl.dell.com/FOLDER11914128M/1/Dell-Command-Update-Windows-Universal-Application_9M35M_WIN_5.4.0_A00.EXE'
 Write-Host "DCU Cli doesn't seem to be present.. Attempting to download and install now.."
-Invoke-WebRequest -uri $uri -outfile 'C:\Windows\temp\dcu43.exe' 
+Invoke-WebRequest -uri $uri -outfile 'C:\Windows\temp\dcu54.exe' 
 Start-Process "C:\Windows\Temp\dcu54.exe" -ArgumentList '/s' -Wait
 Start-Sleep -Seconds 10
 }
