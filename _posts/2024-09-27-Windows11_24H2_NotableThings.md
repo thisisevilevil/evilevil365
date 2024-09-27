@@ -60,3 +60,7 @@ I do not expect we will see this issues once Windows 11 24H2 becomes officially 
 * **Cumulative Updates as part of OOBE/Autopilot**: I was not sure to feel happy or depressed when I saw this feature, upon enrolling my Dell XPS Devices. Obviously we want our devices to be 100% patched once they are enrolled, but the reason I have advised my customers against baking their own cumulative update process during OOBE is because it can be extremely time consuming to go through OOBE depending on network connection and how far you are behind from a patch perspective. I'm expecting the new Windows 11 Checkpoint feature will greatly enhance this experience, but as some of you probably know [Microsoft has decided to roll this feature back due to community feedback](https://techcommunity.microsoft.com/t5/intune-customer-success/important-changes-to-the-windows-enrollment-experience-coming/ba-p/4246689)
 
 In my opinion, if Microsoft is to be successful relasing this, I would hope it can be enabled/disabled as part of the ESP assigned to device/user so the IT Admins can do their own due diligence in regards to testing and rolling this out.
+
+## That's it for now
+
+There is no official date of the release of Windows 11 24H2 yet, but my guess is mid or late October. If you haven't yet started your journey from Windows 10 to Windows 11 now is a better time than never :)
