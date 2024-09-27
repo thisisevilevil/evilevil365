@@ -48,7 +48,7 @@ VBScript support is getting the same treatment, albeit there is still time to mi
 
 * **systemreset command**: I didn't see this one coming, but at least on my Dell XPS device this command is no longer working. I didn't use this a whole lot, but it was handy if a device didn't want to receive a wipe/autopilot reset, and it was seemingly stuck. We could manually have the user initiate the factory reset by using systemreset from command prompt. Oh well.. I guess we will use the GUI instead :)
 
-![Systemreset](/assets/images/2024-09-27-Win11_24H2_NotableThings/WMIC_Deprecated.png.png?raw=true "Systemreset command")
+![Systemreset](/assets/images/2024-09-27-Win11_24H2_NotableThings/systemreset_Missing.png?raw=true "Systemreset command")
 
 * **SENSE Client missing**: This was actually the first thing I noticed back in late July, and I wanted to write a blog post about it but I had too many public speaker engagements + a holiday coming up, so I didn't get the time. But I did report it to Microsoft and since then there has been a bunch of blog posts written about it as well.
 
