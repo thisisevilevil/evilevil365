@@ -1,5 +1,5 @@
 ---
-title: "Windows 11 24H2 - Most notable things so far"
+title: "Windows 11 24H2 - Notable things for IT Admins"
 date: 2024-09-27
 categories:
   - Windows 11
@@ -32,20 +32,20 @@ Sidenote: Did you know that WSUS is being deprecated? Are you still stuck runnin
 
 ## A lot of CoPilot stuff
 
-As you can probably guess, Windows 11 24H2 is going to feature a lot of new CoPilot-based features. [Windows Recall](https://support.microsoft.com/en-us/windows/retrace-your-steps-with-recall-aa03f8a0-a78b-4b3e-b0a1-2eb8ac48701c) Definitely had it's round in the media after some security reserached found that this feature was working, well.. less than ideal, but Microsoft has since then made modifications and also made sure it's not enabled by default on new devices unless the user opts in.
+As you can probably guess, Windows 11 24H2 is going to feature some new CoPilot-based features. [Windows Recall](https://support.microsoft.com/en-us/windows/retrace-your-steps-with-recall-aa03f8a0-a78b-4b3e-b0a1-2eb8ac48701c) Definitely had it's round in the media after some security researches found that this feature was working, well.. less than ideal, but Microsoft has since then made modifications and also made sure it's not enabled by default on new devices unless the user opts in.
 
-
-## Things that currently doesn't work as intended
+## Other notable things
 
 * **WMIC / Get-WmiObject**: Our beloved WMIC is no more, and is disabled by default in the operating system. I know at least a few of my PowerShell scripts needs some re-work, it will probably take me a while.. oh dear. So what are we supposed to use instead? The answer is: Get-CimInstance or gcim if you are fan of alias' like myself.
 
 * **systemreset command**: I didn't see this one coming, but at least on my Dell XPS device this command is no longer working. I didn't use this a whole lot, but it was handy if a device didn't want to receive a wipe/autopilot reset, and it was seemingly stuck. We could manually have the user initiate the factory reset by using systemreset from command prompt. Oh well.. I guess we will use the GUI instead :)
 
-* **SENSE Client missing**: This was actually the first thing I noticed back in late July, and I wanted to write a blog post about it but I had too many public speaker engagements + a holiday coming up, so I didn't get the time. But I did report it to Microsoft and since then there has been a bunch of blog posts written about it. 
+* **SENSE Client missing**: This was actually the first thing I noticed back in late July, and I wanted to write a blog post about it but I had too many public speaker engagements + a holiday coming up, so I didn't get the time. But I did report it to Microsoft and since then there has been a bunch of blog posts written about it as well.
 
-TL;DR: In the process of OEM's frantically releasing Windows 11 24H2 for CoPilot+ devices, if you purchased a CoPilot+ device with a Pro version of Windows, during the switch from Home edition to Pro Edition, the OEMs did not include the SENSE Client, which is not included by default in Home Edition. This is relevant for customers using Microsoft Defender for Endpoint with an E5 subscription. Upon enrolling my Dell XPS 13 in my test tenant, I noticed my Defender onboarding profile from Intune evaluated as "Not applicable" towards my device. This usually means a pre-req has not been met of some sort, and after some poking around that's where I figured out the SENSE client was missing.
+TL;DR: In the process of OEM's frantically releasing Windows 11 24H2 for CoPilot+ devices, if you purchased a CoPilot+ device with a Pro version of Windows, during the switch from Home edition to Pro Edition, the OEMs did not include the SENSE Client, which is not included by default in Home Edition. This is relevant for customers using Microsoft Defender for Endpoint with an E5 subscription. 
+Upon enrolling my Dell XPS 13 in my test tenant, I noticed my Defender onboarding profile from Intune evaluated as "Not applicable" towards my device. This usually means a pre-req has not been met of some sort, and after some poking around that's where I figured out the SENSE client was missing.
 
-I do not expect we will see this issues once Windows 11 24H2 becomes officially available, and If you are feature updating from 23H2 to 24H2 you have nothing to worry about. This was just a funny little omission of sorts that has taken its rounds in various forums and blog posts already :)
+I do not expect we will see this issues once Windows 11 24H2 becomes officially available, and If you are feature updating from 23H2 to 24H2 you have nothing to worry about. This was just a funny little omission of sorts that has taken its rounds in various forums and blog posts already. :)
 
 * **Cumulative Updates as part of OOBE/Autopilot**: I was not sure to feel happy or depressed when I saw this feature, upon enrolling my Dell XPS Devices. Obviously we want our devices to be 100% patched once they are enrolled, but the reason I have advised my customers against baking their own cumulative update process during OOBE is because it can be extremely time consuming to go through OOBE depending on network connection and how far you are behind from a patch perspective. I'm expecting the new Windows 11 Checkpoint feature will greatly enhance this experience, but as some of you probably know [Microsoft has decided to roll this feature back due to community feedback](https://techcommunity.microsoft.com/t5/intune-customer-success/important-changes-to-the-windows-enrollment-experience-coming/ba-p/4246689)
 
