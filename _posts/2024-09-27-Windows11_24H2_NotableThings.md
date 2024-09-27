@@ -64,3 +64,5 @@ In my opinion, if Microsoft is to be successful rolling this out, I would hope i
 ## That's it for now
 
 There is no official date of the release of Windows 11 24H2 yet, but my guess is mid or late October. If you haven't yet started your journey from Windows 10 to Windows 11 now is a better time than never :)
+
+>Note: Be aware that Windows 11 24H2 is still not officially supported in an enterprise environment.
