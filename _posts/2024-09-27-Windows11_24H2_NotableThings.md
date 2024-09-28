@@ -28,7 +28,7 @@ It's hard to believe after all of these years that Windows will now feature buil
 
 The way cumulatives updates will be delivered to Windows 11 24H2 will see a massive improvement in the shape of much smaller and incremental patches based on the new "Checkpoint cumulative updates" feature [announced by Microsoft back in July 2024](https://techcommunity.microsoft.com/t5/windows-it-pro-blog/introducing-windows-11-checkpoint-cumulative-updates/ba-p/4182552). TL;DR: You will save a bunch of bandwidth, CPU Cycles and HDD Space :)
 
-Sidenote: Did you know that WSUS is being deprecated? Are you still stuck running WSUS in your organization, I recommend you give [this a read as well](https://techcommunity.microsoft.com/t5/windows-it-pro-blog/windows-server-update-services-wsus-deprecation/ba-p/4250436)
+>Note: Did you know that WSUS is being deprecated? Are you still stuck running WSUS in your organization, I recommend you give [this a read as well](https://techcommunity.microsoft.com/t5/windows-it-pro-blog/windows-server-update-services-wsus-deprecation/ba-p/4250436)
 
 ## A lot of CoPilot stuff
 
@@ -42,7 +42,7 @@ As you can probably guess, Windows 11 24H2 is going to feature some new CoPilot-
 
 In the meantime, if you still need it you can still manually enable it with the following command: `DISM /Online /Add-Capability /CapabilityName:WMIC~~~~​`
 
-VBScript support is getting the same treatment, albeit there is still time to migrate to different solutions. See [this article for more details](https://techcommunity.microsoft.com/t5/windows-it-pro-blog/vbscript-deprecation-timelines-and-next-steps/ba-p/4148301)
+>Note: VBScript support is getting the same treatment, albeit there is still time to migrate to different solutions. See [this article for more details](https://techcommunity.microsoft.com/t5/windows-it-pro-blog/vbscript-deprecation-timelines-and-next-steps/ba-p/4148301)
 
 ![WMIC](/assets/images/2024-09-27-Win11_24H2_NotableThings/WMIC_Deprecated.png?raw=true "WMIC Deprecated")
 
@@ -60,6 +60,10 @@ I do not expect we will see this issues once Windows 11 24H2 becomes officially 
 * **Cumulative Updates as part of OOBE/Autopilot**: I was not sure to feel happy or depressed when I saw this feature, upon enrolling my Dell XPS Devices. Obviously we want our devices to be 100% patched once they are enrolled, but the reason I have advised my customers against baking their own cumulative update process during OOBE is because it can be extremely time consuming to go through OOBE depending on network connection and how far you are behind from a patch perspective. I'm expecting the new Windows 11 Checkpoint feature will greatly enhance this experience, but as some of you probably know [Microsoft has decided to roll this feature back due to community feedback](https://techcommunity.microsoft.com/t5/intune-customer-success/important-changes-to-the-windows-enrollment-experience-coming/ba-p/4246689).
 
 In my opinion, if Microsoft is to be successful rolling this out, I would hope it can be enabled/disabled as part of the ESP assigned to device/user so the IT Admins can do their own due diligence in regards to testing and rolling this out. In the mean time, I recommend you also take a look at having your OEM installing the latest cumulative update before they ship the device. Dell for instance has an offering called ["Ready Image"](https://www.dell.com/en-us/lp/dt/imaging), where you pay a small amount of $ extra pr. device and you get a clean + fully updated device upon delivery to you.
+
+* **CoPilot app will be replaced by M365 App**: For enterprise customers, the Copilot app will disappear and be replaced by the Microsoft 365 app, where copilot can be pinned, using settings from the M365 admin center. The M365 app will allow you to access Microsoft Copilot and Microsoft 365 Copilot (M365 Copilot only if you have a M365 Copilot license). Both will be protected by Enterprise Data Protection (EDP), this is in place of Commercial Data Protection (CDP) if you have signed in with an Entra ID account.
+
+![CopilotCDP](/assets/images/2024-09-27-Win11_24H2_NotableThings/Copilot_CDP.png?raw=true "Copilot CDP")
 
 ## That's it for now
 
