@@ -44,9 +44,9 @@ Our beloved WMIC is no more, and is disabled by default in the operating system,
 
 In the meantime, if you still need it you can still manually enable it with the following command: `DISM /Online /Add-Capability /CapabilityName:WMIC~~~~​`
 
->Note: VBScript support is getting the same treatment, albeit there is still time to migrate to different solutions. See [this article for more details](https://techcommunity.microsoft.com/t5/windows-it-pro-blog/vbscript-deprecation-timelines-and-next-steps/ba-p/4148301)
-
 ![WMIC](/assets/images/2024-09-27-Win11_24H2_NotableThings/WMIC_Deprecated.png?raw=true "WMIC Deprecated")
+
+>Note: VBScript support is getting the same treatment, albeit there is still time to migrate to different solutions. See [this article for more details](https://techcommunity.microsoft.com/t5/windows-it-pro-blog/vbscript-deprecation-timelines-and-next-steps/ba-p/4148301)
 
 ### Systemreset
 
