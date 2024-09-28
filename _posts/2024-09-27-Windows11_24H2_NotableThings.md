@@ -38,7 +38,9 @@ As you can probably guess, Windows 11 24H2 is going to feature some new CoPilot-
 
 ## Other notable things
 
-* **WMIC**: Our beloved WMIC is no more, and is disabled by default in the operating system, as it has been deprecated. Get-WmiObject should also get the axe soon, it was superseeded by Get-CimInstance all the way back with the release of PowerShell 3.0. I know at least a few of my PowerShell scripts needs some re-work, it will probably take me a while.. oh dear.
+### WMIC
+
+Our beloved WMIC is no more, and is disabled by default in the operating system, as it has been deprecated. Get-WmiObject should also get the axe soon, it was superseeded by Get-CimInstance all the way back with the release of PowerShell 3.0. I know at least a few of my PowerShell scripts needs some re-work, it will probably take me a while.. oh dear.
 
 In the meantime, if you still need it you can still manually enable it with the following command: `DISM /Online /Add-Capability /CapabilityName:WMIC~~~~​`
 
@@ -46,22 +48,30 @@ In the meantime, if you still need it you can still manually enable it with the 
 
 ![WMIC](/assets/images/2024-09-27-Win11_24H2_NotableThings/WMIC_Deprecated.png?raw=true "WMIC Deprecated")
 
-* **systemreset command**: I didn't see this one coming, but at least on my Dell XPS device this command is no longer working. I didn't use this a whole lot, but it was handy if a device didn't want to receive a wipe/autopilot reset, and it was seemingly stuck. We could manually have the user initiate the factory reset by using systemreset from command prompt. Oh well.. I guess we will use the GUI instead :)
+### Systemreset 
+
+I didn't see this one coming, but at least on my Dell XPS device this command is no longer working. I didn't use this a whole lot, but it was handy if a device didn't want to receive a wipe/autopilot reset, and it was seemingly stuck. We could manually have the user initiate the factory reset by using systemreset from command prompt. Oh well.. I guess we will use the GUI instead :)
 
 ![Systemreset](/assets/images/2024-09-27-Win11_24H2_NotableThings/systemreset_Missing.png?raw=true "Systemreset command")
 
-* **SENSE Client missing**: This was actually the first thing I noticed back in late July, and I wanted to write a blog post about it but I had too many public speaker engagements + a holiday coming up, so I didn't get the time. But I did report it to Microsoft and since then there has been a bunch of blog posts written about it as well.
+### Sense client is missing from early 24H2 OEM Builds
+
+This was actually the first thing I noticed back in late July, and I wanted to write a blog post about it but I had too many public speaker engagements + a holiday coming up, so I didn't get the time. But I did report it to Microsoft and since then there has been a bunch of blog posts written about it as well.
 
 TL;DR: In the process of OEM's frantically releasing Windows 11 24H2 for CoPilot+ devices, if you purchased a CoPilot+ device with a Pro version of Windows, during the switch from Home edition to Pro Edition, the OEMs did not include the SENSE Client, which is not included by default in Home Edition. This is relevant for customers using Microsoft Defender for Endpoint.
 Upon enrolling my Dell XPS 13 in my test tenant, I noticed my Defender onboarding profile from Intune evaluated as "Not applicable" towards my device. This usually means a pre-req has not been met of some sort, and after some poking around that's where I figured out the SENSE client was missing.
 
 I do not expect we will see this issues once Windows 11 24H2 becomes officially available, and If you are feature updating from 23H2 to 24H2 you have nothing to worry about. This was just a fun little omission of sorts that has taken its rounds in various forums and blog posts already. :) If you want to enable it manually in the interim, simply use the following command: `DISM.EXE /Online /Get-CapabilityInfo /CapabilityName:Microsoft.Windows.Sense.Client~~~`
 
-* **Cumulative Updates as part of OOBE/Autopilot**: I was not sure to feel happy or depressed when I saw this feature, upon enrolling my Dell XPS Devices. Obviously we want our devices to be 100% patched once they are enrolled, but the reason I have advised my customers against baking their own cumulative update process during OOBE is because it can be extremely time consuming to go through OOBE depending on network connection and how far you are behind from a patch perspective. I'm expecting the new Windows 11 Checkpoint feature will greatly enhance this experience, but as some of you probably know [Microsoft has decided to roll this feature back due to community feedback](https://techcommunity.microsoft.com/t5/intune-customer-success/important-changes-to-the-windows-enrollment-experience-coming/ba-p/4246689).
+### Cumulative Updates as part of OOBE/Autopilot
+
+I was not sure to feel happy or depressed when I saw this feature, upon enrolling my Dell XPS Devices. Obviously we want our devices to be 100% patched once they are enrolled, but the reason I have advised my customers against baking their own cumulative update process during OOBE is because it can be extremely time consuming to go through OOBE depending on network connection and how far you are behind from a patch perspective. I'm expecting the new Windows 11 Checkpoint feature will greatly enhance this experience, but as some of you probably know [Microsoft has decided to roll this feature back due to community feedback](https://techcommunity.microsoft.com/t5/intune-customer-success/important-changes-to-the-windows-enrollment-experience-coming/ba-p/4246689).
 
 In my opinion, if Microsoft is to be successful rolling this out, I would hope it can be enabled/disabled as part of the ESP assigned to device/user so the IT Admins can do their own due diligence in regards to testing and rolling this out. In the mean time, I recommend you also take a look at having your OEM installing the latest cumulative update before they ship the device. Dell for instance has an offering called ["Ready Image"](https://www.dell.com/en-us/lp/dt/imaging), where you pay a small amount of $ extra pr. device and you get a clean + fully updated device upon delivery to you.
 
-* **CoPilot app will be replaced by M365 App**: For enterprise customers, the Copilot app will disappear and be replaced by the Microsoft 365 app, where copilot can be pinned, using settings from the M365 admin center. The M365 app will allow you to access Microsoft Copilot and Microsoft 365 Copilot (M365 Copilot only if you have a M365 Copilot license). Both will be protected by Enterprise Data Protection (EDP), this is in place of Commercial Data Protection (CDP) if you have signed in with an Entra ID account. More information can be found in [this article from Microsoft](https://learn.microsoft.com/en-us/windows/client-management/manage-windows-copilot#enhanced-data-protection-with-enterprise-data-protection)
+### CoPilot app will be replaced by M365 App
+
+For enterprise customers, the Copilot app will disappear and be replaced by the Microsoft 365 app, where copilot can be pinned, using settings from the M365 admin center. The M365 app will allow you to access Microsoft Copilot and Microsoft 365 Copilot (M365 Copilot only if you have a M365 Copilot license). Both will be protected by Enterprise Data Protection (EDP), this is in place of Commercial Data Protection (CDP) if you have signed in with an Entra ID account. More information can be found in [this article from Microsoft](https://learn.microsoft.com/en-us/windows/client-management/manage-windows-copilot#enhanced-data-protection-with-enterprise-data-protection)
 
 ![CopilotCDP](/assets/images/2024-09-27-Win11_24H2_NotableThings/Copilot_CDP.png?raw=true "Copilot CDP")
 
