@@ -54,7 +54,7 @@ I didn't see this one coming, but at least on my Dell XPS device this command is
 
 ![Systemreset](/assets/images/2024-09-27-Win11_24H2_NotableThings/systemreset_Missing.png?raw=true "Systemreset command")
 
-### Sense client is missing from early 24H2 OEM Builds
+### SENSE client is missing from early 24H2 OEM Builds
 
 This was actually the first thing I noticed back in late July, and I wanted to write a blog post about it but I had too many public speaker engagements + a holiday coming up, so I didn't get the time. But I did report it to Microsoft and since then there has been a bunch of blog posts written about it as well.
 
