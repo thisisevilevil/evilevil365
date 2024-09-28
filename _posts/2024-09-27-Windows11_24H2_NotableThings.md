@@ -30,7 +30,7 @@ The way cumulatives updates will be delivered to Windows 11 24H2 will see a mass
 
 >Note: Did you know that WSUS is being deprecated? Are you still stuck running WSUS in your organization, I recommend you give [this a read as well](https://techcommunity.microsoft.com/t5/windows-it-pro-blog/windows-server-update-services-wsus-deprecation/ba-p/4250436)
 
-## Microsoft Recall: A CoPilot feature
+## Microsoft Recall: A CoPilot+ feature
 
 As you can probably guess, Windows 11 24H2 is going to feature some new CoPilot-based features. [Windows Recall](https://support.microsoft.com/en-us/windows/retrace-your-steps-with-recall-aa03f8a0-a78b-4b3e-b0a1-2eb8ac48701c) Definitely had it's round in the media after some security researches found that this feature was working, well.. less than ideal, but Microsoft has since then made modifications and also made sure it's not enabled by default on new devices unless the user opts in. All of these new features will also be able to make use of the new NPU in Copilot+ devices. More information for IT Admins can be found in [this article from Microosft}(https://learn.microsoft.com/en-us/windows/client-management/manage-recall). Expect this will change a lot during the next 2-3 months.
 
