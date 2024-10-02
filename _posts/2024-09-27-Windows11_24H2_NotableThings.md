@@ -63,7 +63,7 @@ This was actually the first thing I noticed back in late July, and I wanted to w
 TL;DR: In the process of OEM's frantically releasing Windows 11 24H2 for CoPilot+ devices, if you purchased a CoPilot+ device with a Pro version of Windows, during the switch from Home edition to Pro Edition, the OEMs did not include the SENSE Client, which is not included by default in Home Edition. This is relevant for customers using Microsoft Defender for Endpoint.
 Upon enrolling my Dell XPS 13 in my test tenant, I noticed my Defender onboarding profile from Intune evaluated as "Not applicable" towards my device. This usually means a pre-req has not been met of some sort, and after some poking around that's where I figured out the SENSE client was missing.
 
-I do not expect we will see this issues once Windows 11 24H2 becomes officially available, and If you are feature updating from 23H2 to 24H2 you have nothing to worry about. This was just a fun little omission of sorts that has taken its rounds in various forums and blog posts already. :) If you want to enable it manually in the interim, simply use the following command: `DISM.EXE /Online /Get-CapabilityInfo /CapabilityName:Microsoft.Windows.Sense.Client~~~`
+I do not expect we will see this issues once Windows 11 24H2 becomes officially available, and If you are feature updating from 23H2 to 24H2 you have nothing to worry about. This was just a fun little omission of sorts that has taken its rounds in various forums and blog posts already. :) If you want to enable it manually in the interim, simply use the following command: `DISM /online /Add-Capability /CapabilityName:Microsoft.Windows.Sense.Client~~~~`
 
 ### Cumulative Updates as part of OOBE/Autopilot
 
