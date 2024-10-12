@@ -11,7 +11,7 @@ tags:
   - Security
 ---
 
-There has been some chatter about this already, and I also covered this in a [previous blogpost](https://evil365.com/windows%2011/Windows11_24H2_NotableThings/) some weeks ago. However, I now have 1 customer that keeps receiving new Windows 11 24H2 directly from Dell without the SENSE Client enabled. The SENSE Client is required for Microsoft Defender onboarding. If it's not enabled, a Defender onboarding profile will not work, and will be evaluated with "Not Applicable" when trying to send it down from Intune.
+There has been some chatter about this already, and I also covered this in a [previous blogpost](https://evil365.com/windows%2011/Windows11_24H2_NotableThings/) some weeks ago. However, I now have 1 customer that keeps receiving new Windows 11 24H2 devices directly from Dell without the SENSE Client enabled. The SENSE Client is required for Microsoft Defender onboarding. If it's not enabled, a Defender onboarding profile will not work, and will be evaluated with "Not Applicable" when trying to send it down from Intune.
 
 So this is just a quick blog post detailing how you can use Intune to deploy a Remediation to easily enable it where it's missing.
 
