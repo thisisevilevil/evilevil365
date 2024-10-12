@@ -46,3 +46,7 @@ Assing the remediation to all Windows 11 24H2 Devices. We can create a new Devic
 Once this is done, we can assign the new remediation to "All Devices" with the newly created Windows 11 24H2 Device Filter.
 
 ![Remediation](/assets/images/2024-10-12-SENSEClient-Missing-Windows11-24H2/AssignRemediation.png?raw=true "Assign Remediation")
+
+That's all. This will enable the SENSE Client.
+
+>Note: If you are using WSUS or you have devices that's on a closed network, you might need to specify a local source where to fetch the source file. See the official Microsoft docs for Add-WindowsCapability [here](https://learn.microsoft.com/en-us/powershell/module/dism/add-windowscapability?view=windowsserver2022-ps)
