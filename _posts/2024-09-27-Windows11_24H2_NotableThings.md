@@ -63,7 +63,7 @@ This was actually the first thing I noticed back in late July, and I wanted to w
 TL;DR: In the process of OEM's frantically releasing Windows 11 24H2 for CoPilot+ devices, if you purchased a CoPilot+ device with a Pro version of Windows, during the switch from Home edition to Pro Edition, the OEMs did not include the SENSE Client, which is not included by default in Home Edition. This is relevant for customers using Microsoft Defender for Endpoint.
 Upon enrolling my Dell XPS 13 in my test tenant, I noticed my Defender onboarding profile from Intune evaluated as "Not applicable" towards my device. This usually means a pre-req has not been met of some sort, and after some poking around that's where I figured out the SENSE client was missing.
 
-I do not expect we will see this issues once Windows 11 24H2 becomes officially available, and If you are feature updating from 23H2 to 24H2 you have nothing to worry about. This was just a fun little omission of sorts that has taken its rounds in various forums and blog posts already. :) If you want to enable it manually in the interim, simply use the following command: `DISM.EXE /Online /Get-CapabilityInfo /CapabilityName:Microsoft.Windows.Sense.Client~~~`
+I do not expect we will see this issues once Windows 11 24H2 becomes officially available, and If you are feature updating from 23H2 to 24H2 you have nothing to worry about. This was just a fun little omission of sorts that has taken its rounds in various forums and blog posts already. :) If you want to enable it manually in the interim, simply use the following command: `DISM /online /Add-Capability /CapabilityName:Microsoft.Windows.Sense.Client~~~~`
 
 ### Cumulative Updates as part of OOBE/Autopilot
 
@@ -81,4 +81,25 @@ For enterprise customers, the Copilot app will disappear and be replaced by the 
 
 There is no official date of the release of Windows 11 24H2 yet, but my guess is mid or late October. If you haven't yet started your journey from Windows 10 to Windows 11 now is a better time than never :)
 
->Note: Be aware that Windows 11 24H2 is still not officially supported in an enterprise environment.
+**UPDATE, 2nd of October 2024**: Looks like I was only off by half a month. Windows 24H2 has officially been released.
+
+**Windows 24H2 and related announcements**
+* Windows Microsoft Blog (Pavan Davuluri) - [Blog](https://blogs.windows.com/windowsexperience/?p=179099)
+* Windows Experience Blog (John Cable) - [Blog](https://blogs.windows.com/windowsexperience/?p=179067)
+* Windows IT Pro blog (Harjit Dhaliwal) -  [Blog](https://techcommunity.microsoft.com/t5/windows-it-pro-blog/windows-11-version-24h2-what-s-new-for-it-pros/ba-p/4259108)
+* KB tracking Copilot+ PC feature availability - [KB](https://support.microsoft.com/help/5045646)
+* Windows 11 IoT Enterprise  - [IoT](https://learn.microsoft.com/en-us/windows/iot/iot-enterprise/whats-new/Windows-11-IoT-Enterprise-24H2)
+* Support Lifecycle - [Lifecycle](https://learn.microsoft.com/en-us/lifecycle/products/?terms=windows%2011)
+* Security Baseline - [Blog](https://techcommunity.microsoft.com/t5/microsoft-security-baselines/windows-11-version-24h2-security-baseline/ba-p/4252801)
+* Copilot Microsoft Blog – Blog[https://blogs.microsoft.com/blog/2024/10/01/an-ai-companion-for-everyone/](https://blogs.microsoft.com/blog/2024/10/01/an-ai-companion-for-everyone/)
+* Microsoft October 2024 News - [Link](https://news.microsoft.com/microsoft-october-2024-news/)
+* Message Center Announcement - [Link](https://learn.microsoft.com/en-us/windows/release-health/windows-message-center#3403)
+ 
+* Recall Preview - [Blog](https://blogs.windows.com/windowsexperience/2024/09/27/update-on-recall-security-and-privacy-architecture/)
+* AVD Learn.com - [Details](https://learn.microsoft.com/en-us/azure/virtual-desktop/windows-11-language-packs)
+* Download Administrative Templates - [Download](https://www.microsoft.com/en-us/download/details.aspx?id=106254)
+* Download GPO Setting Reference Spreadsheet - [Download](https://www.microsoft.com/en-us/download/details.aspx?id=106255)
+* Update History - [Support](https://support.microsoft.com/en-us/topic/windows-11-version-24h2-update-history-0929c747-1815-4543-8461-0160d16f15e5)
+* How to get it - [video](https://www.youtube.com/watch?v=hhqzKNXt3C8)
+* What’s new for Consumers - [Support](https://support.microsoft.com/en-us/windows/inside-this-update-93c5c27c-f96e-43c2-a08e-5812d92f220d)
+* What’s new for Commercial -  [Learn](https://learn.microsoft.com/en-us/windows/whats-new/whats-new-windows-11-version-24h2)
