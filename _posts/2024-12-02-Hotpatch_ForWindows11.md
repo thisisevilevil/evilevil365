@@ -47,7 +47,7 @@ And that's it! You are now ready to test the new hotpatch feature :)
 
 ## Final notes
 
-Not all Windows Updates released will be hotpatch eligible. As for servers, there is a hotpatch calendar to see if a patch is hotpatch eligible or if it will be a "baseline" update that requires a reboot. For now, this calendar can be found [here](https://support.microsoft.com/en-us/topic/release-notes-for-hotpatch-public-preview-on-windows-11-version-24h2-enterprise-clients-c117ee02-fd35-4612-8ea9-949c5d0ba6d1).
+Not all Windows Updates released will be hotpatch eligible. Same as for servers, there is a hotpatch calendar to see if a patch is hotpatch eligible or if it will be a "baseline" update that requires a reboot. For now, this calendar can be found [here](https://support.microsoft.com/en-us/topic/release-notes-for-hotpatch-public-preview-on-windows-11-version-24h2-enterprise-clients-c117ee02-fd35-4612-8ea9-949c5d0ba6d1).
 
 Also note that if a later hotpatch-eligible patch is released but your device doesn't have the previous baseline patch, the device will still have to reboot to apply the baseline patch, in order to get the later hotpatch-eligible patch, so keep this in mind.
 
