@@ -25,7 +25,7 @@ For those of you managing Servers in Azure you will also know this technology ha
 
 To use Windows 11 Hotpatch your device needs to meet the following criteria:
 
-* Run Windows 11 24H2 or later
+* Run Windows 11 24H2 (Build 26100.2033 or later)
 * Windows Enterprise Edition
 * Microsoft 365 Licenses F3, E3, E5, A3 or A5
 * VBS (Virtualization-based security) Must be enabled (This is enabled by default on Windows 11, unless you have opted to install Windows 11 on unsupported hardware/configuration)
