@@ -39,7 +39,7 @@ Navigate to Intune, Windows Updates -> Quality Updates and create a new profile.
 ![HotpatchPolicy](/assets/images/2024-12-02-Hotpatch_ForWindows11/CreatePolicy-2.png?raw=true "Create hotpatch policy")
 ![HotpatchPolicy](/assets/images/2024-12-02-Hotpatch_ForWindows11/CreatePolicy-3.png?raw=true "Create hotpatch policy")
 
-This feature seems like it currenlty support Devices Filters, so you will need to create a dynamic entraID group to capture your Windows 11 24H2 devices. You can use this Dynamic rule to capture them: `(device.deviceOSVersion -startsWith "10.0.26100")`
+This profile type doesn't currently support device filters, so you will need to create a dynamic entraID group to capture your Windows 11 24H2 devices. You can use this Dynamic rule to capture them: `(device.deviceOSVersion -startsWith "10.0.26100")`
 
 And that's it! You are now ready to test the new hotpatch feature :)
 
