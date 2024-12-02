@@ -33,12 +33,11 @@ If a device doesn't meet any of these pre-reqs it will simply revert to download
 
 ## Activating hotpatch
 
-Navigate to Intune, Windows Updates -> Quality Updates and create a new profile. Select "Windows Quality Update Policy (preview)". Make sure to set the setting ""When available, apply without restarting the device ("hotpatch")" to allow as this is the magic lever to enable hotpatch for your devices. Assign to your Windows 11 24H2 devices.
+Navigate to Intune, Windows Updates -> Quality Updates and create a new profile. Select "Windows Quality Update Policy (preview)". Make sure to set the setting ""When available, apply without restarting the device ("hotpatch")" to "allow", as this is the magic lever to enable hotpatch for your devices. Assign to your Windows 11 24H2 devices.
 
 ![HotpatchPolicy](/assets/images/2024-12-02-Hotpatch_ForWindows11/CreatePolicy-1.png?raw=true "Create hotpatch policy")
 ![HotpatchPolicy](/assets/images/2024-12-02-Hotpatch_ForWindows11/CreatePolicy-2.png?raw=true "Create hotpatch policy")
 ![HotpatchPolicy](/assets/images/2024-12-02-Hotpatch_ForWindows11/CreatePolicy-3.png?raw=true "Create hotpatch policy")
-
 
 This feature seems like it currenlty support Devices Filters, so you will need to create a dynamic entraID group to capture your Windows 11 24H2 devices. You can use this Dynamic rule to capture them: `(device.deviceOSVersion -startsWith "10.0.26100")`
 
