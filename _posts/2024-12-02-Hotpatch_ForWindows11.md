@@ -27,7 +27,7 @@ To use Windows 11 Hotpatch your device needs to meet the following criteria:
 
 * Run Windows 11 24H2 or later
 * Windows Enterprise Edition
-* Microsoft 365 Licenses F3, E3, E5, A3 or E5
+* Microsoft 365 Licenses F3, E3, E5, A3 or A5
 * VBS (Virtualization-based security) Must be enabled (This is enabled by default on Windows 11, unless you have opted to install Windows 11 on unsupported hardware/configuration)
 * Latest Baseline Release: Devices must be on the latest baseline release version to qualify for Hotpatch updates. Microsoft releases Baseline updates quarterly as standard cumulative updates. For more information on the latest schedule for these releases, see [Release notes for Hotpatch](https://support.microsoft.com/en-us/topic/release-notes-for-hotpatch-in-azure-automanage-for-windows-server-2022-4e234525-5bd5-4171-9886-b475dabe0ce8?preview=true)
 
