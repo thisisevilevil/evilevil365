@@ -26,6 +26,8 @@ For those of you managing Servers in Azure you will also know this technology ha
 To use Windows 11 Hotpatch your device needs to meet the following criteria:
 
 * Run Windows 11 24H2 or later
+* Windows Enterprise Edition
+* Microsoft 365 Licenses F3, E3, E5, A3 or E5
 * VBS (Virtualization-based security) Must be enabled (This is enabled by default on Windows 11, unless you have opted to install Windows 11 on unsupported hardware/configuration)
 * Latest Baseline Release: Devices must be on the latest baseline release version to qualify for Hotpatch updates. Microsoft releases Baseline updates quarterly as standard cumulative updates. For more information on the latest schedule for these releases, see [Release notes for Hotpatch](https://support.microsoft.com/en-us/topic/release-notes-for-hotpatch-in-azure-automanage-for-windows-server-2022-4e234525-5bd5-4171-9886-b475dabe0ce8?preview=true)
 
@@ -49,4 +51,6 @@ Not all Windows Updates released will be hotpatch eligible. As for servers, ther
 
 Also note that if a later hotpatch-eligible patch is released but your device doesn't have the previous baseline patch, the device will still have to reboot to apply the baseline patch, in order to get the later hotpatch-eligible patch, so keep this in mind.
 
-Otherwise this is such great news for Windows Client computing and this will greatly improve security and end-user productivity by deploying patches much faster without those required reboots!
+Otherwise this is such great news for Windows Client computing and this will greatly improve security and end-user productivity by deploying patches much faster without those required reboots! 
+
+Read the full announcement from Microsoft from [here](https://techcommunity.microsoft.com/blog/windows-itpro-blog/hotpatch-for-client-comes-to-windows-11-enterprise/4302717)
