@@ -22,6 +22,7 @@ This is a huge game changer for Microsoft and for Windows Client computing in ge
 For those of you managing Servers in Azure you will also know this technology has been here for a while, but only available in Azure. Now it's in preview for Windows Server 2025 and now also for Windows 11. Super awesome!
 
 ## Prerequisites
+
 To use Windows 11 Hotpatch your device needs to meet the following criteria:
 
 * Run Windows 11 24H2 or later
