@@ -1,5 +1,5 @@
 ---
-title: "Windows 11 Hotpatch finally here!"
+title: "Windows 11 Hotpatch is finally here!"
 date: 2024-12-02
 categories:
   - Windows 11
