@@ -2,7 +2,7 @@
 title: "Windows 11 Hotpatch finally here!"
 date: 2024-12-02
 categories:
-  - Windows
+  - Windows 11
 tags:
   - Windows 11
   - Patching
