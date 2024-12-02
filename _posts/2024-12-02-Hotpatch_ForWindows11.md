@@ -15,7 +15,7 @@ The day has finally come. We have heard whispers about this for years, and now t
 Why should you care?
 
 * Much faster deployment times of updates, as updates are kept smaller and as a result will install much faster
-* Less restarts: Hotpatch will eliminate the amount of restarts required thus increasing security!
+* Less restarts: Hotpatch will eliminate the amount of restarts required thus increasing security and end-user productivity
 
 This is a huge game changer for Microsoft and for Windows Client computing in general if you ask me, and as this technology improves, we will see a massive increase in security and the general security posture of companies. I also suspect some companies that adopt very old school testing of each monthly patch, will also greatly benefit from this technology, as they will eventually find that manually testing each patch is futile, and should instead adopt technologies like autopatch that will divide your entire estate into rings/waves of devices.
 
