@@ -5,7 +5,8 @@ categories:
   - Windows 11
 tags:
   - Windows 11
-  - Patching
+  - Hotpatch
+  - Rebootless updates
   - Intune
   - Security
 ---
