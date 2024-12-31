@@ -38,7 +38,7 @@ Going cloud native for windows usually means you also adopted autopilot. So you 
 
 I know a lot of old-time SCCM folks really like playing around with this, they dream about it at night (I know because I use to be one of them..), but this is so time consuming. I know some tools exists out there to make it a lot easier, but it doesn't change the fact this process is so bloated, old school and super unnecessary with the tools at our disposal today. If we are fully cloud native we will utilize autopilot to re-use the OEM Image out of the box, thus eliminating the need for manual imaging and driver pack management every time there is a new update or a new model of laptop/desktop we need to deploy.
 
-## 6. Hiring IT Administrators is suddenly much simpler
+## 6. Hiring IT Staff is suddenly much simpler
 
 Hiring new people to manage your devices never got simpler, as you dont have to spend a long time teaching them about your +20 year old Active Directory and SCCM Infrastructure. I have seen this so many times, new-hires starts at company, gets completely lots in all the legacy group policies and after they got lost in the active directory they take a look at the SCCM infrastructure, with +10000 SCCM Collections and with the strangest SCCM Collection queries you can imagine. Eliminating the need to teach a new-hire about AD and SCCM and only about Intune makes it so much easier (and faster!) to onboard new people to your setup.
 
@@ -71,7 +71,7 @@ For Apple and macOS we also saw the addition of a groundbreaking new feature kno
 
 I helped my first large-enterprise customer go cloud native all the way back in 2019, and now that I'm looking at the end of 2024 and peeking into 2025, my 2025 calendar is also fully booked for assisting one of my new customers going cloud native for 2025 whilst also migrating away from Capainstaller in the same process, so no SCCM for a change.
 
-My new years resolution for 2025 will definitely be to get out and speak more at public events about going cloud native, to break it down a bit and make it digestiable for some of you that is afraid to take the big cloud native plunge.
+My new years resolution for 2025 will definitely be to get out and speak more at public events about going cloud native, to break it down a bit and make it digestible for some of you that is afraid to take the big cloud native plunge.
 
 That's all for now folks, I hope you have a happy new year and I will see you all in 2025 :)
 
