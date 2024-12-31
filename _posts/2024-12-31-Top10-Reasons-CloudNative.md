@@ -40,7 +40,7 @@ I know a lot of old-time SCCM folks really like playing around with this, they d
 
 ## 6. Hiring IT Staff is suddenly much simpler
 
-Hiring new people to manage your devices never got simpler, as you dont have to spend a long time teaching them about your +20 year old Active Directory and SCCM Infrastructure. I have seen this so many times, new-hires starts at company, gets completely lots in all the legacy group policies and after they got lost in the active directory they take a look at the SCCM infrastructure, with +10000 SCCM Collections and with the strangest SCCM Collection queries you can imagine. Eliminating the need to teach a new-hire about AD and SCCM and only about Intune makes it so much easier (and faster!) to onboard new people to your setup.
+Hiring new people to manage your devices never got simpler, as you dont have to spend a long time teaching them about your +20 year old Active Directory and SCCM Infrastructure. I have seen this so many times, new-hires starts at company, gets completely lost in all the legacy group policies and after they got lost in the active directory they take a look at the SCCM infrastructure, with +10000 SCCM Collections and with the strangest SCCM Collection queries you can imagine. Eliminating the need to teach a new-hire about AD and SCCM and only about Intune makes it so much easier (and faster!) to onboard new people to your setup.
 
 And for all of those reasons, if you are responsible for hiring new people for a position to manage devices, your job listing suddenly got so much shorter and simpler.
 
