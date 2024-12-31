@@ -51,7 +51,7 @@ In case there is any issues with a device, and we do not want to spend a long ti
 
 ## 8. Streamlined setup
 
-This is so overlooked in these journeys to going cloud-native, for big companies that are over 20 years old. Think of all the old group policies, OU Structure, SCCM Collections and all the legacy that has been piling up over the years that nobody dares to touch because nobody knows what half of it does, and the people that do usually left the company or got transferred to some other team internally in the organization. By building a new cloud native setup, your business essentially gets a fresh start and also a renewed overview off what is required from a device to enable the business to thrive. In the process all stakeholders involved will get a good overview of what exactly is required and the small quirks that we sometimes have to implement to enable the business.
+This is so overlooked in these journeys to going cloud-native, for big companies that are over 20 years old. Think of all the old group policies, OU Structure, SCCM Collections and all the legacy that has been piling up over the years that nobody dares to touch because nobody knows what half of it does, and the people that do usually left the company or got transferred to some other team internally in the organization. By building a new cloud native setup, your business essentially gets a fresh start and also a renewed overview off what is required from a device to enable the business to thrive. In the process all stakeholders involved will get a good overview of what exactly is required and the small quirks that we have to implement to enable the business.
 
 ## 9. Saving $$$
 
