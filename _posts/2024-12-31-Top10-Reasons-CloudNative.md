@@ -14,7 +14,7 @@ tags:
 ---
 
 2024 is coming to an end, and what a year it has been for Microsoft and Intune. Not only did we get a new version of autopilot but Intune and management of macOS devices also received a whole lot of love. We also got a whole heap of new features and lots of improvements in general.
-For this post I want to give you the top 10 reasons for going Cloud native on your endpoints as I see them today, as it stands now, in the end of 2024. I know a lot of companies out there is contemplating taking the big plunge but is hesitant to push the button, perhaps for a variety of reasons. Hopefully this blog post will give you food for thought and give you some extra insights as to why it is such a good idea to be cloud native.
+For this post I want to give you the top 10 reasons for going Cloud native for your endpoints as I see them today, as it stands now, in the end of 2024. I know a lot of companies out there is contemplating taking the big plunge but is hesitant to push the button, perhaps for a variety of reasons. Hopefully this blog post will give you food for thought and give you some extra insights as to why it is such a good idea to be cloud native.
 
 ## 1. Supportability
 
