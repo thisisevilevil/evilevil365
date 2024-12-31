@@ -47,7 +47,7 @@ And for all of those reasons, if you are responsible for hiring new people for a
 ## 7. Rapid recovery
 
 It's super easy to wipe a device from intune and start from scratch, and this can be done from any location, no need for onprem connectivity (unless you somehow were cornered into a HAADJ Autopilot solution but we don't talk about that here..).
-In case there is any issues with a device, and we do not want to spend a long time troubleshooting, we can simply start he wipe or autopilot reset process to get the device freshly reinstalled. And for you SCCM Folks insisting on keeping the SCCM Server turned on, in case the device no longer boots to the OS: In case the device OEM image is FUBAR, OEMs like HP, Dell and Lenovo also have tools to cloud recover the OS Image, allowing us to completely reinstall the OS from the cloud thus completely eliminating the need for any PxE/Imaging infrastructure. You can also be sure Microsoft will bring something to the table in this regard very soon.
+In case there is any issues with a device, and we do not want to spend a long time troubleshooting, we can initiate the wipe or autopilot reset process to get the device freshly reinstalled. And for you SCCM Folks insisting on keeping the SCCM Server turned on, in case the device no longer boots to the OS: In case the device OEM image is FUBAR, OEMs like HP, Dell and Lenovo also have tools to cloud recover the OS Image, allowing us to completely reinstall the OS from the cloud thus completely eliminating the need for any PxE/Imaging infrastructure. You can also be sure Microsoft will bring something to the table in this regard very soon.
 
 ## 8. Streamlined setup
 
