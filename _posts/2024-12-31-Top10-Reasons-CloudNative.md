@@ -30,7 +30,7 @@ All stakeholders will see a massive improvement in regards to managing and repor
 
 Since the device is not domain joined, co-managed or enrolled into some other MDM/Management system, the performance will increase, some times in such a drastic fashion you would be amazed of how big of a change it can make. Just remember to transition into that cloud native state on a windows device, the only supported way is to perform a factory reset of the device, and there is no way around it, if you want to stay supported.
 
-## 4. No need to support PxE Boot or USB Drives
+## 4. Elimination of PxE Boot or USB Drives
 
 Going cloud native for windows usually means you also adopted autopilot. So you no longer need to support PxE boot and USB Drives which can be a huge pain for larger organizations that are also strict with their network and use 802.1x. Making a network change or setting up a new site can sometimes be a huge pain when you have to take into account that devices needs to be able to PxE boot to some SCCM or other 3rd party deployment system. While I know some of you out there knows that it can be easy to set up, in larger organizations that is usually siloed into smaller teams each managing their own subsection (I.e: Device team, network team, identity team) you all know the pain points here. Eliminating this bit alone can be such a huge timesaver, also not to mention that you can turn off all supporting OnPrem infrastructure like SCCM DPs on all sites. Lastly, you can tell everyone to can all of those USBs with WinPE Boot Images to escape PxE/WDS and OS Images that are usually severely outdated anyway.
 
