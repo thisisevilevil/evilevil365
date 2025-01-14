@@ -61,7 +61,7 @@ Shortly after running the remediation it should run setupdiag on the device and 
 
 >Note: If no feature update logs is found by the tool, nothing will be output to the featureupdateissues folder
 
-There is a lot of nuances to troubleshooting feature update failures, but if a any known signature of a known feature update failure is located by setupdiag, you will be able to clearly see it in the .xml file that it generates next to the Logs.zip file. Here are is a simple real world examples from one of my customers which I have recently assisted:
+There is a lot of nuances to troubleshooting feature update failures, but if a any known signature of a known feature update failure is located by setupdiag, you will be able to clearly see it in the .xml file that it generates next to the Logs.zip file. Here are a simple real world examples from one of my customers which I have recently assisted:
 
 ```XML
  <LogErrorLine>2025-01-08 14:32:26, Error                 MOUPG  CSetupManager::ExecuteInstallMode(1096): Result = 0xC190020E</LogErrorLine>
