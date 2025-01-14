@@ -18,7 +18,7 @@ We have all been there. We deploy a feature update policy to deploy a feature up
 
 But what happens when you have devices that is not featured in those reports and they are seemingly stuck on the "Offering" status for weeks on end in the update reporting? Well, something has probably gone wrong in regards to applying the feature update for whatever reasons. Maybe the feature update applied, and then a rollback triggered or perhaps the feature update didn't apply at all and just errored out. In other words: As of this date, the reporting in intune currently only shows a very limited set of failures.
 
-If you want to dive deeper into feature update failures, you can find the full set of log files from a failed or successful feature update under the folder `C:\$Windows.~BT` which is a hidden folder. However, manually sifting through those logs and correlating them can be very time consuming. What can we do? [SetupDiag](https://learn.microsoft.com/en-us/windows/deployment/upgrade/setupdiag) to the rescue!
+If you want to dive deeper into feature update failures, you can find the full set of log files from a failed or successful feature update under the folder `C:\$Windows.~BT` which is a hidden folder. However, manually sifting through those logs and correlating them can be very time consuming, and is a whole different can of worms. What can we do? [SetupDiag](https://learn.microsoft.com/en-us/windows/deployment/upgrade/setupdiag) to the rescue!
 
 ![Superdiagman](/assets/images/2025-13-01-Troubleshooting-feautreupdate-issues/superdiagman.jpeg?raw=true "Super diag man")
 
