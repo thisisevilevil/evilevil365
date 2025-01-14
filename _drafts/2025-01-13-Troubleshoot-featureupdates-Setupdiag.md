@@ -24,13 +24,13 @@ If you want to dive deeper into feature update failures, you can find the full s
 
 ## Using SetupDiag with On Demand remediations
 
-Using setupdiag is super simple, but it requires admin rights. So normally this is something IT would carry out. But manually performing these steps by having to walk to the device can be very time consuming, and also difficult in multi-region comapnies.
+Using setupdiag is super simple, but it requires admin rights. So normally this is something IT would carry out. But manually performing these steps by having to walk to the device can be very time consuming, and also difficult in multi-region companies, where admin rights might be locked down as well.
 
-So I have written a basic PowerShell script that can be used as an On Demand remediation that can be triggered remotely from Intune to run the setupdiag tool and generate logs and place them in a destination of your choosing. It can be locally on the devices (C:\windows\logs for instance) or it could be in blob storage, OnPrem FileShare or Azure Fileshare, the sky is the limit. The key thing is, to trigger the capture of the logs with SetupDiag. This can be very useful to remotely troubleshoot feature update issues without having to bother the end user.
+So I have written a basic PowerShell script that can be used as an On Demand remediation that can be triggered remotely from Intune to run the setupdiag tool, generate the setupdiag logs and then place them in a destination of your choosing. It can be locally on the devices (C:\windows\logs for instance) or it could be in blob storage, OnPrem FileShare or Azure Fileshare, the sky is the limit. The key thing is, to trigger the capture of the logs with SetupDiag. This can be very useful to remotely troubleshoot feature update issues without having to bother the end user.
 
 ### Creating the remediation in Intune
 
-You can use this code the following code and simply adjust the "$targetpath" variable based on your needs:
+You can use this sample code - Adjust the "$targetpath" variable based on your needs:
 
 ```PowerShell
 $setupdiaguri = 'https://go.microsoft.com/fwlink/?linkid=870142'
