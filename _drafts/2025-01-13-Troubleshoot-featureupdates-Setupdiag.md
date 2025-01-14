@@ -59,7 +59,7 @@ Shortly after running the remediation it should run setupdiag on the device and 
 
 ![Remediation](/assets/images/2025-13-01-Troubleshooting-feautreupdate-issues/LogsGenerated-1.png?raw=true "Logs generated")
 
->Note: If no feature update logs is found, nothing will be output to the featureupdateissues folder
+>Note: If no feature update logs is found by the tool, nothing will be output to the featureupdateissues folder
 
 There is a lot of nuances to troubleshooting feature update failures, but if a any known signature of a known feature update failure is located by setupdiag, you will be able to clearly see it in the .xml file that it generates next to the Logs.zip file. Here are is a simple real world examples from one of my customers which I have recently assisted:
 
