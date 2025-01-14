@@ -11,7 +11,9 @@ tags:
   - Remediations
 ---
 
-We have all been there. We deploy a feature update policy to deploy a feature update, and for weeks on end some devices are just stuck in "Offering..." in the reporting. Maybe it's just slow to deploy the feature update, or the device is probably not used a lot? There can be plenty of reasons. In some instances, the reports in Intune can assist us to figure out why an update is not applying, like the "Windows Feature Update devices readines report" and the "Windows Feature Update Compatibility Risks report". Using those reports we can in some ocassions pinpoint if a specific app or driver is blocking a specific feature update.
+We have all been there. We deploy a feature update policy to deploy a feature update, and for weeks on end some devices are just stuck in "Offering..." in the reporting. Maybe it's just slow to deploy the feature update, or the device is probably not used a lot? There can be plenty of reasons. In some instances, the reports in Intune can assist us to figure out why an update is not applying, like the "Windows Feature Update devices readiness report" and the "Windows Feature Update Compatibility Risks report". Using those reports we can in some occasions pinpoint if a specific app or driver is blocking a specific feature update, like shown below.
+
+![Superdiagman](/assets/images/2025-13-01-Troubleshooting-feautreupdate-issues/superdiagman.jpeg?raw=true "Super diag man")
 
 ![Feature Update report](/assets/images/2025-13-01-Troubleshooting-feautreupdate-issues/FeatureUpdate-Reports.png?raw=true "Feature update readiness reports")
 ![Feature Update report](/assets/images/2025-13-01-Troubleshooting-feautreupdate-issues/DeviceReadines_BlockingUpgrade_Example.png?raw=true "DeviceReadines_BlockingUpgrade_Example.png")
