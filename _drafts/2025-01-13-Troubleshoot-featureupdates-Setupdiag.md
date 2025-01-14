@@ -14,7 +14,7 @@ tags:
 We have all been there. We deploy a feature update policy to deploy a feature update, and for weeks on end some devices are just stuck in "Offering..." in the reporting. Maybe it's just slow to deploy the feature update, or the device is probably not used a lot? There can be plenty of reasons. In some instances, the reports in Intune can assist us to figure out why an update is not applying, like the "Windows Feature Update devices readines report" and the "Windows Feature Update Compatibility Risks report". Using those reports we can in some ocassions pinpoint if a specific app or driver is blocking a specific feature update.
 
 ![Feature Update report](/assets/images/2025-13-01-Troubleshooting-feautreupdate-issues/FeatureUpdate-Reports.png?raw=true "Feature update readiness reports")
-![Feature Update report](/assets/images/2025-13-01-Troubleshooting-feautreupdate-issues/FeatureUpdate-Reports.png?raw=true "DeviceReadines_BlockingUpgrade_Example.png")
+![Feature Update report](/assets/images/2025-13-01-Troubleshooting-feautreupdate-issues/DeviceReadines_BlockingUpgrade_Example?raw=true "DeviceReadines_BlockingUpgrade_Example.png")
 
 But what happens when you have devices that is not featured in those reports and they are seemingly stuck on the "Offering" status for weeks on end in the update reporting? Well, something has probably gone wrong in regards to applying the feature update for whatever reasons. Maybe the feature update applied, and then a rollback triggered or perhaps the feature update didn't apply at all and just errored out. In other words: As of this date, the reporting in intune currently only shows a very limited set of failures.
 
@@ -71,6 +71,6 @@ There is a lot of nuances to troubleshooting feature update failures, but if a a
   <Remediation>You must free up at least "20003" MB of space on the System Drive, and try again.</Remediation>
   ```
 
-As we can clearly see, the feature update has failed due to lack of disk space. There's plenty of reasons for a feature update to fail, suffice to say, setupdiag will make it easier for you troubleshoot these kind of issues. Using Remediations is one way of triggering setupdiag, obviously there is always the option of doing it manually on the device from a command prompt with admin rights.
+As we can clearly see, the feature update has failed due to lack of disk space. There's plenty of reasons for a feature update to fail, suffice to say, setupdiag will make it easier for you troubleshoot these kind of issues. Using Remediations is just one way of triggering setupdiag, obviously there is always the option of doing it manually on the device from a command prompt with admin rights.
 
 I hope you found this useful, have a super awesome day :)
