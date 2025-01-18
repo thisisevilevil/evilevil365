@@ -59,6 +59,8 @@ See below excerpt from a [SetupDiag](https://learn.microsoft.com/en-us/windows/d
 
 To workaround this issue for now, simply remove the 2 mentioned RSAT Components which is the following: `Rsat.FailoverCluster.Management.Tools~~~~0.0.1.0` `Rsat.FileServices.Tools~~~~0.0.1.0`
 
+This can be done using PowerShell:
+
 ```PowerShell
 Remove-WindowsCapability -Name 'Rsat.FailoverCluster.Management.Tools~~~~0.0.1.0' -Online
 Remove-WindowsCapability -Name 'Rsat.FileServices.Tools~~~~0.0.1.0' -Online
