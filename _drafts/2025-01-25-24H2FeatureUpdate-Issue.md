@@ -75,7 +75,7 @@ Once removed, also ensure to manually remove the bad boot entries using bcdedit 
 
 >NOTE: Ignore the warning about bitlocker, it should not trigger.
 
-Finally reboot the device, and retry the update. This time it should complete without any issues. Once the update has been applied, you can go ahead and reinstall the RSAT tools we removed. And now you can proceed to test your Windows 11 24H2 rollout.
+Finally reboot the device, and retry the update. This time it should complete without any issues. Once the update has been applied, you can go ahead and reinstall the RSAT tools we removed.
 
 ## Wrapping up
 
