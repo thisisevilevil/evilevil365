@@ -12,7 +12,7 @@ tags:
 
 Windows 11 24H2 is a major feature update with lots of new features. But such a major feature update is also bound to cause some hiccups. As of this blog posts date there is a total of [13 known issues](https://learn.microsoft.com/en-us/windows/release-health/status-windows-11-24h2) logged on Microsofts website, where arguably the most impactful is the [Easy Anti-Cheat issues](https://learn.microsoft.com/en-us/windows/release-health/status-windows-11-24h2#263msgdesc) which lots of games use.
 
-In this blog post I will highlight a known (but unknown?) issue, since it's not listed on Microsoft's website yet. I actually asked about this particular issue on Microsoft's CCP teams channel all the way back in October last year, as we started to see a strange issue where the Windows 11 24H2 Feature update would fail in a peculiar way, where the subsequent rollback that is supposed to roll the device back to a known good state also failed, leaving something known as a "leaked OS Entry".
+In this blog post I will highlight a known (but unknown?) issue, since it's not listed on Microsoft's website yet. I actually asked about this particular issue on Microsoft's CCP teams channel all the way back in October last year, as I started to see a strange issue where the Windows 11 24H2 Feature update would fail in a peculiar way, where the subsequent rollback that is supposed to roll the device back to a known good state also failed, leaving something known as a "leaked OS Entry".
 
 So what's this all about? Read on to find out.
 
