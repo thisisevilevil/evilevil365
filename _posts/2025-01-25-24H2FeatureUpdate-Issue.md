@@ -2,12 +2,12 @@
 title: "Windows 11 24H2 Feature Update issues"
 date: 2025-01-18
 categories:
-  - Intune
   - Feature Updates
 tags:
   - Feature Update issue
   - Windows 11 24H2
   - Known Issues
+  - RSAT Tools
 ---
 
 Windows 11 24H2 is a major feature update with lots of new features. But such a major feature update is also bound to cause some hiccups. As of this blog posts date there is a total of [13 known issues](https://learn.microsoft.com/en-us/windows/release-health/status-windows-11-24h2) logged on Microsofts website, where arguably the most impactful is the [Easy Anti-Cheat issues](https://learn.microsoft.com/en-us/windows/release-health/status-windows-11-24h2#263msgdesc) which lots of games use.
