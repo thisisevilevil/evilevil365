@@ -1,4 +1,4 @@
----
+<---
 title: "Windows 11 24H2 Feature Update Issue"
 date: 2025-01-18
 categories:
@@ -20,7 +20,7 @@ So what's this all about? Read on to find out.
 
 ## Applying the feature update: Analyzing the issue
 
-Applying the fature update shows no issues, but it's at the subsequent reboot when it's goes into a Phase 2 of sorts to finalize the process, where it locates an issue and attempts to perform a rollback. After the rollback we also get a 1st hand look of the so called "leaked OS Entry".
+Applying the feature update shows no issues, but it's at the subsequent reboot when it's goes into a Phase 2 of sorts to finalize the process, where it locates an issue and attempts to perform a rollback. After the rollback we also get a 1st hand look of the so called "leaked OS Entry".
 
 ![Feature Update issue](/assets/images/2025-18-01-24H2FeatureUpdate-Issue/Rollback-1.png?raw=true "Rolling back")
 ![Feature Update issue](/assets/images/2025-18-01-24H2FeatureUpdate-Issue/Rollback-2.png?raw=true "Rolling back")
