@@ -22,8 +22,6 @@ So what's this all about? Read on to find out.
 
 Applying the fature update shows no issues, but it's at the subsequent reboot when it's goes into a Phase 2 of sorts to finalize the process, where it locates an issue and attempts to perform a rollback
 
-![Feature Update issue](/assets/images/2025-18-01-24H2FeatureUpdate-Issue/FeatureUpdate_Issue_PG.png?raw=true "Feature Update issue")
-
 ![Feature Update issue](/assets/images/2025-18-01-24H2FeatureUpdate-Issue/Rollback-1.png?raw=true "Rolling back")
 ![Feature Update issue](/assets/images/2025-18-01-24H2FeatureUpdate-Issue/Rollback-2.png?raw=true "Rolling back")
 
@@ -79,6 +77,10 @@ Finally reboot the device, and retry the update. This time it should complete wi
 
 ## Wrapping up
 
-As of this date, there is currently not ETA of when this will be fixed. The RSAT tools have a very long history of breaking during feature updates, it's a very recurring theme. This time it just broke a feature update in a different way I guess. In the meantime, this should not affect the average end-user, annoyingly this should only affect IT Staff as they are normally the ones using these RSAT Tools.
+As of this date, there is currently not ETA of when this will be fixed, but the Product Group responsible is working on a fix, as pr. a Microsoft support ticket, I have submitted on behalf of one of my customers.
+
+![Feature Update issue](/assets/images/2025-18-01-24H2FeatureUpdate-Issue/FeatureUpdate_Issue_PG.png?raw=true "Feature Update issue")
+
+The RSAT tools have a very long history of breaking during feature updates, it's a very recurring theme. This time it just broke a feature update in a different way I guess. In the meantime, this should not affect the average end-user, annoyingly this should only affect IT Staff as they are normally the ones using these RSAT Tools.
 
 That's it for now, have an awesome day :)
