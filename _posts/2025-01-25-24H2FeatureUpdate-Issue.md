@@ -79,7 +79,7 @@ Finally reboot the device, and retry the update. This time it should complete wi
 
 ## Wrapping up
 
-As of this date, there is currently not ETA of when this will be fixed, but the Product Group responsible is working on a fix, as pr. a Microsoft support ticket, I have submitted on behalf of one of my customers.
+As of this date, there is currently no ETA of when this will be fixed, but the Product Group responsible is working on a fix, as pr. a Microsoft support ticket, I have submitted on behalf of one of my customers.
 
 ![Feature Update issue](/assets/images/2025-18-01-24H2FeatureUpdate-Issue/FeatureUpdate_Issue_PG.png?raw=true "Feature Update issue")
 
