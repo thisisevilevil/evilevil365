@@ -23,7 +23,7 @@ Head on over to Intune and perform the following steps:
 1. Create a new policy -> Windows 10 and later -> Settings Catalog
 2. Give the policy a nice name, I.e: Allow optional content
 3. Press "add setting" and do a search for "Allow Optional Content". Press Windows Update for business and add the allow optional content setting
-4. Configure the setting as follows: Automatically receive optioanl updates (including CFRs)
+4. Configure the setting as follows: Automatically receive optional updates (including CFRs)
 5. Deploy to test groups, Example: Autopatch device group Modern Workplace Devices-Windows Autopatch-Test, Modern Workplace Devices-Windows Autopatch-First and Modern Workplace Devices-Windows Autopatch-Fast
 
 ![Create Policy](/assets/images/2025-02-04-EnableOptional-WindowsUpdates/Policy-1.png?raw=true "Create Policy 1")
