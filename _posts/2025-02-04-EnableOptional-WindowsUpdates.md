@@ -29,7 +29,7 @@ Head on over to Intune and perform the following steps:
 5. Deploy to test groups, Example: Autopatch device group Modern Workplace Devices-Windows Autopatch-Test, Modern Workplace Devices-Windows Autopatch-First and Modern Workplace Devices-Windows Autopatch-Fast
 
 ![Create Policy](/assets/images/2025-02-04-EnableOptional-WindowsUpdates/Policy-1.png?raw=true "Create Policy 1")
-![Create Policy](/assets/images/2025-02-04-EnableOptional-WindowsUpdates/Policy-2.png?raw=true "Create Policy 2")
+![Create Policy](/assets/images/2025-02-04-EnableOptional-WindowsUpdates/Policy-2.1.png?raw=true "Create Policy 2")
 ![Create Policy](/assets/images/2025-02-04-EnableOptional-WindowsUpdates/Policy-3.png?raw=true "Create Policy 3")
 ![Create Policy](/assets/images/2025-02-04-EnableOptional-WindowsUpdates/Policy-4.png?raw=true "Create Policy 4")
 ![Create Policy](/assets/images/2025-02-04-EnableOptional-WindowsUpdates/Policy-5.png?raw=true "Create Policy 5")
