@@ -16,6 +16,8 @@ When you enable it, it doesn't mean it will automatically install. The users wil
 
 So how do we enable this functionality? Intune policy of course!
 
+![Testing](/assets/images/2025-02-04-EnableOptional-WindowsUpdates/Testing.png?raw=true "Testing")
+
 ## Enabling Optional updates
 
 Head on over to Intune and perform the following steps:
