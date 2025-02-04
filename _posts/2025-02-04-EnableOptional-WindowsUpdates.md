@@ -10,13 +10,13 @@ tags:
   - Patch Tuesday
 ---
 
-Sometimes the preview updates from Microsoft can contain important fixes and changes that will (usually) be rolled out in the subsequent [patch tuesday](https://learn.microsoft.com/en-us/windows/deployment/update/release-cycle). Think of the preview updates like an appetizer of what is to come. It will usually be released at the end of each month
+Sometimes the preview updates from Microsoft can contain important fixes and changes that will (usually) be rolled out in the subsequent [patch tuesday](https://learn.microsoft.com/en-us/windows/deployment/update/release-cycle). Think of the preview updates like an appetizer of what is to come. It will usually be released at the end of each month.
 
 When you enable it, it doesn't mean it will automatically install. The users will still need to manually have to go to Windows Updates and opt-in to get the update, so it can sometimes be useful to offer it in your early rings (Test, First and Fast for instance).
 
 So how do we enable this functionality? Intune policy of course!
 
-![Testing](/assets/images/2025-02-04-EnableOptional-WindowsUpdates/TThumbnail_Testing.png?raw=true "Testing")
+![Testing](/assets/images/2025-02-04-EnableOptional-WindowsUpdates/Thumbnail_Testing.png?raw=true "Testing")
 
 ## Enabling Optional updates
 
