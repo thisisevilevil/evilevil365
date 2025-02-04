@@ -37,7 +37,7 @@ Head on over to Intune and perform the following steps:
 
 ## End user experience
 
-The end user will get the option to install the preview update by navigating to the Windows Update under settings. Only then will the actual update be installed. Otheriwse all optional quality updates will adhere to your configure update policies, including deferral and grace period.
+The end user will get the option to install the preview update by navigating to the Windows Update under settings. Only if the user opts in and install the updates does it actually install. If the user does nothing, it will simply continue to install the next cumulative update once it becomes available.
 
 ![End User Experience](/assets/images/2025-02-04-EnableOptional-WindowsUpdates/UX-1.png?raw=true "End User Experience")
 
