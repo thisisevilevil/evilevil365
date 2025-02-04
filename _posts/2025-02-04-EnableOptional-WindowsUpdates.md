@@ -1,6 +1,6 @@
 ---
 title: "Enable Windows Devices to receive Optional (Preview) updates"
-date: 2025-02-14
+date: 2025-02-04
 categories:
   - Intune
 tags:
