@@ -6,8 +6,7 @@ categories:
   - Intune
 tags:
   - Teams Classic cleanup
-  - Teams Classic
-  - Cleanup script
+  - Teams Cleanup script
   - Security vulnerability
 ---
 
