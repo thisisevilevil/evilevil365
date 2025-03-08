@@ -24,7 +24,7 @@ Microsoft actively maintains their own PowerShell script to remove teams classic
 
 I opted to write a quick PowerShell script with the purpose of running it as a Remediation in Intune. This allows me to track if it actually successfully removed it or if something went wrong.
 
-You can find the detection script I wrote, and a copy of Microsoft's own teams cleanup script on my github repo [here](https://github.com/thisisevilevil/IntunePublic/tree/main/Remediations/Cleanup%20Teams%20Classic))
+You can find the detection script I wrote, and a copy of Microsoft's own teams cleanup script on my github repo [here](https://github.com/thisisevilevil/IntunePublic/tree/main/Remediations/Cleanup%20Teams%20Classic)
 
 ### Creating the remediation
 
