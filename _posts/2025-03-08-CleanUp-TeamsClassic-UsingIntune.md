@@ -35,7 +35,7 @@ Assign it to some test devices first, before assigning to everyone. Once you are
 
 ## Wrapping up
 
-I hope you found this useful. I have used this script in 2 different environments now with great results. The below screenshots is from the Defender Security portal where we can clearly see a large dip in exposed devices.
+I hope you found this useful. I have used this script in 2 different environments now with great results. The below screenshots is from the Defender Security portal where we can clearly see a large decrease in exposed devices, after I assigned the Remediation.
 ![Teams](/assets/images/2025-03-08-Cleanup-TeamsClassic-UsingIntune/TeamsExposure-1.png?raw=true "Teams CLassic Remediation")
 ![Teams](/assets/images/2025-03-08-Cleanup-TeamsClassic-UsingIntune/TeamsExposure-2.png?raw=true "Teams CLassic Remediation")
 
