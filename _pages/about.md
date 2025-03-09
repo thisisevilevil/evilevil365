@@ -5,7 +5,7 @@ title: "About"
 
 My name is Mads and I live in a little country known as Denmark. We are famous for LEGO, Vikings and of course Carlsberg! I currently live in a city called Herning in the central part of Denmark, with my beautiful wife.
 
-I began my career at an early age, where I subsequently worked as a Support Rep. for companies like Telenor, Stream Global Services (Support for Dell Laptops/Desktops), and Hewlett-Packard that then split up in 2, where I continued in Hewlett-Packard Enterprise. In all of those jobs, one thing became very clear: I had a knack for break/fix and solving complex problems.
+I began my career at an early age, where I worked as a Support Rep. for companies like Telenor, Stream Global Services (Support for Dell Laptops/Desktops), and Hewlett-Packard that then split up in 2, where I continued my career Hewlett-Packard Enterprise (HPE). In all of those jobs, one thing became very clear: I had a knack for break/fix and solving complex problems.
 
 In 2017 I accepted the job as an IT consultant for a small company in Denmark, specializing in the modern workplace, primarily using Intune and Autopilot. Of course back then, buzzwords like "modern workplace" didn't exist, so we just called it something else: Device Management! - I also dabbled quite a lot in MDT and SCCM.
 I succesfully implemented Autopilot and other technologies using Microsoft Intune in small, medium and large companies.
