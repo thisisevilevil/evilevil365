@@ -33,7 +33,6 @@ Set return code 2 as "Success" as well, to ensure it doesn't fail during ESP whe
 
 ![DellDCUAPP](/assets/images/2024-04-08-DellBIOSUpdates-Intune/DellCommandUpdate-App-1.png?raw=true "Dell Command Update app")
 
-
 ## Importing ADMX Templates
 To get the ADMX templates required from managing DCU, you will need to download Dell Command Update. You can always find the latest version here: https://www.dell.com/support/kbdoc/en-us/000177325/dell-command-update
 
@@ -51,17 +50,14 @@ Start by importing the Dell.ADMX file. For the .ADML file, you can find it under
 
 ![DellDCUAPP](/assets/images/2024-04-08-DellBIOSUpdates-Intune/ImportADMX-6.png?raw=true "Dell Command Update ADMX Templates")
 
-
 The Dell template should be "Available" (Sometimes it can be a bit sluggish, so be patient with this one). Once the Dell template is available, import the Dell Command Update.ADMX and ADML file similarly. Once finished, you should see "Dell.ADMX" and "Dell Command Update.ADMX":
 
 ![DellDCUAPP](/assets/images/2024-04-08-DellBIOSUpdates-Intune/ImportADMX-7.png?raw=true "Dell Command Update ADMX Templates")
-
 
 ## Deploying update policies
 Let's go and create a new configuration profile. Select "Windows 10 and later" -> Templates -> Imported administrative templates (preview). Let's give the policy a nice name like "Dell Command Update Settings". Then hit next. Then you should be able to see the Dell folder with all the Dell Command Update settings.
 ![DellDCUAPP](/assets/images/2024-04-08-DellBIOSUpdates-Intune/DeployPolicy-1.png?raw=true "Dell Command Update ADMX Templates")
 ![DellDCUAPP](/assets/images/2024-04-08-DellBIOSUpdates-Intune/DeployPolicy-2.png?raw=true "Dell Command Update ADMX Templates")
-
 
 All the settings we are looking for, is placed under the folder "Update Settings". Lets configure our Dell Command Update Policy to adjust the following:
 1. **"What do when updates are found":** Set this to "Enabled" and to "Download and install updates (Notify after complete)
@@ -78,6 +74,8 @@ Change these settings accordingly based on your testing and your orgs needs. The
 You can also check if the settings deployed by opening Dell Command Update on the device, hit the settings button in the top right corner. Then you should see a red text saying "Some settings are managed by your organization" in the top of the settings windows.
 ![DellDCUAPP](/assets/images/2024-04-08-DellBIOSUpdates-Intune/DellDCU-SomeSettingsManagedByYourOrg.png?raw=true "Dell Command Update ADMX Templates")
 
+## End User Experience
+
 Based on the settings, the user will get various notifications, based on the settings you push to the users device. It can show notifications regarding installing updates, but you can also just choose to not show them notifications regarding installing updates, and then only show them reboot notifications, if updates has been installed that requires a reboot. The notifications will be shown as toast notifications, and will look like below:
 
 ![DellDCUAPP](/assets/images/2024-04-08-DellBIOSUpdates-Intune/DCU-Reboot.png?raw=true "Dell Command Update ADMX Templates")
@@ -91,7 +89,7 @@ The final restart reminder, will linger in the system tray until the user clicks
 Finally, all updates deployed via Dell Command Update is logged to C:\ProgramData\Dell\UpdateService\Log - Look for the "activity.log" log to see what updates has been downloaded along with the install status, success or failed, where the "service.log" is more for the app itself, to see connectivity to update servers and whether a reboot is pending or not.
 
 
-### Sample deployment rings - 1 policy pr. ring
+## Sample deployment rings - 1 policy pr. ring
 
 | Ring     | Sys. Restart Hours | Sys. restart def.| Install Hours   | Install Def. | Delay   |                Assignment group                  |
 |----------|--------------------|----------------- |-----------------|--------------|---------|--------------------------------------------------|
@@ -108,6 +106,7 @@ Finally, all updates deployed via Dell Command Update is logged to C:\ProgramDat
 > ![DellDCUAPP](/assets/images/2024-04-08-DellBIOSUpdates-Intune/AutoPatch-1.png?raw=true "Dell Command Update ADMX Templates")
 
 ## Bonus: Remediation and PowerShell script for on-demand updates
+
 It's possible to run a one-time update of all dell drivers/firmware, where we trigger dcu-cli.exe from Command Update, using a remediation or a PowerShell Script. The PowerShell script can be assigned to a group of devices, whilst the remediation the be run on-demand for troubleshooting purposes. Try this out on your Dell devices:
 ```
 $currentdate = Get-Date -format 'ddMMyyyy_HHmmss'
