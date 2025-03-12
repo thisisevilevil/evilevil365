@@ -46,6 +46,9 @@ This profile type doesn't currently support device filters, so you will need to 
 
 And that's it! You are now ready to test the new hotpatch feature :)
 
+Once a hotpatch has been applied, you will clearly see it in Windows Update and under Update History. The update will have the "(Hotpatch capable)" added to the update name, whilst you will also see a message saying "Great news! The latest security update was installed without a restart!" as shown below:
+![Hotpatch](/assets/images/2024-12-02-Hotpatch_ForWindows11/Hotpatch.png?raw=true "Create hotpatch policy")
+
 ## Final notes
 
 Not all Windows Updates released will be hotpatch eligible. Same as for servers, there is a hotpatch calendar to see if a patch is hotpatch eligible or if it will be a "baseline" update that requires a reboot. For now, this calendar can be found [here](https://support.microsoft.com/en-us/topic/release-notes-for-hotpatch-public-preview-on-windows-11-version-24h2-enterprise-clients-c117ee02-fd35-4612-8ea9-949c5d0ba6d1).
