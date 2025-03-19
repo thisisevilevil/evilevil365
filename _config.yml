@@ -69,16 +69,10 @@ author:
     - label: "Sessionize"
       icon: "fab fa-fw fa-sessionize"
       url: "https://sessionize.com/madsjohansen/"
-    - label: "Steam"
-      icon: "fab fa-fw fa-steam"
-      url: "https://steamcommunity.com/id/thisisevilevil"
 
 
 footer:
   links:
-    - label: "Steam"
-      icon: "fab fa-fw fa-steam"
-      url: "https://steamcommunity.com/id/thisisevilevil"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/"
