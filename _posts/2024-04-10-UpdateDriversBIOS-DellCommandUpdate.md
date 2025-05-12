@@ -11,7 +11,7 @@ tags:
   - Import ADMX Templates
 ---
 
-**UPDATED: 9th of August 2024 w. DCU 5.4**
+**UPDATED: 12th of April 2025 w. DCU 5.5**
 
 This topic is not sexy at all to talk about in IT, but it is nonetheless getting more important for security reasons, due to the many security updates now included in BIOS, Driver and firmware updates in newer times.
 
@@ -21,13 +21,16 @@ The one reason you should still consider using the hardware vendors own tools. i
 
 In this blog post, we will go through what we can do with Dell devices using Dell's own Dell Command Update.
 
-## Getting started - Packaging Dell Command Update
-In case you don't have Dell Command Update in Intune as a Win32 app, you can steal my .intunewin file <a id="raw-url" href="https://raw.githubusercontent.com/thisisevilevil/evilevil365/master/assets/Dell-Command-Update-Windows-Universal-Application_9M35M_WIN_5.4.0_A00.intunewin">here</a> for version 5.4. Add the app into intune as a Win32 app:
+## Getting started - Packaging Dell Command Update as a Win32 app
 
-* **Install command:** `Dell-Command-Update-Windows-Universal-Application_9M35M_WIN_5.4.0_A00.EXE /s /l=C:\Windows\Logs\Dell_Command_Update_5.4_exe_installer.log`
-* **Uninstall command:** `msiexec /X {C7922436-4088-4256-9C99-8E48CC89AA4E} /qn`
+In case you don't have the latest version of Dell DCU in Intune,  We need to download the latest version of Dell Command update, get it packaged and uploaded to Intune as a win32 app. Usually you can find the latest version on [this site](https://www.dell.com/support/kbdoc/en-us/000177325/dell-command-update) - Package it using the [Microsoft Win32 Content Prep Tool](https://github.com/microsoft/Microsoft-Win32-Content-Prep-Tool)
+
+You can use below install, uninstall command and detection rules:
+
+* **Install command:** `Dell-Command-Update-Windows-Universal-Application_P4DJW_WIN64_5.5.0_A00.EXE /s /l=C:\Windows\Logs\Dell_Command_Update_5.4_exe_installer.log`
+* **Uninstall command:** `msiexec /X {3F2A9AE0-4FB2-41C7-A9DF-611E6FAC2B31} /qn`
 * **Required disk space:** 500MB
-* **Detection, MSI String:** `{C7922436-4088-4256-9C99-8E48CC89AA4E}`
+* **Detection, MSI String:** `{3F2A9AE0-4FB2-41C7-A9DF-611E6FAC2B31}`
 
 Set return code 2 as "Success" as well, to ensure it doesn't fail during ESP when deploying devices with autopilot.
 
