@@ -59,6 +59,7 @@ The Dell template should be "Available" (Sometimes it can be a bit sluggish, so 
 ![DellDCUAPP](/assets/images/2024-04-08-DellBIOSUpdates-Intune/ImportADMX-7.png?raw=true "Dell Command Update ADMX Templates")
 
 ## Deploying update policies
+
 Let's go and create a new configuration profile. Select "Windows 10 and later" -> Templates -> Imported administrative templates (preview). Let's give the policy a nice name like "Dell Command Update Settings". Then hit next. Then you should be able to see the Dell folder with all the Dell Command Update settings.
 ![DellDCUAPP](/assets/images/2024-04-08-DellBIOSUpdates-Intune/DeployPolicy-1.png?raw=true "Dell Command Update ADMX Templates")
 ![DellDCUAPP](/assets/images/2024-04-08-DellBIOSUpdates-Intune/DeployPolicy-2.png?raw=true "Dell Command Update ADMX Templates")
@@ -89,9 +90,7 @@ The final restart reminder, will linger in the system tray until the user clicks
 
 > **_If the user closes the last reboot reminder, there will be no "final" reminder.. it will abruptly reboot the device, without warning, after 30 minutes_** 
 
-
 Finally, all updates deployed via Dell Command Update is logged to C:\ProgramData\Dell\UpdateService\Log - Look for the "activity.log" log to see what updates has been downloaded along with the install status, success or failed, where the "service.log" is more for the app itself, to see connectivity to update servers and whether a reboot is pending or not.
-
 
 ## Sample deployment rings - 1 policy pr. ring
 
@@ -112,6 +111,7 @@ Finally, all updates deployed via Dell Command Update is logged to C:\ProgramDat
 ## Bonus: Remediation and PowerShell script for on-demand updates
 
 It's possible to run a one-time update of all dell drivers/firmware, where we trigger dcu-cli.exe from Command Update, using a remediation or a PowerShell Script. The PowerShell script can be assigned to a group of devices, whilst the remediation the be run on-demand for troubleshooting purposes. Try this out on your Dell devices:
+
 ```
 $currentdate = Get-Date -format 'ddMMyyyy_HHmmss'
 $dcucli = "${env:ProgramFiles}\Dell\CommandUpdate\dcu-cli.exe"
@@ -138,6 +138,7 @@ The script needs to run in 64-bit context and in SYSTEM context.
 Find the docs for dcu-cli to experiment with different switches [here](https://www.dell.com/support/manuals/en-us/command-update/dellcommandupdate_rg/dell-command-update-cli-commands?guid=guid-92619086-5f7c-4a05-bce2-0d560c15e8ed&lang=en-us)
 
 ## Final words
+
 I hope you found this walkthrough useful. There is some pros/cons to using the Dell Command Update for managing updates compared to just using the Windows Update functionality to pushing drivers/BIOS. For instance, the notifications and snooze options you get with windows updates is much better for the end-user, but on the other hand if you use Dell Command Update as it is right now, you will get updates and fixes much faster, and with a bit of communication and user adoption of Dell Command Update, it could work. Just make sure your user don't close the last reboot reminder, and teach your users to start closing their work, to prepare for the reboot.
 
 Other thing worth mentioning is Dell is also looking into heavily modifying how updates are managed through Dell SupportAssist, that you can access through TechDirect. But I'm quite sure it will be locked down behind ProSupport Plus warranty or higher, so a lot of customers won't be able to access it. Let's see once we get it. We can kinda see they are preparing for it, in the release notes for DCU 5.2:
