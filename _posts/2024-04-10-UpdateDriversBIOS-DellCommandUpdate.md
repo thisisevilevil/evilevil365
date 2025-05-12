@@ -25,7 +25,7 @@ In this blog post, we will go through what we can do with Dell devices using Del
 
 In case you don't have the latest version of Dell DCU in Intune,  We need to download the latest version of Dell Command update, get it packaged and uploaded to Intune as a win32 app. Usually you can find the latest version on [this site](https://www.dell.com/support/kbdoc/en-us/000177325/dell-command-update) - Package it using the [Microsoft Win32 Content Prep Tool](https://github.com/microsoft/Microsoft-Win32-Content-Prep-Tool)
 
-You can use below install, uninstall command and detection rules:
+You can use below install, uninstall command and detection rules for Dell DCU 5.5 which is the latest version at the time of this blog:
 
 * **Install command:** `Dell-Command-Update-Windows-Universal-Application_P4DJW_WIN64_5.5.0_A00.EXE /s /l=C:\Windows\Logs\Dell_Command_Update_5.4_exe_installer.log`
 * **Uninstall command:** `msiexec /X {3F2A9AE0-4FB2-41C7-A9DF-611E6FAC2B31} /qn`
