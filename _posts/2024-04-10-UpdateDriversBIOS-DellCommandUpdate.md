@@ -27,7 +27,7 @@ In case you don't have the latest version of Dell DCU in Intune,  We need to dow
 
 You can use below install, uninstall command and detection rules for Dell DCU 5.5 which is the latest version at the time of this blog:
 
-* **Install command:** `Dell-Command-Update-Windows-Universal-Application_P4DJW_WIN64_5.5.0_A00.EXE /s /l=C:\Windows\Logs\Dell_Command_Update_5.4_exe_installer.log`
+* **Install command:** `Dell-Command-Update-Windows-Universal-Application_P4DJW_WIN64_5.5.0_A00.EXE /s /l=C:\Windows\Logs\Dell_Command_Update_5.5_exe_installer.log`
 * **Uninstall command:** `msiexec /X {3F2A9AE0-4FB2-41C7-A9DF-611E6FAC2B31} /qn`
 * **Required disk space:** 500MB
 * **Detection, MSI String:** `{3F2A9AE0-4FB2-41C7-A9DF-611E6FAC2B31}`
