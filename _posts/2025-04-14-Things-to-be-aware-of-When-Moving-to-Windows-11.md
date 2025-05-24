@@ -95,7 +95,7 @@ Let users opt in early. Later, you can enforce upgrades if needed.
 
 ## 1. Avoid Manual Group Management
 
-Manually assigning devices or users to groups doesn’t scale. If regional managers send upgrade lists manually, you’ll struggle to meet the deadline.
+Manually assigning devices or users to Windows 11 upgrade groups doesn’t scale. If regional managers send upgrade lists manually, you’ll struggle to meet the deadline.
 
 Instead, use Intune’s built-in gradual rollout with Autopatch’s multi-phase deployment. It automatically batches devices and staggers the rollout.
 
