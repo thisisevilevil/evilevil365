@@ -11,7 +11,9 @@ tags:
 
 The end of Windows 10 support is drawing near. October 2025 marks the last month Windows 10 will receive patches—unless you're on Windows 10 LTSC. After this date, you'll either need to pay the hefty price for ESU licenses (more about that [here](https://learn.microsoft.com/en-us/windows/whats-new/extended-security-updates)) or risk running unsupported devices, which is highly discouraged.
 
-I’ve helped several organizations transition to Windows 11, and along the way, I’ve identified common pain points faced by small, medium, and large enterprises alike. Here’s what I think you need to watch out for as an IT Admin as an organization:
+I’ve helped several organizations transition to Windows 11, and along the way, I’ve identified common pain points faced by small, medium, and large enterprises alike. 
+
+Here’s what I think you need to watch out for as an IT Admin as an organization:
 
 ## 10. App Compatibility
 
