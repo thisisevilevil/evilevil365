@@ -83,7 +83,7 @@ Post clear and concise announcements on your intranet (e.g., SharePoint) to buil
 
 ## 3. Leave Time for Troubleshooting
 
-Some devices will fail to upgrade. Allow time to investigate and resolve these issues before October. Otherwise, you may be stuck with hundreds or thousands of Windows 10 devices.
+Some devices will fail to upgrade. Allow time to investigate and resolve these issues before October 2025. Otherwise, you may be stuck with hundreds or thousands of Windows 10 devices.
 
 Here’s my guide on [troubleshooting feature updates](https://evil365.com/intune/troubleshooting/Troubleshoot-featureupdate-Setupdiag/) and a [script](https://github.com/thisisevilevil/IntunePublic/blob/main/Remediations/On%20Demand%20-%20Force%20Windows%2011%2024H2%20Update/Remediate-ForceWin11_24H2_Update.ps1) to trigger Windows 11 updates on-demand for testing purposes.
 
