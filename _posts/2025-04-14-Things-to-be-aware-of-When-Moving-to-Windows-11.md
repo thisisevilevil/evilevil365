@@ -71,7 +71,7 @@ The alternative? Pay $61 per device for ESU licenses, or run unsupported hardwar
 
 Some IT teams still believe users must reinstall their OS to migrate. While a clean slate sounds appealing, it’s usually unnecessary. Most of the same apps will be reinstalled anyway, wasting time and resources.
 
-Instead, use the seamless upgrade process via deployed via Intune, leveraging Windows update to lift the device to Windows 11. On modern hardware, the upgrade process can take less than 30 minutes.
+Instead, use the seamless upgrade process deployed via Intune feature update policies, leveraging Windows update to lift the device to Windows 11. On modern hardware, the upgrade process can take less than 30 minutes.
 
 It’s time to let go of the trauma from migrating Windows 7 to 10.
 
