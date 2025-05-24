@@ -82,3 +82,8 @@ Not so long ago, Microsoft gave us a new way to deal with feature updates. We ca
 
 ## Number 1: Manually selecting devices/users for the upgrade
 
+While this can be good for testing, using this as your general approach for rolling out Windows 11 is usually not a good idea. For someone to manually add users or devices to groups small batches at a time, will cause delays and will usually not work for a broad scale rollout of Windows 11, and you will probably find yourself with plenty of Windows 10 devices in your estate, come October. What can make this take even longer is if you have regional manager/directors for IT wanting to control the cadence by sending you small lists of devices at a time that should get the upgrade offered. This approach relies on so many human factors, it's bound to fail.
+
+It's much easier to use the built-in functionalities of Intune with Gradual rollouts of Autopatch multi-phase rollouts. It will automatically divide devices up in to small batches of groups, based on a start date and an end date, thus providing that staggered rollout methodology. This is the preferred way.
+
+![FeatureUpdate](/assets/images/2025-05-24-10-Mistakes-MigrationTo-11/MemoryIntegrity-Disable-Intune.png?raw=true "Gradual Rollout")
