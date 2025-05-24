@@ -7,10 +7,11 @@ tags:
   - Windows 11 Migration
   - Windows 11 EoL (End of Life)
   - Intune feature update
-  - 
 ---
 
+The end for Windows 10 support is drawing near. October 2025 marks the last month Windows 10 will be patched, unless you are on Windows 10 LTSC. If you have devices on Windows 10 after this date, you will either have to pay the hefty price for ESU licenses, more about that [here](https://learn.microsoft.com/en-us/windows/whats-new/extended-security-updates) or simply do nothing and hope for the best, which is not recommended at all.
 
+I have helped a few organizations move to Windows 11, and along the way I've picked up some common painpoints both small, medium and large organizations go through when embarking on this journey.
 
 
 ## Number 10: App compatibility
@@ -66,7 +67,9 @@ However, I will underline the alternative is much worse. If you don't have your 
 
 This one I get a lot, and I mean a lot. A lot of companies is saying "Ah, we want our users to Windows 11 rather than upgrading, because then we clean their PCs, and they can start from a clean slate". This is, in the vast majority of cases, not correct. What will usually just end up happening is when they get their device reinstalled to Windows 11, the exact same software they had before, will just be installed again and they are back to where they were before. So rather than having the user spend 30 minutes to upgrade their device from Windows 10 to 11 seamlessly, they now have to go through the trouble of performing a full reinstall of the device. What exercabates this issue is companies that haven't implemented Windows Autopilot yet, so some companies offers to reinstall their device using a Windows 11 USB, SCCM PxE Boot or similar.
 
-It's a much better user experience just letting the end-user utilize that Windows 11 upgrade functionality via Windows update, which on newer hardware can be done in less than 30 minutes. This process is so smooth and swift on newer hardware. Having end-users have to go through a full reinstall of their device the old fashioned way, will only prolong your Windows 11 migration efforts, as it's inconvenient for the end-user.
+It's a much better user experience just letting the end-user utilize that Windows 11 upgrade functionality via Windows update, which on newer hardware can be done in less than 30 minutes. This process is so smooth and seamless on newer hardware. Having end-users have to go through a full reinstall of their device the old fashioned way, will only prolong your Windows 11 migration efforts, as it's inconvenient for the end-user.
+
+It's time to let go of the trauma you had to endure as an IT Admin, migrating from Windows 7 to 10.
 
 ## Number 4: Communication
 
