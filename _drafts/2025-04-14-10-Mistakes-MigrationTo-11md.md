@@ -5,7 +5,9 @@ categories:
   - Windows 11
 tags:
   - Windows 11 Migration
+  - Windows 11 EoL (End of Life)
   - Intune feature update
+  - 
 ---
 
 
@@ -17,13 +19,15 @@ I have heard this phrase a lot "We need to thoroughly test all of our applicatio
 
 Microsoft is actually commited to help companies migrate any applications that is seemingly having compatibility issues with Windows 11, through their app assure program. You can read more about this, in a blogpost from Microsoft [here](https://techcommunity.microsoft.com/discussions/windows11/reminder-our-windows-11-application-compatibility-promise/3223595?)
 
-Lastly, in my personal experience of assisting customers to migrate to Windows 11, 9,9/10 apps works fine with Windows 11
+Lastly, in my personal experience of assisting customers to migrate to Windows 11, 9,9/10 apps works fine with Windows 11.
+
+My advice? Flip this upside down. Get started with upgrading your devices to Windows 11, and if you encounter any issues with apps, you can continue to rollback to Windows 10.
 
 ## Number 9: Credential Guard breaks MSCHAPv2 utilized with WiFi
 
 If you use WiFi profiles using PEAP/MSCHAPv2 it will break on Windows 11. This happens because [Credential guard](https://learn.microsoft.com/en-us/windows/security/identity-protection/credential-guard/) is enabled out of the box on Windows 11. In short, Credential guard is a technology that can prevent leaked credentials to a malicious 3rd party. Unfortunately, it also breaks old protocols like MSCHAPv2. Some network admins already knows this, but I've also spoken to a lot that simply doesn't know. It has been working for years, why change it now?
 
-MSCHAPv2 was released in the 90s, which as we all know, the circumstances was very very different on the big internet. There are [advisories and vulnerabilities](https://learn.microsoft.com/en-us/security-updates/securityadvisories/2012/2743314) warning against the use of MSCHAPv2 for more than 10 years.
+MSCHAPv2 was released in the 90s, which as we all know, the circumstances was very very different on the big internet back then. There are [advisories and vulnerabilities](https://learn.microsoft.com/en-us/security-updates/securityadvisories/2012/2743314) warning against the use of MSCHAPv2 for more than 10 years, but I keep encounter orgnizations using it.
 
 So what to do? Well glad you asked: Migrate to EAP-TLS for your WiFi needs! You can deploy PKCS or SCEP Certificates to your devices from Intune and have your WiFi rely on certificates instead. Personally, I have started to recommend [PKCS Certificates](https://learn.microsoft.com/en-us/intune/intune-service/protect/certificates-pfx-configure) to organisations due to it being much simpler to configure compared to SCEP Certificates, but ultimately I recommend you look at products like [Intune Suite: Cloud PKI](https://learn.microsoft.com/en-us/intune/intune-service/protect/microsoft-cloud-pki-overview) for all your certificate needs.
 
@@ -66,19 +70,21 @@ It's a much better user experience just letting the end-user utilize that Window
 
 ## Number 4: Communication
 
-This one can be super important to prepare your organization for Windows 11. The earlier you start the communication and shift towards Windows 11, the better. By communicating to your organization why this change is happening and in what timeframe, this can save you a lot of trouble down the road, in regards to how to approach your Windows 11 migration efforts, especially if you start early. While that ship has properly sailed already, and if you find yourself really far behind the curve, it's never too late to get started. Draft some relly simple and easy to understand communication for your organization, and publish it on your intranet, like sharepoint or similar, letting your organization know this change is occuring within the next few months.
+This one can be super important to prepare your organization for Windows 11. The earlier you start the communication and shift towards Windows 11, the better. By communicating to your organization why this change is happening and in what timeframe, this can save you a lot of trouble down the road, in regards to how to approach your Windows 11 migration efforts, especially if you start early. While that ship has properly sailed already, and if you find yourself really far behind the curve, it's never too late to get started. Draft some simple and easy to understand communication for your organization, and publish it on your intranet, like sharepoint or similar, letting your organization know this change is occuring within the next few months.
 
 ## Number 3: Leave a buffer for troubleshooting
 
 There are some devices that won't migrate to Windows 11. While it can be easier to ask the user to reinstall the device, in some cases, we would like to know what is causing the device to be blocked or preventing it from moving to Windows 11. Make sure to give yourself some time to troubleshoot and deal with these devices before the October deadline comes near, as an organization could easily have a few hundred or maybe thousands of devices that's just stuck on Windows 10 for whatever reason. In this case, it might just be easier to offer the user to reinstall/reset the device, but in some cases, it's also worth figuring out what is wrong.
 
-I have previously written a blog post for how you can troubleshoot these issues, you can find it [here](https://evil365.com/intune/troubleshooting/Troubleshoot-featureupdate-Setupdiag/) 
+I have previously written a blog post for how you can troubleshoot feature update issues, you can find it [here](https://evil365.com/intune/troubleshooting/Troubleshoot-featureupdate-Setupdiag/) 
 
 You can also find a script that I have created, that you can use as an on-demand remediation from Intune, to immediately trigger the windows 11 update again, for troubleshooting purposes. You can find this script [here](https://github.com/thisisevilevil/IntunePublic/blob/main/Remediations/On%20Demand%20-%20Force%20Windows%2011%2024H2%20Update/Remediate-ForceWin11_24H2_Update.ps1)
 
-## Number 2: Let your end users choose the time
+## Number 2: Let your end users choose the time to perform the upgrade
 
-Not so long ago, Microsoft gave us a new way to deal with feature updates. We can now make them optional for the end users, allowing the end user to choose the time of the update. This is super flexible, and allows you to communicate early to your organization for any early adopters or for people that want to help, just have them pop in to windows update and opt-in to getting Windows 11 ahead of the curve. This can policy can be deployed using Intune with a few single clicks, you can read more about it [here](https://techcommunity.microsoft.com/blog/windows-itpro-blog/more-flexible-windows-feature-updates/4139230)
+Not so long ago, Microsoft gave us a new way to deal with feature updates. We can now make them optional for the end users, allowing the end user to choose the time of the update. This is super flexible, and allows you to communicate early to your organization for any early adopters or for people that want to help, just have them pop in to windows update and opt-in to getting Windows 11 ahead of the curve. This policy can be deployed using Intune with a few single clicks, you can read more about it [here](https://techcommunity.microsoft.com/blog/windows-itpro-blog/more-flexible-windows-feature-updates/4139230)
+
+If you ask me, this is a super powerful way to get started: Let your end users choose the time, and coming back to number 4, you can communicate clearly that the users can start the upgrade themselves, but after a certain amount of time, you will eventually force users to upgrade.
 
 ## Number 1: Manually selecting devices/users for the upgrade
 
@@ -86,4 +92,18 @@ While this can be good for testing, using this as your general approach for roll
 
 It's much easier to use the built-in functionalities of Intune with Gradual rollouts of Autopatch multi-phase rollouts. It will automatically divide devices up in to small batches of groups, based on a start date and an end date, thus providing that staggered rollout methodology. This is the preferred way.
 
-![FeatureUpdate](/assets/images/2025-05-24-10-Mistakes-MigrationTo-11/MemoryIntegrity-Disable-Intune.png?raw=true "Gradual Rollout")
+![FeatureUpdate](/assets/images/2025-05-24-10-Mistakes-MigrationTo-11/FeatureUpdate-GradualRollout.png?raw=true "Gradual Rollout")
+
+## The end
+
+The deadline is getting nearer, it's not long until October 2025. It's better to get started now, soon rather than later. You can essentially break this Windows 11 upgrade project down into several components:
+
+1. Comms: Communicate the change to your orgnization
+2. Pushing the upgrade to your end-users gradually using convential tools like Intune feature update policies or autopatch and monitor progress in the intune update report
+3. Replacing aging hardware
+4. Chasing down any devices or users that is not upgrading for whatever reason, and start troubleshooting
+5. Vendor/App management in case of software or hardware that doesn't support Windows 11 for now.
+
+Each of these tasks can be equally time consuming  compared to your orgnization, so it's time to get started, if you haven't already
+
+I hope you found this useful. :)
