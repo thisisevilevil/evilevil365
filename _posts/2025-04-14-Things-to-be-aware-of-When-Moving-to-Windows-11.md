@@ -55,7 +55,7 @@ In such cases, disable Memory Integrity using a Settings Catalog Profile from In
 
 This used to be a common blocker, but was lifted for commercial customers in 2021 ([see HP article](https://support.hp.com/us-en/document/ish_5031710-5031755-16)).
 
-> **Note**: You may still encounter systems where TPM is disabled in the BIOS. Some vendors (like Dell) offer tools or scripts to enable TPM remotely—even on devices with unique BIOS passwords. Here's a PowerShell script I used to help a customer do exactly that, available on my [GitHub](https://github.com/thisisevilevil/IntunePublic/tree/main/Packages/Dell%20Enable%20TPM%20w.%20BIOS%20Password).
+> **Note**: You may still encounter systems where TPM is disabled in the BIOS. Some vendors (like Dell) offer tools or scripts to enable TPM remotely—even on devices with unique BIOS passwords. Here's a PowerShell script I used to help a customer with Dell devices do exactly that, available on my [GitHub](https://github.com/thisisevilevil/IntunePublic/tree/main/Packages/Dell%20Enable%20TPM%20w.%20BIOS%20Password).
 
 ## 6. Aging Hardware Without Windows 11 Support
 
