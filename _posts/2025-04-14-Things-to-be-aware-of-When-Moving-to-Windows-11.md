@@ -9,9 +9,9 @@ tags:
   - Intune feature update
 ---
 
-The end for Windows 10 support is drawing near. October 2025 marks the last month Windows 10 will be patched, unless you are on Windows 10 LTSC. If you have devices on Windows 10 after this date, you will either have to pay the hefty price for ESU licenses, more about that [here](https://learn.microsoft.com/en-us/windows/whats-new/extended-security-updates) or simply do nothing and hope for the best, which is not recommended at all.
+The end of Windows 10 support is drawing near. October 2025 marks the last month Windows 10 will receive patches—unless you're on Windows 10 LTSC. After this date, you'll either need to pay the hefty price for ESU licenses (more about that [here](https://learn.microsoft.com/en-us/windows/whats-new/extended-security-updates)) or risk running unsupported devices, which is highly discouraged.
 
-I have helped a few organizations move to Windows 11, and along the way I've picked up some common painpoints that I would like to share with you all, from both small, medium and large organizations go through when embarking on this journey.
+I’ve helped several organizations transition to Windows 11, and along the way, I’ve identified common pain points faced by small, medium, and large enterprises alike. Here’s what to watch out for:
 
 ## Number 10: App compatibility
 
@@ -21,7 +21,7 @@ Microsoft is actually commited to help companies migrate any applications that i
 
 Lastly, in my personal experience of assisting customers to migrate to Windows 11, 9,9/10 apps works fine with Windows 11.
 
-My advice? Flip this upside down. Get started with upgrading your devices to Windows 11, and if you encounter any issues with apps, you can continue to rollback to Windows 10.
+**My advice?** Flip this upside down. Get started with upgrading your devices to Windows 11, and if you encounter any issues with apps, you can continue to rollback to Windows 10.
 
 ## Number 9: Credential Guard breaks MSCHAPv2 utilized with WiFi
 
