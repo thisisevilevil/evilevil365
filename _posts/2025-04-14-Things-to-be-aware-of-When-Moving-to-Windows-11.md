@@ -1,6 +1,6 @@
 ---
 title: "Avoid the Headache: 10 Things to Be Aware Of When Moving to Windows 11"
-date: 2025-04-14
+date: 2025-05-24
 categories:
   - Windows 11
 tags:
