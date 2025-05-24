@@ -13,7 +13,9 @@ The end of Windows 10 support is drawing near. October 2025 marks the last month
 
 I’ve helped several organizations transition to Windows 11, and along the way, I’ve identified common pain points faced by small, medium, and large enterprises alike. 
 
-Here’s what I think you need to watch out for as an IT Admin as an organization:
+Read on, to find out what I think you need to watch out for as an IT Admin as an organization.
+
+![Thumbnail](/assets/images/2025-05-24-10-Mistakes-MigrationTo-11/BlogThumbnail.png?raw=true)
 
 ## 10. App Compatibility
 
