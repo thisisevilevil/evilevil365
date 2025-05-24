@@ -11,8 +11,7 @@ tags:
 
 The end for Windows 10 support is drawing near. October 2025 marks the last month Windows 10 will be patched, unless you are on Windows 10 LTSC. If you have devices on Windows 10 after this date, you will either have to pay the hefty price for ESU licenses, more about that [here](https://learn.microsoft.com/en-us/windows/whats-new/extended-security-updates) or simply do nothing and hope for the best, which is not recommended at all.
 
-I have helped a few organizations move to Windows 11, and along the way I've picked up some common painpoints both small, medium and large organizations go through when embarking on this journey.
-
+I have helped a few organizations move to Windows 11, and along the way I've picked up some common painpoints that I would like to share with you all, from both small, medium and large organizations go through when embarking on this journey.
 
 ## Number 10: App compatibility
 
