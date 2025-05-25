@@ -55,7 +55,7 @@ In such cases, disable Memory Integrity using a Settings Catalog Profile from In
 
 ## 7. Devices in China Lacking TPM Support
 
-This used to be a common blocker, but was lifted for commercial customers in 2021 ([see HP article](https://support.hp.com/us-en/document/ish_5031710-5031755-16)).
+This used to be a common blocker, but was lifted for commercial customers in 2021 ([see HP article](https://support.hp.com/us-en/document/ish_5031710-5031755-16)). By enabling TPM on devices supporting 2.0, it could potentially pave the way for them to move to Windows 11, provided they have a CPU that's supported.
 
 > **Note**: You may still encounter systems where TPM is disabled in the BIOS. Some vendors (like Dell) offer tools or scripts to enable TPM remotely—even on devices with unique BIOS passwords. Here's a PowerShell script I used to help a customer with Dell devices do exactly that, available on my [GitHub](https://github.com/thisisevilevil/IntunePublic/tree/main/Packages/Dell%20Enable%20TPM%20w.%20BIOS%20Password).
 
