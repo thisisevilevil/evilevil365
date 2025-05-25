@@ -63,6 +63,9 @@ This used to be a common blocker, but was lifted for commercial customers in 202
 
 Start replacing unsupported hardware as early as possible—especially in global organizations. Devices running specialized hardware or software may be difficult to replace, and timing can be tricky during peak seasons.
 
+Unsupported hardware, can be singled out in Intune, Reports -> Endpoint Analytics -> Work from Anywhere -> Windows -> “Add Filter” -> Windows 11 Readiness -> Select “Not Capable”
+![Unsupported Hardware](/assets/images/2025-05-24-10-Mistakes-MigrationTo-11/UnsupportedHardware.png?raw=true)
+
 The alternative? Pay $61 per device for ESU licenses, or run unsupported hardware—which exposes your organization to security risks.
 
 > **Note**: There’s a third option—forcing Windows 11 onto unsupported hardware. It’s risky and generally not recommended. See my post [here](https://evil365.com/windows%2011/ForceWindows11-Upgrade-UnsupportedHardware/) for more details.
