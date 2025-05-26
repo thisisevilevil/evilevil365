@@ -7,6 +7,7 @@ tags:
   - Windows 11 Migration
   - Windows 11 EoL (End of Life)
   - Intune Feature Update
+  - Windows 11 In-place upgrade
 ---
 
 The end of Windows 10 support is drawing near. October 2025 marks the last month Windows 10 will receive patches—unless you're on Windows 10 LTSC. After this date, you'll either need to pay the hefty price for ESU licenses (more about that [here](https://learn.microsoft.com/en-us/windows/whats-new/extended-security-updates)) or risk running unsupported devices, which is highly discouraged.
