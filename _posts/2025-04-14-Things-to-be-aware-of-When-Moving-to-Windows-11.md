@@ -25,7 +25,7 @@ Microsoft is actually committed to helping companies with application compatibil
 
 From my experience, 9.9 out of 10 apps work just fine on Windows 11.
 
-**My advice?** Flip the process. Start upgrading to Windows 11, and if you encounter issues, simply roll back to Windows 10 as needed on singular devices that needs it.
+**My advice?** Flip the process. Start upgrading to Windows 11, and if you encounter issues, simply roll back to Windows 10 as needed on singular devices where required.
 
 ## 9. Credential Guard Breaks MSCHAPv2-Based Wi-Fi
 
