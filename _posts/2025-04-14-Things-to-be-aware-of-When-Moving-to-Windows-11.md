@@ -102,7 +102,7 @@ Let users opt in early. Later, you can enforce upgrades if needed.
 
 Manually assigning devices or users to Windows 11 upgrade groups doesn’t scale. If regional managers send upgrade lists manually, you’ll struggle to meet the deadline.
 
-Instead, use Intune’s built-in gradual rollout with Autopatch’s multi-phase deployment. It automatically batches devices and staggers the rollout.
+Instead, use Intune’s built-in gradual rollout or Autopatch’s multi-phase deployment. It automatically batches devices and staggers the rollout.
 
 ![Gradual Rollout](/assets/images/2025-05-24-10-Mistakes-MigrationTo-11/FeatureUpdate-GradualRollout.png?raw=true)
 
