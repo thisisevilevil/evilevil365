@@ -29,7 +29,7 @@ From my experience, 9.9 out of 10 apps work just fine on Windows 11.
 
 ## 9. Credential Guard Breaks MSCHAPv2-Based Wi-Fi
 
-If you use Wi-Fi profiles with PEAP-MSCHAPv2, they'll stop working on Windows 11. This is because [Credential Guard](https://learn.microsoft.com/en-us/windows/security/identity-protection/credential-guard/considerations-known-issues#wi-fi-and-vpn-considerations) is enabled by default. While Credential Guard is excellent for protecting against credential theft, it also blocks legacy protocols like MSCHAPv2.
+If you use Wi-Fi profiles with PEAP-MSCHAPv2, they'll stop working on Windows 11. This is because [Credential Guard](https://learn.microsoft.com/en-us/windows/security/identity-protection/credential-guard/considerations-known-issues#wi-fi-and-vpn-considerations) is enabled by default on Windows 11. While Credential Guard is excellent for protecting against credential theft, it also blocks legacy protocols like MSCHAPv2.
 
 Despite numerous [security advisories](https://learn.microsoft.com/en-us/security-updates/securityadvisories/2012/2743314) over the last decade, I still encounter organizations using MSCHAPv2.
 
@@ -39,7 +39,7 @@ You *can* disable Credential Guard to restore MSCHAPv2 functionality—but I str
 
 ## 8. Memory Integrity Prevents Old Drivers from Loading
 
-[Memory Integrity](https://learn.microsoft.com/en-us/windows-hardware/design/device-experiences/oem-hvci-enablement), part of [Virtualization-Based Security (VBS)](https://learn.microsoft.com/en-us/windows-hardware/design/device-experiences/oem-vbs), blocks unsigned or outdated drivers.
+[Memory Integrity](https://learn.microsoft.com/en-us/windows-hardware/design/device-experiences/oem-hvci-enablement), part of [Virtualization-Based Security (VBS)](https://learn.microsoft.com/en-us/windows-hardware/design/device-experiences/oem-vbs), blocks unsigned or outdated drivers. This feature is enabled out of the box on new Windows 11 devices.
 
 If a driver is blocked, users might see errors like this:
 
