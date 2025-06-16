@@ -8,6 +8,7 @@ tags:
   - Feature Update stuck
   - Recovery Partition not working
   - EFI Partition full
+  - ESP Partition full
   - We couldn't update the system reserved partition
 ---
 
@@ -66,7 +67,7 @@ The last troubleshooting bit was left in for one of my customers where they had 
 
 The fix for the EFI System Partition (ESP) simply involves mounting the ESP, manually freeing up some space, and then dismount it. I've been unable to locate how much space exactly is required on the ESP for Windows 11 24H2, but my research seems to point at 50MB, but I have no documentation to back it up. If you ask Copilot or ChatGPT they recommend partition sizes of at least 250MB, but it's sources is from community-backed sites like answers.microsoft.com and superuser.com.
 
-You can find the script [here](insertlink).
+You can find the script [here](https://github.com/thisisevilevil/IntunePublic/tree/main/Remediations/EFI%20Partition%20Cleanup).
 
 Assign it like so:
 -> Run in user context: No
@@ -116,3 +117,9 @@ You will be able to see the before and after disk space in the remediation -> De
 Make sure to test, test and do more testing before you start rolling this out to any devices in production. One approach I also like taking, is to deploy the detection script to all devices first, to see how many devices is actually affected. Then you can create a seperate remediation where you roll it out slowly, once you feel comfortable with rolling out the fix, if pertinent.
 
 Given how many companies is still relying on performing old school OSD, I had hoped there was some official documentation and guidelines from Microsoft for how to create the correct partitioning schemes for Windows devices. It also seems like the goalpost moves with every new Windows 11 feature update, but at least I haven't been able to find any official docs about it yet, only community-driven content, which is rather strange, seeing how long tools like MDT and SCCM has been around forever.
+
+I developed these remediations for my customers, I have been assisting migrate away from tools like SCCM and Capainstaller. The partitioning scheme utilized by the OEMs like HP and Dell nowadays is very generous in regards to creating the ESP and the recovery partition. I recently received a new Dell Pro device where the ESP is 1,5GB and the recovery partition is 1GB.
+If you have been using autopilot for a while, chances are you are probably not having these issues at all, as these issues are created by IT Admins that have forgotten to adjust their tool of choice to perform OSD. When OSD is performed the existing partitioning scheme is usually deleted and a new one is created, which is why these issues occur in the first place. 
+If you still insist on performing OSD the old school way, I would advise you to perform bi-yearly or yearly review of your task sequence, to ensure the partitioning scheme.
+
+That's all for now. I hope you find this useful. Have a nice day :)
