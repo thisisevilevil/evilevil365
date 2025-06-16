@@ -1,5 +1,5 @@
 ---
-title: "Windows 11 24H2 Upgrade and the partitioning from hell"
+title: "Windows 11 24H2 Upgrade, Autopilot rollout and the partitioning from hell"
 date: 2025-06-16
 categories:
   - Windows 11
@@ -19,11 +19,11 @@ But in this case, it wasn't only the recovery partition that was the cause of th
 
 ![Thumbnail](/assets/images/2025-04-14-TheCase-OfTheMissing-GPU/ITAdmin_Hell.png?raw=true "Partitioning hell")
 
->DISCLAIMER: Please be careful when you start using the scripts mentioned in this blog post. Test in on a few test devices first, and roll it out slowly in waves/rings. I have tailor-made these scripts for my customers environments, there might be something in your environment that is different, that could break if you use these scripts.
+>DISCLAIMER: Please be careful when you start using the scripts mentioned in this blog post. Test in on a few test devices first, and roll it out slowly in waves/rings. I have tailor-made these scripts for my customers environments, there might be something in your environment that is different, that could break if you use these scripts incorrectly.
 
 ## Fixing the recovery partition
 
-The recovery partition issue is fixable in most scenarios, provided there is enough disk space available. I made a Proactive remediation to do just that a couple of years ago. But in this case, the customer had used Capainstaller to somehow shoehorn the recovery environment on the OS Disk rather than having it on a seperate dedicated recovery partition, during the deployment of their devices, and it was actually reporting as "Enabled" (Yeah, first time I've seen that as well..).
+The recovery partition issue is fixable in most scenarios, provided there is enough disk space available. I made a Proactive remediation to do just that a couple of years ago. But in this case, the customer had used Capainstaller to somehow shoehorn the recovery environment on the OS Disk, during the deployment of their devices, and it was actually reporting as "Enabled" (Yeah, first time I've seen that as well..).
 Having the recovery environment enabled on the OS partition is not supported, and can also cause issue with Bitlocker and using the system reset/wipe functionality from Intune. The recovery environment needs it's own dedicated partition.
 
 The downside of this fix, is if there is devices in production that is low on disk space, they are now going to be 1GB lighter or the fix might not even work at all.
@@ -39,17 +39,13 @@ Frequency: I recommend just once or at least every 15 days. Do not set it to run
 
 ### Breakdown of Detection script
 
-**The detection script works like this:**
-
-1) Check if the recovery environment is enabled using the `reagentc /info` command. If yes, it will continue to check if the recovery environment is enabled on the same partition as the OS Disk. If it detects this condition, it will continue to remediate, and be marked as "With issues"
+1) Check if the recovery environment is enabled using the `reagentc /info` command. If yes, it will continue to check if the recovery environment is enabled on the same partition as the OS Partition. If it detects this condition, it will continue to remediate, and be marked as "With issues"
 
 2) If the recovery environment is disabled, it will continue to run the remediation part and will be marked as "With issues"
 
 3) If the recovery environment is enabled, and it's not enabled on the OS Partition, no actions will be performed. The device will be marked as "Without issues"
 
 ### Breakdown of Remediation script
-
-**The remediation script kicks off, if the detection script detects issue. It works like the following:**
 
 1) Looks for the recovery wim file for your Operating System build under C:\Windows\System32\Recovery\WinRE.wim - If it's not present, it will need to download it from somewhere. I usually use blobstorage for the occassion, so if you find your devices doesn't the wim file locally on the device, you will need to re-host the corresponding .wim file for your specific OS Build on a fileshare, blob storage or similar.
 Adjust the variables in the top of the script to link to the recovery .wim files for each of the OS Builds you support. To get this .wim, you will need to download the Windows ISOs, find the install.wim and open it using 7Zip - The recovery wim should be under .\Windows\System32\Recovery called "winre.wim"
@@ -81,10 +77,42 @@ Frequency: I recommend just once or at least every 15 days.
 
 Vendors like HP, Lenovo and Dell sometimes store BIOS or firmware files on the ESP to support capsule BIOS updates. But it seems some of them doesn't make it a habit of cleaning up after themselves, when they are finished. It's not super pretty having to go to a portion of your device fleet, mount the EFI Partition and move/delete some files to get a feature update working.
 
+### Breakdown of Detection script
+
+1) Uses the mountvol Y: /s command to mount the EFI System Partition (ESP) to drive Letter Y
+
+2) Disk space threshold is on line 6, and is by default set to 50MB.
+
+3) Script will check available disk space, and if it's below 50MB, it will proceed to remediation
+
+4) Dismounts drive Y:
+
+### Breakdown of Remediation script
+
+1) Uses the mountvol Y: /s command to mount the EFI System Partition (ESP) to drive Letter Y
+
+2) The folder C:\HPStaging will be created if it doesn't exist.
+
+3) Log disk space available before taking any action
+
+4) If the following paths is located, it will move all files to the C:\HPStaging folder: Y:\EFI\HP\DEVFW, Y:\EFI\HP\Previous 
+
+5) Delete any fonts located on the ESP (.ttf files)
+
+6) Finally log disk space available after completing the script
+
+7) Dismount drive Y:
+
+You will be able to see the before and after disk space in the remediation -> Device status overview. You need to activate the correct columns to see it. Then press the "Review" button to see available disk space before/after remediation has been run.
+
+![ESPFix](/assets/images/2025-04-14-TheCase-OfTheMissing-GPU/EFIPartition-1.png?raw=true "Partitioning hell")
+![ESPFix](/assets/images/2025-04-14-TheCase-OfTheMissing-GPU/EFIPartition-2.png?raw=true "Partitioning hell")
+![ESPFix](/assets/images/2025-04-14-TheCase-OfTheMissing-GPU/EFIPartition-3.png?raw=true "Partitioning hell")
+
 >NOTE: Like the recovery partition, remember to also adjust whatever tool you use for OSD, to create the system partition. Recommendation actually vary on how large it should be, but leaving at least 500MB for the EFI partition should be fine, but if you want to be future proof, whilst also safeguarding against any OEM's using it for staging BIOS/Firmware files, just make it around 1GB as well, if possible.
 
 ## Rounding up
 
-Make sure to test, test and do more testing before you start rolling this out to any devices in production.
+Make sure to test, test and do more testing before you start rolling this out to any devices in production. One approach I also like taking, is to deploy the detection script to all devices first, to see how many devices is actually affected. Then you can create a seperate remediation where you roll it out slowly, once you feel comfortable with rolling out the fix, if pertinent.
 
-Given how many companies is still relying on performing old school OSD, I wish there was some official documentation and guidelines from Microsoft for how to create the correct partitioning schemes for Windows devices. It also seems like the goalpost moves with every new Windows 11 feature update, but at least I haven't been able to find any official docs about it yet, only community-driven content, which is rather strange, seeing how long tools like MDT and SCCM has been around.
+Given how many companies is still relying on performing old school OSD, I had hoped there was some official documentation and guidelines from Microsoft for how to create the correct partitioning schemes for Windows devices. It also seems like the goalpost moves with every new Windows 11 feature update, but at least I haven't been able to find any official docs about it yet, only community-driven content, which is rather strange, seeing how long tools like MDT and SCCM has been around forever.
