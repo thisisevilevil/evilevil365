@@ -6,6 +6,7 @@ categories:
 tags:
   - Windows 11 24H2
   - Feature Update stuck
+  - feature Update Error
   - Recovery Partition not working
   - EFI Partition full
   - ESP Partition full
@@ -18,7 +19,7 @@ Initially I thought it was just the recovery partition that was too small. I hav
 
 But in this case, it wasn't only the recovery partition that was the cause of this issue. It was the first time I've stumbled across it, but the customer said they had seen the error regarding the "reserved partition" issue, a while back. We eventually found the issue, and developed the fix, which was very simple in the end, but not very pretty at all.
 
-![Thumbnail](/assets/images/2025-04-14-TheCase-OfTheMissing-GPU/ITAdmin_Hell.png?raw=true "Partitioning hell")
+![Thumbnail](/assets/images/2025-06-16-Windows11-Partitioning-From-Hell/ITAdmin_Hell.png?raw=true "Partitioning hell")
 
 >DISCLAIMER: Please be careful when you start using the scripts mentioned in this blog post. Test in on a few test devices first, and roll it out slowly in waves/rings. I have tailor-made these scripts for my customers environments, there might be something in your environment that is different, that could break if you use these scripts incorrectly.
 
@@ -90,19 +91,17 @@ Vendors like HP, Lenovo and Dell sometimes store BIOS or firmware files on the E
 
 ### Breakdown of Remediation script
 
-1) Uses the mountvol Y: /s command to mount the EFI System Partition (ESP) to drive Letter Y
+1) Uses the mountvol Y: /s command to mount the EFI System Partition (ESP) to drive Letter Y (Adjust this based on your environment if Y: is already used, simply adjust the driveletter variable in the top of the script)
 
-2) The folder C:\HPStaging will be created if it doesn't exist.
+2) Log disk space available before taking any action
 
-3) Log disk space available before taking any action
+3) If the following paths is located, it will move all files to the C:\HPStaging folder: Y:\EFI\HP\DEVFW, Y:\EFI\HP\Previous
 
-4) If the following paths is located, it will move all files to the C:\HPStaging folder: Y:\EFI\HP\DEVFW, Y:\EFI\HP\Previous 
+4) Delete any fonts located on the ESP (.ttf files)
 
-5) Delete any fonts located on the ESP (.ttf files)
+5) Finally log disk space available after completing the script
 
-6) Finally log disk space available after completing the script
-
-7) Dismount drive Y:
+6) Dismount drive Y:
 
 You will be able to see the before and after disk space in the remediation -> Device status overview. You need to activate the correct columns to see it. Then press the "Review" button to see available disk space before/after remediation has been run.
 
