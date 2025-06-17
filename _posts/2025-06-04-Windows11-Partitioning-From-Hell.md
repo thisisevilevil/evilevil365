@@ -17,7 +17,7 @@ I was recently engaged with a customer whose devices were failing to upgrade to 
 
 Initially, I assumed the issue was just an undersized recovery partition. I’ve helped several customers over the years with this exact problem—where an ancient SCCM task sequence for OSD (Operating System Deployment) only allocates 300MB for the recovery partition, which just doesn’t cut it today. For Windows 11 24H2, the recommended size has increased again—now 1GB is advised.
 
-But in this case, the recovery partition wasn’t the only culprit. It was the first time I’d encountered this specific issue, but the customer mentioned seeing the "We couldn't update the system reserved partition." error before. We eventually identified the problem and implemented a fix. It was a simple solution, but definitely not a pretty one.
+But in this case, the recovery partition wasn’t the only culprit. It was the first time I’d encountered this specific issue, but the customer mentioned seeing the "We couldn't update the system reserved partition" error before. We eventually identified the problem and implemented a fix. It was a simple solution, but definitely not a pretty one.
 
 ![Thumbnail](/assets/images/2025-06-16-Windows11-Partitioning-From-Hell/ITAdmin_Hell.png?raw=true "Partitioning hell")
 
@@ -25,7 +25,7 @@ But in this case, the recovery partition wasn’t the only culprit. It was the f
 
 ## Fixing the Recovery Partition
 
-The recovery partition issue can be fixed in most scenarios, provided there’s enough available disk space. I created a Proactive Remediation script for this a couple of years ago. However, in this case, the customer had used CapaInstaller to shoehorn the recovery environment onto the OS disk during deployment. Surprisingly, it was reporting as “Enabled” (yep, first time I’ve seen that too).
+The recovery partition issue can be fixed in most scenarios, provided there’s enough available disk space. I created a Proactive Remediation script for this a couple of years ago. However, in this case, the customer had used CapaInstaller to shoehorn the recovery environment onto the OS partition during deployment. Surprisingly, it was reporting as “Enabled” (yep, first time I’ve seen that too).
 
 Having the recovery environment on the OS partition is unsupported and can interfere with BitLocker and the reset/wipe functionality from Intune. The recovery environment needs its own dedicated partition.
 
