@@ -114,7 +114,7 @@ You can view before/after disk space in the Remediation → Device Status overvi
 ![ESPFix](/assets/images/2025-06-16-Windows11-Partitioning-From-Hell/EFIPartition-2.png?raw=true "Partitioning hell")
 ![ESPFix](/assets/images/2025-06-16-Windows11-Partitioning-From-Hell/EFIPartition-3.png?raw=true "Partitioning hell")
 
-> **NOTE:** As with the recovery partition, ensure your OSD tooling creates an appropriately sized ESP. Recommendations vary, but 500MB is the bare minimum. For future-proofing (and to avoid OEM BIOS update issues), aim for around 1GB if possible.
+> **NOTE:** As with the recovery partition, ensure your OSD tooling creates an appropriately sized ESP. Recommendations vary, but 300MB is the bare minimum. For future-proofing (and to avoid OEM BIOS update issues), aim for around 1GB if possible.
 
 ## Rounding Up
 
