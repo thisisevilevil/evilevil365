@@ -110,9 +110,9 @@ OEMs like HP, Lenovo, and Dell sometimes store BIOS/firmware files in the ESP fo
 
 You can view before/after disk space in the Remediation → Device Status overview. Just enable the appropriate columns and click “Review.” Otherwise if you are using Lenovo devices and you see this issue, you can easily expand the script to look for the relevant folders. I only saw this issue at 1 customer who has HP devices, so I know exactly which folders to look for.
 
-![ESPFix](/assets/images/2025-04-14-TheCase-OfTheMissing-GPU/EFIPartition-1.png?raw=true "Partitioning hell")
-![ESPFix](/assets/images/2025-04-14-TheCase-OfTheMissing-GPU/EFIPartition-2.png?raw=true "Partitioning hell")
-![ESPFix](/assets/images/2025-04-14-TheCase-OfTheMissing-GPU/EFIPartition-3.png?raw=true "Partitioning hell")
+![ESPFix](/assets/images/2025-06-16-Windows11-Partitioning-From-Hell/EFIPartition-1.png?raw=true "Partitioning hell")
+![ESPFix](/assets/images/2025-06-16-Windows11-Partitioning-From-Hell/EFIPartition-2.png?raw=true "Partitioning hell")
+![ESPFix](/assets/images/2025-06-16-Windows11-Partitioning-From-Hell/EFIPartition-3.png?raw=true "Partitioning hell")
 
 > **NOTE:** As with the recovery partition, ensure your OSD tooling creates an appropriately sized ESP. Recommendations vary, but 500MB is the bare minimum. For future-proofing (and to avoid OEM BIOS update issues), aim for around 1GB if possible.
 
