@@ -25,7 +25,7 @@ But in this case, the recovery partition wasn’t the only culprit. It was the f
 
 ## Fixing the Recovery Partition
 
-The recovery partition issue can be fixed in most scenarios, provided there’s enough available disk space. I created a Proactive Remediation script for this a couple of years ago. However, in this case, the customer had used CapaInstaller to shoehorn the recovery environment onto the OS partition during deployment. Surprisingly, it was reporting as “Enabled” (yep, first time I’ve seen that too).
+The recovery partition issue can be fixed in most scenarios, provided there’s enough available disk space. I created a Proactive Remediation script for this a couple of years ago. However, in this case, the customer had used CapaInstaller to shoehorn the recovery environment onto the OS partition during deployment. Surprisingly, it was reporting as “Enabled”, even though it was placed on the OS Partition.
 
 Having the recovery environment on the OS partition is unsupported and can interfere with BitLocker and the reset/wipe functionality from Intune. The recovery environment needs its own dedicated partition.
 
@@ -39,6 +39,8 @@ I recently updated my PowerShell script to also detect when the recovery environ
 - Run in 64-bit context: Yes  
 
 **Frequency:** I recommend running it just once or at most every 15 days. Don’t set it to hourly or daily.
+
+![Remediation](/assets/images/2025-06-16-Windows11-Partitioning-From-Hell/RecoveryPartition-Remediation.png?raw=true "Recovery Partition Remediation")
 
 ### Detection Script Breakdown
 
@@ -80,7 +82,9 @@ You can find the script [here](https://github.com/thisisevilevil/IntunePublic/tr
 
 **Frequency:** Run once or at most every 15 days.
 
-OEMs like HP, Lenovo, and Dell sometimes store BIOS/firmware files in the ESP for capsule updates, but cleanup is inconsistent. So yes, sometimes we must dive in, mount the EFI partition, and clean up manually.
+![Remediation](/assets/images/2025-06-16-Windows11-Partitioning-From-Hell/EFIPartition-Remediation-Assignment.png?raw=true "Recovery Partition Remediation")
+
+OEMs like HP, Lenovo, and Dell sometimes store BIOS/firmware files in the ESP for capsule updates, but cleanup is inconsistent.
 
 ### Detection Script Breakdown
 
