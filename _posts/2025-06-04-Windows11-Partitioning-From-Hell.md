@@ -23,6 +23,9 @@ But in this case, the recovery partition wasn’t the only culprit. It was the f
 
 > **DISCLAIMER:** Please be cautious when using the scripts mentioned in this post. Test them on a few devices first and roll them out gradually in waves/rings. These scripts were tailor-made for my customer's environment. Your setup may differ, and using the scripts without modifications could break things.
 
+![Error](/assets/images/2025-06-16-Windows11-Partitioning-From-Hell/RecoveryEnvironment-Error.png?raw=true "WinRE Error")
+![Error](/assets/images/2025-06-16-Windows11-Partitioning-From-Hell/ESP-Error.png?raw=true "WinRE Error")
+
 ## Fixing the Recovery Partition
 
 The recovery partition issue can be fixed in most scenarios, provided there’s enough available disk space. I created a Proactive Remediation script for this a couple of years ago. However, in this case, the customer had used CapaInstaller to shoehorn the recovery environment onto the OS partition during deployment. Surprisingly, it was reporting as “Enabled”, even though it was placed on the OS Partition.
