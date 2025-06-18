@@ -91,7 +91,7 @@ OEMs like HP, Lenovo, and Dell sometimes store BIOS/firmware files in the ESP fo
 
 ### Detection Script Breakdown
 
-1. Mounts the ESP to `Y:` using `mountvol Y: /s`.
+1. Mounts the ESP to `Y:` using `mountvol Y: /s`. (adjust if `Y:` is already used).
 2. Checks disk space (threshold set to 50MB on line 6).
 3. If space is below threshold, flags for remediation.
 4. Dismounts `Y:`.
