@@ -57,6 +57,7 @@ I recently updated my PowerShell script to also detect when the recovery environ
 1. Searches for the recovery WIM at `C:\Windows\System32\Recovery\WinRE.wim`.  
    - If missing, you'll need to provide it via blob storage, file share, etc.
    - Adjust the script variables to point to your OS-specific `.wim` files. You can extract these from install.wim inside Windows ISOs using 7-Zip.
+   ![WinREWim](/assets/images/2025-06-16-Windows11-Partitioning-From-Hell/WinreWIM.png?raw=true "WinRE wim file")
 
 2. Places a DiskPart script in `C:\Windows\Logs\WinREFix`.  
    - It shrinks the OS drive by 1GB, creates a new partition labeled “WinRE”, assigns it a temporary drive letter `Q:`, and sets required GPT attributes.
