@@ -54,7 +54,7 @@ There are variations of this traditional approach, but the one described above i
 Moving to a modern model of optional app deployment helps eliminate legacy baggage, improves user productivity and saves time and ressources:
 
 1. **Empower self-service**: Let users install the apps they need via the Company Portal, on their own schedule.
-   - Use features like *Allow Available Uninstall* and *Auto-update* with supersedence to provide greater flexibility for the users and for app updates.
+   - Use features like *Allow Available Uninstall* and *Auto-update* with supersedence to provide greater flexibility for the users and for automatic application updates.
 
 2. **Keep Required apps to a minimum**: Only enforce installation of truly essential apps needed for security, compliance, or baseline functionality. Let users choose the rest.
 
