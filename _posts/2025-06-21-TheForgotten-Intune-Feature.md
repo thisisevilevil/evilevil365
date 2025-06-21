@@ -63,10 +63,9 @@ Moving to a modern model of optional app deployment helps eliminate legacy bagga
    - Assign application owners as group approvers.
    - This shifts decision-making to the business side — IT no longer has to play gatekeeper.
 
-There are many ways to streamline app management. The key takeaway is that IT doesn’t need to be the sole authority anymore. But to change the application management approach in a company is no single task. Technically it's not a challenge, it's mostly process, communication and shifting the mindsets of IT and the business.
-First you have to convince all stakeholders that it's a good idea. You will usually find old-timers in the IT department provide staunch resistance towards this idea, because it challenges their core views and ideas on how app management should be like in an organization. Also they will probably also give you "If it ain't broke don't fix it" line. They love helicoptering over end-users to save the end-users 5-10 minutes of work, while IT has to spent a significant amount of time maintaining this outdated way of managing their apps.
-
 ## Rounding Up
+
+Streamlining app management no longer requires IT to be the sole authority. The challenge isn’t technical—it’s about changing processes, improving communication, and shifting mindsets. Convincing stakeholders is key, but expect resistance from traditional IT staff who cling to old models and the "if it ain't broke, don't fix it" mentality. They often micromanage end-users to save minutes, while IT wastes hours maintaining outdated systems.
 
 While many organizations remain stuck in legacy app deployment models, modern Intune features like **Auto-update for Available apps** and **Allow Available Uninstall** offer a more scalable, user-friendly, and efficient approach to app management.
 
