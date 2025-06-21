@@ -47,7 +47,7 @@ Here’s a deeper look at how this works in practice:
 
 3. **License-awareness is lacking**: Users may end up “subscribed” to licensed apps they no longer use. Shifting to a self-service model encourages users to be more aware about the apps they subscribe to — potentially reducing licensing costs.
 
-There are variations of this traditional approach, but the one described above is the most common I encounter. Feature like "Allow Available Uninstall" and "Auto-update available apps" is not pertinent in this scenario, since apps are assigned with the "Required" intent.
+There are variations of this traditional approach, but the one described above is the most common I encounter. Features like "Allow Available Uninstall" and "Auto-update available apps" is not pertinent in this scenario, since apps are assigned with the "Required" intent.
 
 ## Optional Apps: Adopting a Modern Approach
 
