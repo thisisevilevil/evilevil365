@@ -13,7 +13,7 @@ tags:
 
 What if I told you there’s a feature in Intune that lets you automatically update apps installed by users as *Available* via the Company Portal? Some of you might say this feature doesn’t exist, while others might say you don’t care. In my experience, I’ve seen almost no companies using this feature — well, except for one: [Robopack](https://robopack.com/), who is currently transforming automatic app management as we speak.
 
-But why is it that so many companies haven’t heard of this feature, or simply don’t care?
+But why is it that so many companies haven’t heard of this feature, or more importantly: Why don't they care?
 
 Over the past two years, we've received — in my opinion — two major improvements to Intune app management:
 
@@ -47,7 +47,7 @@ Here’s a deeper look at how this works in practice:
 
 3. **License-awareness is lacking**: Users may end up “subscribed” to licensed apps they no longer use. Shifting to a self-service model encourages users to be more aware about the apps they subscribe to — potentially reducing licensing costs.
 
-There are variations of this traditional approach, but the one described above is the most common I encounter.
+There are variations of this traditional approach, but the one described above is the most common I encounter. Feature like "Allow Available Uninstall" and "Auto-update available apps" is not pertinent in this scenario, since apps are assigned with the "Required" intent.
 
 ## Optional Apps: Adopting a Modern Approach
 
