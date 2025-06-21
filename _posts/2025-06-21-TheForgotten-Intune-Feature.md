@@ -30,7 +30,7 @@ Historically, application assignment has typically followed this pattern:
 
 - **Core apps**: Apps like VPN clients, antivirus software, or the Microsoft 365 suite are deployed using the *Required* intent. These are pushed to users' devices automatically, with no option to opt out.
   
-- **Optional apps**: These are often assigned via Entra ID groups (formerly Azure AD groups), where apps are also deployed as *Required*. When a user or device is added to a group, the app installs automatically. Many organizations have built extensive processes and automations around this approach — sometimes spanning years or even decades.
+- **Optional apps**: These are often assigned via Entra ID groups (formerly Azure AD groups) or SCCM Collections, where apps are also deployed as *Required*. When a user or device is added to a group, the app installs automatically. Many organizations have built extensive processes and automations around this approach — sometimes spanning years or even decades.
 
 ### The Traditional Way for Optional Apps
 
