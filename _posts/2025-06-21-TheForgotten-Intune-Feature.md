@@ -1,5 +1,5 @@
 ---
-title: "The Forgotten Intune Feature and Some Words on Traditional Application Management"
+title: "The Forgotten Intune Features and Some Words on Traditional Application Management"
 date: 2025-06-21
 categories:
   - Intune
