@@ -21,8 +21,8 @@ Over the past two years, we've received — in my opinion — two major improvem
   
 - **[Auto-update Available App](https://learn.microsoft.com/en-us/intune/intune-service/apps/apps-win32-supersedence#use-auto-update-with-app-supersedence)**: If a user installs an app from the Company Portal, you can now publish a newer version using supersedence and enable the “Auto update” checkbox for the *Available* assignment. Until recently, this wasn’t possible, making *Available* app assignments a dead-end in terms of lifecycle management in a lot of scenarios.
 
-![UninstallWin32App](/assets/images/2025-06-24-Forgotten-IntuneFeatures/AllowAvailableUninstall.png?raw=true "Uninstall Win32 app")  
 ![AutoUpdateAvailableApp](/assets/images/2025-06-24-Forgotten-IntuneFeatures/Auto-update-AvailableApp.png?raw=true "Auto update available app")
+![UninstallWin32App](/assets/images/2025-06-24-Forgotten-IntuneFeatures/AllowAvailableUninstall.png?raw=true "Uninstall Win32 app")  
 
 ## The Traditional Way of Assigning Applications
 
