@@ -59,7 +59,7 @@ Moving to a modern model of optional app deployment helps eliminate legacy bagga
 2. **Keep Required apps to a minimum**: Only enforce installation of truly essential apps needed for security, compliance, or baseline functionality. Let users choose the rest.
 
 3. **Manage licensed apps smartly**:
-   - Use tools like Microsoft MyGroups, where users can request group membership to gain access to licensed apps.
+   - Use tools like {Microsoft My Groups](https://learn.microsoft.com/en-us/entra/identity/users/groups-self-service-management), where users can request group membership to gain access to licensed apps.
    - Assign application owners as group approvers.
    - This shifts decision-making to the business side — IT no longer has to play gatekeeper.
 
