@@ -88,7 +88,7 @@ Based on the settings, the user will get various notifications, based on the set
 
 The final restart reminder, will linger in the system tray until the user clicks "restart now" or clicks the notification away. 
 
-> **_If the user closes the last reboot reminder, there will be no "final" reminder.. it will abruptly reboot the device, without warning, after 30 minutes_** 
+> **_If the user closes the last reboot reminder, there will be no "final" reminder.. it will abruptly reboot the device, without warning, after 30 minutes, if you are using the "Reboot after updates are installed" setting - Use this setting carefully_** 
 
 Finally, all updates deployed via Dell Command Update is logged to C:\ProgramData\Dell\UpdateService\Log - Look for the "activity.log" log to see what updates has been downloaded along with the install status, success or failed, where the "service.log" is more for the app itself, to see connectivity to update servers and whether a reboot is pending or not.
 
