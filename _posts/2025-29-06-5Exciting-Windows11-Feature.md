@@ -6,7 +6,7 @@ categories:
 tags:
   - Windows 11 new features
   - Windows 11 25H2
-  - Local Administrator protector
+  - Local Administrator protection
   - Quick Machine Recovery (QMR)
  
 ---
