@@ -15,8 +15,6 @@ In the not so distant future, we will get some new and awesome features in Windo
 
 ![NewWindowsfeatures](/assets/images/2025-06-29-5Windows11-Features-Coming/Thumbnail.png?raw=true "New Windows Features thumbnail")
 
----
-
 ## Quick Machine Recovery (QMR)
 
 **Quick Machine Recovery (QMR)** aims to reduce downtime when devices encounter critical issues. Instead of lengthy reimaging or rebuild processes, QMR allows devices to quickly recover to a clean and ready state — often within minutes. This is especially valuable for IT teams managing large device fleets or remote workers.
@@ -27,15 +25,11 @@ Rest assured, I think it's great and sorely needed that Microsoft is entering th
 
 👉 [Learn more about Quick Machine Recovery](https://techcommunity.microsoft.com/blog/windows-itpro-blog/get-started-with-quick-machine-recovery-in-windows/4398487)
 
----
-
 ## Local Administrator Protection
 
 Local administrator accounts have long been a target for attackers. **Local Administrator Protection** introduces built-in controls that help safeguard these accounts, reducing the risk of privilege escalation and lateral movement during attacks. This feature integrates with existing identity and access management strategies to provide a stronger security posture.
 
 👉 [See how Microsoft is protecting local admin accounts](https://blogs.windows.com/windowsdeveloper/2025/05/19/enhance-your-application-security-with-administrator-protection/)
-
----
 
 ## A New PC Migration Experience
 
@@ -43,23 +37,17 @@ Migrating to a new Windows 11 device is about to become far simpler. The **New P
 
 👉 [Explore Microsoft’s vision for easier PC migrations](https://blogs.windows.com/windows-insider/2025/06/02/announcing-windows-11-insider-preview-build-26200-5622-dev-channel/)
 
----
-
 ## Smarter Start Menu Pins with `PinGeneration="1"`
 
 Windows 11 is introducing a **one-time pinned apps experience** for the Start menu. With `PinGeneration="1"` you will be able to make pinned apps, unpinnable by the end-user. For those of you that has been in the game for a while, you probably also remember the plethora of tools that could pin apps to the taskbar, but that suddenly stopped working after a windows udpate. Gone are the days where we need to rely on PowerShell wizardry to apply a one-time configuration to the taskbar.
 
 👉 [More details about that here](https://learn.microsoft.com/en-us/windows/configuration/taskbar/pinned-apps?tabs=intune&pivots=windows-11#pingeneration)
 
----
-
 ## New Copilot + Search Enhancements
 
 Microsoft is re-inventing the **Copilot** experience in Windows 11, making it even more powerful by integrating it deeper into the Search functionality. This means faster, smarter results — whether you’re querying your PC, files, settings, or the web. Copilot is becoming a true AI assistant that helps you get things done more intuitively. Of course they have also increased the security of Windows Recall that made its rounds through the media some time ago. For starters, it's now no longer enabled by default, and the Recall bits are protected by Windows Hello and is now encrypted.
 
 👉 [Meet Windows Copilot](https://blogs.windows.com/windows-insider/2025/06/23/announcing-windows-11-insider-preview-build-26120-4452-beta-channel/)
-
----
 
 ## Honorary mention
 
