@@ -8,6 +8,8 @@ tags:
   - Windows 11 25H2
   - Local Administrator protection
   - Quick Machine Recovery (QMR)
+  - PinGeneration
+  - PC Migration
  
 ---
 
