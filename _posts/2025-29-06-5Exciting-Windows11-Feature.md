@@ -55,7 +55,7 @@ Windows 11 is introducing a **one-time pinned apps experience** for the Start me
 
 ## New Copilot + Search Enhancements
 
-Microsoft is re-inventing the **Copilot** experience in Windows 11, making it even more powerful by integrating it deeper into the Search functionality. This means faster, smarter results — whether you’re querying your PC, files, settings, or the web. Copilot is becoming a true AI assistant that helps you get things done more intuitively.
+Microsoft is re-inventing the **Copilot** experience in Windows 11, making it even more powerful by integrating it deeper into the Search functionality. This means faster, smarter results — whether you’re querying your PC, files, settings, or the web. Copilot is becoming a true AI assistant that helps you get things done more intuitively. Of course they have also increased the security of Windows Recall that made its rounds through the media some time ago. For starters, it's now no longer enabled by default, and the Recall bits are protected by Windows Hello and is now encrypted.
 
 👉 [Meet Windows Copilot](https://blogs.windows.com/windows-insider/2025/06/23/announcing-windows-11-insider-preview-build-26120-4452-beta-channel/)
 
