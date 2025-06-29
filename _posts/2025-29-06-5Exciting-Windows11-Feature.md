@@ -53,7 +53,7 @@ Microsoft is re-inventing the **Copilot** experience in Windows 11, making it ev
 
 There is a screenshot of a new policy making the rounds on social media, where we can enable a policy to easily remove built-in apps in Windows. If I had a nickel for each Debloater script there exist online, well.. you know what I mean. This is still only on the rumor mill, so take this with a grain of salt for now.
 
-I still know some companies are stuck running autopilot but gets devices delivered with consumer images, where software like Mcafee and other 3rd party apps are pre-installed. I don't think this policy will automatically remove 3rd party software like Mcafee and other junk, but it's a step in the right direction.
+I still know some companies are stuck running autopilot but gets devices delivered with consumer-grade windows images, where software like Mcafee and other 3rd party apps are pre-installed. I don't think this policy will automatically remove 3rd party software like Mcafee and other junk, but it's a step in the right direction.
 
 Either way, If Microsoft delivers on this policy, then Microsoft is truly delivering on a request that's been out there for years, almost ever since Windows 10 was released.
 
