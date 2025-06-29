@@ -1,6 +1,6 @@
 ---
 title: "5 exciting features coming in Windows 11"
-date: 2025-04-14
+date: 2025-06-29
 categories:
   - Windows11
 tags:
