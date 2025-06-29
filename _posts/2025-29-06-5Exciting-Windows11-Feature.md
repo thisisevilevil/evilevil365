@@ -39,7 +39,7 @@ Migrating to a new Windows 11 device is about to become far simpler. The **New P
 
 ## Smarter Start Menu Pins with `PinGeneration="1"`
 
-Windows 11 is introducing a **one-time pinned apps experience** for the Start menu. With `PinGeneration="1"` you will be able to make pinned apps, unpinnable by the end-user. For those of you that has been in the game for a while, you probably also remember the plethora of tools that could pin apps to the taskbar, but that suddenly stopped working after a windows udpate. Gone are the days where we need to rely on PowerShell wizardry to apply a one-time configuration to the taskbar.
+Windows 11 is introducing a **one-time pinned apps experience** for the Start menu. With `PinGeneration="1"` you will be able to make pinned apps, unpinnable by the end-user, allowing the user to freely customize their own taskbar, even though IT deployed a taskbar policy. For those of you that has been in the game for a while, you probably also remember the plethora of tools that could pin apps to the taskbar, but that suddenly stopped working after a windows udpate. Gone are the days where we need to rely on PowerShell wizardry to apply a one-time configuration to the taskbar.
 
 👉 [More details about that here](https://learn.microsoft.com/en-us/windows/configuration/taskbar/pinned-apps?tabs=intune&pivots=windows-11#pingeneration)
 
