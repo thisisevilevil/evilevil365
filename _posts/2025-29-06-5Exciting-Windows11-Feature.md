@@ -21,7 +21,7 @@ In the not so distant future, we will get some new and awesome features in Windo
 
 **Quick Machine Recovery (QMR)** aims to reduce downtime when devices encounter critical issues. Instead of lengthy reimaging or rebuild processes, QMR allows devices to quickly recover to a clean and ready state — often within minutes. This is especially valuable for IT teams managing large device fleets or remote workers. What's even cooler is that Microsoft is looking to build automatic remediation for common OS Boot failures, that makes it easy to guide end-users to fix common issues that could cause a No boot scenario. It's still in preview, but this technology looks very promising.
 
-Did someone say Crowdstrike? Also, a lot of companies are paying extra for Intel vPro devices, but very few is actually taking advantage of [Intel AMT](https://www.intel.com/content/www/us/en/developer/articles/guide/getting-started-with-active-management-technology.html)- why is that? Probably best left for a different blog post. 
+Did someone say Crowdstrike? Also, a lot of companies are paying extra for Intel vPro devices, but very few is actually taking advantage of [Intel AMT](https://www.intel.com/content/www/us/en/developer/articles/guide/getting-started-with-active-management-technology.html) - why is that? Probably best left for a different blog post. 
 
 Rest assured, I think it's great and sorely needed that Microsoft is entering this space.
 
