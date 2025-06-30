@@ -13,7 +13,7 @@ tags:
  
 ---
 
-In the not so distant future, we will get some new and awesome features in Windows 11, as always. Here are some of them I found exciting.
+In the not so distant future, we will get some new and awesome features in Windows 11, as always. Here are some of them I find exciting.
 
 ![NewWindowsfeatures](/assets/images/2025-06-29-5Windows11-Features-Coming/Thumbnail.png?raw=true "New Windows Features thumbnail")
 
