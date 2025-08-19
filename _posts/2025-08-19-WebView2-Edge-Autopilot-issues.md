@@ -20,7 +20,7 @@ If you suddenly face an issue where your users are complaining they cannot launc
 
 WebView2 is a web control from Microsoft that lets developers embed web content (HTML, CSS, JavaScript) into their desktop applications. It’s built on the same Microsoft Edge (Chromium) rendering engine, so apps can display modern web experiences without relying on the old Internet Explorer–based WebBrowser control. WebView2 is installed and updated with Microsoft Edge.
 
-The new outlook and teams clients relies on this component to work correctly. What if webview is missing or outdated? Then you will probably face the below error
+The new outlook and teams clients relies on this component to work correctly. What if webview is missing or outdated? Then you will probably face the below error (There are a few variations of this error, but this is one of them)
 
 ![Webview error](/assets/images/2025-08-19-Webview2-Autopilot-issue/Webview2-teams-error.png?raw=true "Webview2 missing")
 
