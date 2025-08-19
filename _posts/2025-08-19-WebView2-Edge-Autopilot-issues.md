@@ -26,7 +26,7 @@ The new outlook and teams clients relies on this component to work correctly. Wh
 
 ## Why is it happening
 
-I'm working with 1 customer where Microsoft says it's an OEM issue and the OEM says it's a Microsoft issue. In the meantime, if you download a Windows 11 24H2 ISO, we can mount the ISO and open the install.wim with 7zip we can take a peak at the Edge version by navigating to ..\1\Program Files (x86)\Microsoft\Edge\Application: 122.0.2365.106
+I'm working with 1 customer where they get devices delivered from the OEM with an ancient Edge version, causing this problem. Microsoft says it's an OEM issue and the OEM says it's a Microsoft issue. In the meantime, if you download a Windows 11 24H2 ISO, we can mount the ISO and open the install.wim with 7zip we can take a peak at the Edge version by navigating to ..\1\Program Files (x86)\Microsoft\Edge\Application: 122.0.2365.106
 
 ![Webview error](/assets/images/2025-08-19-Webview2-Autopilot-issue/EdgeVersion-MountedWim.png?raw=true "Edge version in WIM file")
 
@@ -36,7 +36,7 @@ If we look up the date of Edge version 122.0.2365.106 it's basically from the st
 
 And that's the cause of our issue, the Edge version is simply too old and WebView2 is built-in to Edge. So preferably we need to get it updated before the user lands on the desktop and opens teams or outlook. Based on some testing, Edge should otherwise update itself within 30 minutes after hitting the desktop, but the users that launch teams or new outlook before that, will face the error.
 
->NOTE: On further inspection, I found that the Edge version has actually been updated in the latest ISO available from July 2025 (as of this date), and in that ISO, is actually a newer Edge version. But it will probably take a while for OEMs to update to this version
+>NOTE: On further inspection, I found that the Edge version has actually been updated to a much newer version in the latest ISO available from July 2025 (as of this date), and in that ISO, is actually a newer Edge version. But it will probably take a while for OEMs to update to this version
 
 ## The workaround
 
@@ -50,3 +50,9 @@ We have a couple of options for deploying this with Intune, but I have found the
 
 ![UpdateEdge](/assets/images/2025-08-19-Webview2-Autopilot-issue/Add-PowerShellScript.png?raw=true "Edge PowerShell script")
 ![UpdateEdge](/assets/images/2025-08-19-Webview2-Autopilot-issue/UpdateEdge-PowerShellScript.png?raw=true "Edge PowerShell script")
+
+## Final thought
+
+Hopefully this issue should go away very soon as it seems like Microsoft already released new ISOs where a much newer version of Edge is included, so I guess it's just a matter of time. In the meantime, we just need to make sure Edge is updated before the user hits the desktop. You can deploy it as a PowerShell script or Win32 app. Alternatively if you use products like Patch My PC or Robopack you can subsribe to Edge and get it as a Win32 app as well.
+
+That's all for now. Have a nice day :)
