@@ -14,6 +14,8 @@ If you are using Autopilot and re-using the image from your OEM, you are already
 
 If you suddenly face an issue where your users are complaining they cannot launch Teams or the new outlook client because of a Webview2 error, right after a finished autopilot enrollment, then read on.
 
+![Webview error](/assets/images/2025-08-19-Webview2-Autopilot-issue/Thumbnail.png?raw=true "Thumbnail")
+
 ## What is WebView2
 
 WebView2 is a web control from Microsoft that lets developers embed web content (HTML, CSS, JavaScript) into their desktop applications. It’s built on the same Microsoft Edge (Chromium) rendering engine, so apps can display modern web experiences without relying on the old Internet Explorer–based WebBrowser control. WebView2 is installed and updated with Microsoft Edge.
