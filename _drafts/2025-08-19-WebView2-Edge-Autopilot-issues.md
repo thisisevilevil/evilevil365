@@ -53,6 +53,6 @@ We have a couple of options for deploying this with Intune, but I have found the
 
 ## Final thought
 
-Hopefully this issue should go away very soon as it seems like Microsoft already released new ISOs where a much newer version of Edge is included, so I guess it's just a matter of time. In the meantime, we just need to make sure Edge is updated before the user hits the desktop. You can deploy it as a PowerShell script, alternatively if you use products like Patch My PC or Robopack you can subsribe to Edge and get it as a Win32 app as well.
+Hopefully this issue should go away very soon as it seems like Microsoft already released new ISOs where a much newer version of Edge is included, so I guess it's just a matter of time. In the meantime, we just need to make sure Edge is updated before the user hits the desktop. You can deploy it as a PowerShell script or Win32 app. Alternatively if you use products like Patch My PC or Robopack you can subsribe to Edge and get it as a Win32 app as well.
 
 That's all for now. Have a nice day :)
