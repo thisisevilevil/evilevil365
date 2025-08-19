@@ -10,7 +10,7 @@ tags:
   - Outlook webview issue
 ---
 
-If you are using Autopilot and re-using the image from your OEM, you are already doing it right. It doesn't mean all your problems will go away, it's just different kind of problems.
+If you are using Autopilot and re-using the image from your OEM, you are already doing it right. It doesn't mean all your problems will go away, it's just different kind of problems. I have been dealing with this issue for a few months, hoping it would go away by itself, but maybe I was naive, hence this blog post.
 
 If you suddenly face an issue where your users are complaining they cannot launch Teams or the new outlook client because of a Webview2 error, right after a finished autopilot enrollment, then read on.
 
