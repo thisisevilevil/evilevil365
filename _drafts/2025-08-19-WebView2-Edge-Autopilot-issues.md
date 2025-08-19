@@ -44,4 +44,7 @@ We can trigger an Edge update by using the following PowerShell command ([source
 Start-Process -FilePath "C:\Program Files (x86)\Microsoft\EdgeUpdate\MicrosoftEdgeUpdate.exe" -argumentlist "/silent /install appguid={56EB18F8-B008-4CBD-B6D2-8C97FE7E9062}&appname=Microsoft%20Edge&needsadmin=True"
 ```
 
-We have a couple of options for deploying this with Intune, but I have found the easiest and fastest way is to deploy it as a PowerShell script from Intune (Platform script). PowerShell scripts run before Win32 apps during the autopilot enrollment process. I created a PowerShell script to check for the Edge version and it's below a certain version, we will update it, otherwise no actions is performed. You can find the script in my github [here](https://github.com/thisisevilevil/IntunePublic/blob/main/PowerShell%20Scripts/Update-MicrosoftEdge.ps1)
+We have a couple of options for deploying this with Intune, but I have found the easiest and fastest way is to deploy it as a PowerShell script from Intune (Platform script). PowerShell scripts run before Win32 apps during the autopilot enrollment process. I created a PowerShell script to check for the Edge version and it's below a certain version, we will update it, otherwise no actions is performed. You can find the script in my github [here](https://github.com/thisisevilevil/IntunePublic/blob/main/PowerShell%20Scripts/Update-MicrosoftEdge.ps1). Assign it like so:
+
+![UpdateEdge](/assets/images/2025-08-19-Webview2-Autopilot-issue/Add-PowerShellScript.png?raw=true "Edge PowerShell script")
+![UpdateEdge](/assets/images/2025-08-19-Webview2-Autopilot-issue/UpdateEdge-PowerShellScript.png?raw=true "Edge PowerShell script")
