@@ -36,7 +36,7 @@ If we look up the date of Edge version 122.0.2365.106 it's basically from the st
 
 And that's the cause of our issue, the Edge version is simply too old and WebView2 is built-in to Edge. So preferably we need to get it updated before the user lands on the desktop and opens teams or outlook. Based on some testing, Edge should otherwise update itself within 30 minutes after hitting the desktop, but the users that launch teams or new outlook before that, will face the error.
 
->NOTE: On further inspection, I found that the Edge version has actually been updated in the latest ISO available from July 2025 (as of this date), and in that ISO, is actually a newer Edge version. But it will probably take a while for OEMs to update to this version
+>NOTE: On further inspection, I found that the Edge version has actually been updated to a much newer version in the latest ISO available from July 2025 (as of this date), and in that ISO, is actually a newer Edge version. But it will probably take a while for OEMs to update to this version
 
 ## The workaround
 
@@ -50,3 +50,9 @@ We have a couple of options for deploying this with Intune, but I have found the
 
 ![UpdateEdge](/assets/images/2025-08-19-Webview2-Autopilot-issue/Add-PowerShellScript.png?raw=true "Edge PowerShell script")
 ![UpdateEdge](/assets/images/2025-08-19-Webview2-Autopilot-issue/UpdateEdge-PowerShellScript.png?raw=true "Edge PowerShell script")
+
+## Final thought
+
+Hopefully this issue should go away very soon as it seems like Microsoft already released new ISOs where a much newer version of Edge is included, so I guess it's just a matter of time. In the meantime, we just need to make sure Edge is updated before the user hits the desktop. You can deploy it as a PowerShell script, alternatively if you use products like Patch My PC or Robopack you can subsribe to Edge and get it as a Win32 app as well.
+
+That's all for now. Have a nice day :)
