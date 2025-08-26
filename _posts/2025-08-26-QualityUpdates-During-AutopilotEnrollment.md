@@ -1,5 +1,5 @@
 ---
-title: "Quality Updates During Autopilot Enrollment"
+title: "Quality Updates During Autopilot Enrollment is back"
 date: 2025-08-26
 categories:
   - Intune
