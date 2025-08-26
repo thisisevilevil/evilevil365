@@ -12,7 +12,7 @@ tags:
 
 In the latest intune service release for August 2025, we are getting some nice new additions, you can read about that [here](https://techcommunity.microsoft.com/blog/microsoftintuneblog/what%E2%80%99s-new-in-microsoft-intune-august-2025/4445612).
 
-The big change in this update is the return of windows updates during Autopilot enrollments. And it will be turned on by default. Some of you might remember the previous attempt to roll this out, didn't go so well, since it was enabled by default without the option to turn it off. Now we have the option to turn it off!
+The big change in this update is the return of windows updates (not feature updates!) during Autopilot enrollments. And it will be turned on by default. Some of you might remember the previous attempt to roll this out, didn't go so well, since it was enabled by default without the option to turn it off. Now we have the option to turn it off!
 
 It all sounds great, updates during ESP, we all want our devices to be updated, right? Well, not always. It depends. The problem with windows updates being delivered during Autopilot enrollment has always been the prolonged enrollment time. Depending on the patch level of your device, you might add another 20-30 minutes to the enrollment time, which can be pretty steep if you already have a couple of apps blocking your ESP.
 
