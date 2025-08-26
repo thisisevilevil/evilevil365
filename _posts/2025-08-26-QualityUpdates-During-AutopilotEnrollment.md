@@ -10,9 +10,10 @@ tags:
   - Updates during ESP
 ---
 
-In the Intune service release for August 2025, we’re getting some great new additions, which you can read about [here](https://techcommunity.microsoft.com/blog/microsoftintuneblog/what%E2%80%99s-new-in-microsoft-intune-august-2025/4445612).
+In the Intune service release for August 2025, we’re getting some great new additions, which you can read about [here](https://techcommunity.microsoft.com/blog/microsoftintuneblog/what%E2%80%99s-new-in-microsoft-intune-august-2025/4445612). 
 
-The big change in this update is the return of Windows quality updates (not feature updates!) during Autopilot enrollment—and they will be enabled by default. Some of you might remember the previous attempt to roll this out didn’t go so well, as it was enabled by default without an option to turn it off. This time, we finally have the ability to disable it if needed.
+The big change in this update is the return of Windows quality updates (not feature updates!) during Autopilot enrollment—and they will be enabled by default. You can read the full announcement [here](https://techcommunity.microsoft.com/blog/windows-itpro-blog/get-ready-for-windows-quality-updates-out-of-the-box/4434498)
+Some of you might remember the previous attempt to roll this out didn’t go so well, as it was enabled by default without an option to turn it off. This time, we finally have the ability to disable it if needed.
 
 It all sounds great—updates during ESP. We all want our devices to be updated, right? Well, not always. It depends. The main problem with Windows updates being delivered during Autopilot enrollment has always been the extended enrollment time. Depending on the device’s patch level, you might add another 20–30 minutes to the process, which can be significant if you already have several apps blocking your ESP.
 
