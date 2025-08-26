@@ -1,6 +1,6 @@
 ---
 title: "Quality Updates during Autopilot enrollment"
-date: 2025-08-18
+date: 2025-08-26
 categories:
   - Intune
 tags:
