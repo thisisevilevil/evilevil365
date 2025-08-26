@@ -29,3 +29,5 @@ If you don't want this feature, you will need to go to your ESP (Enrollment Stat
 ## Final thoughts
 
 What could be a nice addition here, would be a conditional-based rule for it to trigger, so IT Admins could choose to enact the updates during ESP but only if the OS Patch level was below a certain build number. The alternative is enrollment restrictions, to block devices from enrolling when they are below a certain OS Patch level, but then the user (or IT), will have to manually update the device usually by hitting SHIFT+F10 -> control update or similar, before the device can be enrolled.. not the best user experience.
+
+For now, this is still a very welcome change, that has been highly requested for a long time - Nice it's finally here :)
