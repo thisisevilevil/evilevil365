@@ -66,3 +66,5 @@ Plenty of scripts online suggest you need to handle this certificate update your
 Hopefully this clears up the confusion and saves you from chasing unnecessary “DIY fixes.”
 
 Thanks for reading — and have an awesome day :)
+
+>**UPDATE, 3rd of September 2025**: Some sources cite that all devices that onboarded in autopatch is automatically enrolled into the secure boot rollout, thus deploying the reg key is not neccessary. I'm chasing Microsoft for an official response and clarification regarding the scope/impact of setting the registry key mentioned in Requirement #2.
