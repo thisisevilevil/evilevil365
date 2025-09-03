@@ -61,7 +61,7 @@ The full Microsoft guidance is available [in this article](https://support.micro
 
 ## Wrapping up
 
-Plenty of scripts online suggest you need to handle certificate updates yourself. For most organizations, that’s not the case. Microsoft will take care of it — as long as you’ve prepared properly. If you’re running hardware from major OEMs like Dell, HP, or Lenovo and keeping them updated, you’re likely already covered.
+Plenty of scripts online suggest you need to handle this certificate update yourself. For most organizations, that’s not the case. Microsoft will take care of it — as long as you’ve prepared properly. If you’re running hardware from major OEMs like Dell, HP, or Lenovo and keeping them updated, you’re likely already covered.
 
 Hopefully this clears up the confusion and saves you from chasing unnecessary “DIY fixes.”
 
