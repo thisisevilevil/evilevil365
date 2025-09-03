@@ -67,4 +67,4 @@ Hopefully this clears up the confusion and saves you from chasing unnecessary â€
 
 Thanks for reading â€” and have an awesome day :)
 
->**UPDATE, 3rd of September 2025**: Some sources cite that all devices onboarded in [autopatch](https://learn.microsoft.com/en-us/windows/deployment/windows-autopatch/overview/windows-autopatch-overview) is automatically enrolled into the secure boot rollout, thus deploying the reg key is not necessary. I'm chasing Microsoft for an official response and clarification regarding the scope/impact of setting the registry key mentioned in Requirement #2, if this is in fact necessary.
+>**UPDATE, 3rd of September 2025**: Some sources cite that all devices onboarded in [autopatch](https://learn.microsoft.com/en-us/windows/deployment/windows-autopatch/overview/windows-autopatch-overview) is automatically enrolled into the secure boot rollout, thus deploying the reg key is not necessary - But it's currently unclear. I'm chasing Microsoft for an official response and clarification regarding the scope/impact of setting the registry key mentioned in Requirement #2, if this is in fact necessary.
