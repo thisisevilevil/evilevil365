@@ -8,7 +8,7 @@ tags:
   - Certificate expiry
 ---
 
-If you manage Windows devices, you might have noticed some alerts about Secure Boot certificates expiring in 2026. This is a common concern, but there's no need to panic. I've seen some conflicting and downright incorrect information about this online.
+If you manage Windows devices, you might have noticed some alerts about Secure Boot certificates expiring in 2026. This is a common concern, but there's no need to panic. I've seen some conflicting and downright incorrect information about this online, hence this blog post to clear things up.
 
 ![Thumbnail](/assets/images/2025-09-03-SecureBoot-Cert-Expiration/Thumbnail.png?raw=true "Thumbnail")
 
