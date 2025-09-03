@@ -48,6 +48,7 @@ $Value = 0x5944  # 22852 decimal
 if (!(Test-Path $Path)) {New-Item -Path $Path -Force}
 New-ItemProperty -Path $Path -Name $Name -PropertyType DWord -Value $Value -Force
 ```
+You can also download it from my github [here](https://github.com/thisisevilevil/IntunePublic/blob/main/PowerShell%20Scripts/Deploy-SecureBoot-OptIn-Key.ps1)
 
 >Note: Meeting these requirements doesn’t mean all devices update at once. Microsoft rolls out updates gradually, grouping devices by hardware and firmware, monitoring feedback, and pausing if issues appear.
 
