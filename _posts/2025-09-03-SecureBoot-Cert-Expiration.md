@@ -15,7 +15,7 @@ If you manage Windows devices, you might have noticed some alerts about Secure B
 ## What you need to know
 
 * The existing 2011-era certificates (KEK CA 2011, UEFI CA 2011, and Production PCA 2011) are expiring in mid‑2026, which would disrupt Secure Boot security.
-* failing to update the boot certificates could result in the following implications:
+* Failing to update the boot certificates could result in the following implications:
 
 1. Lose the ability to install Secure Boot security updates after June 2026.
 2. Not trust third-party software signed with new certificates after June 2026.
