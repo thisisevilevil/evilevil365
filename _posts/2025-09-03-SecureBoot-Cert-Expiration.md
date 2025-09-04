@@ -59,6 +59,8 @@ If your devices are in an air-gapped environmentm or with limited network connec
 
 The full Microsoft guidance is available [in this article](https://support.microsoft.com/en-us/topic/windows-devices-for-businesses-and-organizations-with-it-managed-updates-e2b43f9f-b424-42df-bc6a-8476db65ab2f)
 
+>**UPDATE, 4th of September 2025**: Per Larsen has created a Remediation to check if the updated certs are already on your device, you can find it [here](https://github.com/pelarsen/Remediation-Scripts/blob/main/SecureBootCheck.ps1)
+
 ## Wrapping up
 
 Plenty of scripts online suggest you need to handle this certificate update yourself. For most organizations, that’s not the case. Microsoft will take care of it — as long as you’ve prepared properly. If you’re running hardware from major OEMs like Dell, HP, or Lenovo and keeping them updated, you’re likely already covered. Also, this is issue is also present on servers, so make sure to prepare accordingly for your servers as well.
@@ -68,4 +70,5 @@ Hopefully this clears up the confusion and saves you from chasing unnecessary �
 Thanks for reading — and have an awesome day :)
 
 >**UPDATE, 3rd of September 2025**: Some sources cite that all devices onboarded in [autopatch](https://learn.microsoft.com/en-us/windows/deployment/windows-autopatch/overview/windows-autopatch-overview) is automatically enrolled into the secure boot rollout, thus deploying the reg key is not necessary - But it's currently unclear. I'm chasing Microsoft for an official response and clarification regarding the scope/impact of setting the registry key mentioned in Requirement #2, if this is in fact necessary.
+
 >**UPDATE, 4th of September 2025**: Initial response from Microsoft suggests that if you are using autopatch, you do **not** have to set the registry key as outlined in Requirement #2. It's still being clarified. Will update this blog post once I know more.
