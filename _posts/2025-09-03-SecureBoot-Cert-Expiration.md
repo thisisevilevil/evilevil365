@@ -59,7 +59,7 @@ If your devices are in an air-gapped environmentm or with limited network connec
 
 The full Microsoft guidance is available [in this article](https://support.microsoft.com/en-us/topic/windows-devices-for-businesses-and-organizations-with-it-managed-updates-e2b43f9f-b424-42df-bc6a-8476db65ab2f)
 
->**UPDATE, 4th of September 2025**: Per Larsen has created a Remediation to check if the updated certs are already on your device, you can find it [here](https://github.com/pelarsen/Remediation-Scripts/blob/main/SecureBootCheck.ps1)
+>**UPDATE, 4th of September 2025**: Per Larsen has created a Remediation to check if the updated certs are already on your device, and if not, they will be flagged as "With Issue". You can find it [here](https://github.com/pelarsen/Remediation-Scripts/blob/main/SecureBootCheck.ps1)
 
 ## Wrapping up
 
