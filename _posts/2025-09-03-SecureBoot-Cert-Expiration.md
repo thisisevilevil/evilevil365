@@ -55,7 +55,7 @@ You can also download it from my github [here](https://github.com/thisisevilevil
 
 Otherwise be aware that Microsoft is already working with OEM's to also push out BIOS Updates, where the updated certificates are also present. So if you are already keeping your BIOS Up-to-date in your org, chances are, you already received the updated certificates.
 
-If your devices are in an air-gapped environmentm or with limited network connectivity, you will have to update these certificates manually. See [this article](https://techcommunity.microsoft.com/blog/windows-itpro-blog/updating-microsoft-secure-boot-keys/4055324) for more information.
+If your devices are in an air-gapped environment or with limited network connectivity, you will have to update these certificates manually. See [this article](https://techcommunity.microsoft.com/blog/windows-itpro-blog/updating-microsoft-secure-boot-keys/4055324) for more information.
 
 The full Microsoft guidance is available [in this article](https://support.microsoft.com/en-us/topic/windows-devices-for-businesses-and-organizations-with-it-managed-updates-e2b43f9f-b424-42df-bc6a-8476db65ab2f)
 
