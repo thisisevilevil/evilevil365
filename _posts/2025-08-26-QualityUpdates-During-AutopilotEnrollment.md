@@ -10,6 +10,12 @@ tags:
   - Updates during ESP
 ---
 
+UPDATE 10th of September 2025: Looks like it's being rolled back (again).
+> **Editor’s note 9.8.2025:**  
+> This capability has been delayed by a couple of months to help ensure delivery of the best possible experience. You can start configuring the new setting on the Enrollment Status Page (ESP), but you won’t see the new user interface yet. We’ll update this post with a revised timeline as soon as it’s available.
+
+[Source](https://techcommunity.microsoft.com/blog/windows-itpro-blog/get-ready-for-windows-quality-updates-out-of-the-box/4434498)
+
 In the Intune service release for August 2025, we’re getting some great new additions, which you can read about [here](https://techcommunity.microsoft.com/blog/microsoftintuneblog/what%E2%80%99s-new-in-microsoft-intune-august-2025/4445612). 
 
 The big change in this update is the return of Windows quality updates (not feature updates!) during Autopilot enrollment—and they will be enabled by default. You can read the full announcement [here](https://techcommunity.microsoft.com/blog/windows-itpro-blog/get-ready-for-windows-quality-updates-out-of-the-box/4434498).
