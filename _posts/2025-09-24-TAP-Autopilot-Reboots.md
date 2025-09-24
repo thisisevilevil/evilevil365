@@ -84,7 +84,7 @@ From IT and Security’s perspective, not so much—because no apps or policies 
 
 **Applications:** Critical apps can be installed via PowerShell (Intune platform scripts). These run before Win32 or LoB apps. It’s not elegant, but it works reliably.  
 
-**Policies:** In testing, most policies applied within 1–2 minutes after hitting the desktop. The only issue is users who open Edge too soon will get extra sign-in prompts.  
+**Policies:** In testing, most policies applied within 1–2 minutes after hitting the desktop. The only major issue is users who open Edge too soon will get extra sign-in prompts, while certificates and WiFi Profiles will also be slightly delayed.  
 
 **Compliance and security:** For DHA checks like BitLocker, you’ll need a reboot later. To force a reboot at some point, we have several options, which includes:  
 a) Marking an app in Intune with **“Intune will force a mandatory reboot.”** Just remember to configure the restart grace period so users get a warning instead of an abrupt restart.  
