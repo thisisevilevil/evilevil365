@@ -49,13 +49,13 @@ Some blogs and videos show this as normal. But it’s not—it’s poor user exp
 ![OtherUser](/assets/images/2025-09-26-TAP-And-Autopilot/OtherUser-2.png?raw=true "Other User - Sign in screen")
 
 D) After enrollment finishes, the user sets up Windows Hello. Problem solved? Not really. But the user is now on the desktop.  
-E) When the device is locked, after the user is on the desktop, the same issue from step C reappears. Also, Clicking the PIN button for some reason shows "Username" and "PIN".
+E) When the device is locked, after the user is on the desktop, the same issue from step C reappears. Also, Clicking the PIN button as a sign in option for some reason shows "Username" and "PIN".
 
 The user can unlock the device either by using TAP again or by entering UPN + PIN from Windows Hello enrollment. This is **Problem #2**.  
 ![OtherUser](/assets/images/2025-09-26-TAP-And-Autopilot/OtherUser-LockScreen-1.png?raw=true "Other User - Lockscreen")  
 ![OtherUser](/assets/images/2025-09-26-TAP-And-Autopilot/OtherUser-LockScreen-UserPass.png?raw=true "Other User - Lockscreen")
 
-I raised this with Microsoft. They were aware of the workaround (assigning reboot-causing apps/policies to users), but advised against relying on it since reboots can never be fully eliminated. Future platform changes could introduce new reboots at any point.  
+I raised this with Microsoft. They were aware of the workaround (assigning reboot-causing apps/policies to users), but advised against relying on it since reboots can never be fully eliminated. Future platform changes could introduce new reboots at any point.
 
 What surprised me was their explanation of **Problem #2**: Windows Hello enrollment hasn’t actually completed in this flow, which explains the odd sign-in screen after device has been locked.
 
