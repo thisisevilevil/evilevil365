@@ -76,7 +76,7 @@ c) After WHfB enrollment, they land directly on the desktop—without Problems #
 
 From the user’s perspective, this is fantastic. They can start working almost immediately.  
 
-From IT and Security’s perspective, not so much—because no apps or policies are there yet.
+From IT and Security’s perspective, not so much—because no apps or policies are present once the user hits the desktop
 
 **Applications:** Critical apps can be installed via PowerShell (Intune platform scripts). These run before Win32 or LoB apps. It’s not elegant, but it works reliably.  
 
