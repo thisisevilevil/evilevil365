@@ -87,8 +87,8 @@ a) Marking an app in Intune with **“Intune will force a mandatory reboot.”**
    ![Appassignment](/assets/images/2025-09-26-TAP-And-Autopilot/AppAssignment-1.png?raw=true "App assignment: Mandatory Reboot")  
    ![Appassignment](/assets/images/2025-09-26-TAP-And-Autopilot/AppAssignment-2.png?raw=true "App assignment: Restart Grace Period")
 
-b) Using a PowerShell script (run as current user) that prompts the user to reboot within 10 minutes. If they click “No,” the final reboot won’t run. This is just a PoC, to provide some inspiration.
- [here](https://github.com/thisisevilevil/IntunePublic/blob/main/PowerShell%20Scripts/Prompt-UserReboot.ps1).
+b) An alternative option is to use a PowerShell script (run as current user) that prompts the user to reboot within 10 minutes. If they click “No,” the final reboot won’t run. This is just a PoC, to provide some inspiration.
+ You can find it here [here](https://github.com/thisisevilevil/IntunePublic/blob/main/PowerShell%20Scripts/Prompt-UserReboot.ps1).
 
  Can be assigned as a platform script in current-user context like so:
  ![Appassignment](/assets/images/2025-09-26-TAP-And-Autopilot/FinishSetup-UserPrompt-Assignment.png?raw=true "Platform script to prompt for reboot")
