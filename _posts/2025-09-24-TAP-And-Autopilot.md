@@ -83,7 +83,7 @@ From IT and Security’s perspective, not so much—because no apps or policies 
 **Compliance and security:** For DHA checks like BitLocker, you’ll need a reboot later. To force a reboot at some point, we have several options, which includes:  
 a) Marking an app in Intune with **“Intune will force a mandatory reboot.”** Just remember to configure the restart grace period so users get a warning instead of an abrupt restart.  
    ![Appassignment](/assets/images/2025-09-26-TAP-And-Autopilot/AppAssignment-1.png?raw=true "App assignment: Mandatory Reboot")  
-   ![Appassignment](/assets/images/2025-09-26-TAP-And-Autopilot/AppAssignment-1.png?raw=true "App assignment: Restart Grace Period")
+   ![Appassignment](/assets/images/2025-09-26-TAP-And-Autopilot/AppAssignment-2.png?raw=true "App assignment: Restart Grace Period")
 
 b) Using a PowerShell script (run as current user) that prompts the user to reboot within 10 minutes. If they click “No,” the final reboot won’t run. This is just a PoC, to provide some inspiration.
  [here](https://github.com/thisisevilevil/IntunePublic/blob/main/PowerShell%20Scripts/Prompt-UserReboot.ps1).
