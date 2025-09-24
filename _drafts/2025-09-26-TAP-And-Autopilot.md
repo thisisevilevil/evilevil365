@@ -1,5 +1,5 @@
 ---
-title: "Temporary Access Pass and Autopilot"
+title: "Temporary Access Pass, Autopilot and ESP"
 date: 2025-09-25
 categories:
   - Intune
@@ -23,15 +23,15 @@ So what is the current fuzz about?
 This fact is already well known in the community for several years, but in case you missed out here is a quick recap:
 
 * When initiating an autopilot enrollment, if there is any reboot in the enrollment process, the persistent/cached user token is lost during the reboot. This results in additional login prompts + MFA Prompts for the end-user before the user can enroll for WhfB (Windows Hello For Business).
-* The common policies to look for causing reboots is Windows Update Policies, Security Baseline and AppLocker. There is a great blog post by Rudy Ooms that explains how you can pinpoint which policies assigned to a device that caused a reboot. You can find it [here](https://patchmypc.com/blog/autopilot-unexpected-reboot-what-really-triggers-a-device-restart-and-how-to-fix-it/)
-* A known workaround is to assign any policies (or Apps) causing the reboot to user groups rather than device groups.
+* The common policies to look for causing reboots is Windows Update Policies, Security Baseline and/or device control policies and AppLocker. There is a great blog post by Rudy Ooms that explains how you can pinpoint which policies assigned to a device in your environment that caused a reboot. You can find it [here](https://patchmypc.com/blog/autopilot-unexpected-reboot-what-really-triggers-a-device-restart-and-how-to-fix-it/)
+* A known workaround is to assign any policies or Apps causing the reboot to user groups rather than device groups. If you only have apps resulting in a reboot, consider turning off the mandatory reboot for the app.
 
 However, using this workaround to completely eliminate the reboot can have unwanted side-effects, such as the following:
 
 1) Device Health Attestation (DHA) requires a reboot. This is pertinent where compliance policies checking for Bitlocker, Secure Boot or Code Integrity is in place. If the reboot is not performed, it will be unable to measure compliance = Not Compliant.
 ![Compliance](/assets/images/2025-09-26-TAP-And-Autopilot/DHA-Bitlocker.png?raw=true "Compliance Policy DHA")
 2) Device Control Policies like Device Guard and Virtualization-Based Security (VBS) requires a reboot to activate. If you are using security baseline, they will deploy by default
-3) By assigning your apps/policies to users, you might end up in a scenario where they follow them to shared devices which can be a biggie in some scenarios
+3) By assigning your apps/policies to users, you might end up in a scenario where policies or apps follow users to shared devices or other devices they log in to, which can be a biggie in some scenarios
 
 ## Enrolling Autopilot device with a TAP - With Reboots
 
@@ -54,7 +54,7 @@ The user can unlock his/her device by providing the TAP again, or by entering th
 ![OtherUser](/assets/images/2025-09-26-TAP-And-Autopilot/OtherUser-LockScreen-1.png?raw=true "Other User - Lockscreen")
 ![OtherUser](/assets/images/2025-09-26-TAP-And-Autopilot/OtherUser-LockScreen-2.png?raw=true "Other User - Lockscreen")
 
-I spoke to someone from Microsoft about this problem, and he was well aware of the "workaround" to assign policies and apps that causes reboots, to users instead, to prevent reboots during the autopilot process. He generally recommended against it as a solution to this problem, as we can never guarantee to completely prevent the reboots during the autopilot process. Microsoft might make changes on their end that could cause a reboot somewhere in the process in the near future, we don't really know. Also we spoke about the user experience in this flow, and what happens in what I described in C) and E) surprised me a bit. When the user enrolls for windows hello in this scenario, the windows hello provisioning/enrollment has actually not completed. That is why we are seeing the wonky sign-in screen in E).
+I spoke to someone from Microsoft about this problem, and he was well aware of the "workaround" to assign policies and apps that causes reboots, to users instead, to prevent reboots during the autopilot process. He generally recommended against it as a solution to this problem, as it can never be guaranteed to completely prevent the reboots during the autopilot process. Microsoft might make changes on their end that could cause a reboot somewhere in the process in the near future, we don't really know. Also we spoke about the user experience in this flow, and what happens in what I described in C) and E) surprised me a bit. When the user enrolls for windows hello in this scenario, the windows hello provisioning/enrollment has actually not completed. That is why we are seeing the wonky sign-in screen in E) in correlation with TAP+Web Sign in enrollment.
 
 However, when speaking to other experts in the community, it seems to be perfectly normal to workaround this problem by simply locating all policies and apps that causes a reboot, then assign to users rather than devices. For DHA Compliance checks, we can implement a grace period and a forced reboot at some point, to allow the device to perform the reboot within the specified time, allowing to become compliant within a certain time period. This seems to be the most common solution today.
 
@@ -82,13 +82,16 @@ Well not IT and Security as you probably figured. In this scenario they are not 
 
 **Compliance policies using DHA and Security Policies**: If you are using compliance policies with DHA, like a Bitlocker check you will need to restart the device at some point. There are multiple ways to guide the user to perform a reboot in this scenario like the following:
 a) Set the following flag on a required app in Intune "Intune will force a mandatory reboot". Just remember to enable the Reboot Grace Period on the app assignment, otherwise the user will experience an abrupt reboot without any warning. Once the app deploys successfully, the user will be prompted to perform the reboot, also based on the timers you configured in your win32 app
-b) I have created this PowerShell script that can be run in current-user context, that will guide the user to perform a reboot within 10 minutes. The user will get a popup asking them for a reboot after 10 minutes, and if they click No, it will not perform the final reboot. 
+![Appassignment](/assets/images/2025-09-26-TAP-And-Autopilot/AppAssignment-1.png?raw=true "App assignment: Mandatory Reboot")
+![Appassignment](/assets/images/2025-09-26-TAP-And-Autopilot/AppAssignment-1.png?raw=true "App assignment: Restart Grace Period")
 
-When I say I created it, Copilot did most of the heavy lifting actually, as it contains a lot of PowerShell forms stuff.
+b) I have created this PowerShell script that can be run in current-user context, that will guide the user to perform a reboot within 10 minutes. The user will get a popup asking them for a reboot after 10 minutes, and if they click No, it will not perform the final reboot. It's just a PoC script, you can adjust it however you want.
+
+When I say I created it, Copilot did most of the heavy lifting actually, as it contains a lot of PowerShell forms stuff. :D You can find it [here](https://github.com/thisisevilevil/IntunePublic/blob/main/PowerShell%20Scripts/Prompt-UserReboot.ps1)
 
 ## Final words
 
-Reboots during the autopilot process has been a common painpoint for many years, but we have kinda learned to either use the workaround by assigning policies/apps to users or alternatively we simply cater to this scenario in a user/onboarding guide for windows devices to avoid confusion in regards to having to authenticate twice. 
+Reboots during the autopilot process has been a common painpoint for many years, but we have learned to either use the workaround by assigning policies/apps to users or alternatively we simply cater to this scenario in a onboarding guide to the users for windows devices to avoid confusion in regards to having to authenticate twice. It has never really been a big problem. The main issue here is how the device behaves once configured with a TAP+Web sign Policy in my book, that needs to be looked at.
 
 The workaround I described regarding turning off ESP completely might not work for everyone. For instance if you are using a 3rd party AV or you simply have a lot of apps/Dependencies you want to have installed before the user hits the desktop, then it's probably not for you. While I always encourage my customers to have a minimum amount of apps in the ESP, sometimes it cannot be avoided for various reasons.
 
