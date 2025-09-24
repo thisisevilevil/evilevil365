@@ -49,7 +49,7 @@ Some blogs and videos show this as normal. But it’s not—it’s poor user exp
 ![OtherUser](/assets/images/2025-09-26-TAP-And-Autopilot/OtherUser-2.png?raw=true "Other User - Sign in screen")
 
 D) After enrollment finishes, the user sets up Windows Hello. Problem solved? Not really. But the user is now on the desktop.  
-E) When the device is locked, after the user is on the desktop, the same issue from step C reappears. Also, Clicking the user/password button for some reason show "Username" and "PIN".
+E) When the device is locked, after the user is on the desktop, the same issue from step C reappears. Also, Clicking the PIN button for some reason shows "Username" and "PIN".
 
 The user can unlock the device either by using TAP again or by entering UPN + PIN from Windows Hello enrollment. This is **Problem #2**.  
 ![OtherUser](/assets/images/2025-09-26-TAP-And-Autopilot/OtherUser-LockScreen-1.png?raw=true "Other User - Lockscreen")  
@@ -73,7 +73,7 @@ So is there another short-term option/workaround?
 
 This feels counterintuitive. The Enrollment Status Page (ESP) is designed to make sure policies and apps are in place before the user reaches the desktop. But if you disable ESP, here’s what happens:  
 a) User signs in with TAP  
-b) Within 30–60 seconds, they’re taken to WHfB enrollment  
+b) Within 30–60 seconds, they’re taken to WHfB enrollment
 c) After WHfB enrollment, they land directly on the desktop—without Problems #1 and #2.
 
 From the user’s perspective, this is fantastic. They can start working almost immediately.  
