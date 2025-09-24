@@ -67,6 +67,8 @@ So is there another short-term option/workaround?
 
 **Turn off the ESP.**
 
+![NoESP](/assets/images/2025-09-26-TAP-And-Autopilot/NoESP.png?raw=true "Turn ESP Off")
+
 This feels counterintuitive. The Enrollment Status Page (ESP) is designed to make sure policies and apps are in place before the user reaches the desktop. But if you disable ESP, here’s what happens:  
 a) User signs in with TAP  
 b) Within 30–60 seconds, they’re taken to WHfB enrollment  
