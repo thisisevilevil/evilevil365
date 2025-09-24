@@ -1,5 +1,5 @@
 ---
-title: "Temporary Access Pass and Autopilot Trouble"
+title: "Autopilot, TAP, and the Reboot Problem"
 date: 2025-09-24
 categories:
   - Intune
