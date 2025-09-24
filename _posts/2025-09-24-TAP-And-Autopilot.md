@@ -46,8 +46,8 @@ Some blogs and videos show this as normal. But it’s not—it’s poor user exp
 ![OtherUser](/assets/images/2025-09-26-TAP-And-Autopilot/OtherUser-1.png?raw=true "Other User - Sign in screen")  
 ![OtherUser](/assets/images/2025-09-26-TAP-And-Autopilot/OtherUser-2.png?raw=true "Other User - Sign in screen")
 
-D) After enrollment finishes, the user sets up Windows Hello. Problem solved? Not really.  
-E) When the device is locked, the same issue from step C reappears. Clicking the user/password button shows "Username" and "PIN" fields.
+D) After enrollment finishes, the user sets up Windows Hello. Problem solved? Not really. But the user is now on the desktop.  
+E) When the device is locked, after the user is on the desktop, the same issue from step C reappears. Clicking the user/password button shows "Username" and "PIN" fields.
 
 The user can unlock the device either by using TAP again or by entering UPN + PIN from Windows Hello enrollment. This is **Problem #2**.  
 ![OtherUser](/assets/images/2025-09-26-TAP-And-Autopilot/OtherUser-LockScreen-1.png?raw=true "Other User - Lockscreen")  
