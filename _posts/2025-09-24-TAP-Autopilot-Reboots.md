@@ -100,7 +100,7 @@ b) An alternative option is to use a PowerShell script (run as current user) tha
  It should look like this for the end user:
  ![Appassignment](/assets/images/2025-09-26-TAP-And-Autopilot/FinishSetup-UserPrompt-Reboot.png?raw=true "Platform script to prompt for reboot")
 
-Of course I'm otherwise sure the community can figure or many different ways to nudge the user to perform a reboot
+Of course I'm otherwise sure the community can find more creative ways to nudge the user to perform a reboot
 
 ## Final words
 
