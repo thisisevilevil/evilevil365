@@ -40,7 +40,7 @@ Here’s where things get messy. If a TAP is used and the Autopilot process incl
 The flow looks like this:  
 A) User starts Autopilot enrollment with TAP  
 B) Device reboots  
-C) After reboot, the login screen shows "Other user" with a "Sign in" button. The user must press the button twice before the TAP prompt (web sign-in) appears. Alternatively, they can use **Sign-in options → globe**.
+C) After reboot, the login screen shows "Other user" with a "Sign in" button. The user must press the button twice before the TAP prompt ([web sign-in](https://learn.microsoft.com/en-us/windows/security/identity-protection/web-sign-in/?tabs=intune)) appears. Alternatively, they can use **Sign-in options → globe**.
 
 Some blogs and videos show this as normal. But it’s not—it’s poor user experience. This should be treated as a bug. Let’s call it **Problem #1**.  
 ![OtherUser](/assets/images/2025-09-26-TAP-And-Autopilot/OtherUser-1.png?raw=true "Other User - Sign in screen")  
@@ -102,7 +102,7 @@ Of course I'm otherwise sure the community can figure or many different ways to 
 
 Reboots during Autopilot have always been a pain point, but we’ve learned to work around them—either by assigning policies/apps to users or by documenting the behavior in onboarding guides so users aren’t confused by extra sign-ins.  
 
-The bigger issue today is how TAP + Web Sign-in behaves. That flow really needs attention.  
+The bigger issue today is how TAP + [Web Sign-in](https://learn.microsoft.com/en-us/windows/security/identity-protection/web-sign-in/?tabs=intune) behaves. That flow really needs attention.  
 
 Disabling ESP is a drastic workaround and won’t suit everyone—for example, if you use third-party AV or have many app dependencies. I usually recommend keeping ESP as light as possible, but sometimes you can’t avoid loading more into it.
 
