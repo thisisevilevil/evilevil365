@@ -44,7 +44,7 @@ C) This is where it gets interesting: You now get to a login screen where it say
 
 There are blog posts and youtube videos out there showing this flow as it's perfectly normal, like it's supposed to work this way. But why? It's a horrible user experience. Because this should - in my opinion - be flagged as a bug. Let's call this **Problem #1**
 ![OtherUser](/assets/images/2025-09-26-TAP-And-Autopilot/OtherUser-1.png?raw=true "Other User - Sign in screen")
-![OtherUser](/assets/images/2025-09-26-TAP-And-Autopilot/OtherUser-2?raw=true "Other User - Sign in screen")
+![OtherUser](/assets/images/2025-09-26-TAP-And-Autopilot/OtherUser-2.png?raw=true "Other User - Sign in screen")
 
 D) Once the enrollment is finished, the user can finally setup Windows Hello. And then all of our problems are resolved, right? No. Wrong.
 E) When the user locks the screen, they will then again be faced with the same screen as in C). But here it gets even more interesting. If the user/password button is pressed, it will say "Username" and "PIN". Wonky, right?
