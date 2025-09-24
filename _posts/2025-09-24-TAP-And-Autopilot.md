@@ -51,7 +51,7 @@ E) When the device is locked, after the user is on the desktop, the same issue f
 
 The user can unlock the device either by using TAP again or by entering UPN + PIN from Windows Hello enrollment. This is **Problem #2**.  
 ![OtherUser](/assets/images/2025-09-26-TAP-And-Autopilot/OtherUser-LockScreen-1.png?raw=true "Other User - Lockscreen")  
-![OtherUser](/assets/images/2025-09-26-TAP-And-Autopilot/OtherUser-LockScreen-2.png?raw=true "Other User - Lockscreen")
+![OtherUser](/assets/images/2025-09-26-TAP-And-Autopilot/OtherUser-LockScreen-UserPass.png?raw=true "Other User - Lockscreen")
 
 I raised this with Microsoft. They were aware of the workaround (assigning reboot-causing apps/policies to users), but advised against relying on it since reboots can never be fully eliminated. Future platform changes could introduce new reboots at any point.  
 
