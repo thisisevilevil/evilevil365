@@ -18,7 +18,7 @@ You’ll also find many blog posts about TAP. Some are great, while others lack 
 
 So what’s the fuss about?
 
-![Confused](/assets/images/2025-09-26-TAP-And-Autopilot/Confuseduser.png?raw=true "Confused User")
+![Confused](/assets/images/2025-09-26-TAP-And-Autopilot/ConfusedUser.png?raw=true "Confused User")
 
 ## Autopilot enrollment and (un)expected reboots
 
