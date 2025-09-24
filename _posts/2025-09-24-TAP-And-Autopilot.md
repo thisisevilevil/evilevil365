@@ -1,5 +1,5 @@
 ---
-title: "Temporary Access Pass and Autopilot"
+title: "Temporary Access Pass and Autopilot Trouble"
 date: 2025-09-24
 categories:
   - Intune
