@@ -25,7 +25,7 @@ So what’s the fuss about?
 This has been known in the community for years, but here’s a quick recap:
 
 * During Autopilot enrollment, if a reboot occurs, the cached user token is lost. This forces the user to sign in again, often with additional MFA prompts/Sign-in, before they can set up Windows Hello for Business (WHfB).
-* Common policies that cause reboots include Windows Update, Security Baseline, Device Control policies, and AppLocker. Rudy Ooms has a great post explaining how to pinpoint which policies triggered a reboot—[read it here](https://patchmypc.com/blog/autopilot-unexpected-reboot-what-really-triggers-a-device-restart-and-how-to-fix-it/).
+* Common policies that cause reboots include Windows Update, Security Baseline, Device Control policies, and AppLocker. Rudy Ooms has a great post explaining how to pinpoint which policies triggered a reboot—[read it here](https://patchmypc.com/blog/autopilot-unexpected-reboot-what-really-triggers-a-device-restart-and-how-to-fix-it/). Alternatively you can also check out [these docs from Microsoft](https://patchmypc.com/blog/web-sign-in-tap-missing-after-autopilot-pre-provisioning/)
 * A known workaround is assigning reboot-causing apps or policies to user groups instead of device groups. For apps, you can also disable mandatory reboots.
 
 This helps, but avoiding reboots entirely has side effects:
