@@ -1,6 +1,6 @@
 ---
 title: "Temporary Access Pass and Autopilot"
-date: 2025-09-25
+date: 2025-09-24
 categories:
   - Intune
 tags:
