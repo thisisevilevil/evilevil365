@@ -56,7 +56,7 @@ The user can unlock the device either by using TAP again or by entering UPN + PI
 ![OtherUser](/assets/images/2025-09-26-TAP-And-Autopilot/OtherUser-LockScreen-1.png?raw=true "Other User - Lockscreen")  
 ![OtherUser](/assets/images/2025-09-26-TAP-And-Autopilot/OtherUser-LockScreen-UserPass.png?raw=true "Other User - Lockscreen")
 
-I raised this with Microsoft. They were aware of the workaround (assigning reboot-causing apps/policies to users), but advised against relying on it since reboots can never be fully eliminated. Future platform changes could introduce new reboots at any point.
+I raised this with someone at Microsoft. They were aware of the workaround (assigning reboot-causing apps/policies to users), but advised against relying on it since reboots can never be fully eliminated. Future platform changes could introduce new reboots at any point.
 
 What surprised me was their explanation of **Problem #2**: The user actually didn't sign in with windows hello, even when it's configured in this scenario, so it is not active, which explains the odd sign-in screen after device has been locked.
 
