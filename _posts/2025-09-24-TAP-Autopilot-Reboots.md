@@ -107,7 +107,7 @@ Of course I'm otherwise sure the community can find more creative ways to nudge 
 
 Reboots during Autopilot have always been a pain point, but we’ve learned to work around them—either by assigning policies/apps to users or by documenting the behavior in onboarding guides so users aren’t confused by extra sign-ins.  
 
-The bigger issue today is how TAP + [Web Sign-in](https://learn.microsoft.com/en-us/windows/security/identity-protection/web-sign-in/?tabs=intune) behaves. That flow really needs attention.  
+The bigger issue today is how TAP + [Web Sign-in](https://learn.microsoft.com/en-us/windows/security/identity-protection/web-sign-in/?tabs=intune) behaves during an autopilot enrollment with reboots. That flow really needs attention.  
 
 Disabling ESP is a drastic workaround and won’t suit everyone—for example, if you use third-party AV or have many app dependencies. I usually recommend keeping ESP as light as possible, but sometimes you can’t avoid loading more into it.
 
