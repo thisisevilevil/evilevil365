@@ -109,6 +109,6 @@ Reboots during Autopilot have always been a pain point, but we’ve learned to w
 
 The bigger issue today is how TAP + [Web Sign-in](https://learn.microsoft.com/en-us/windows/security/identity-protection/web-sign-in/?tabs=intune) behaves during an autopilot enrollment with reboots. That flow really needs attention.  
 
-Disabling ESP is a drastic workaround and won’t suit everyone—for example, if you use third-party AV or have many app dependencies. I usually recommend keeping ESP as light as possible, but sometimes you can’t avoid loading more into it.
+Disabling ESP is a drastic workaround and won’t suit everyone—for example, if you use third-party AV or have many app dependencies. I usually recommend keeping ESP as light as possible, but sometimes you can’t avoid adding a few apps in the ESP due to requirements from the business.
 
 I hope this helped. Have an awesome day :)
