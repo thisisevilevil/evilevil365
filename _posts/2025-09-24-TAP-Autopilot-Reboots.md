@@ -42,6 +42,7 @@ Here’s where things get messy. If a TAP is used and the Autopilot process incl
 The flow looks like this:  
 A) User starts Autopilot enrollment with TAP  
 B) Device reboots in the device setup phase
+
 C) After reboot, the login screen shows "Other user" with a "Sign in" button. The user must press the button twice before the TAP prompt ([web sign-in](https://learn.microsoft.com/en-us/windows/security/identity-protection/web-sign-in/?tabs=intune)) appears. Alternatively, they can use **Sign-in options → globe**.
 
 Some blogs and videos show this as normal. But it’s not—it’s poor user experience. This should be treated as a bug. Let’s call it **Problem #1**.  
