@@ -77,4 +77,12 @@ For onboarding to work smoothly, I strongly recommend you perform the following 
 in the vPro portal, it should say "Cira Connected" and "Power on" with green lights, once it's onboarded, like shown below:
 ![IntelvPro](/assets/images/2025-10-10-IntelvPro-Intune-Integration/IntelvPro-Portal-DeviceConfigured-1.png?raw=true "Intel vPro Intune Portal Integration")
 
+## Final words
+
+Intel AMT has historically been a pain to configure, manage and maintain, but with this new portal and the integration with Intune and Entra, things are really starting to look good. Intel AMT and the remote capabilities it provide can be a huge help in scenarios where the OS is not booting for whatever reason, allowing IT to still take control over the device even though it's not in the operating system. The unattended access feature will also be a great help as an alternative to teamviewer or other remote support tools.
+
+A lot of companies already purchase vPro devices, but they are not using the functionality. Some might also have a split estate where some devices is vPro capable and some might not be capable.
+
+With this new portal and integration we now have a streamlined and simple approach to get devices onboarded and configure to Intel vPro and AMT, which is super awesome!
+
 
