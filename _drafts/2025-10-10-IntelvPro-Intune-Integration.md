@@ -60,6 +60,8 @@ Once the package is ready, you can start rolling this out to your vPro-ready dev
 
 Once the device gets the package installed, it will automatically onboard itself into the Intel vPro portal.
 
+## Onboarding and troubleshooting tips
+
 For onboarding to work smoothly, I strongly recommend you perform the following steps before you try and onboard a device:
 
 1) Ensure BIOS and Intel iCLS driver is fully up to date. If you are running a really old version not only is it most likely vulnerable but functionality might be limited. Always stay up-to-date.
