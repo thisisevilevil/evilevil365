@@ -84,5 +84,3 @@ Intel AMT has historically been a pain to configure, manage and maintain, but wi
 A lot of companies already purchase vPro devices, but they are not using the functionality. Some might also have a split estate where some devices is vPro capable and some might not be capable.
 
 With this new portal and integration we now have a streamlined and simple approach to get devices onboarded and configure to Intel vPro and AMT, which is super awesome!
-
-
