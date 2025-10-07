@@ -64,12 +64,17 @@ Once the device gets the package installed, it will automatically onboard itself
 
 For onboarding to work smoothly, I strongly recommend you perform the following steps before you try and onboard a device:
 
-1) Ensure BIOS and Intel iCLS driver is fully up to date. If you are running a really old version not only is it most likely vulnerable but functionality might be limited. Always stay up-to-date.
+1) Ensure BIOS and Intel iCLS driver is fully up to date. If you are running a really old version not only is it most likely vulnerable but functionality might also be limited. Always stay up-to-date with Drivers/BIOS from your OEM.
 2) Make sure your device is vPro-capable. It is possible to onboard devices that is not vPro capable, but they will never connect. <Note to self <PowerShell script requirement script/check to prevent installation of agent??>
-3) If your device is not connecting you can check the following:
+3) Ensure the device is connected to Ethernet or WiFi. However be aware that 802.1x (Connections via Certificate) is currently not supported. Support for this, will be added at a later stage.
+4) If your device is not connecting you can check the following:
 
 * Verify Intel MEBx is enabled in the BIOS. If you have previously tinkered with it, you might need to unprovision it. Most OEMs should ship it in an Unprovisioned state, allowing it to seamlessly onboard, once the onboarding package is deployed to the device
 * Open the Intel Management and security app on the device and check the status. It should look similar to below if everything is working as expected
 ![IntelvPro](/assets/images/2025-10-10-IntelvPro-Intune-Integration/IntelME_Configured_1.png?raw=true "Intel vPro Intune Portal Integration")
 ![IntelvPro](/assets/images/2025-10-10-IntelvPro-Intune-Integration/IntelME_Configured_2.png?raw=true "Intel vPro Intune Portal Integration")
+
+in the vPro portal, it should say "Cira Connected" and "Power on" with green lights, once it's onboarded, like shown below:
+![IntelvPro](/assets/images/2025-10-10-IntelvPro-Intune-Integration/IntelvPro-Portal-DeviceConfigured-1.png?raw=true "Intel vPro Intune Portal Integration")
+
 
