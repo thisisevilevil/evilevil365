@@ -48,7 +48,8 @@ Some quick gotchas regarding the Intel vPro portal:
 Onboarding devices to Intel vPro is super simple in the new setup flow:
 
 1. Configure an endpoint group or use the default endpoint group—each endpoint group requires its own onboarding package/application.  
-2. On the right-hand side, open the dropdown menu under **Actions** and select **Download agent files**. 
+2. On the right-hand side, open the dropdown menu under **Actions** and select **Download agent files**.
+
 ![IntelvPro](/assets/images/2025-10-10-IntelvPro-Intune-Integration/DownloadeAgentFiles.png?raw=true "Download agent files") 
 
 3. Download both files and create an Intune package using the Intune Content Prep Tool. Do not rename the files, and keep both files in the same folder when creating the `.intunewin` file.  
