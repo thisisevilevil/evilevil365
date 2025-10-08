@@ -41,7 +41,7 @@ Some quick gotchas regarding the Intel vPro portal:
 
 > **NOTE:** If you’ve signed up for Entra ID integration, make sure the “Email” attribute is populated for the users you’re trying to onboard. Otherwise, SSO will not work, and you’ll see an error message in the Intel vPro portal when signing in. Intel is working on migrating to using the UPN instead of the Email attribute, as it’s common for admin accounts to have a blank email field in Entra.
 
-4. Currently, it’s only possible to provision devices in what’s referred to as **Client Control Mode (CCM)**. If you want to remotely take over a device via the portal, the end user will need to provide a code—similar to Quick Assist or Remote Help. However, in the near future, we’ll get the option to provision devices in **Admin Control Mode (ACM)** with this new portal. This mode is ideal for factory areas, retail spaces, or kiosk environments where unattended access is required. Devices in ACM allow IT to take control without requiring user consent.
+4. Currently, it’s only possible to provision devices in what’s referred to as **Client Control Mode (CCM)**. If you want to remotely take over a device via the portal, the end user will need to provide a code to the IT Admin—similar to Quick Assist or Remote Help. However, in the near future, we’ll get the option to provision devices in **Admin Control Mode (ACM)** with this new portal. This mode is ideal for factory areas, retail spaces, or kiosk environments where unattended access is required. Devices in ACM allow IT to take control without requiring user consent.
 
 ### Onboarding devices to vPro
 
