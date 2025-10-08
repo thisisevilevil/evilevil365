@@ -69,6 +69,7 @@ Once the package is ready, you can start rolling it out to your vPro-ready devic
 Once the package is installed, the device will automatically onboard itself into the Intel vPro portal.
 
 If everything works correctly, you will now be able to remotely power on, powercycle and remotely access the device amongst other things.
+
 ![IntelvPro](/assets/images/2025-10-10-IntelvPro-Intune-Integration/IntelvPro-DeviceActions-1.png?raw=true "Intel vPro Intune Portal Integration")
 ![IntelvPro](/assets/images/2025-10-10-IntelvPro-Intune-Integration/IntelvPro-DeviceActions-2.png?raw=true "Intel vPro Intune Portal Integration")
 
