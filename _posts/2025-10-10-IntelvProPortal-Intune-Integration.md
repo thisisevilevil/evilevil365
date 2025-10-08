@@ -25,6 +25,8 @@ In other words: if organizations had these capabilities when the CrowdStrike deb
 I exchanged a few emails and calls with the good folks at Intel supporting this new Intel vPro portal. They helped me set up my tenant and troubleshoot a few issues I encountered.  
 Let’s take a look at how to configure Intel AMT with these new tools from Microsoft and Intel, while also gaining some insight into the direction this product is heading in the near future.
 
+![IntelvPro](/assets/images/2025-10-10-IntelvPro-Intune-Integration/Thumbnail.png?raw=true "Thumbnail")
+
 ## Configuring Intel vPro with Intune integration
 
 Microsoft recently announced Intel vPro Portal integration in Intune. [Released on September 15, 2025, for Intune service release 2509](https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/whats-new#intel-vpro-fleet-services-integration-in-intune-partner-portal-), this feature allows you to integrate your Intune tenant with the [Intel vPro portal](https://vprofleet.intel.com/).
