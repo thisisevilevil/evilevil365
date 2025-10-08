@@ -64,7 +64,7 @@ If everything works correctly, you will now be able to remotely power on, powerc
 
 There can be various causes to lack of connectivity to CIRA, so here is a few tips/tricks to make sure the device will always be able to connect:
 
-1. Ensure BIOS and Intel iCLS drivers are fully up to date. If you’re running a very old version, it’s likely vulnerable and may not work correctly. Always stay up to date with drivers and BIOS updates from your OEM.  
+1. Ensure BIOS and Intel Management Engine drivers are fully up to date. If you’re running a very old version, it’s likely vulnerable and may not work correctly. Always stay up to date with drivers and BIOS updates from your OEM.  
 2. Make sure your device is vPro-capable. It’s possible to onboard devices that aren’t vPro-capable, but they’ll never connect.  
    > _Note to self:_ PowerShell script requirement check to prevent installation of the agent on unsupported devices? Ask intel for PowerShell script 
 3. Ensure the device is connected via Ethernet or Wi-Fi. However, be aware that **802.1x connections (certificate-based authentication)** are currently not supported. Support for this will be added later.
