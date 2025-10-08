@@ -10,7 +10,7 @@ tags:
   - Intel CIRA
 ---
 
-Intel vPro and Intel AMT (Active Management Technology) are probably some of the most overlooked features in enterprises. It also seems like many companies purchase Intel vPro–capable devices without actually activating or using the features. Why is that? A combination of lack of awareness, lack of documentation, complexity—and perhaps a hint of paranoia due to some old articles suggesting that the CIA, NSA, and even aliens from outer space have backdoors into Intel AMT.
+Intel vPro and Intel AMT (Active Management Technology) are probably some of the most overlooked features in enterprises. It also seems like many companies purchase Intel vPro–capable devices without actually activating or using the features. Why is that? A combination of lack of awareness, lack of documentation, complexity—and perhaps a hint of paranoia due to some old articles suggesting that the CIA, NSA, and aliens from outer space have backdoors into Intel AMT.
 
 I helped configure Intel AMT in a retail environment some years back, but that was before any cloud functionality existed, so we maintained an Excel sheet with the IPs, users, and passwords for each workstation. That was fun (not really…). Over the years, the tools to configure Intel AMT have had many names and variations: Intel ACU, Intel SCS, and Intel EMA. Don’t be surprised if you hear about those. Many companies already purchase vPro-capable devices, but they’re not using the functionality. Some might also have a split estate where some devices are vPro-capable and others are not.
 
