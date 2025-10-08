@@ -12,7 +12,7 @@ tags:
 
 Intel vPro and Intel AMT (Active Management Technology) is probably one of the most overlooked features in enterprises. It also seems like a lot of companies purchase Intel vProenterprise devices but without actually activating and using the features. Why is that? A combination Lack of awareness, lack of documentation, complexity and with a hint of paranoia because of some old articles suggesting CIA, NSA and aliens from outer space have backdoors into Intel AMT.
 
-I helped configure Intel AMT in a retail environment some years back, but that was before there were any cloud functionality, so we maintained an excel sheet with the IP, User and passwords for each workstation. That was fun (not really..). Also the tools to configure Intel AMT over the years have had many names and variations. Intel ACU, Intel SCS and Intel EMA, don't be surprised if you hear about those.
+I helped configure Intel AMT in a retail environment some years back, but that was before there were any cloud functionality, so we maintained an excel sheet with the IP, User and passwords for each workstation. That was fun (not really..). Also the tools to configure Intel AMT over the years have had many names and variations. Intel ACU, Intel SCS and Intel EMA, don't be surprised if you hear about those. A lot of companies already purchase vPro-capable devices, but they are not using the functionality. Some might also have a split estate where some devices is vPro capable and some might not be capable.
 
 But let's pause here for a second, and look at what Intel vPro and Intel AMT actually is.
 
@@ -45,7 +45,7 @@ Some quick goctha's regarding the Intel vPro portal:
 
 >NOTE: If you have signed up for EntraID Integration make sure the "Email" attribute is populated for your users you are trying to onboard, otherwise SSO will not work, and you will face an error message in the Intel vPro portal when trying to sign in. Intel is working on migrating to using UPN instead of email attributes, as it's quite common for admin accounts to have a blank Email attribute in entra.
 
-4) Right now, it's only possible to provision devices in what's referred to as User Consent Mode. If you want to remotely take over the device via the portal, the end-user on the other end will need to provide you a code, much like Quick Assist and Remote Help. However, in the not so distant future, we will get the option to provision device in Admin Controlled Mode (ACM) with this new portal. This could be in factory areas or retail spaces, or kiosk areas where unattended access is required, since the device is not a personally owned device. Devices in ACM, allows IT to take control of the device without requiring consent of the user logged on to the device
+4) Right now, It's only possible to provision devices in what's referred to as Client Control Mode/Consent Control Mode (CCM). If you want to remotely take over the device via the portal, the end-user on the other end will need to provide you a code, much like Quick Assist and Remote Help. However, in the not so distant future, we will get the option to provision device in Admin Controlled Mode (ACM) with this new portal. This could be in factory areas or retail spaces, or kiosk areas where unattended access is required, since the device is not a personally owned device. Devices in ACM, allows IT to take control of the device without requiring consent of the user logged on to the device
 
 ### Onboarding devices to vPro
 
@@ -79,8 +79,6 @@ in the vPro portal, it should say "Cira Connected" and "Power on" with green lig
 
 ## Final words
 
-Intel AMT has historically been a pain to configure, manage and maintain, but with this new portal and the integration with Intune and Entra, things are really starting to look good. Intel AMT and the remote capabilities it provide can be a huge help in scenarios where the OS is not booting for whatever reason, allowing IT to still take control over the device even though it's not in the operating system. The unattended access feature will also be a great help as an alternative to teamviewer or other remote support tools.
-
-A lot of companies already purchase vPro devices, but they are not using the functionality. Some might also have a split estate where some devices is vPro capable and some might not be capable.
+Intel AMT has historically been a pain to configure, manage and maintain, but with this new portal and the integration with Intune and Entra, things are really starting to look good. Intel AMT and the remote capabilities it provides can be a huge help in scenarios where the OS is not booting, allowing IT to still take control over the device even though it's not in the operating system. The unattended access feature will also be a great help as an alternative to teamviewer or other remote support tools, once that gets released.
 
 With this new portal and integration we now have a streamlined and simple approach to get devices onboarded and configure to Intel vPro and AMT, which is super awesome!
