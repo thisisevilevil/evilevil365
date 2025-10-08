@@ -17,7 +17,7 @@ I helped configure Intel AMT in a retail environment some years back, but that w
 But let’s pause for a second and look at what Intel vPro and Intel AMT actually are:
 
 * **A business-centric PC platform** providing enhanced hardware-based security, remote manageability, and business-grade performance.
-* **Remote Management (Intel® AMT):** Allows IT staff to remotely monitor, diagnose, and resolve issues on computers—regardless of their location or whether the operating system is running.
+* **Remote Management (Intel® AMT):** Allows IT staff to remotely monitor, diagnose, and resolve issues on computers—regardless of their location or whether the operating system is running. For the server people out there, think of this like a miniature version of HPE iLO or Dell iDRAC.
 * **Hardware-Enhanced Security:** Provides multilayered security features built into the hardware to protect against malware, safeguard user credentials, and secure data—even at the firmware level.
 
 In other words: if organizations had these capabilities when the CrowdStrike debacle ensued, they would have been much better off recovering their devices remotely.
