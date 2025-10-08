@@ -55,6 +55,10 @@ Onboarding devices to Intel vPro is super simple in the new setup flow:
 3. Download both files and create an Intune package using the Intune Content Prep Tool. Do not rename the files, and keep both files in the same folder when creating the `.intunewin` file.  
 4. Finally, upload the app to Intune as a Win32 app. The default install/uninstall commands are prepopulated, and you can use the default MSI detection method as well.
 
+I created a PowerShell script based on some Intel-sample scripts, you can use as a custom requirement script, that ensures only targeting Intel vPro-capable devices. This will prevent devices that are not vPro capable to be onboarded in the Intel vPro portal. You can download the script from my github [here](https://github.com/thisisevilevil/IntunePublic/blob/main/PowerShell%20Scripts/CSME-DiscoverySmbios-Mads.ps1)
+When you are create the Win32 app, under the requirement section, you can add a script requirement. Output data type: Integer - Operator: Equals - Value: 1
+![IntelvPro](/assets/images/2025-10-10-IntelvPro-Intune-Integration/CustomRequirement-Script.png?raw=true "Requirement script for Win32 app")
+
 Once the package is ready, you can start rolling it out to your vPro-ready devices. As always, test on a few devices first before rolling it out broadly. Also consider how you group your devices into Endpoint Groups. Endpoint Groups are important if you want to limit who can perform remote actions and take control of devices—assigning specific endpoint groups to specific IT admins.
 
 Once the package is installed, the device will automatically onboard itself into the Intel vPro portal.
@@ -70,8 +74,6 @@ There can be various causes to lack of connectivity to Cira, so here is a few ti
 1. Ensure BIOS and Intel Management Engine drivers are fully up to date. If you’re running a very old version, it’s likely vulnerable and may not work correctly. Always stay up to date with drivers and BIOS updates from your OEM.  
 2. Make sure your device is vPro-capable. It’s possible to onboard devices that aren’t vPro-capable, but they’ll never connect. The **Intel Management and Security** app in Windows will also look empty, since either vPro is not supported or Intel MEBx is disabled in BIOS.
 ![IntelvPro](/assets/images/2025-10-10-IntelvPro-Intune-Integration/IntelMEApp-vPro-notsupported.png?raw=true "Intel ME - vPro not supported")
-
-   > _Note to self:_ PowerShell script requirement check to prevent installation of the agent on unsupported devices? Ask intel for PowerShell script 
 3. Ensure the device is connected via Ethernet or Wi-Fi. However, be aware that **802.1x connections (certificate-based authentication)** are currently not supported. Support for this will be added later.
 4. If your device is is hibernating or gone to sleep, it's likely you will not be able to connect to the device remotely or perform any power actions. This is partially due to the fact that we want to prevent powering on devices that it's a bag, to prevent overheating. If you are managing a factory floor or kiosk devices, I recommend disabling sleep to retain connectivity towards AMT.
 5. If your device isn’t connecting, check the following:
