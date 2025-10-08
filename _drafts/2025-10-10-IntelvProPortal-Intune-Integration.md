@@ -65,7 +65,9 @@ If everything works correctly, you will now be able to remotely power on, powerc
 There can be various causes to lack of connectivity to CIRA, so here is a few tips/tricks to make sure the device will always be able to connect:
 
 1. Ensure BIOS and Intel Management Engine drivers are fully up to date. If you’re running a very old version, it’s likely vulnerable and may not work correctly. Always stay up to date with drivers and BIOS updates from your OEM.  
-2. Make sure your device is vPro-capable. It’s possible to onboard devices that aren’t vPro-capable, but they’ll never connect.  
+2. Make sure your device is vPro-capable. It’s possible to onboard devices that aren’t vPro-capable, but they’ll never connect. The **Intel Management and Security** app in Windows will also look empty, since either vPro is not supported or Intel MEBx is disabled in BIOS.
+![IntelvPro](/assets/images/2025-10-10-IntelvPro-Intune-Integration/IntelMEApp-vPro-notsupported.png?raw=true "Intel ME - vPro not supported")
+
    > _Note to self:_ PowerShell script requirement check to prevent installation of the agent on unsupported devices? Ask intel for PowerShell script 
 3. Ensure the device is connected via Ethernet or Wi-Fi. However, be aware that **802.1x connections (certificate-based authentication)** are currently not supported. Support for this will be added later.
 4. If your device is is hibernating or gone to sleep, it's likely you will not be able to connect to the device remotely or perform any power actions. This is partially due to the fact that we want to prevent powering on devices that it's a bag, to prevent overheating. If you are managing a factory floor or kiosk devices, I recommend disabling sleep to retain connectivity towards AMT.
