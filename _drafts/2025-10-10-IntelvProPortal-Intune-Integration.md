@@ -56,7 +56,7 @@ Onboarding devices to Intel vPro is super simple in the new setup flow:
 4. Finally, upload the app to Intune as a Win32 app. The default install/uninstall commands are prepopulated, and you can use the default MSI detection method as well.
 
 I created a PowerShell script based on some Intel-sample scripts, you can use as a custom requirement script, that ensures only targeting Intel vPro-capable devices. This will prevent devices that are not vPro capable to be onboarded in the Intel vPro portal. You can download the script from my github [here](https://github.com/thisisevilevil/IntunePublic/blob/main/PowerShell%20Scripts/CSME-DiscoverySmbios-Mads.ps1)
-When you are create the Win32 app, under the requirement section, you can add a script requirement. Output data type: Integer - Operator: Equals - Value: 1
+When you are create the Win32 app, under the requirement section, you can add a script requirement. **Output data type: Integer** - **Operator: Equals** - **Value: 1**
 
 ![IntelvPro](/assets/images/2025-10-10-IntelvPro-Intune-Integration/CustomRequirement-Script.png?raw=true "Requirement script for Win32 app")
 
