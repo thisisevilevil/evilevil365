@@ -1,6 +1,6 @@
 ---
 title: "Intel vPro Integration with Intune"
-date: 2025-10-14
+date: 2025-10-08
 categories:
   - Intune
 tags:
