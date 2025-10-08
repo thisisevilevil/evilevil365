@@ -50,7 +50,7 @@ Onboarding devices to Intel vPro is super simple in the new setup flow:
 1. Configure an endpoint group or use the default endpoint group—each endpoint group requires its own onboarding package/application.  
 2. On the right-hand side, open the dropdown menu under **Actions** and select **Download agent files**.
 
-![IntelvPro](/assets/images/2025-10-10-IntelvPro-Intune-Integration/DownloadeAgentFiles.png?raw=true "Download agent files") 
+![IntelvPro](/assets/images/2025-10-10-IntelvPro-Intune-Integration/DownloadeAgentFiles.png?raw=true "Download agent files")
 
 3. Download both files and create an Intune package using the Intune Content Prep Tool. Do not rename the files, and keep both files in the same folder when creating the `.intunewin` file.  
 4. Finally, upload the app to Intune as a Win32 app. The default install/uninstall commands are prepopulated, and you can use the default MSI detection method as well.
@@ -81,7 +81,7 @@ There can be various causes to lack of connectivity to Cira, so here is a few ti
 ![IntelvPro](/assets/images/2025-10-10-IntelvPro-Intune-Integration/IntelME_Configured_1.png?raw=true "Intel vPro Intune Portal Integration")  
 ![IntelvPro](/assets/images/2025-10-10-IntelvPro-Intune-Integration/IntelME_Configured_2.png?raw=true "Intel vPro Intune Portal Integration")
 
-In the vPro portal, it should show **“CIRA Connected”** and **“Power On”** with green indicators once it’s onboarded, as shown below:  
+In the vPro portal, it should show **“Cira Connected”** and **“Power On”** with green indicators once it’s onboarded, as shown below:  
 ![IntelvPro](/assets/images/2025-10-10-IntelvPro-Intune-Integration/IntelvPro-Portal-DeviceConfigured-1.png?raw=true "Intel vPro Intune Portal Integration")
 
 ## Final words
