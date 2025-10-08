@@ -7,7 +7,7 @@ tags:
   - Intel vPro
   - vPro Integration Intune
   - Intel AMT
-  - Intel CIRA
+  - Intel Cira
 ---
 
 Intel vPro and Intel AMT (Active Management Technology) are probably some of the most overlooked features in enterprises. It also seems like many companies purchase Intel vPro–capable devices without actually activating or using the features. Why is that? A combination of lack of awareness, lack of documentation, complexity—and perhaps a hint of paranoia due to some old articles suggesting that the CIA, NSA, and aliens from outer space have backdoors into Intel AMT.
@@ -64,7 +64,7 @@ If everything works correctly, you will now be able to remotely power on, powerc
 
 ## Onboarding and troubleshooting tips
 
-There can be various causes to lack of connectivity to CIRA, so here is a few tips/tricks to make sure the device will always be able to connect:
+There can be various causes to lack of connectivity to Cira, so here is a few tips/tricks to make sure the device will always be able to connect:
 
 1. Ensure BIOS and Intel Management Engine drivers are fully up to date. If you’re running a very old version, it’s likely vulnerable and may not work correctly. Always stay up to date with drivers and BIOS updates from your OEM.  
 2. Make sure your device is vPro-capable. It’s possible to onboard devices that aren’t vPro-capable, but they’ll never connect. The **Intel Management and Security** app in Windows will also look empty, since either vPro is not supported or Intel MEBx is disabled in BIOS.
