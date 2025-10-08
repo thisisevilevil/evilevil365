@@ -57,13 +57,12 @@ Once the package is ready, you can start rolling it out to your vPro-ready devic
 Once the package is installed, the device will automatically onboard itself into the Intel vPro portal.
 
 If everything works correctly, you will now be able to remotely power on, powercycle and remotely access the device amongst other things.
-![IntelvPro](/assets/images/2025-10-10-IntelvPro-Intune-Integration/IntelvPro-Portal-DeviceConfigured-1.png?raw=true "Intel vPro Intune Portal Integration")
 ![IntelvPro](/assets/images/2025-10-10-IntelvPro-Intune-Integration/IntelvPro-DeviceActions-1.png?raw=true "Intel vPro Intune Portal Integration")
 ![IntelvPro](/assets/images/2025-10-10-IntelvPro-Intune-Integration/IntelvPro-DeviceActions-2.png?raw=true "Intel vPro Intune Portal Integration")
 
 ## Onboarding and troubleshooting tips
 
-For onboarding to work smoothly, I strongly recommend performing the following steps before attempting to onboard a device:
+There can be various causes to lack of connectivity to CIRA, so here is a few tips/tricks to make sure the device will always be able to connect:
 
 1. Ensure BIOS and Intel iCLS drivers are fully up to date. If you’re running a very old version, it’s likely vulnerable and may not work correctly. Always stay up to date with drivers and BIOS updates from your OEM.  
 2. Make sure your device is vPro-capable. It’s possible to onboard devices that aren’t vPro-capable, but they’ll never connect.  
