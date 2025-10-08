@@ -56,6 +56,11 @@ Once the package is ready, you can start rolling it out to your vPro-ready devic
 
 Once the package is installed, the device will automatically onboard itself into the Intel vPro portal.
 
+If everything works correctly, you will now be able to remotely power on, powercycle and remotely access the device amongst other things.
+![IntelvPro](/assets/images/2025-10-10-IntelvPro-Intune-Integration/IntelvPro-Portal-DeviceConfigured-1.png?raw=true "Intel vPro Intune Portal Integration")
+![IntelvPro](/assets/images/2025-10-10-IntelvPro-Intune-Integration/IntelvPro-DeviceActions-1.png?raw=true "Intel vPro Intune Portal Integration")
+![IntelvPro](/assets/images/2025-10-10-IntelvPro-Intune-Integration/IntelvPro-DeviceActions-2.png?raw=true "Intel vPro Intune Portal Integration")
+
 ## Onboarding and troubleshooting tips
 
 For onboarding to work smoothly, I strongly recommend performing the following steps before attempting to onboard a device:
@@ -63,8 +68,9 @@ For onboarding to work smoothly, I strongly recommend performing the following s
 1. Ensure BIOS and Intel iCLS drivers are fully up to date. If you’re running a very old version, it’s likely vulnerable and may not work correctly. Always stay up to date with drivers and BIOS updates from your OEM.  
 2. Make sure your device is vPro-capable. It’s possible to onboard devices that aren’t vPro-capable, but they’ll never connect.  
    > _Note to self:_ PowerShell script requirement check to prevent installation of the agent on unsupported devices? Ask intel for PowerShell script 
-3. Ensure the device is connected via Ethernet or Wi-Fi. However, be aware that **802.1x connections (certificate-based authentication)** are currently not supported. Support for this will be added later.  
-4. If your device isn’t connecting, check the following:
+3. Ensure the device is connected via Ethernet or Wi-Fi. However, be aware that **802.1x connections (certificate-based authentication)** are currently not supported. Support for this will be added later.
+4. If your device is is hibernating or gone to sleep, it's likely you will not be able to connect to the device remotely or perform any power actions. This is partially due to the fact that we want to prevent powering on devices that it's a bag, to prevent overheating. If you are managing a factory floor or kiosk devices, I recommend disabling sleep to retain connectivity towards AMT.
+5. If your device isn’t connecting, check the following:
    * Verify Intel MEBx is enabled in the BIOS. If you’ve previously modified it, you might need to unprovision it. Most OEMs ship devices in an unprovisioned state, allowing them to seamlessly onboard once the package is deployed.  
    * Open the **Intel Management and Security** app on the device and check the status. It should look similar to the examples below if everything is working as expected.
 
