@@ -8,13 +8,13 @@ tags:
   - Certificate expiry
 ---
 
->**UPDATE, 3rd of September 2025**: Some sources cite that all devices onboarded in [autopatch](https://learn.microsoft.com/en-us/windows/deployment/windows-autopatch/overview/windows-autopatch-overview) is automatically enrolled into the secure boot rollout, thus deploying the reg key is not necessary - But it's currently unclear. I'm chasing Microsoft for an official response and clarification regarding the scope/impact of setting the registry key mentioned in Requirement #2, if this is in fact necessary.
-
->**UPDATE, 4th of September 2025**: Initial response from Microsoft suggests that if you are using autopatch, you do **not** have to set the registry key as outlined in Requirement #2. It's still being clarified. Will update this blog post once I know more.
+>**UPDATE, 21st of October 2025**: Updated documentation has now been released, you can find it [here](https://support.microsoft.com/en-us/topic/registry-key-updates-for-secure-boot-windows-devices-with-it-managed-updates-a7be69c9-4634-42e1-9ca1-df06f43f360d) - However, it's unclear if autopatch devices is automatically included, this still remains an open question. For now, it seems like it's opt-in, so only if the reg keys to opt in is set, the device will be included in the automatic rollout. They also seem to have changed the location+value of the reg key required to participate in the automatic rollout managed by Microsoft. I have updated the script with the new location+value.
 
 >**UPDATE, 7th of September 2025**: In a new response from Microsoft they have let us know that a more detailed blog post, documentation and FAQ is on the way. ETA is 2-3 weeks. They also underlined the staged rollout will be intentionally slow, due to the risks involved.
 
->**UPDATE, 21st of October 2025**: Updated documentation has now been released, you can find it [here](https://support.microsoft.com/en-us/topic/registry-key-updates-for-secure-boot-windows-devices-with-it-managed-updates-a7be69c9-4634-42e1-9ca1-df06f43f360d) - However, it's unclear if autopatch devices is automatically included, this still remains an open question. For now, it seems like it's opt-in, so only if the reg keys to opt in is set, the device will be included in the automatic rollout. They also seem to have changed the location+value of the reg key required to participate in the automatic rollout managed by Microsoft. I have updated the script with the new location+value.
+>**UPDATE, 4th of September 2025**: Initial response from Microsoft suggests that if you are using autopatch, you do **not** have to set the registry key as outlined in Requirement #2. It's still being clarified. Will update this blog post once I know more.
+
+>**UPDATE, 3rd of September 2025**: Some sources cite that all devices onboarded in [autopatch](https://learn.microsoft.com/en-us/windows/deployment/windows-autopatch/overview/windows-autopatch-overview) is automatically enrolled into the secure boot rollout, thus deploying the reg key is not necessary - But it's currently unclear. I'm chasing Microsoft for an official response and clarification regarding the scope/impact of setting the registry key mentioned in Requirement #2, if this is in fact necessary.
 
 
 If you manage Windows devices, you might have noticed some alerts about Secure Boot certificates expiring in 2026. This is a common concern, but there's no need to panic. I've noticed some conflicting information about to manage this issue, hence this blog post to clear things up.
