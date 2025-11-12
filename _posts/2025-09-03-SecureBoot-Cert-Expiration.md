@@ -8,7 +8,7 @@ tags:
   - Certificate expiry
 ---
 
->**UPDATE, 21st of October 2025**: Updated documentation has now been released, you can find it [here](https://support.microsoft.com/en-us/topic/registry-key-updates-for-secure-boot-windows-devices-with-it-managed-updates-a7be69c9-4634-42e1-9ca1-df06f43f360d) - However, it's unclear if autopatch devices is automatically included, this still remains an open question. For now, it seems like it's opt-in, so only if the reg keys to opt in is set, the device will be included in the automatic rollout. They also seem to have changed the location+value of the reg key required to participate in the automatic rollout managed by Microsoft. I have updated the script with the new location+value.
+>**UPDATE, 21st of October 2025**: Updated documentation has now been released, you can find it [here](https://support.microsoft.com/en-us/topic/registry-key-updates-for-secure-boot-windows-devices-with-it-managed-updates-a7be69c9-4634-42e1-9ca1-df06f43f360d) - However, it's unclear if autopatch devices is automatically included, this still remains an open question. For now, it seems like it's opt-in, so only if the reg keys to opt in is set, the device will be included in the automatic rollout.
 
 >**UPDATE, 7th of September 2025**: In a new response from Microsoft they have let us know that a more detailed blog post, documentation and FAQ is on the way. ETA is 2-3 weeks. They also underlined the staged rollout will be intentionally slow, due to the risks involved.
 
@@ -50,7 +50,7 @@ Microsoft can manage the rollout for your automatically. But for them to do that
 To make sure it's deployed, we can use Intune to deploy this using a PowerShell script: 
 
 ```PowerShell
-$Path  = 'HKLM:\SYSTEM\CurrentControlSet\Control\SecureBoot\Servicing'
+$Path  = 'HKLM:\SYSTEM\CurrentControlSet\Control\SecureBoot\'
 $Name  = 'MicrosoftUpdateManagedOptIn'
 $Value = '1'
 
