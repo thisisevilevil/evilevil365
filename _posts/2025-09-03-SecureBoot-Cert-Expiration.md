@@ -42,7 +42,7 @@ Microsoft can manage the rollout for your automatically. But for them to do that
 
 **Requirement #2:** You need to deploy a registry key for your devices to tell Microsoft that you are opting in to the automatic rollout. The reg key needs to be deployed like so:
 
-* Registry location: HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Secureboot\Servicing
+* Registry location: HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Secureboot
 * Key name: MicrosoftUpdateManagedOptIn
 * Key type: DWORD
 * DWORD value: 1
