@@ -55,7 +55,7 @@ If you want to manage the rollout of the secure boot certificates yourself, sear
 
 This option can be highly desirable if you want to be in complete control yourself, as this allows you to roll this policy out in your own rings/waves. This option also should not require for you to send diagnostic data to Microsoft.
 
->**UPDATE, 4th of September 2025**: Per Larsen has created a Remediation to check if the updated certs are already on your device, and if not, they will be flagged as "With Issue". You can find it [here](https://github.com/pelarsen/Remediation-Scripts/blob/main/SecureBootCheck.ps1)
+>**UPDATE, 19th of November 2025**: I have created a remediation you can use to check your devices are running with the updated cert. You can find it [here](https://github.com/thisisevilevil/IntunePublic/blob/main/Remediations/Check%20SecureBoot%20Certificates/Detect-SecureBootCerts.ps1). Deploys as 64-bit in system context.
 
 ## Wrapping up
 
