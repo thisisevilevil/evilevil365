@@ -50,8 +50,10 @@ For this option to work you need to ensure you are sending required or optional 
 
 ### Option 3 - Self-managed rollout using Intune policies
 
+This option corresponds to the registry key "AvailableUpdates".
+
 If you want to manage the rollout of the secure boot certificates yourself, search for "Secure Boot" in the settings catalog to find the relevant policies.
-![Policy](/assets/images/2025-09-03-SecureBoot-Cert-Expiration/SettingsCatalog-SelfManaged.png?raw=true "Self-managed rollout of secure boot certs"). This option corresponds to the registry key "AvailableUpdates".
+![Policy](/assets/images/2025-09-03-SecureBoot-Cert-Expiration/SettingsCatalog-SelfManaged.png?raw=true "Self-managed rollout of secure boot certs"). 
 
 This option can be highly desirable if you want to be in complete control yourself, as this allows you to roll this policy out in your own rings/waves. This option also should not require for you to send diagnostic data to Microsoft.
 
