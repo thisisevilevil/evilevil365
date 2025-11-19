@@ -31,7 +31,7 @@ You have several options for deploying the secure boot certificates. The most in
 
 ### Option 1 - Automatic rollout via High-confidence buckets
 
-This is the most hands off approach, but it's also where you basically pray to the Microsoft-gods that your device is part of a so called "high confidence bucket". If not, your device will not automatically receive the updated secure boot certificates. 
+This is the most hands off approach, but it's also where you basically pray to the Microsoft-gods that your device is part of a so called "high confidence bucket". If not, your device will not automatically receive the updated secure boot certificates.
 To quote Microsoft directly "Microsoft may automatically include high-confidence device groups in monthly updates based on diagnostic data shared to date, to benefit systems and organizations that cannot share diagnostic data. This step does not require diagnostic data to be enabled." [(Source)](https://support.microsoft.com/en-us/topic/secure-boot-certificate-updates-guidance-for-it-professionals-and-organizations-e2b43f9f-b424-42df-bc6a-8476db65ab2f#bkmk_automated_deployment_assists)
 
 High confidence buckets is otherwise described as devices that are processing updates correctly, but if you are not sending any diagnostic data, Microsofts ability to gauge the device's ability to process updates correctly is limited, and might not work correctly.
