@@ -8,14 +8,7 @@ tags:
   - Certificate expiry
 ---
 
->**UPDATE, 21st of October 2025**: Updated documentation has now been released, you can find it [here](https://support.microsoft.com/en-us/topic/registry-key-updates-for-secure-boot-windows-devices-with-it-managed-updates-a7be69c9-4634-42e1-9ca1-df06f43f360d) - However, it's unclear if autopatch devices is automatically included, this still remains an open question. For now, it seems like it's opt-in, so only if the reg keys to opt in is set, the device will be included in the automatic rollout.
-
->**UPDATE, 7th of September 2025**: In a new response from Microsoft they have let us know that a more detailed blog post, documentation and FAQ is on the way. ETA is 2-3 weeks. They also underlined the staged rollout will be intentionally slow, due to the risks involved.
-
->**UPDATE, 4th of September 2025**: Initial response from Microsoft suggests that if you are using autopatch, you do **not** have to set the registry key as outlined in Requirement #2. It's still being clarified. Will update this blog post once I know more.
-
->**UPDATE, 3rd of September 2025**: Some sources cite that all devices onboarded in [autopatch](https://learn.microsoft.com/en-us/windows/deployment/windows-autopatch/overview/windows-autopatch-overview) is automatically enrolled into the secure boot rollout, thus deploying the reg key is not necessary - But it's currently unclear. I'm chasing Microsoft for an official response and clarification regarding the scope/impact of setting the registry key mentioned in Requirement #2, if this is in fact necessary.
-
+>**UPDATE, 18st of November 2025**: Removed all of the previous updates, since new information kept surfacing, so I will TL;DR this: New blog post released by Microsoft a few days ago, you can find it [here](https://techcommunity.microsoft.com/blog/windows-itpro-blog/secure-boot-playbook-for-certificates-expiring-in-2026/4469235)
 
 If you manage Windows devices, you might have noticed some alerts about Secure Boot certificates expiring in 2026. This is a common concern, but there's no need to panic. I've noticed some conflicting information about to manage this issue, hence this blog post to clear things up.
 
@@ -34,35 +27,33 @@ If you manage Windows devices, you might have noticed some alerts about Secure B
 
 ## Deploying the updated Secure Boot certificates
 
-Microsoft can manage the rollout for your automatically. But for them to do that, there is 2 requirements:
+You have several options for deploying the secure boot certificates. The most interesting options are the following:
 
-**Requirement #1:** You need to ensure you are sending required or optional diagnostic data to Microsoft. If you are already using WufB or Autopatch you probably already are doing it, but know that in March 2025 Autopatch revoked the policy they deploy by default to do this on your behalf (Ref: MC996580). If you want to be sure, you can craft your own policy and apply to devices in scope. Look for the "Allow Telemetry" setting in the settings catalog. [Source](https://learn.microsoft.com/en-us/windows/deployment/update/wufb-reports-configuration-intune#settings-catalog)
+**Option 1 - Automatic rollout via High-confidence buckets:**
+
+This is the most hands off approach, but it's also where you basically pray to the Microsoft-gods that your device is part of a so called "high confidence bucket". If not, your device will not automatically receive the updated secure boot certificates. 
+To quote Microsoft directly "Microsoft may automatically include high-confidence device groups in monthly updates based on diagnostic data shared to date, to benefit systems and organizations that cannot share diagnostic data. This step does not require diagnostic data to be enabled." [(Source)](https://support.microsoft.com/en-us/topic/secure-boot-certificate-updates-guidance-for-it-professionals-and-organizations-e2b43f9f-b424-42df-bc6a-8476db65ab2f#bkmk_automated_deployment_assists)
+
+High confidence buckets is otherwise described as devices that are processing updates correctly, but if you are not sending any diagnostic data, Microsofts ability to gauge the device's ability to process updates correctly is limited, and might not work correctly.
 
 ![Policy](/assets/images/2025-09-03-SecureBoot-Cert-Expiration/SettingsCatalog-TelemetryPolicy.png?raw=true "Telemetry Settings Catalog Policy")
 
-**Requirement #2:** You need to deploy a registry key for your devices to tell Microsoft that you are opting in to the automatic rollout. The reg key needs to be deployed like so:
+**Option 2 - Automatic rollout via Microsoft Controlled Feature Rollout (CFR):**
+Recent additions to the Intune Settings catalog has allowed us to deploy policies to enable the secure boot rollout on-demand. Previously you had to set reg keys to achieve this. 
 
-* Registry location: HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Secureboot
-* Key name: MicrosoftUpdateManagedOptIn
-* Key type: DWORD
-* DWORD value: 1
+This option corresponds to the registry key "MicrosoftUpdateManagedOptIn".
 
-To make sure it's deployed, we can use Intune to deploy this using a PowerShell script: 
+By deploying this policy you will participate in a Microsoft-managed rollout also known as Controlled-feature rollout. This rollout will be fully controlled by Microsoft, and usually CFRs involves a careful and staggered rollout approach based on certain criteria, grouping devices by hardware and firmware, monitoring feedback, and pausing if issues appear. In other words: With this option you are also completely in the hands of Microsoft with this one, but it differentiates slightly from the High-Confidence option. Expect the CFR-rollout option to be much slower.
 
-```PowerShell
-$Path  = 'HKLM:\SYSTEM\CurrentControlSet\Control\SecureBoot\'
-$Name  = 'MicrosoftUpdateManagedOptIn'
-$Value = '1'
+For this option to work you need to ensure you are sending required or optional diagnostic data to Microsoft. If you are already using WufB or Autopatch you probably already are doing it, but know that in March 2025 Autopatch revoked the policy they deploy by default to do this on your behalf (Ref: MC996580). If you want to be sure, you can craft your own policy and apply to devices in scope. Look for the "Allow Telemetry" setting in the settings catalog. [Source](https://learn.microsoft.com/en-us/windows/deployment/update/wufb-reports-configuration-intune#settings-catalog)
 
-if (!(Test-Path $Path)) {New-Item -Path $Path -Force}
-New-ItemProperty -Path $Path -Name $Name -PropertyType DWord -Value $Value -Force
-```
+**Option 3 - Self-managed rollout using Intune policies:**
+If you want to manage the rollout of the secure boot certificates yourself, search for "Secure Boot" in the settings catalog to find the relevant policies.
+![Policy](/assets/images/2025-09-03-SecureBoot-Cert-Expiration/SettingsCatalog-SelfManaged.png?raw=true "Self-managed rollout of secure boot certs")
 
-You can also download it from my github [here](https://github.com/thisisevilevil/IntunePublic/blob/main/PowerShell%20Scripts/Deploy-SecureBoot-OptIn-Key.ps1)
+This option can be highly desirable if you want to be in complete control yourself, as this allows you to roll this policy out in your own rings/waves. This option also should not require for you to send diagnostic data to Microsoft.
 
->Note: Meeting these requirements doesn’t mean all devices update at once. Microsoft rolls out updates gradually, grouping devices by hardware and firmware, monitoring feedback, and pausing if issues appear.
-
-Otherwise be aware that Microsoft is already working with OEM's to also push out BIOS Updates, where the updated certificates are also present. So if you are already keeping your BIOS Up-to-date in your org, chances are, you already received the updated certificates.
+Otherwise be aware that Microsoft is already working with OEM's to also push out BIOS Updates, where the updated certificates are also present. So if you are already keeping your BIOS Up-to-date in your org, chances are, you already received the updated certificates. You can find articles from [Dell](https://www.dell.com/support/kbdoc/en-us/000347876/microsoft-2011-secure-boot-certificate-expiration) and [HP](https://support.hp.com/us-en/document/ish_13070353-13070429-16) about how they are adressing things from their end. They are already updating the certificates from their end via BIOS Updates on newer models.
 
 If your devices are in an air-gapped environment or with limited network connectivity, you will have to update these certificates manually. See [this article](https://techcommunity.microsoft.com/blog/windows-itpro-blog/updating-microsoft-secure-boot-keys/4055324) for more information.
 
@@ -72,9 +63,9 @@ The full Microsoft guidance is available [in this article](https://support.micro
 
 ## Wrapping up
 
-Plenty of scripts online suggest you need to handle this certificate update yourself. For most organizations, that’s not the case. Microsoft will take care of it — as long as you’ve prepared properly. If you’re running hardware from major OEMs like Dell, HP, or Lenovo and keeping them updated, you’re likely already covered. Also, this is issue is also present on servers, so make sure to prepare accordingly for your servers as well.
+Plenty of scripts online suggest you need to handle this certificate update yourself. For most organizations, that’s not the case. Microsoft will take care of it or you can choose to take matters into your own hands with new intune policies. If you’re running hardware from major OEMs like Dell, HP, or Lenovo and keeping them updated, you’re likely already covered to a certain extent. Also, this is issue is also present on servers, so make sure to prepare accordingly for your servers as well.
 
-Hopefully this clears up the confusion and saves you from chasing unnecessary “DIY fixes.”
+Hopefully this clears up the confusion and saves you from chasing unnecessary “DIY fixes.”.
 
 Thanks for reading — and have an awesome day :)
 
