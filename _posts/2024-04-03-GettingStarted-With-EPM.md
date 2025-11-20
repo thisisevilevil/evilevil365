@@ -171,12 +171,15 @@ Thanks for sticking around, and I hope you found it useful :)
 
 ## Things I didn't cover in this blog that you can check out or should know:
 1. **Support Approved**: Try to craft an elevation rule and then choose "Support approved" and go through and elevation so you can see the flow. This can save you valuable time for one-time configuration changes and one-time installs requests. Why have ServiceDesk spend time doing this manually, when you can empower the end-user to do it themselves? See more about Support approved [here](https://techcommunity.microsoft.com/t5/microsoft-intune-blog/endpoint-privilege-management-adds-support-approved-elevations/ba-p/4101196)
+
 2. **Reporting**: Under the Endpoint Privilege Manager section in Intune, you can press "Reports" to see reports of how EPM and Administrator rights is used in your org. 
 TL;DR: Managed Elevation = An elevation rule facilitated an EPM elevation on an endpoint. Unmanaged Elevation = A local administrator on the device elevated a process, not using EPM.
+
 3. **Secure Virtual Account**: When you elevate a process it is elevated in a virtual account that EPM creates. it goes like so: `MEM\<domain>_<username>_$`. This is for security reasons. This basically means it's a seperate userprofile. So consider the impact of this, when you are using apps that are installed in the current-user context or that store settings in the current user context. If you elevate a process with EPM, that could cause issues with some apps.
 
 Support for crafting elevation rules pr. app so it runs in current user context was [finally added in October 2025](https://learn.microsoft.com/en-us/intune/intune-service/fundamentals/whats-new#support-for-user-account-context-in-endpoint-privilege-management-elevation-rules).
 4. **Missing elevation handlers in OS**: The "Run with elevated access" button is only visible currently when you right click .exe or .msi files in the file explorer. You cannot elevate any other files like .MSIs or use the "Run as administrator" button from the start menu. You can also not uninstall programs using the add/remove programs, or change system settings from the settings apps. Most of these shortcomings we can apply a workaround where we simply run PowerShell.exe as elevated, and then do what we need to do, but this is not really flexible or user-friendly.
+
 5. **Windows Store Apps requiring elevation doesn't work**: It's currently not possible to install most Windows Store apps that requires local admin right. Granted, it's not a lot of apps that require this, so it's not a bigge unless for very specific use-cases.
 
 ![EPM](/assets/images/2024-04-01-GettingStarted-With-EPM/EPM-MSIXShellExtension.png?raw=true "EPM Shell Extension")
