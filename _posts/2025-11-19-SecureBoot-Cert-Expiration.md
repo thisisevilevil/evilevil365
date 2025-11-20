@@ -1,6 +1,6 @@
 ---
 title: "Whats up with the Secure Boot certificates expiring in 2026?"
-date: 2025-09-03
+date: 2025-11-19
 categories:
   - Intune
 tags:
