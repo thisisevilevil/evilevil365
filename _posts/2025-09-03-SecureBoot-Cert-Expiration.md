@@ -43,7 +43,7 @@ In practical terms, “high-confidence buckets” refer to devices that Microsof
 
 ### Option 2 - Automatic rollout via Microsoft Controlled Feature Rollout (CFR)
 
-Recent additions to the Intune Settings catalog has allowed us to deploy policies to enable the secure boot rollout on-demand. Previously you had to set reg keys to achieve this. 
+Recent additions to the Intune Settings catalog has allowed us to deploy policies to enable the secure boot rollout on-demand or via a Microsoft-managed rollout. Previously you had to set reg keys to achieve this. 
 
 This option corresponds to the registry key "MicrosoftUpdateManagedOptIn".
 
