@@ -72,7 +72,7 @@ If your devices are in an air-gapped environment or with limited network connect
 
 The full Microsoft guidance is available [in this article](https://support.microsoft.com/en-us/topic/windows-devices-for-businesses-and-organizations-with-it-managed-updates-e2b43f9f-b424-42df-bc6a-8476db65ab2f)
 
-Plenty of scripts online suggest you need to handle this certificate update yourself. For most organizations, that’s not the case. Microsoft will take care of it or you can choose to take matters into your own hands with new intune policies. If you’re running hardware from major OEMs like Dell, HP, or Lenovo and keeping them updated, you’re likely already covered to a certain extent. Also, this is issue is also present on servers, so make sure to prepare accordingly for your servers as well.
+Plenty of scripts online suggest you need to handle this certificate update yourself. For most organizations, that’s not the case. Microsoft will take care of it or you can choose to take matters into your own hands with new easy-to-deploy intune policies. If you’re running hardware from major OEMs like Dell, HP, or Lenovo and keeping them updated, you’re likely already covered to a certain extent. Also, this is issue is also present on servers, so make sure to prepare accordingly for your servers as well.
 
 Hopefully this clears up the confusion and saves you from chasing unnecessary “DIY fixes.”.
 
