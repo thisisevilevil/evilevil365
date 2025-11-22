@@ -51,6 +51,8 @@ By deploying this policy you will participate in a Microsoft-managed rollout als
 
 For this option to work you need to ensure you are sending required or optional diagnostic data to Microsoft. If you are already using WufB or Autopatch you probably already are doing it, but know that in March 2025 Autopatch revoked the policy they deploy by default to do this on your behalf (Ref: MC996580). If you want to be sure, you can craft your own policy and apply to devices in scope. Look for the "Allow Telemetry" setting in the settings catalog. [Source](https://learn.microsoft.com/en-us/windows/deployment/update/wufb-reports-configuration-intune#settings-catalog)
 
+>NOTE: Testing this policy through intune as of this date (22. November 2025), it gives an error 65000 in Intune. I'm guessing Microsoft will get this fixed/updated soon. If you also face this error, you can find the registry key to deploy this option in [my github here](https://github.com/thisisevilevil/IntunePublic/blob/main/PowerShell%20Scripts/Secure%20Boot%20Certificate%20Deployment/Deploy-SecureBootCert-MicrosoftCFR.ps1)
+
 ### Option 3 - Self-managed rollout using Intune policies
 
 This option corresponds to the registry key "AvailableUpdates".
@@ -59,6 +61,8 @@ If you want to manage the rollout of the secure boot certificates yourself, sear
 ![Policy](/assets/images/2025-09-03-SecureBoot-Cert-Expiration/SettingsCatalog-SelfManaged.png?raw=true "Self-managed rollout of secure boot certs"). 
 
 This option can be highly desirable if you want to be in complete control yourself, as this allows you to roll this policy out in your own rings/waves. This option also should not require for you to send diagnostic data to Microsoft.
+
+>NOTE: Testing this policy through Intune as of this date (22. November 2025), it gives an error 65000. I'm guessing Microsoft will get this fixed/updated soon. If you also face this error, you can find the registry key to deploy this option in [my github here](https://github.com/thisisevilevil/IntunePublic/blob/main/PowerShell%20Scripts/Secure%20Boot%20Certificate%20Deployment/Deploy-SecureBootCert-SelfRollout.ps1)
 
 >NOTE: There is also a GPO option for all of the above mentioned options if you are not yet in Intune, or haven't flipped the "Device configuration" workload to Intune yet. You can find more info about the GPOs [here](https://support.microsoft.com/en-us/topic/group-policy-objects-gpo-method-of-secure-boot-for-windows-devices-with-it-managed-updates-65f716aa-2109-4c78-8b1f-036198dd5ce7#bkmk_grouppolicyobject)
 
