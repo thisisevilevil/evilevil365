@@ -51,6 +51,9 @@ By deploying this policy you will participate in a Microsoft-managed rollout als
 
 For this option to work you need to ensure you are sending required or optional diagnostic data to Microsoft. If you are already using WufB or Autopatch you probably already are doing it, but know that in March 2025 Autopatch revoked the policy they deploy by default to do this on your behalf (Ref: MC996580). If you want to be sure, you can craft your own policy and apply to devices in scope. Look for the "Allow Telemetry" setting in the settings catalog. [Source](https://learn.microsoft.com/en-us/windows/deployment/update/wufb-reports-configuration-intune#settings-catalog)
 
+If you want to manage the rollout of the secure boot certificates yourself, search for "Secure Boot" in the settings catalog to find the relevant policies.
+![Policy](/assets/images/2025-09-03-SecureBoot-Cert-Expiration/SettingsCatalog-MicrosoftManaged.png?raw=true "Microsoft managed rollout of secure boot certs"). 
+
 >NOTE: Testing this policy through intune as of this date (22. November 2025), it gives an error 65000 in Intune. I'm guessing Microsoft will get this fixed/updated soon. If you also face this error, you can find the registry key to deploy this option in [my github here](https://github.com/thisisevilevil/IntunePublic/blob/main/PowerShell%20Scripts/Secure%20Boot%20Certificate%20Deployment/Deploy-SecureBootCert-MicrosoftCFR.ps1)
 
 ### Option 3 - Self-managed rollout using Intune policies
