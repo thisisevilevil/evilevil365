@@ -38,7 +38,7 @@ Set return code 2 as "Success" as well, to ensure it doesn't fail during ESP whe
 
 ## Importing ADMX Templates
 
-To get the ADMX templates required from managing DCU, you will need to download Dell Command Update. You can always find the latest version here: https://www.dell.com/support/kbdoc/en-us/000177325/dell-command-update
+To get the ADMX templates required from managing DCU, you can extract the Dell Command | Update installer you previously downloaded.
 
 Once you have it downloaded, open it and click extract. Extract to a folder of your choice. 
 
@@ -139,12 +139,8 @@ Find the docs for dcu-cli to experiment with different switches [here](https://w
 
 ## Final words
 
-I hope you found this walkthrough useful. There is some pros/cons to using the Dell Command Update for managing updates compared to just using the Windows Update functionality to pushing drivers/BIOS. For instance, the notifications and snooze options you get with windows updates is much better for the end-user, but on the other hand if you use Dell Command Update as it is right now, you will get updates and fixes much faster, and with a bit of communication and user adoption of Dell Command Update, it could work. Just make sure your user don't close the last reboot reminder, and teach your users to start closing their work, to prepare for the reboot.
+I hope you found this walkthrough useful. There is some pros/cons to using the Dell Command Update for managing updates compared to just using the Windows Update functionality to pushing drivers/BIOS. For instance, the notifications and snooze options you get with windows updates is much better for the end-user, but on the other hand if you use Dell Command Update as it is right now, you will get updates and fixes much faster.
 
-Other thing worth mentioning is Dell is also looking into heavily modifying how updates are managed through Dell SupportAssist, that you can access through TechDirect. But I'm quite sure it will be locked down behind ProSupport Plus warranty or higher, so a lot of customers won't be able to access it. Let's see once we get it. We can kinda see they are preparing for it, in the release notes for DCU 5.2:
-
-![DellDCUAPP](/assets/images/2024-04-08-DellBIOSUpdates-Intune/DCU5.2-ReleaseNotes.png?raw=true "Dell Command Update ADMX Templates")
-
-Lastly, if you want some more inspiration for custom Dell tools in Intune, such as Prebaked Remediation scripts and custom compliance rules to check for things like Warranty, Missing Critical drivers, Battery health and other cool stuff, I would recommend you check out Sven Riebe's github repository. He's a very skilled fella working at Dell, and he likes sharing his work. You can find his repo [here](https://github.com/svenriebedell)
+If you want some more inspiration for custom Dell tools in Intune, such as Prebaked Remediation scripts and custom compliance rules to check for things like Warranty, Missing Critical drivers, Battery health and other cool stuff, I would recommend you check out Sven Riebe's github repository. He's a very skilled fella working at Dell, and he likes sharing his work. You can find his repo [here](https://github.com/svenriebedell)
 
 That's all folks :)
