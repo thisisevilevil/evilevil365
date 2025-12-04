@@ -71,8 +71,6 @@ This option can be highly desirable if you want to be in complete control yourse
 
 ## Wrapping up
 
->**UPDATE, 19th of November 2025**: I have created a remediation you can use to check your devices are running with the updated cert. You can find it [here](https://github.com/thisisevilevil/IntunePublic/blob/main/Remediations/Check%20SecureBoot%20Certificates/Detect-SecureBootCerts.ps1). 
-
 Microsoft is already working with OEM's to push out BIOS Updates, where the updated certificates are present. So if you are already keeping your BIOS Up-to-date in your org, chances are, you already received the updated certificates. You can find articles from [Dell](https://www.dell.com/support/kbdoc/en-us/000347876/microsoft-2011-secure-boot-certificate-expiration) and [HP](https://support.hp.com/us-en/document/ish_13070353-13070429-16) about how they are adressing things from their end. They are already updating the certificates from their end via BIOS Updates on newer models.
 
 If your devices are in an air-gapped environment or with limited network connectivity, you will have to update these certificates manually. See [this article](https://techcommunity.microsoft.com/blog/windows-itpro-blog/updating-microsoft-secure-boot-keys/4055324) for more information.
@@ -85,3 +83,4 @@ Hopefully this clears up the confusion and saves you from chasing unnecessary â€
 
 Thanks for reading â€” and have an awesome day :)
 
+>**UPDATE, 19th of November 2025**: I have created a remediation you can use to check your devices are running with the updated cert. You can find it [here](https://github.com/thisisevilevil/IntunePublic/blob/main/Remediations/Check%20SecureBoot%20Certificates/Detect-SecureBootCerts.ps1). 
