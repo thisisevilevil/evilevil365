@@ -83,4 +83,4 @@ Hopefully this clears up the confusion and saves you from chasing unnecessary â€
 
 Thanks for reading â€” and have an awesome day :)
 
->**UPDATE, 19th of November 2025**: I have created a remediation you can use to check your devices are running with the updated cert. You can find it [here](https://github.com/thisisevilevil/IntunePublic/blob/main/Remediations/Check%20SecureBoot%20Certificates/Detect-SecureBootCerts.ps1). 
+>**UPDATE, 19th of November 2025**: I have created a remediation you can use to monitor your devices are running with the updated secure boot certificate. You can find it [here](https://github.com/thisisevilevil/IntunePublic/blob/main/Remediations/Check%20SecureBoot%20Certificates/Detect-SecureBootCerts.ps1). 
