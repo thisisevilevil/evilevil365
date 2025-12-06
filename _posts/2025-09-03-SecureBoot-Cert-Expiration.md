@@ -73,7 +73,7 @@ This option can be highly desirable if you want to be in complete control yourse
 
 I have created an Intune remediation you can use to monitor your devices are running with the updated secure boot certificate. You can find it [here](https://github.com/thisisevilevil/IntunePublic/blob/main/Remediations/Check%20SecureBoot%20Certificates/Detect-SecureBootCerts.ps1).
 
-Assign it with 64-bit enabled, whilst disabling signature check and running with logged-on credentials.
+Assign it with 64-bit enabled, whilst disabling signature check and disable running with logged-on credentials.
 
 Here is a screenshot of the Remediation being used in production, where Option #3 (self-managed rollout) is being rolled out in rings:
 
