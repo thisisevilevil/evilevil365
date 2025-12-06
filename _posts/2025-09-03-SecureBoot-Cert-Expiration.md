@@ -77,7 +77,7 @@ Assign it with 64-bit enabled, whilst disabling signature check and running with
 
 Here is a screenshot of the Remediation being used in production, where Option #3 (self-managed rollout) is being rolled out in rings:
 
-![Policy](/assets/images/2025-09-03-SecureBoot-Cert-Expiration/SecureBootCert_Remediation.png?raw=true "Remediation") 
+![Policy](/assets/images/2025-09-03-SecureBoot-Cert-Expiration/SecureBootCert_Remediation.png?raw=true "Remediation")
 
 ## Wrapping up
 
