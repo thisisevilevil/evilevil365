@@ -75,7 +75,7 @@ I have created an Intune remediation you can use to monitor your devices are run
 
 Assign it with 64-bit enabled, whilst disabling signature check and disable running with logged-on credentials.
 
-Here is a screenshot of the Remediation being used in production, where Option #3 (self-managed rollout) is being rolled out in rings:
+Here is a screenshot of the Remediation being used in production, where Option #3 (self-managed rollout) is being rolled out in rings - The ones marked with "Without issues" have the updated certificate:
 
 ![Policy](/assets/images/2025-09-03-SecureBoot-Cert-Expiration/SecureBootCert_Remediation.png?raw=true "Remediation")
 
