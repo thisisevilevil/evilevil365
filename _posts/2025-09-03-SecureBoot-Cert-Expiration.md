@@ -69,6 +69,16 @@ This option can be highly desirable if you want to be in complete control yourse
 
 >NOTE: There is also a GPO option for all of the above mentioned options if you are not yet in Intune, or haven't flipped the "Device configuration" workload to Intune yet. You can find more info about the GPOs [here](https://support.microsoft.com/en-us/topic/group-policy-objects-gpo-method-of-secure-boot-for-windows-devices-with-it-managed-updates-65f716aa-2109-4c78-8b1f-036198dd5ce7#bkmk_grouppolicyobject)
 
+### Monitoring for updated certificates
+
+I have created an Intune remediation you can use to monitor your devices are running with the updated secure boot certificate. You can find it [here](https://github.com/thisisevilevil/IntunePublic/blob/main/Remediations/Check%20SecureBoot%20Certificates/Detect-SecureBootCerts.ps1).
+
+Assign it with 64-bit enabled, whilst disabling signature check and running with logged-on credentials.
+
+Here is a screenshot of the Remediation being used in production, where Option #3 (self-managed rollout) is being rolled out in rings:
+
+![Policy](/assets/images/2025-09-03-SecureBoot-Cert-Expiration/SecureBootCert_Remediation.png?raw=true "Remediation") 
+
 ## Wrapping up
 
 Microsoft is already working with OEM's to push out BIOS Updates, where the updated certificates are present. So if you are already keeping your BIOS Up-to-date in your org, chances are, you already received the updated certificates. You can find articles from [Dell](https://www.dell.com/support/kbdoc/en-us/000347876/microsoft-2011-secure-boot-certificate-expiration) and [HP](https://support.hp.com/us-en/document/ish_13070353-13070429-16) about how they are adressing things from their end. They are already updating the certificates from their end via BIOS Updates on newer models.
@@ -82,5 +92,3 @@ Plenty of scripts online suggest you need to handle this certificate update your
 Hopefully this clears up the confusion and saves you from chasing unnecessary “DIY fixes.”.
 
 Thanks for reading — and have an awesome day :)
-
->**UPDATE, 19th of November 2025**: I have created a remediation you can use to monitor your devices are running with the updated secure boot certificate. You can find it [here](https://github.com/thisisevilevil/IntunePublic/blob/main/Remediations/Check%20SecureBoot%20Certificates/Detect-SecureBootCerts.ps1). 
