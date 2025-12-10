@@ -40,7 +40,6 @@ Microsoft describes this process as follows:
 **Microsoft hosted an AMA the 10th of December 2025 where they clarified the following:**
 > "A high-confidence device refers to one that Microsoft can reliably identify and update automatically through Windows Update without additional intervention. These devices typically meet criteria such as: Trusted diagnostic data signals confirming the device’s identity and compatibility, Secure Boot enabled and using supported UEFI firmware, Running a supported Windows version that can receive updates and No anomalies in the boot chain or firmware keys that could block the update process."
 
-![Policy](/assets/images/2025-09-03-SecureBoot-Cert-Expiration/SettingsCatalog-TelemetryPolicy.png?raw=true "Telemetry Settings Catalog Policy")
 
 ### Option 2 - Automatic rollout via Microsoft Controlled Feature Rollout (CFR)
 
@@ -51,6 +50,8 @@ This option corresponds to the registry key "MicrosoftUpdateManagedOptIn".
 By deploying this policy you will participate in a Microsoft-managed rollout also known as Controlled-feature rollout. This rollout will be fully controlled by Microsoft, and usually CFRs involves a careful and staggered rollout approach based on certain criteria, grouping devices by hardware and firmware, monitoring feedback, and pausing if issues appear. In other words: With this option you are also completely in the hands of Microsoft with this one, but it differentiates slightly from the High-Confidence option. Expect the CFR-rollout option to be much slower.
 
 For this option to work you need to ensure you are sending required or optional diagnostic data to Microsoft. If you are already using WufB or Autopatch you probably already are doing it, but know that in March 2025 Autopatch revoked the policy they deploy by default to do this on your behalf (Ref: MC996580). If you want to be sure, you can craft your own policy and apply to devices in scope. Look for the "Allow Telemetry" setting in the settings catalog. [Source](https://learn.microsoft.com/en-us/windows/deployment/update/wufb-reports-configuration-intune#settings-catalog)
+
+![Policy](/assets/images/2025-09-03-SecureBoot-Cert-Expiration/SettingsCatalog-TelemetryPolicy.png?raw=true "Telemetry Settings Catalog Policy")
 
 If you want to let Microsoft managed the rollout via the CFR process, search for "Secure Boot" in the settings catalog to find the relevant policies.
 ![Policy](/assets/images/2025-09-03-SecureBoot-Cert-Expiration/SettingsCatalog-MicrosoftManaged.png?raw=true "Microsoft managed rollout of secure boot certs")
