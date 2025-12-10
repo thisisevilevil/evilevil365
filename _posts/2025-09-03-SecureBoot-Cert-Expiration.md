@@ -31,13 +31,19 @@ You have several options for deploying the secure boot certificates. The most in
 
 ### Option 1 - Automatic rollout via High-confidence buckets
 
-This is the most hands-off approach, but it also requires a bit of faith that your device has been placed into one of Microsoft’s “high-confidence buckets.” If it hasn’t, the device won’t automatically receive the updated Secure Boot certificates.
+This is the most hands-off approach, but it also requires a bit of faith that your device has been placed into one of Microsoft’s “high-confidence buckets.” If it hasn’t, the device won’t automatically receive the updated Secure Boot certificates. But otherwise note that this option is turned on by default, and is one you have to opt-out of.
 
 Microsoft describes this process as follows:
 
 > “Microsoft may automatically include high-confidence device groups in monthly updates based on diagnostic data shared to date, to benefit systems and organizations that cannot share diagnostic data. This step does not require diagnostic data to be enabled.” [(Source)](https://support.microsoft.com/en-us/topic/secure-boot-certificate-updates-guidance-for-it-professionals-and-organizations-e2b43f9f-b424-42df-bc6a-8476db65ab2f#bkmk_automated_deployment_assists)
 
-In practical terms, “high-confidence buckets” refer to devices that Microsoft believes are processing updates reliably. However, if you are not sending diagnostic data, Microsoft has a limited view of how your devices behave. As a result, your devices may not be classified correctly—and may not receive the automatic Secure Boot certificate update.
+**Microsoft hosted an AMA the 10th of December where they clarified the following:**
+> "A high-confidence device refers to one that Microsoft can reliably identify and update automatically through Windows Update without additional intervention. These devices typically meet criteria such as:
+
+Trusted diagnostic data signals confirming the device’s identity and compatibility.
+Secure Boot enabled and using supported UEFI firmware.
+Running a supported Windows version that can receive updates.
+No anomalies in the boot chain or firmware keys that could block the update process."
 
 ![Policy](/assets/images/2025-09-03-SecureBoot-Cert-Expiration/SettingsCatalog-TelemetryPolicy.png?raw=true "Telemetry Settings Catalog Policy")
 
