@@ -8,7 +8,7 @@ tags:
   - Certificate expiry
 ---
 
->**UPDATED 22nd of November 2025**: New blog post released by Microsoft a few days ago, you can find it [here](https://techcommunity.microsoft.com/blog/windows-itpro-blog/secure-boot-playbook-for-certificates-expiring-in-2026/4469235)
+>**UPDATED 10th of December 2025**: Microsoft hosted a live AMA that gave us a lot more information about how all of this is going to work. You can find the link for it [here](https://techcommunity.microsoft.com/event/WindowsEvents/ama-secure-boot/4472784?after=MjUuOXwyLjF8aXwxMHwxMzI6MHxpbnQsNDQ3NjkwMCw0NDc2ODgw&topicRepliesSort=postTimeDesc)
 
 If you manage Windows devices, you might have noticed some alerts about Secure Boot certificates expiring in 2026. This is a common concern, but there's no need to panic. I've noticed some conflicting information about to manage this issue, hence this blog post to clear things up.
 
