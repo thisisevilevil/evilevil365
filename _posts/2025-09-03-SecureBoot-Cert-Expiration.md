@@ -66,7 +66,7 @@ This option corresponds to the registry key "AvailableUpdates".
 If you want to manage the rollout of the secure boot certificates yourself, search for "Secure Boot" in the settings catalog to find the relevant policies.
 ![Policy](/assets/images/2025-09-03-SecureBoot-Cert-Expiration/SettingsCatalog-SelfManaged.png?raw=true "Self-managed rollout of secure boot certs") 
 
-This option can be highly desirable if you want to be in complete control yourself, as this allows you to roll this policy out in your own rings/waves. This option also should not require for you to send diagnostic data to Microsoft.
+This option can be highly desirable if you want to be in complete control yourself, as this allows you to roll this policy out in your own rings/waves. This option also doesn't require for you to send diagnostic data to Microsoft.
 
 >NOTE: Testing this policy through intune as of this date (22. November 2025), it gives an error 65000 in Intune. I'm guessing Microsoft will get this fixed/updated soon. If you also face this error, you can find the registry key to deploy this option, as a workaround, in [my github here](https://github.com/thisisevilevil/IntunePublic/blob/main/PowerShell%20Scripts/Secure%20Boot%20Certificate%20Deployment/Deploy-SecureBootCert-SelfRollout.ps1)
 
