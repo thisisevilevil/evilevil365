@@ -46,8 +46,6 @@ There should be no harm in letting Microsoft update devices via this channel, bu
 
 ### Option 2 - Automatic rollout via Microsoft Controlled Feature Rollout (CFR)
 
-Recent additions to the Intune Settings catalog has allowed us to deploy policies to enable the secure boot rollout on-demand or via a Microsoft-managed rollout. Previously you had to set reg keys to achieve this.
-
 This option corresponds to the registry key "MicrosoftUpdateManagedOptIn".
 
 By deploying this policy you will participate in a Microsoft-managed rollout also known as Controlled-feature rollout. This rollout will be fully controlled by Microsoft, and usually CFRs involves a careful and staggered rollout approach based on certain criteria, grouping devices by hardware and firmware, monitoring feedback, and pausing if issues appear. In other words: With this option you are also completely in the hands of Microsoft with this one, but it differentiates slightly from the High-Confidence option. Expect the CFR-rollout option to be much slower.
