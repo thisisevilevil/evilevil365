@@ -40,7 +40,7 @@ Microsoft describes this process as follows:
 **Microsoft hosted an AMA the 10th of December 2025 where they clarified the following:**
 > "A high-confidence device refers to one that Microsoft can reliably identify and update automatically through Windows Update without additional intervention. These devices typically meet criteria such as: Trusted diagnostic data signals confirming the device’s identity and compatibility, Secure Boot enabled and using supported UEFI firmware, Running a supported Windows version that can receive updates and No anomalies in the boot chain or firmware keys that could block the update process."
 
-There should be no harm in letting Microsoft update devices via this channel, but if you want to opt-out of this option, you can set a policy to opt out
+There should be no harm in letting Microsoft update devices via this channel, but if you want to opt-out of this option for whatever reason, you can set a policy to opt out using Intune.
 
 ![Policy](/assets/images/2025-09-03-SecureBoot-Cert-Expiration/SettingsCatalog-OptOut.png?raw=true "High Confience Opt-out")
 
