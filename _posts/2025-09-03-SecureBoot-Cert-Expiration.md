@@ -31,7 +31,7 @@ You have several options for deploying the secure boot certificates. The most in
 
 ### Option 1 - Automatic rollout via High-confidence buckets
 
-This is the most hands-off approach, but it also requires a bit of faith that your device has been placed into one of Microsoft’s “high-confidence buckets.” If it hasn’t, the device won’t automatically receive the updated Secure Boot certificates. But otherwise note that this option is turned on by default, and is one you have to opt-out of.
+This is the most hands-off approach, but it also requires a bit of faith that your device has been placed into one of Microsoft’s “high-confidence buckets.” If it hasn’t, the device won’t automatically receive the updated Secure Boot certificates. But otherwise note that this option is turned on by default, and is one you have to opt-out of, if you don't want to be part of the automatic rollout.
 
 Microsoft describes this process as follows:
 
@@ -40,6 +40,9 @@ Microsoft describes this process as follows:
 **Microsoft hosted an AMA the 10th of December 2025 where they clarified the following:**
 > "A high-confidence device refers to one that Microsoft can reliably identify and update automatically through Windows Update without additional intervention. These devices typically meet criteria such as: Trusted diagnostic data signals confirming the device’s identity and compatibility, Secure Boot enabled and using supported UEFI firmware, Running a supported Windows version that can receive updates and No anomalies in the boot chain or firmware keys that could block the update process."
 
+There should be no harm in letting Microsoft update devices via this channel, but if you want to opt-out of this option, you can set a policy to opt out
+
+![Policy](/assets/images/2025-09-03-SecureBoot-Cert-Expiration/SettingsCatalog-OptOut.png?raw=true "High Confience Opt-out")
 
 ### Option 2 - Automatic rollout via Microsoft Controlled Feature Rollout (CFR)
 
