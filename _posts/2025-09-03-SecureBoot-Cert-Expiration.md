@@ -82,6 +82,8 @@ Here is a screenshot of the Remediation being used in production, where Option #
 
 ![Policy](/assets/images/2025-09-03-SecureBoot-Cert-Expiration/SecureBootCert_Remediation.png?raw=true "Remediation")
 
+>NOTE: During an AMA hosted by Microsoft hosted the 10th of December 2025, they told us that Microsoft will deliver monitoring features for the updated certificates, but they will only be delivered sometime early in 2026.
+
 ## Wrapping up
 
 Microsoft is already working with OEM's to push out BIOS Updates, where the updated certificates are present. So if you are already keeping your BIOS Up-to-date in your org, chances are, you already received the updated certificates. You can find articles from [Dell](https://www.dell.com/support/kbdoc/en-us/000347876/microsoft-2011-secure-boot-certificate-expiration) and [HP](https://support.hp.com/us-en/document/ish_13070353-13070429-16) about how they are adressing things from their end. They are already updating the certificates from their end via BIOS Updates on newer models.
