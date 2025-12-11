@@ -42,13 +42,11 @@ Microsoft describes this process as follows:
 
 There should be no harm in letting Microsoft update devices via this channel, but if you want to opt-out of this option for whatever reason, you can set a policy to opt out using Intune.
 
-![Policy](/assets/images/2025-09-03-SecureBoot-Cert-Expiration/SettingsCatalog-OptOut.png?raw=true "High Confience Opt-out")
+![Policy](/assets/images/2025-09-03-SecureBoot-Cert-Expiration/SettingsCatalog-OptOut.png?raw=true "High Confidence Opt-out")
 
 ### Option 2 - Automatic rollout via Microsoft Controlled Feature Rollout (CFR)
 
-This option corresponds to the registry key "MicrosoftUpdateManagedOptIn".
-
-By deploying this policy you will participate in a Microsoft-managed rollout also known as Controlled-feature rollout. This rollout will be fully controlled by Microsoft, and usually CFRs involves a careful and staggered rollout approach based on certain criteria, grouping devices by hardware and firmware, monitoring feedback, and pausing if issues appear. In other words: With this option you are also completely in the hands of Microsoft with this one, but it differentiates slightly from the High-Confidence option. Expect the CFR-rollout option to be much slower.
+By deploying this policy you will participate in a Microsoft-managed rollout also known as Controlled-feature rollout (CFR). This rollout will be fully controlled by Microsoft, and usually CFRs involves a careful and staggered rollout approach based on certain criteria, grouping devices by hardware and firmware, monitoring feedback channels, and pausing if issues appear. In other words: With this option you are also completely in the hands of Microsoft with this one, but it differentiates slightly from the High-Confidence option. Expect the CFR-rollout option to be slower.
 
 For this option to work you need to ensure you are sending required or optional diagnostic data to Microsoft. If you are already using WufB or Autopatch you probably already are doing it, but know that in March 2025 Autopatch revoked the policy they deploy by default to do this on your behalf (Ref: MC996580). If you want to be sure, you can craft your own policy and apply to devices in scope. Look for the "Allow Telemetry" setting in the settings catalog. [Source](https://learn.microsoft.com/en-us/windows/deployment/update/wufb-reports-configuration-intune#settings-catalog)
 
@@ -57,20 +55,16 @@ For this option to work you need to ensure you are sending required or optional 
 If you want to let Microsoft managed the rollout via the CFR process, search for "Secure Boot" in the settings catalog to find the relevant policies.
 ![Policy](/assets/images/2025-09-03-SecureBoot-Cert-Expiration/SettingsCatalog-MicrosoftManaged.png?raw=true "Microsoft managed rollout of secure boot certs")
 
->NOTE: Testing this policy through intune as of this date (22. November 2025), it gives an error 65000 in Intune. I'm guessing Microsoft will get this fixed/updated soon. If you also face this error, you can find the registry key to deploy this option, as a workaround, in [my github here](https://github.com/thisisevilevil/IntunePublic/blob/main/PowerShell%20Scripts/Secure%20Boot%20Certificate%20Deployment/Deploy-SecureBootCert-MicrosoftCFR.ps1)
+>NOTE: This policy only works if your Device is on the December 2025 patch or later, otherwise Intune will report error 65000 and the policy will have no effect. If you face any issues with this policy, as a workaround you can deploy the corresponding registry key instead. You can download a PowerShell script to deploy it from [my github here](https://github.com/thisisevilevil/IntunePublic/blob/main/PowerShell%20Scripts/Secure%20Boot%20Certificate%20Deployment/Deploy-SecureBootCert-MicrosoftCFR.ps1)
 
 ### Option 3 - Self-managed rollout using Intune policies
-
-This option corresponds to the registry key "AvailableUpdates".
 
 If you want to manage the rollout of the secure boot certificates yourself, search for "Secure Boot" in the settings catalog to find the relevant policies.
 ![Policy](/assets/images/2025-09-03-SecureBoot-Cert-Expiration/SettingsCatalog-SelfManaged.png?raw=true "Self-managed rollout of secure boot certs") 
 
 This option can be highly desirable if you want to be in complete control yourself, as this allows you to roll this policy out in your own rings/waves. This option also doesn't require for you to send diagnostic data to Microsoft.
 
->NOTE: Testing this policy through intune as of this date (22. November 2025), it gives an error 65000 in Intune. I'm guessing Microsoft will get this fixed/updated soon. If you also face this error, you can find the registry key to deploy this option, as a workaround, in [my github here](https://github.com/thisisevilevil/IntunePublic/blob/main/PowerShell%20Scripts/Secure%20Boot%20Certificate%20Deployment/Deploy-SecureBootCert-SelfRollout.ps1)
-
->NOTE: There is also a GPO option for all of the above mentioned options if you are not yet in Intune, or haven't flipped the "Device configuration" workload to Intune yet. You can find more info about the GPOs [here](https://support.microsoft.com/en-us/topic/group-policy-objects-gpo-method-of-secure-boot-for-windows-devices-with-it-managed-updates-65f716aa-2109-4c78-8b1f-036198dd5ce7#bkmk_grouppolicyobject)
+>NOTE: This policy only works if your Device is on the December 2025 patch or later, otherwise Intune will report error 65000 and the policy will have no effect. If you face any issues with this policy, as a workaround you can deploy the corresponding registry key instead. You can download a PowerShell script to deploy it from [my github here](https://github.com/thisisevilevil/IntunePublic/blob/main/PowerShell%20Scripts/Secure%20Boot%20Certificate%20Deployment/Deploy-SecureBootCert-SelfRollout.ps1)
 
 ### Monitoring for updated certificates
 
@@ -82,7 +76,7 @@ Here is a screenshot of the Remediation being used in production, where Option #
 
 ![Policy](/assets/images/2025-09-03-SecureBoot-Cert-Expiration/SecureBootCert_Remediation.png?raw=true "Remediation")
 
->NOTE: During an AMA hosted by Microsoft hosted the 10th of December 2025, they told us that Microsoft will deliver monitoring features for the updated certificates, but they will only be delivered sometime early in 2026.
+>NOTE: During an AMA hosted by Microsoft hosted the 10th of December 2025, they told us that Microsoft will deliver monitoring features for the updated certificates, but they will only be delivered sometime in 2026.
 
 ## Wrapping up
 
