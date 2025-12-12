@@ -55,7 +55,7 @@ For this option to work you need to ensure you are sending required or optional 
 If you want to let Microsoft managed the rollout via the CFR process, search for "Secure Boot" in the settings catalog to find the relevant policies.
 ![Policy](/assets/images/2025-09-03-SecureBoot-Cert-Expiration/SettingsCatalog-MicrosoftManaged.png?raw=true "Microsoft managed rollout of secure boot certs")
 
->NOTE: This policy only works if your Device is on the December 2025 patch or later, otherwise Intune will report error 65000 and the policy will have no effect. If you face any issues with this policy, as a workaround you can deploy the corresponding registry key instead. You can download a PowerShell script to deploy it from [my github here](https://github.com/thisisevilevil/IntunePublic/blob/main/PowerShell%20Scripts/Secure%20Boot%20Certificate%20Deployment/Deploy-SecureBootCert-MicrosoftCFR.ps1)
+>NOTE: It seems these policies doesn't always work, even with the December 2025 patch. Still waiting for a response from Microsoft. In the meantime, you can apply the corresponding registry instead, using a PowerShell script. You can download it from [my github here](https://github.com/thisisevilevil/IntunePublic/blob/main/PowerShell%20Scripts/Secure%20Boot%20Certificate%20Deployment/Deploy-SecureBootCert-MicrosoftCFR.ps1)
 
 ### Option 3 - Self-managed rollout using Intune policies
 
@@ -64,7 +64,7 @@ If you want to manage the rollout of the secure boot certificates yourself, sear
 
 This option can be highly desirable if you want to be in complete control yourself, as this allows you to roll this policy out in your own rings/waves. This option also doesn't require for you to send diagnostic data to Microsoft.
 
->NOTE: This policy only works if your Device is on the December 2025 patch or later, otherwise Intune will report error 65000 and the policy will have no effect. If you face any issues with this policy, as a workaround you can deploy the corresponding registry key instead. You can download a PowerShell script to deploy it from [my github here](https://github.com/thisisevilevil/IntunePublic/blob/main/PowerShell%20Scripts/Secure%20Boot%20Certificate%20Deployment/Deploy-SecureBootCert-SelfRollout.ps1)
+>NOTE: It seems these policies doesn't always work, even with the December 2025 patch. Still waiting for a response from Microsoft. In the meantime, you can apply the corresponding registry instead, using a PowerShell script. You can download it from [my github here](https://github.com/thisisevilevil/IntunePublic/blob/main/PowerShell%20Scripts/Secure%20Boot%20Certificate%20Deployment/Deploy-SecureBootCert-SelfRollout.ps1)
 
 ### Monitoring for updated certificates
 
