@@ -19,9 +19,9 @@ Windows Updates during ESP is making a comeback (for the 3rd time), let's hope t
 
 ![WindowsUpdates](/assets/images/2026-14-01-WindowsUpdates-Intune-Early2026/WindowsUpdate-OOBE.png?raw=true "Windows Update during OOBE")
 
-If you don't want any updates during ESP, be sure to set this option to "No" in your ESP. Otherwise this functionality will be re-implemented in the January 2026 as pr. comms from Microsoft.
+If you don't want any updates during ESP, be sure to set this option to "No" in your ESP. Otherwise this functionality will be re-implemented in the January 2026 as pr. comms from Microsoft. Carefully consider the impact of using this feature, as it will most likely significantly increase the enrollment time of your windows devices.
 
-Read more about this in this [blog post from Microsoft](https://techcommunity.microsoft.com/blog/windows-itpro-blog/get-ready-for-windows-quality-updates-out-of-the-box/4434498)
+More about this in this [blog post from Microsoft](https://techcommunity.microsoft.com/blog/windows-itpro-blog/get-ready-for-windows-quality-updates-out-of-the-box/4434498)
 
 ## Gradual rollout functionality is back
 
