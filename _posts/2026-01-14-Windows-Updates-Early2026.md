@@ -11,6 +11,8 @@ tags:
 
 It's early 2026, our hangovers have barely passed, but life must go on. Microsoft is off to an early and great start in 2026 with some great new changes.
 
+![WindowsUpdates](/assets/images/2026-14-01-WindowsUpdates-Intune-Early2026/Thumbnail.png?raw=true "Windows Update during OOBE")
+
 ## Updates during ESP
 
 Windows Updates during ESP is making a comeback (for the 3rd time), let's hope this time it goes well, as Microsoft previous attempts of rolling it out hasn't gone according to plan. The option to disable it in ESP has already been there for a while, but the button hasn't really done anything as the feature was rolled back.
