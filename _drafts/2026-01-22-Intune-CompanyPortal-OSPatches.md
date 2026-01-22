@@ -15,6 +15,8 @@ I’ve previously done this for customers to patch stubborn devices—for exampl
 
 In this case, however, this blog post was prompted by the **January 2026-01 Out-of-Band (OOB) patch** released for Windows 11 by Microsoft. Microsoft decided **not** to release this update through the normal Windows Update channels, meaning it is not offered via **Windows Update for Business (WUfB)**. Unfortunately, this OOB patch contains fixes that may significantly impact users—or even you as an IT admin.
 
+![Thumbnail](/assets/images/2026-01-22-Intune-CompanyPortal-OSPatches/Thumbnail.png?raw=true "Thumbnail")
+
 ## What’s in the January 2026-01 OOB patch?
 
 For **Windows 11 23H2**, the January 2026-01 OOB patch  
@@ -85,6 +87,8 @@ PowerShell.exe -ExecutionPolicy Bypass -NoProfile -File Install-WindowsUpdate-23
 ```PowerShell
 dism /online /remove-package /PackageName:Package_for_RollupFix~31bf3856ad364e35~amd64~~22631.6494.1.20 <-- Needs to be doublechecked on Win11 23H2 device
 ```
+**Logo**
+It's always nice with a logo :) You can find a nice Microsoft logo or you can use the one I've stored <a id="raw-url" href="https://raw.githubusercontent.com/thisisevilevil/evilevil365/master/assets/Windows11Logo.png">here</a>
 
 > **Note:**  
 > To find the correct uninstall package name for a specific update, use the following PowerShell command to list installed updates:
@@ -92,7 +96,6 @@ dism /online /remove-package /PackageName:Package_for_RollupFix~31bf3856ad364e35
 > ```powershell
 > Get-WindowsPackage -Online | Where {$_.PackageName -like '*RollupFix*'}
 > ```
-
 
 ## Requirement rule
 
@@ -117,7 +120,6 @@ Use a **registry requirement rule** to ensure the app is only offered to relevan
 >
 > - Windows 11 **24H2** → `26100`  
 > - Windows 11 **25H2** → `26200`
-
 
 ## Detection rule
 
