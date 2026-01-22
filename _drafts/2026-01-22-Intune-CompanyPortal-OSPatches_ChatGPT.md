@@ -144,17 +144,15 @@ If you want to **nudge users to reboot**, enable the following option on the Win
 
 Enabling this option unlocks the **Restart Grace Period** settings on your app assignments. This allows you to notify users and give them multiple reminders before the reboot is enforced.
 
+![RestartApp](/assets/images/2026-01-22-Intune-CompanyPortal-OSPatches/AppInstallBehaviour.png?raw=true "Intune restart on Win32 app")
+![RestartApp](/assets/images/2026-01-22-Intune-CompanyPortal-OSPatches/AppRestart-graceperiod-1.png?raw=true "Intune grace period on Win32 app")
+![RestartApp](/assets/images/2026-01-22-Intune-CompanyPortal-OSPatches/AppRestart-graceperiod-2.png?raw=true "Intune grace period on Win32 app")
+
 > **Important:**  
 > Always enable the **Restart Grace Period** when using  
 > **“Intune will force a mandatory reboot”**.  
 >  
 > If the grace period is not configured, installing the update will result in an **immediate and abrupt reboot**, which is a very poor user experience.
-
-![RestartApp](/assets/images/2026-01-22-Intune-CompanyPortal-OSPatches/AppInstallBehaviour.png?raw=true "Intune restart on Win32 app")
-![RestartApp](/assets/images/2026-01-22-Intune-CompanyPortal-OSPatches/AppRestart-graceperiod-1.png?raw=true "Intune grace period on Win32 app")
-![RestartApp](/assets/images/2026-01-22-Intune-CompanyPortal-OSPatches/AppRestart-graceperiod-2.png?raw=true "Intune grace period on Win32 app")
-
----
 
 ## Wrapping up
 
