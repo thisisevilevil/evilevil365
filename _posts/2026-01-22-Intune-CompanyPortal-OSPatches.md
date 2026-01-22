@@ -55,7 +55,7 @@ In the example below, we’ll download the update for **Windows 11 23H2**, creat
 
 1. Go to the [Microsoft Update Catalog](https://www.catalog.update.microsoft.com/) and search for the KB number of the patch you want.
 
-2. Click **Download** and download all relevant files for the update.
+2. Click **Download** and download all relevant files for the update. In the below example we are going with the January 2026-01 OOB Patch for Windows 11 23H2 x64
 
    ![WindowsCatalog](/assets/images/2026-01-22-Intune-CompanyPortal-OSPatches/WufB-Catalog-Download-1.png?raw=true "Microsoft Update Catalog Download Windows update")
 
@@ -63,6 +63,7 @@ In the example below, we’ll download the update for **Windows 11 23H2**, creat
 
    ```powershell
    Add-WindowsPackage -Online -PackagePath "$PsScriptRoot\windows11.0-kb5077797-x64_af2b9a9ab390d2081e3e4eb52a2f8b81b5be1d7f.msu"
+   ```
 
 4. Wrap the files using the  
    [Intune Content Prep Tool](https://learn.microsoft.com/en-us/intune/intune-service/apps/apps-win32-prepare#convert-the-win32-app-content)  
