@@ -94,7 +94,7 @@ dism /online /remove-package /PackageName:Package_for_RollupFix~31bf3856ad364e35
 
 ## Requirement rule
 
-Use a **registry requirement rule** to ensure the app is only offered to relevant devices.
+Use a **registry requirement rule** to ensure the app is only offered to relevant devices. You can also optionally add a disk space check (2000mb) before offering the update. This will make it easier for debugging purposes, in case of disk space issues, as it will clearly be listed in the intune portal if the disk space check has not passed.
 
 **Rule configuration:**
 
