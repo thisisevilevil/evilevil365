@@ -45,7 +45,7 @@ This is because Microsoft did not release it via WufB, only via Microsoft Update
 It is technically possible to wrap updates for Windows 11 **23H2, 24H2, and 25H2** into a single package. However, I don’t recommend this due to the size of the updates.
 
 Instead, we’ll create **one Win32 app per Windows 11 version**, where applicable. We’ll use **requirement rules** to ensure the update is only offered to relevant devices. Using a Win32 app also ensures we can take advantage of  
-[Delivery Optimization](https://learn.microsoft.com/en-us/windows/deployment/do/waas-delivery-optimization), if it’s correctly configured.
+[Delivery Optimization](https://learn.microsoft.com/en-us/windows/deployment/do/waas-delivery-optimization), provided it's setup and correctly configured of course.
 
 In the example below, we’ll download the update for **Windows 11 23H2**, create a PowerShell script to install it, package it, and make it available in Company Portal.
 
