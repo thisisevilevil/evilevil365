@@ -59,7 +59,7 @@ In the example below, we’ll download the update for **Windows 11 23H2**, creat
 
    ![WindowsCatalog](/assets/images/2026-01-22-Intune-CompanyPortal-OSPatches/WufB-Catalog-Download-1.png?raw=true "Microsoft Update Catalog Download Windows update")
 
-3. Create a PowerShell script to install the update and add the following line:
+3. Create a PowerShell script to install the update and add the following line (Remember to adjust the name of the .msu file):
 
    ```powershell
    Add-WindowsPackage -Online -PackagePath "$PsScriptRoot\windows11.0-kb5077797-x64_af2b9a9ab390d2081e3e4eb52a2f8b81b5be1d7f.msu"
@@ -168,6 +168,9 @@ Enabling this option unlocks the **Restart Grace Period** settings on your app a
 ## User Experience
 
 The user can enter company portal and install the app. After installing the app, they will be prompted to reboot, as shown below:
+![UserExperience](/assets/images/2026-01-22-Intune-CompanyPortal-OSPatches/UX-1.png?raw=true "User Experience")
+![UserExperience](/assets/images/2026-01-22-Intune-CompanyPortal-OSPatches/UX-2.png?raw=true "User Experience")
+![UserExperience](/assets/images/2026-01-22-Intune-CompanyPortal-OSPatches/UX-3.png?raw=true "User Experience")
 
 ## Wrapping up
 
