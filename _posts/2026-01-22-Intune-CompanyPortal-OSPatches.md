@@ -13,7 +13,7 @@ This suddenly came up out of the blue: installing or offering Windows updates ma
 
 I’ve previously done this for customers to patch stubborn devices—for example, when Windows Update is broken or misbehaving. In those scenarios, having a Windows update available through Company Portal can be very useful for troubleshooting purposes.
 
-In this case, however, this blog post was prompted by the **January 2026-01 Out-of-Band (OOB) patch** released for Windows 11 by Microsoft. Microsoft decided **not** to release this update through the normal Windows Update channels, meaning it is not offered via **Windows Update for Business (WUfB)**. Unfortunately, this OOB patch contains fixes that may significantly impact users—or even you as an IT admin.
+In this case, however, this blog post was prompted by the **January 2026-01 Out-of-Band (OOB) patch** released for Windows 11 by Microsoft. Microsoft decided **not** to release this update through the normal Windows Update channels, meaning it is not offered via **Windows Update for Business (WUfB)**. This OOB patch contains fixes that may significantly impact users—or even you as an IT admin.
 
 ![Thumbnail](/assets/images/2026-01-22-Intune-CompanyPortal-OSPatches/Thumbnail.png?raw=true "Thumbnail")
 
