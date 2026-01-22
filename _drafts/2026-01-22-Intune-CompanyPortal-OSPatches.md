@@ -34,12 +34,9 @@ For **Windows 11 24H2 and 25H2**, only the **Remote Desktop issue** appears to b
 Short answer: **not via WUfB**.  
 We need to package and deploy it manually 🙂
 
-This is because Microsoft did not release it via WufB.
+This is because Microsoft did not release it via WufB, only via Microsoft Update catalog.
 
 ![WindowsCatalog](/assets/images/2026-01-22-Intune-CompanyPortal-OSPatches/WufBPatch-Catalog-NotOffered.png?raw=true "Microsoft Update Catalog Only")
-
-
----
 
 ## Packaging and offering the update in Company Portal
 
