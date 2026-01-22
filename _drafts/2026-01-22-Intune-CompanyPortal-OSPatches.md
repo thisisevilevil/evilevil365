@@ -161,6 +161,10 @@ Enabling this option unlocks the **Restart Grace Period** settings on your app a
 >  
 > If the grace period is not configured, installing the update will result in an **immediate and abrupt reboot**, which is a very poor user experience.
 
+## User Experience
+
+The user can enter company portal and install the app. After installing the app, they will be prompted to reboot, as shown below:
+
 ## Wrapping up
 
 It’s far from ideal to have to offer updates this way, but I’ve received a large number of questions and concerns from customers regarding this January 2026 update. That’s why I felt compelled to write this post and demonstrate a practical approach for manually packaging and offering the update to end users.
