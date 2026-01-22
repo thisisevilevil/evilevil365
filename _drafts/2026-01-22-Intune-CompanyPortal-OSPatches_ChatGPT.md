@@ -73,8 +73,9 @@ In the example below, we’ll download the update for **Windows 11 23H2**, creat
 
 ### Install command
 
-```text
+```PowerShell
 PowerShell.exe -ExecutionPolicy Bypass -NoProfile -File Install-WindowsUpdate-23H2_2026-01-OOB.ps1
+```
 
 > **Note:**  
 > To find the correct uninstall package name for a specific update, use the following PowerShell command to list installed packages:
@@ -83,7 +84,6 @@ PowerShell.exe -ExecutionPolicy Bypass -NoProfile -File Install-WindowsUpdate-23
 > Get-WindowsPackage -Online
 > ```
 
----
 
 ## Requirement rule
 
