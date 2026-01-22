@@ -107,7 +107,7 @@ Use a **registry requirement rule** to ensure the app is only offered to relevan
 > - Windows 11 **24H2** → `26100`  
 > - Windows 11 **25H2** → `26200`
 
----
+![WindowsCatalog](/assets/images/2026-01-22-Intune-CompanyPortal-OSPatches/RequirementRule-23H2.png?raw=true "Requirement rule settings")
 
 ## Detection rule
 
@@ -126,11 +126,13 @@ Use a **registry detection rule** to confirm the update is installed.
 - **Value:**  
   `6494`
 
+![WindowsCatalog](/assets/images/2026-01-22-Intune-CompanyPortal-OSPatches/Detection-23H2.png?raw=true "Detection")
+
 > **Notes:**
 >
 > - Windows 11 **24H2 and 25H2** → use value `7627`
 
----
+
 
 ## Reboot behavior
 
