@@ -86,7 +86,7 @@ PowerShell.exe -ExecutionPolicy Bypass -NoProfile -File Install-WindowsUpdate-23
 
 **Uninstall command**
 ```PowerShell
-dism /online /remove-package /PackageName:Package_for_RollupFix~31bf3856ad364e35~amd64~~22631.6494.1.20 <-- Needs to be doublechecked on Win11 23H2 device
+dism /online /remove-package /PackageName:Package_for_RollupFix~31bf3856ad364e35~amd64~~22631.6494.1.2
 ```
 
 It's otherwise always nice with a logo :) You can find a nice Microsoft logo or you can use the one I've stored <a id="raw-url" href="https://raw.githubusercontent.com/thisisevilevil/evilevil365/master/assets/Windows11Logo.png">here</a>
