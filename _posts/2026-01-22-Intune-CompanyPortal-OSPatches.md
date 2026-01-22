@@ -150,7 +150,7 @@ Use a **registry detection rule** to confirm the update is installed.
 
 Make sure to carefully configure and observe the reboot behavior.
 
-If you want to **nudge users to reboot**, enable the following option on the Win32 app:
+If you want to **nudge users to reboot** after installing the update, enable the following option on the Win32 app:
 
 - **“Intune will force a mandatory reboot”**
 
