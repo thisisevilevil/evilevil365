@@ -71,17 +71,24 @@ In the example below, we’ll download the update for **Windows 11 23H2**, creat
 
 ## Win32 app configuration
 
-### Install command
+### Install and uninstall command
 
+
+**Install command**
 ```PowerShell
 PowerShell.exe -ExecutionPolicy Bypass -NoProfile -File Install-WindowsUpdate-23H2_2026-01-OOB.ps1
 ```
 
+**Uninstall command**
+```PowerShell
+dism /online /remove-package /PackageName:Package_for_RollupFix~31bf3856ad364e35~amd64~~22631.6494.1.20 <-- Needs to be doublechecked on Win11 23H2 device
+```
+
 > **Note:**  
-> To find the correct uninstall package name for a specific update, use the following PowerShell command to list installed packages:
+> To find the correct uninstall package name for a specific update, use the following PowerShell command to list installed updates:
 >
 > ```powershell
-> Get-WindowsPackage -Online
+> Get-WindowsPackage -Online | Where {$_.PackageName -like '*RollupFix*'}
 > ```
 
 
@@ -156,7 +163,7 @@ Enabling this option unlocks the **Restart Grace Period** settings on your app a
 
 ## Wrapping up
 
-It’s far from ideal to have to offer updates this way, but I’ve received a large number of questions and concerns from customers regarding this January update. That’s why I felt compelled to write this post and demonstrate a practical approach for manually packaging and offering the update to end users.
+It’s far from ideal to have to offer updates this way, but I’ve received a large number of questions and concerns from customers regarding this January 2026 update. That’s why I felt compelled to write this post and demonstrate a practical approach for manually packaging and offering the update to end users.
 
 By using a **Win32 app** and making it available in **Company Portal**, you can treat this update as a *fix-on-failure*—guiding users to install it only when needed. Of course, you can also push it proactively to all users if many are affected, but in that case, I strongly recommend increasing the restart grace period so users have more than 24 hours to complete the mandatory reboot.
 
