@@ -15,6 +15,8 @@ I’ve previously done this for customers to patch stubborn devices—for exampl
 
 In this case, however, this blog post was prompted by the **January 2026-01 Out-of-Band (OOB) patch** released for Windows 11 by Microsoft. Microsoft decided **not** to release this update through the normal Windows Update channels, meaning it is not offered via **Windows Update for Business (WUfB)**. This OOB patch contains fixes that may significantly impact users—or even you as an IT admin.
 
+>Update 24th of January 2026: The OOB Patch has now been added so you can expedite it via Intune - No reasons to manually package it, but at least now you know how to manually add a patch to company portal :)
+
 ![Thumbnail](/assets/images/2026-01-22-Intune-CompanyPortal-OSPatches/Thumbnail.png?raw=true "Thumbnail")
 
 ## What’s in the January 2026-01 OOB patch?
