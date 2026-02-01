@@ -68,15 +68,9 @@ This option can be highly desirable if you want to be in complete control yourse
 
 ### Monitoring for updated certificates
 
-I have created an Intune remediation you can use to monitor your devices are running with the updated secure boot certificate. You can find it [here](https://github.com/thisisevilevil/IntunePublic/blob/main/Remediations/Check%20SecureBoot%20Certificates/Detect-SecureBootCerts.ps1).
+Microsoft released a new report to monitor for the updated certificates in the end of January 2026. You can find it by navigating to the following blade: Reports > Windows Quality Updates > Reports > Secure Boot Status
 
-Assign it with 64-bit enabled, whilst disabling signature check and disable running with logged-on credentials.
-
-Here is a screenshot of the Remediation being used in production, where Option #3 (self-managed rollout) is being rolled out in rings - The ones marked with "Without issues" have the updated certificate:
-
-![Policy](/assets/images/2025-09-03-SecureBoot-Cert-Expiration/SecureBootCert_Remediation.png?raw=true "Remediation")
-
->NOTE: During an AMA hosted by Microsoft hosted the 10th of December 2025, they told us that Microsoft will deliver monitoring features for the updated certificates, but they will only be delivered sometime in 2026.
+![Monitoring](/assets/images/2025-09-03-SecureBoot-Cert-Expiration/SecureBootMonitoring.png?raw=true "Monitoring for updated certs") 
 
 ## Wrapping up
 
