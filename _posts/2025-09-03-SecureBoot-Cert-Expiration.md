@@ -68,7 +68,7 @@ This option can be highly desirable if you want to be in complete control yourse
 
 ### Monitoring for updated certificates
 
-Microsoft released a new report to monitor for the updated certificates in the end of January 2026. You can find it by navigating to the following blade: Reports > Windows Quality Updates > Reports > Secure Boot Status
+Microsoft released a new report in Intune to monitor for the updated certificates. It was released the end of January 2026. You can find it by navigating to the following blade: Reports > Windows Quality Updates > Reports > Secure Boot Status
 
 ![Monitoring](/assets/images/2025-09-03-SecureBoot-Cert-Expiration/SecureBootMonitoring.png?raw=true "Monitoring for updated certs") 
 
