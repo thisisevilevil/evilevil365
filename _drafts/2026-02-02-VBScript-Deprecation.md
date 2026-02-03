@@ -25,6 +25,7 @@ Unless someone broke into my house and secretly replaced my motherboard and CPU 
 
 I fired up **Process Monitor** to see what the installer was doing behind the scenes.  
 Almost immediately, I spotted repeated attempts to launch: `C:\Windows\SYSWOW64\cscript.exe`
+![Error](/assets/images/2026-03-02-VBScript-Deprecation/ProcessMonitor.png?raw=true "Process Monitor")
 
 This can only mean 1 thing!
 
