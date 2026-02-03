@@ -48,7 +48,7 @@ Microsoft has officially announced that:
 - **VBScript will be deprecated in 2027 - FoD will be disable by default**
 - It will later be **fully removed from Windows**
 
-That means every installer, automation script, and macro that still depends on it is a future outage waiting to happen.
+That means every installer, automation script, and macro that still depends on it, is a future outage waiting to happen.
 
 If you believe no one in your organization relies on VBScript anymore, I dare you to try running this on a test device:
 
