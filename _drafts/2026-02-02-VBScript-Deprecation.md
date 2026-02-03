@@ -69,4 +69,4 @@ Yet in 2026, it’s still being utilized by application packagers, drivers, exce
 
 If your packaging, deployment, or automation workflows still depend on VBScript, now is the time to audit and modernize them—before the platform removes it for you.
 
-VBScript deprecation timelines and next steps: [https://techcommunity.microsoft.com/blog/windows-itpro-blog/vbscript-deprecation-timelines-and-next-steps/4148301](https://techcommunity.microsoft.com/blog/windows-itpro-blog/vbscript-deprecation-timelines-and-next-steps/4148301)
+See this article from Microsoft regarding VBScript deprecation timelines and next steps: [https://techcommunity.microsoft.com/blog/windows-itpro-blog/vbscript-deprecation-timelines-and-next-steps/4148301](https://techcommunity.microsoft.com/blog/windows-itpro-blog/vbscript-deprecation-timelines-and-next-steps/4148301)
