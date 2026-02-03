@@ -32,7 +32,7 @@ This can only mean 1 thing!
 
 ## The Root Cause
 
-Three months ago, I had removed VBScript support from my PC.  
+Three months ago, I had removed VBScript support from my device.  
 At the time, it seemed harmless—another legacy component retired.
 
 It turns out AMD’s chipset installer still uses **VBScript-based requirement checks**.  
