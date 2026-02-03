@@ -1,5 +1,5 @@
 ---
-title: "VBScript Deprecation"
+title: "When Removing VBScript Breaks Your AMD Chipset Driver"
 date: 2026-02-03
 categories:
   - VBScript
@@ -7,8 +7,6 @@ tags:
   - VBScript Deprecation
   - VBScript out of support
 ---
-
-# When Removing VBScript Breaks Your AMD Chipset Driver
 
 I recently noticed that my **AMD X870 chipset drivers** had been stuck “installing” via AMDs auto-updater for *weeks*—yet never actually finishing.
 
@@ -18,7 +16,7 @@ So I manually downloaded the installer and launched it… only to be greeted wit
 
 > **“This installer is intended to be deployed only on an AMD system. Existing installation as the requirement is not satisfied.”**
 
-![Error](/assets/images/2026-03-02-VBScript-Deprecation/AMDChipset-Error.png?raw=true "Thumbnail")
+![Error](/assets/images/2026-03-02-VBScript-Deprecation/AMDChipset-Error.png?raw=true "Error")
 
 Unless someone broke into my house and secretly replaced my motherboard and CPU with Intel hardware, something was clearly wrong.
 
@@ -57,7 +55,7 @@ If you believe no one in your organization relies on VBScript anymore, I dare yo
 DISM /Online /Remove-Capability /CapabilityName:VBSCRIPT~~~~
 ```
 
-1 thing is almost certain: Decades worth of Excel macros will break, and will need to be re-written in Javascript, PowerShell or another language. But if you haven't started already, it's time to start communicating widely to your organization that this change is happening.
+1 thing is almost certain: Decades worth of Excel macros will break, and will need to be re-written in Javascript, PowerShell or another language. But if you haven't started already, it's time to start communicating widely to your organization that this change is happening, so everyone can prepare accordingly.
 
 ## The Takeaway
 
