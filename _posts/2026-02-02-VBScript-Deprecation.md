@@ -1,6 +1,6 @@
 ---
 title: "VBScript Deprecation"
-date: 2026-02-23
+date: 2026-02-03
 categories:
   - VBScript
 tags:
