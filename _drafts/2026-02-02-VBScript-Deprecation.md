@@ -63,9 +63,9 @@ DISM /Online /Remove-Capability /CapabilityName:VBSCRIPT~~~~
 
 ## The Takeaway
 
-VBScript was released in the 1990s.
-Yet in 2026, it’s still blocking modern driver installers.
+VBScript was released almost 30 years ago.
+Yet in 2026, it’s still being utilized by application packagers, drivers, excel macros etc.
 
-If your packaging, deployment, or automation workflows still depend on VBScript, now is the time to audit and modernize them—before the platform removes it for you. 1 thing is almost certain.
+If your packaging, deployment, or automation workflows still depend on VBScript, now is the time to audit and modernize them—before the platform removes it for you.
 
 VBScript deprecation timelines and next steps: [https://techcommunity.microsoft.com/blog/windows-itpro-blog/vbscript-deprecation-timelines-and-next-steps/4148301](https://techcommunity.microsoft.com/blog/windows-itpro-blog/vbscript-deprecation-timelines-and-next-steps/4148301)
