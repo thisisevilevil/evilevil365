@@ -27,9 +27,7 @@ I fired up **Process Monitor** to see what the installer was doing behind the sc
 Almost immediately, I spotted repeated attempts to launch: `C:\Windows\SYSWOW64\cscript.exe`
 ![Error](/assets/images/2026-03-02-VBScript-Deprecation/ProcessMonitor.png?raw=true "Process Monitor")
 
-This can only mean 1 thing!
-
-> **VBScript.**
+This can only mean 1 thing: **VBScript.**
 
 ## The Root Cause
 
@@ -39,9 +37,7 @@ At the time, it seemed harmless—another legacy component retired.
 It turns out AMD’s chipset installer still uses **VBScript-based requirement checks**.  
 With VBScript removed, those checks fail silently, and the installer incorrectly assumes the system is *not* an AMD platform.
 
-In short:
-
-> **No VBScript → broken detection logic → false hardware error.**
+In short: **No VBScript → broken detection logic → false hardware error.**
 
 ## Why This Is a Bigger Problem
 
