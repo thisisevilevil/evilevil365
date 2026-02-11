@@ -64,7 +64,7 @@ If you want to manage the rollout of the secure boot certificates yourself, sear
 
 This option can be highly desirable if you want to be in complete control yourself, as this allows you to roll this policy out in your own rings/waves. This option also doesn't require for you to send diagnostic data to Microsoft.
 
->NOTE: It seems these policies doesn't always work, even with the December 2025 patch. Intune returns an error 65000. Still waiting for a response from Microsoft. In the meantime, you can apply the corresponding registry key instead, using a PowerShell script. You can download it from [my github here](https://github.com/thisisevilevil/IntunePublic/blob/main/PowerShell%20Scripts/Secure%20Boot%20Certificate%20Deployment/Deploy-SecureBootCert-SelfRollout.ps1)
+>NOTE: There is a known issue where this policy can fail with an error code 65000 - It is due to be fixed by February 27 2026 ([Source](https://support.microsoft.com/en-us/topic/microsoft-intune-method-of-secure-boot-for-windows-devices-with-it-managed-updates-1c4cf9a3-8983-40c8-924f-44d9c959889d)). In the meantime, you can apply the corresponding registry key instead, using a PowerShell script. You can download it from [my github here](https://github.com/thisisevilevil/IntunePublic/blob/main/PowerShell%20Scripts/Secure%20Boot%20Certificate%20Deployment/Deploy-SecureBootCert-SelfRollout.ps1)
 
 ### Monitoring for updated certificates
 
