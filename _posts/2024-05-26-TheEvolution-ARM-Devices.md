@@ -53,7 +53,7 @@ Based on all of the above, also think about File-based detection rules, any scri
 * **Antivirus**: Ensure your Antivirus vendor supports ARM! If not, it's a good time to migrate to Defender already :)
 * **App-vendor support**: Microsoft is encouraging all app vendors to add support for ARM64. Vendors that already [support ARM32 should migrate to ARM64 ASAP](https://learn.microsoft.com/en-us/windows/arm/arm32-to-arm64) - Note if the app vendors doesn't migrate in time, it will still run on Windows. It will just revert to running emulated rather than ARM-native, where the app might suffer a performance impact as a result.
 
-All of the above should be essential information for IT Admins to prepare themselves for ARM devices. Some of you probably have a lot of automation and scripts built to specifically reference C:\Program Files. Some of you will probably also be deploying ARM-based device enrolled to Intune very soon. 
+All of the above should be essential information for IT Admins to prepare themselves for ARM devices. Some of you probably have a lot of automation and scripts built to specifically reference C:\Program Files. Some of you will probably also be deploying ARM-based device enrolled to Intune very soon.
 If alot of your apps will not deploy on an ARM-based device, listed as "Not Applicable" in Intune, ensure the 32-bit requirement is selected, then it should deploy using the [previously mentioned emulation in the IME](https://learn.microsoft.com/en-us/windows/arm/apps-on-arm-x86-emulation).
 
 ## Finalizing words
@@ -64,8 +64,7 @@ Personally, I think ARM-based windows devices is now here to stay, but the drive
 
 What you can already start doing today to plan for ARM-based devices, as an IT Admin:
 
-* Prepare apps in Intune: Ensure 32-bit support is ticked but also start looking for ARM-based versions of your apps where possible.
-* Check if your core apps in your organisation supports ARM CPUs, starting with your Antivirus solution
+* Check if your core apps in your organisation supports ARM CPUs, starting with your Antivirus and VPN solution
 * Check all your devices and gadgets you use in your company, if the manufacturer has added ARM64 drivers for their products
 * Go through any automation/scripts you have put into place where you have used logic based on %PROCESSOR_ARCHITECTURE% or similar
 * Create a Dynamic Group + Filter to filter on ARM-based devices for grouping/targeting/filtering purposes.
