@@ -35,10 +35,8 @@ Most of your apps are going to work on ARM-based devices, but if you want the be
 
 1. ARM-native apps deploys to C:\Program Files (Arm)
 2. 32-bit ARM apps will leave reg keys under HKLM:\SOFTWARE\WowAA32Node
-3. Ensure the 32-bit requirement is selected for your Win32 apps as the IME emulates 32-bit on ARM-based devices
+3. Ensure the ARM-64 bit requirement is ticked under app requirement to make sure ARM-native apps deploys only to ARM devices.
 4. Deploy ARM-native apps to your ARM devices where possible, for best performance! Look for "ARM64" or "Aarch64" instead of "64-bit" when downloading your apps. (I suspect the list of vendors starting to support ARM-native will be steadily growing during the next few years)
-5. Intune win32 apps still doesn't officially natively support ARM64, but if we poke around using MS Graph, we can observe it's been added a while ago already ([Source](https://learn.microsoft.com/en-us/graph/api/resources/intune-apps-windowsarchitecture?view=graph-rest-beta)) but not visible if you use the Intune portal. Probably not fully baked yet.
-![Win32apprequirements](/assets/images/2014-05-26-TheEvolution-ARM-Devices/Win32App_Requirements.png?raw=true "Win32 app requirements")
 
 * In the meantime, for Win32 apps, you can write your own custom PowerShell Requirement script to make sure it only targets ARM64 devices
 
