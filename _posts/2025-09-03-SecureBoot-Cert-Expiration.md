@@ -8,7 +8,7 @@ tags:
   - Certificate expiry
 ---
 
->**UPDATED 10th of December 2025**: Microsoft hosted a live AMA that gave us a lot more information about how all of this is going to work. You can find the link for it [here](https://techcommunity.microsoft.com/event/WindowsEvents/ama-secure-boot/4472784?after=MjUuOXwyLjF8aXwxMHwxMzI6MHxpbnQsNDQ3NjkwMCw0NDc2ODgw&topicRepliesSort=postTimeDesc)
+>**UPDATED 25th of February 2026**: Microsoft hosted 2 AMA's that gave us a lot more information about how all of this is going to work. You can find the link for for the December 2025 [here](https://techcommunity.microsoft.com/event/WindowsEvents/ama-secure-boot/4472784?after=MjUuOXwyLjF8aXwxMHwxMzI6MHxpbnQsNDQ3NjkwMCw0NDc2ODgw&topicRepliesSort=postTimeDesc) and the February 2026 one [here](https://www.youtube.com/watch?v=EscGJTKHPdw)
 
 If you manage Windows devices, you might have noticed some alerts about Secure Boot certificates expiring in 2026. This is a common concern, but there's no need to panic. I've noticed some conflicting information about to manage this issue, hence this blog post to clear things up.
 
@@ -66,9 +66,7 @@ This option can be highly desirable if you want to be in complete control yourse
 
 ### Monitoring for updated certificates
 
-**EDIT 9th of February 2026: Looks like the report was rolled back for now :(**
-
-Microsoft released a new report in Intune to monitor for the updated certificates. It was released the end of January 2026. You can find it by navigating to the following blade: Reports > Windows Quality Updates > Reports > Secure Boot Status
+Microsoft released a new report in Intune to monitor for the updated certificates. You can find it by navigating to the following blade: Reports > Windows Quality Updates > Reports > Secure Boot Status
 
 ![Monitoring](/assets/images/2025-09-03-SecureBoot-Cert-Expiration/SecureBootMonitoring.png?raw=true "Monitoring for updated certs") 
 
