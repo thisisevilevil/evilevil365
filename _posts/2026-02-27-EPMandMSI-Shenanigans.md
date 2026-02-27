@@ -22,7 +22,7 @@ I jumped on a users device, and a first glance I couldn't find out where the dis
 
 ![Treesize](/assets/images/2026-02-27-EPMandMSI-Shenanigans/Treesize.png?raw=true "Treesize overview")
 
-Looks like the following path was stuffed with MSI Files: `C:\Windows\System32\Config\systemprofile\AppData\Local\MDM`
+Looks like the following path was stuffed with MSI Files - More specifically 319GB of MSI Files: `C:\Windows\System32\Config\systemprofile\AppData\Local\MDM`
 
 ![MSI](/assets/images/2026-02-27-EPMandMSI-Shenanigans/MSIFile.png?raw=true "EPM MSI Files")
 
