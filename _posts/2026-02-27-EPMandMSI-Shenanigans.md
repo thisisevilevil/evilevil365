@@ -34,9 +34,8 @@ I also wanted to check if more users had this problem, so I wrote a remediation 
 
 ## The fix
 
-I've already engaged the EPM team at Microsoft, and they are looking into the problem. But while we are waiting for a permanent fix, I've written a remediation to clean up the folder. It's a very simple detection script that simply checks the folder if it's above 1GB in size, it will proceed to remediation, where the remediation script cleans up all the files if the folder.
+I've already engaged the EPM team at Microsoft, and they are looking into the problem. But while we are waiting for a permanent fix, I've written a remediation to clean up the folder. It's a very simple detection script that simply checks the size of the folder, and if it's above 1GB in size, it will proceed to remediation, where the remediation script cleans up all the files if the folder.
 
 You can find the scripts [here](https://github.com/thisisevilevil/IntunePublic/tree/main/Remediations/Fix%20high%20diskspace%20consumption%20in%20MDM%20Folder).
 
 You actually also re-use this script and point it to any other folder i.e: temp folders etc. and have them clean it up if it gets above a certain size. In the detection script, adjust the folder variable and also decide how much the threshold (in GB) should be, before it proceeds to clean up the folder. Then in the remediation script, also make sure to adjust that folder accordingly.
-
