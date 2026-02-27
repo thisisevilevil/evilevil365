@@ -18,7 +18,7 @@ If you have been using Microsoft EPM for a while, then spoiler alert: You might 
 
 ## Locating the problem
 
-I jumped on a users device, and a first glance I couldn't find out where the disk space had disapearred off to, so I had to fire up treesize to see what was going on.
+I jumped on a users device, where the disk space had mysterially disappeared, and a first glance I couldn't find out where the disk space had disapeared off to, so I had to fire up treesize to see what was going on.
 
 ![Treesize](/assets/images/2026-02-27-EPMandMSI-Shenanigans/Treesize.png?raw=true "Treesize overview")
 
