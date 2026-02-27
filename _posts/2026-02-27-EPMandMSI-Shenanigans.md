@@ -10,7 +10,7 @@ tags:
   - Disk space management
 ---
 
-I recently faced an issue at one of my customers where a smaller amount of users reporting they had no free disk space, even though they barely had any apps installed or documents stored locally.
+I recently faced an issue at one of my customers where a smaller amount of users reported they had no free disk space, even though they barely had any apps installed or documents stored locally.
 
 If you have been using Microsoft EPM for a while, then spoiler alert: You might also be (unknowingly) affected by this problem.
 
