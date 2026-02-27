@@ -44,4 +44,4 @@ You actually also re-use this script and point it to any other folder i.e: temp 
 
 I'm sure this bug will be fixed in due time by Microsoft, and luckily it doesn't seem like the issue is that widespread, otherwise I'm sure a lot more would have come forward by now.
 
-That's all for now folks. Have an awesome day!
+That's all for now folks. Have an awesome day! :)
