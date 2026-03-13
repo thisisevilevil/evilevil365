@@ -26,7 +26,7 @@ I see a few root causes:
 - **Tooling gaps:** IT teams often lack out-of-the-box tools to manage features such as application control and local administrator rights for both platforms. Third-party solutions are frequently required.
 - **Process shortcomings:** exemption and approval workflows are often slow or poorly defined, which encourages workarounds
 - **Knowledge gap:** Many IT admins in Windows-first organizations have limited macOS experience. When macOS is introduced as a platform option, training is often missing, and admins are expected to manage it like Windows. Teams need to build basic macOS skills before they can run advanced security controls.
-- **Leadership awareness:** Decision makers needs to be aware of all of the above, when introduce macOS as a platform choice into their estate.
+- **Leadership awareness:** Decision makers needs to be aware of all of the above, when introducing macOS as a platform choice into their estate.
 
 ## A real-world example
 
