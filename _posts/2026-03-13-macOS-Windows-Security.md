@@ -48,3 +48,5 @@ To address this imbalance, organizations should consider:
 The tension between developer productivity and enterprise security on windows is real. Rather than letting platform preference drive shadow IT, organizations should close the management gap between Windows and macOS—so that developers can be productive without creating unmanaged security risks.
 
 macOS is definitely here to stay in the enterprise world, and adoption is growing rapidly as time progresses. When examining the hardware alone, specifically looking at the new macOS M5 chips, they have a major advantage over Windows-based offerings currently in the same space. ARM for Windows is slowly becoming a thing, but as of this date, Qualcomms chips is already falling behind from a performance perspective when compared to Apple. And we did not even cover the whole ARM-application and driver perspective for Windows yet, which is a huge problem for many orgs that prevents wide adoption
+
+That's all for now, have an awesome day :)
