@@ -1,5 +1,5 @@
 ---
-title: "Getting started with Multi-Admin Approval in Intune"
+title: "Multi-Admin Approval in Intune: What It Does (and Doesn't) Protect Against"
 date: 2026-04-07
 categories:
   - Intune
