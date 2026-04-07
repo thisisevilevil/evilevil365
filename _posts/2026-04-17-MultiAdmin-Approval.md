@@ -8,6 +8,8 @@ tags:
   - Security
   - Security Best Practices
   - Process
+  - MAA
+  - Multi Admin Approval
 ---
 
 Recently there was a major hack: the Stryker incident. You can read more about it [here](https://www.stryker.com/us/en/about/news/2026/a-message-to-our-customers-03-2026.html).
