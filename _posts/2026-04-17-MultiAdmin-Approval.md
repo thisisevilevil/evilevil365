@@ -26,7 +26,7 @@ One thing I noticed during the week the incident unfolded, was a seemingly knee-
 
 ## Multi-Admin Approval
 
-Multi-Admin Approval (MAA) is a relatively new feature from Microsoft Intune that adds an extra approval layer for high-impact actions such as Device Wipe and Device Delete. Microsoft is also adding more device actions and policy types, for now it supports a few different policy types, such as application, running script or modifying a role. But the majority will probably look at enabling MAA for the following device actions: **Delete**, **Retire** and **Wipe**
+Multi-Admin Approval (MAA) is a relatively new feature from Microsoft Intune that adds an extra approval layer for high-impact actions such as Device Wipe and Device Delete. Microsoft is also adding more device actions and policy types, for now it supports a few different policy types, such as modifying applications, running scripts or modifying a role. But the majority will probably look at enabling MAA for the following device actions: **Delete**, **Retire** and **Wipe**
 
 When you create any of these MAA policy types, it is a **tenant-wide policy**. Scope tags are not supported, and scoping a MAA-Policy only to certain devices or users is also not supported for now. When you create the MAA policy, you will need to assign an EntraID Group of who can approve requests and then it will need to be approved by another admin before the policy actually is in effect. Note that even Global Admins cannot approve their own MAA requests.
 Once the request is approved by another admin, you will have to navigate back to the MAA Pane in INtune and finally click "Complete request". The approach is the same for the other MAA actions, let's break it down.
