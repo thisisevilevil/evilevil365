@@ -43,7 +43,7 @@ To simpify this process, let's pretend we will have 2 admins. Admin 1 is Bob and
 3) Bob then has to go to the same Multi-Admin Approval pane, click his request, and finally hit the "Complete request" button to actually initiate that wipe. Bob will have to do this within 3 days after the approval was given, otherwise it will expire.
 If the action expires before clicking "complete request", Bob will have to send a new wipe and get it approved again.
 
-It's important to underline that the action doesn't automatically complete once it's approved, the requesting admin will have to go to click that "Complete request" button to finalize the action, so essentially a 3-step process.
+It's important to underline that the action doesn't automatically complete once it's approved, the requesting admin will have to go to click that "Complete request" button to finalize the action, so essentially a 3-step process. There is also no built-in notification system, so admins are not notified in any way, when an approval request is sent to the portal or when a request is approved for now. It is possible to create your own notification tooling i.e: PowerAutomate or an Azure Logic App to send notifications via email or to a teams channel.
 
 >NOTE: Based on learnings from the field, I've found it can take between 15-30 minutes for MAA to actually process the request. Example: If you press "complete request" to delete or wipe a device, it doesn't immediately process.
 
@@ -60,8 +60,14 @@ However, and to be clear, MAA does protect against the following:
 ## A few gotchas
 
 1. MAA does not protect against a Compromised GA Account
-2. If you are using tools to automate device deletions, they will stop working after implementing MAA.
+2. If you are using 3rd party or custom-written tools to process intune device deletions or wipes, they will stop working after implementing an MAA policy, i.e: A custom-written PowerShell script or tools like IntuneOffboarding. When deleting devices using a script, you need to put a justification for the deletion request in the header when using Remove-MgDeviceManagementManagedDevice or use one of the new Graph cmdlets for managing approval requests ([source](https://learn.microsoft.com/en-us/graph/api/intune-rbac-operationapprovalrequest-create?view=graph-rest-beta))
 3. Before just blindly implementing MAA, I would strongly go and review your processes for using actions like wipe and delete. They tie heavily into the device lifecycle process. It can heavily impact the daily operations in an IT ServiceDesk or an IT team that is managing devices in a multi-region company.
 4. Currently there is no option to assign an MAA Policy to a given set of devices or limit to specific scope tags or groups, it's an all or nothing switch. If you decide to enable MAA in your tenant, be sure to communicate to all stakeholders in advance.
 5. Processing an action like Delete or wipe is not immediate
 6. If using Custom-RBAC Roles with Groups via PIM, sometimes the MAA pane doesn't show all devices - This can confuse support personnel. As a rule of thumb, wait 15 minutes after activating the group-based PIM role, and then reopen the Intune tab, to avoid this problem.
+
+## Rounding off
+
+There is definitely pros and cons for using MAA, and it needs to be well thought out before just blindly enabling it, since it can heavily affect your device lifecycle process, whilst also being no option to scope an MAA Policy to just a group of test devices/test users, so it's an all or nothing switch. MAA in it's current shape and form, as of this date, is extremely rigid. It's still very early days, and I'm sure Microsoft will give some love.
+
+That's all for now, I hope you found it useful.
