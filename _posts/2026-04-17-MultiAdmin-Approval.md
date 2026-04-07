@@ -24,7 +24,7 @@ A compromised admin account (presumably a Global Admin, but we don't know yet) w
 
 One thing I noticed during the week the incident unfolded, was a seemingly knee-jerk reaction to enable MAA because that would prevent incidents like these. But would it? Let's find out.
 
-## Multi-Admin Approval
+## Multi-Admin Approval overview
 
 Multi-Admin Approval (MAA) is a relatively new feature from Microsoft Intune that adds an extra approval layer for high-impact actions such as Device Wipe and Device Delete. Microsoft is also adding more device actions and policy types, for now it supports a few different policy types, such as modifying applications, running scripts or modifying a role. But the majority will probably look at enabling MAA for the following device actions: **Delete**, **Retire** and **Wipe**
 
