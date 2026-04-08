@@ -40,9 +40,9 @@ Once the request is approved by another admin, you will have to navigate back to
 
 Let's run through a scenario where an admin wants to delete a device. In this example we will have 2 admins. Admin 1 is Bob and Admin 2 is Rachel.
 
-1) Bob initiates a device wipe towards a device from Intune. Since there is an MAA-Policy deployed, it will need to be approved by a 2nd admin, and Bob will need to provide a justification included in the request.
-2) Rachel approves the request from the MAA Requests pane in Intune. Rachel also needs to provide an approval reason.
-3) Bob then has to go to the same Multi-Admin Approval pane, click his request, and finally hit the "Complete request" button to actually initiate that wipe. Bob will have to do this within 30 days after the approval was given, otherwise it will expire.
+1. Bob initiates a device wipe towards a device from Intune. Since there is an MAA-Policy deployed, it will need to be approved by a 2nd admin, and Bob will need to provide a justification included in the request.
+2. Rachel approves the request from the MAA Requests pane in Intune. Rachel also needs to provide an approval reason.
+3. Bob then has to go to the same Multi-Admin Approval pane, click his request, and finally hit the "Complete request" button to actually initiate that wipe. Bob will have to do this within 30 days after the approval was given, otherwise it will expire.
 If the action expires before clicking "complete request", Bob will have to initiate a new wipe request and get it approved again.
 
 It's important to underline that the action doesn't automatically complete once it's approved, the requesting admin will have to go to click that "Complete request" button to finalize the action, so essentially a 3-step process. There is also no built-in notification system, so admins are not currently notified in any way when an approval request is sent to the portal or when a request is approved. It is possible to create your own notification tooling, e.g., Power Automate or an Azure Logic App to send notifications via email or to a Teams channel.
