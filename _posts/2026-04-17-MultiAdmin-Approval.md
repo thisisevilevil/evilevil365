@@ -75,6 +75,6 @@ When deleting devices using a script, you need to put a justification for the de
 
 ## Rounding off
 
-There are definitely pros and cons for using MAA, and it needs to be well thought out before just blindly enabling it, since it can heavily affect your device lifecycle process, whilst there is also no option to scope an MAA Policy to just a group of test devices or test users, so it's an all or nothing switch. MAA in its current shape and form, as of this date, is extremely rigid. It's still very early days, and I'm sure Microsoft will give it some love.
+There are definitely pros and cons for using MAA, and it needs to be well thought out before just blindly enabling it, since it can heavily affect your device lifecycle process, whilst there is also no option to scope an MAA Policy to just a group of test devices or test users, so it's an all or nothing switch. MAA in its current shape and form, as of this date, is extremely rigid. It's still very early days, and I'm sure Microsoft will give it some love over the coming months.
 
-That's all for now, I hope you found it useful.
+That's all for now, I hope you found it useful. :)
