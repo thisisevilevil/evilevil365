@@ -38,7 +38,7 @@ Once the request is approved by another admin, you will have to navigate back to
 
 ### How it works in practice
 
-Let's run through a scenario where an admin wants to delete a device. In this example we will have 2 admins. Admin 1 is Bob and Admin 2 is Rachel.
+Let's run through a scenario where an admin wants to delete a device. In this example we will have 2 admins. **Admin 1 is Bob** and **Admin 2 is Rachel**.
 
 1. Bob initiates a device wipe towards a device from Intune. Since there is an MAA-Policy deployed, it will need to be approved by a 2nd admin, and Bob will need to provide a justification included in the request.
 2. Rachel approves the request from the MAA Requests pane in Intune. Rachel also needs to provide an approval reason.
