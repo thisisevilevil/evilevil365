@@ -70,7 +70,7 @@ However, and to be clear, MAA does protect against the following:
 4. Before implementing MAA, I would strongly recommend reviewing your processes for using actions like wipe and delete. They tie heavily into the device lifecycle process. It can heavily impact the daily operations in an IT ServiceDesk or an IT team that is managing devices in a multi-region company.
 5. Currently there is no option to assign an MAA Policy to a given set of devices or limit to specific scope tags or groups, it's an all or nothing switch. If you decide to enable MAA in your tenant, be sure to communicate to all stakeholders in advance.
 6. Processing an action like Delete or Wipe is not immediate - Be patient :)
-7. If using Custom-RBAC Roles with Groups via PIM, sometimes the MAA pane doesn't show all devices - This can confuse support personnel. As a rule of thumb, wait 15 minutes after activating the group-based PIM role, and then reopen the Intune tab, to avoid this problem.
+7. If using Custom-RBAC Roles with Groups via PIM, sometimes the MAA pane doesn't show all devices/requests - This can confuse support personnel. As a rule of thumb, wait 15 minutes after activating the group-based PIM role, and then reopen the Intune tab, to avoid this problem.
 
 ## Rounding off
 
