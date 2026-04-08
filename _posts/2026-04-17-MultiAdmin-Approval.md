@@ -49,7 +49,8 @@ If the action expires before clicking "complete request", Bob will have to initi
 It's important to underline that the action doesn't automatically complete once it's approved, the requesting admin will have to go to click that "Complete request" button to finalize the action, so essentially a 3-step process. There is also no built-in notification system, so admins are not currently notified in any way when an approval request is sent to the portal or when a request is approved. It is possible to create your own notification tooling, e.g., Power Automate or an Azure Logic App to send notifications via email or to a Teams channel.
 
 >NOTE: Based on learnings from the field, I've found it can take between 15-30 minutes for MAA to actually process the request. Example: If you press "complete request" to delete or wipe a device, it doesn't immediately process.
->NOTE 2: Once a request has been marked as "Approved", it seems they will expire after 3 days. Not sure if this is a bug of if it's intended. Will investigate this.
+
+>NOTE 2: Once a request has been marked as "Approved", it seems they will expire after 3 days. Not sure if this is a bug or if it's intended. Will investigate this.
 
 ## What it protects against
 
