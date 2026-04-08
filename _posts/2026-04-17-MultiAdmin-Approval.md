@@ -65,8 +65,7 @@ However, and to be clear, MAA does protect against the following:
 ## A few gotchas
 
 1. MAA does not protect against a Compromised GA Account
-2. If you are using 3rd party or custom-written tools to process intune device deletions or wipes, they will stop working after implementing an MAA policy, e.g., a custom-written PowerShell script or tools like IntuneOffboarding. 
-
+2. If you are using 3rd party or custom-written tools to process intune device deletions or wipes, they will stop working after implementing an MAA policy, e.g., a custom-written PowerShell script or tools like IntuneOffboarding.
 When deleting devices using a script, you need to put a justification for the deletion request in the header when using Remove-MgDeviceManagementManagedDevice or use one of the new Graph cmdlets for managing approval requests ([source](https://learn.microsoft.com/en-us/graph/api/intune-rbac-operationapprovalrequest-create?view=graph-rest-beta)). I also found a new blog post from an MVP who wrote a PowerShell module to hanlding MAA Approvals, you should check it out [here](https://intune-maa.orr365.tech/)
 3. Before implementing MAA, I would strongly recommend reviewing your processes for using actions like wipe and delete. They tie heavily into the device lifecycle process. It can heavily impact the daily operations in an IT ServiceDesk or an IT team that is managing devices in a multi-region company.
 4. Currently there is no option to assign an MAA Policy to a given set of devices or limit to specific scope tags or groups, it's an all or nothing switch. If you decide to enable MAA in your tenant, be sure to communicate to all stakeholders in advance.
