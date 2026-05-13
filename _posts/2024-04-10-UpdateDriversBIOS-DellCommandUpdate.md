@@ -11,8 +11,6 @@ tags:
   - Import ADMX Templates
 ---
 
-**UPDATED: 12th of April 2025 w. DCU 5.5**
-
 This topic is not sexy at all to talk about in IT, but it is nonetheless getting more important for security reasons, due to the many security updates now included in BIOS, Driver and firmware updates in newer times.
 
 In todays day and age it's super important to ensure your drivers and BIOS is up-to-date. Not only is there always a bunch of functionality fixes but security issues is also patched. Depending on your flavor of hardware vendor, Dell, HP or Lenovo, each of them have their own tools to manage and push driver and BIOS updates. However, it's also worth mentioning, since the release of the [driver update management module in Intune](https://learn.microsoft.com/en-us/mem/intune/protect/windows-driver-updates-overview) the reasons to use the hardware vendors own tools grows less and less, as the Intune Driver Update management module gets better.
@@ -27,10 +25,10 @@ In case you don't have the latest version of Dell DCU in Intune,  We need to dow
 
 You can use below install, uninstall command and detection rules for Dell DCU 5.5 which is the latest version at the time of this blog:
 
-* **Install command:** `Dell-Command-Update-Windows-Universal-Application_P4DJW_WIN64_5.5.0_A00.EXE /s /l=C:\Windows\Logs\Dell_Command_Update_5.5_exe_installer.log`
-* **Uninstall command:** `msiexec /X {3F2A9AE0-4FB2-41C7-A9DF-611E6FAC2B31} /qn`
+* **Install command:** `Dell-Command-Update-Windows-Universal-Application_FGK9X_WIN64_5.7.0_A00.EXE /s /l=C:\Windows\Logs\Dell_Command_Update_5.7_exe_installer.log`
+* **Uninstall command:** `msiexec /X {1243A8BB-4137-47B3-BAAE-783E7D662407} /qn`
 * **Required disk space:** 500MB
-* **Detection, MSI String:** `{3F2A9AE0-4FB2-41C7-A9DF-611E6FAC2B31}`
+* **Detection, MSI String:** `{1243A8BB-4137-47B3-BAAE-783E7D662407}`
 
 Set return code 2 as "Success" as well, to ensure it doesn't fail during ESP when deploying devices with autopilot.
 
@@ -107,35 +105,6 @@ Finally, all updates deployed via Dell Command Update is logged to C:\ProgramDat
 > **_PROTIP:_** **If you don't have any deployment rings, consider reusing your autopatch groups as shown in the above sample, so you can deploy updates in a staggered approach, to avoid deploying big changes to all your devices at the same time. Autopatch automatically divides your devices in rings, so no need to do it manually. Default is 1% For Ring 1 (First), 9% for Ring 2 (Fast) and 90% for Ring 3 (Broad). Ring 0 (Test) can be reserved for members of your team, and needs to be manually assigned in autopatch. The default group names for autopatch starts with "Modern Workplace Devices-Windows Autopatch-"**
 >
 > ![DellDCUAPP](/assets/images/2024-04-08-DellBIOSUpdates-Intune/AutoPatch-1.png?raw=true "Dell Command Update ADMX Templates")
-
-## Bonus: Remediation and PowerShell script for on-demand updates
-
-It's possible to run a one-time update of all dell drivers/firmware, where we trigger dcu-cli.exe from Command Update, using a remediation or a PowerShell Script. The PowerShell script can be assigned to a group of devices, whilst the remediation the be run on-demand for troubleshooting purposes. Try this out on your Dell devices:
-
-```
-$currentdate = Get-Date -format 'ddMMyyyy_HHmmss'
-$dcucli = "${env:ProgramFiles}\Dell\CommandUpdate\dcu-cli.exe"
-$logsfolder = "$env:Programdata\Dell\Logs"
-
-#Download and install Dell Command Update 5.4 if it doesn't exist
-if (!(test-path $dcucli)) {
-$uri = 'https://dl.dell.com/FOLDER11914128M/1/Dell-Command-Update-Windows-Universal-Application_9M35M_WIN_5.4.0_A00.EXE'
-Write-Host "DCU Cli doesn't seem to be present.. Attempting to download and install now.."
-Invoke-WebRequest -uri $uri -outfile 'C:\Windows\temp\dcu54.exe' 
-Start-Process "C:\Windows\Temp\dcu54.exe" -ArgumentList '/s' -Wait
-Start-Sleep -Seconds 10
-}
-
-#Create new folder for logs in ProgramData - Change this based on your environment
-if (!(Test-path $logsfolder)) {New-item $logsfolder -ItemType Directory}
-
-#Apply all updates if any is found - including BIOS
-Start-Process $dcucli -Wait -ArgumentList "/ApplyUpdates -outputlog=$logsfolder\dcucli_applyupdates_$currentdate.log"
-```
-
-The script needs to run in 64-bit context and in SYSTEM context.
-
-Find the docs for dcu-cli to experiment with different switches [here](https://www.dell.com/support/manuals/en-us/command-update/dellcommandupdate_rg/dell-command-update-cli-commands?guid=guid-92619086-5f7c-4a05-bce2-0d560c15e8ed&lang=en-us)
 
 ## Final words
 
