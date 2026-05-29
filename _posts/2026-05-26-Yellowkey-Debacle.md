@@ -24,7 +24,7 @@ So it's not great — in fact, I'd go so far as to say it's pretty bad. One of t
 
 It's worth noting that this vulnerability only affects Windows 11 24H2 and higher. It does not affect earlier versions of Windows 11 or Windows 10 — Windows 10 is in the clear due to differences in how it configures WinRE.
 
-**Don't forget your servers:** the client side isn't the whole story. Microsoft's [MSRC advisory](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-45585) lists the canonical affected products as Windows 11 24H2, 25H2 and 26H1 (x64), **plus Windows Server 2025, including Server Core**. Windows Server 2022 was thrown around as affected when the PoC first dropped, but it's not in Microsoft's official scope, so treat that as unconfirmed. The handy part: Windows Server 2025 ships as build `10.0.26100` — the same as Windows 11 24H2 — so the device filter further down already catches it. Just be aware that if you have enrolled servers, the mitigation will target them too, so include them in your test ring rather than discovering it in production.
+**Don't forget your servers:** the client side isn't the whole story. Microsoft's [MSRC advisory](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-45585) lists the canonical affected products as Windows 11 24H2, 25H2 and 26H1 (x64), **plus Windows Server 2025, including Server Core**. Windows Server 2022 was thrown around as affected when the PoC first dropped, but it's not in Microsoft's official scope, so treat that as unconfirmed.
 {: .notice--warning}
 
 So what can we do about it?
