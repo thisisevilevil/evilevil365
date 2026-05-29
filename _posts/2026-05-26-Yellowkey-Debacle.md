@@ -16,8 +16,6 @@ You can read more about the details [here](https://blog.barracuda.com/2026/05/19
 
 Be that as it may, what about the BitLocker exploit dubbed "Yellowkey"?
 
-![Thumbnail](/assets/images/2026-05-26-Yellowkey-Debacle/Thumbnail.png?raw=true "Thumbnail")
-
 ## What is the YellowKey exploit
 
 The YellowKey exploit is a BitLocker bypass attack that allows an attacker with physical access to a device to gain access to the data on a hard drive, even though it's encrypted with BitLocker. Mechanically, it involves placing specially crafted 'FsTx' files on a USB drive or EFI partition, rebooting into WinRE, and triggering a shell by holding down the CTRL key. It bypasses TPM-only BitLocker in particular, and the critical constraint is physical access — it cannot be abused remotely.
