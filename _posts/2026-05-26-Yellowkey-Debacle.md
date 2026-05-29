@@ -14,7 +14,7 @@ It's been almost 2 months since the individual known as "Nightmare-Eclipse" (aka
 
 You can read more about the details [here](https://blog.barracuda.com/2026/05/19/nightmare-eclipse-zero-days-grudge) - the events are still unfolding, and I don't think we've seen the last of it yet. Microsoft released a blog post 2 days ago (as of today's date) in which they clearly distance themselves from the kerfuffle, and according to them the security researcher is 100% to blame. You can read Microsoft's response [here](https://www.microsoft.com/en-us/msrc/blog/2026/05/a-shared-responsibility-protecting-customers-through-coordinated-vulnerability-disclosure).
 
-Be that as it may, what about the BitLocker exploit?
+Be that as it may, what about the BitLocker exploit dubbed "Yellowkey"?
 
 ## What is the YellowKey exploit
 
