@@ -16,7 +16,7 @@ You can read more about the details [here](https://blog.barracuda.com/2026/05/19
 
 Be that as it may, what about the BitLocker exploit dubbed "Yellowkey"?
 
-![Thumbnail](/assets/images/2026-05-26-Yellowkey-Debacle/Thumbnail.png?raw=true "Thumbnail")
+![Thumbnail](/assets/images/2026-05-26-Yellowkey-Debacle/Thumbnail-small.png?raw=true "Thumbnail")
 
 ## What is the YellowKey exploit
 
