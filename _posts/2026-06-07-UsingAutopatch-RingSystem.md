@@ -42,7 +42,7 @@ Now for the important bits. First, add the Entra group that will onboard devices
 >I recommend against using cloud-synced groups from SCCM collections where possible. Try to work within the parameters of Entra dynamic groups to keep your setup simple. SCCM cloud sync makes things unnecessarily complicated and slow.
 {: .notice--warning}
 
-Click "Add Deployment ring" for each ring you want. If you have 10-20k devices, five rings is a good starting point. Then adjust each ring percentage to control how many devices land in each ring. In my screenshot, the split is 5%, 15%, 20%, 30%, and 30%. That gives a balanced distribution in later rings while keeping enough volume early to catch noise sooner.
+Click "Add Deployment ring" for each ring you want. Five rings is a good starting point. Then adjust each ring percentage to control how many devices land in each ring. In my screenshot, the split is 5%, 15%, 20%, 30%, and 30%. That gives a balanced distribution in later rings while keeping enough volume early to catch noise sooner.
 
 Once you are happy, click Next.
 
