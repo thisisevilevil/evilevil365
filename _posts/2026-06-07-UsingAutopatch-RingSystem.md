@@ -48,7 +48,7 @@ Once you are happy, click Next.
 
 ![Autopatch](/assets/images/2026-06-06-AbusingAutopatch-RingSystem/Autopatch-3.png?raw=true "Getting started with autopatch")
 
->The Test and Early rings are not populated automatically. An IT admin must populate them manually through the "Autopatch group membership" blade in Intune. The Test ring is commonly used by device team personnel to validate changes before Ring 1. Ring Last can be used for devices that need a longer deadline or grace period before reboot enforcement.
+>The Test and Last rings are not populated automatically. An IT admin must populate them manually through the "Autopatch group membership" blade in Intune. The Test ring is commonly used by device team personnel to validate changes before Ring 1. Ring Last can be used for devices that need a longer deadline or grace period before reboot enforcement.
 {: .notice--info}
 
 In the update types section, I recommend disabling feature updates. If you enable them here, Autopatch creates a "feature update anchor policy." That is an "Immediate Start" policy for the selected version, which can force immediate updates on devices that are not already up-to-date based on the version you specify in the autopatch policy. To control feature updates properly, use the Autopatch [multi-phase feature update rollout](https://learn.microsoft.com/en-us/windows/deployment/windows-autopatch/manage/windows-autopatch-windows-feature-update-overview#multi-phase-feature-update).
