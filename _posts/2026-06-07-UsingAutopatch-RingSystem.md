@@ -66,17 +66,14 @@ Click Next again.
 
 In the next section, you set timing for when updates are delivered to each ring. Before changing anything, make sure you understand these concepts:
 
-**Client Deferrals**: Number of days after a cumulative update release before it is offered to the device.
+| Setting | What it controls | Example |
+| --- | --- | --- |
+| **Client Deferrals** | Number of days after a cumulative update release before it is offered to the device. | Set to `10`: Autopatch waits 10 days before offering the update. |
+| **Deadline** | Number of days before the update must be installed. | Set to `3`: the device can wait up to 3 days before automatic install. |
+| **Grace** | Number of active days a user has to reboot after the update installs. Users receive notifications during this period. | Set to `3`: if two active days pass before Friday shutdown, the user still has one active day left after powering on again Monday. |
 
-Example: Client Deferrals is set to 10. Autopatch waits 10 days before offering the update.
-
-**Deadline**: Number of days before the update must be installed.
-
-Example: Deadline is set to 3. The device can wait up to 3 days before automatic install.
-
-**Grace**: This one is often misunderstood. It is the number of days a user has to reboot after the update installs. Users receive notifications during grace. Grace is counted by active device days, so keep that in mind.
-
-Example: Grace is set to 3 days. The update is already installed and the device is in grace. Two active days pass, then the user shuts down on Friday. They power on again Monday and now have one active day left to reboot.
+> Grace is counted in active device days, not calendar days. That detail matters a lot when users shut down over weekends or are away from the device.
+{: .notice--info}
 
 Tuning these timers to your risk profile is extremely important. If you work in defense, security, or similar sectors, keep values as low as possible. Still leave enough room in later rings to absorb noise found early. Defaults are fine for many organizations, but if possible, lower deferral and raise grace. Many users reboot early anyway. That approach gives users flexibility while reducing exposure time. As always, there are trade-offs.
 
