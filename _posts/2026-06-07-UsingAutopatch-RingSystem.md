@@ -55,6 +55,9 @@ In the update types section, I recommend disabling feature updates. If you enabl
 
 Also, do not select Driver Updates if you are already managing driver updates with the OEM's own solution, i.e., Dell Command \| Update, HPIA, or Lenovo System Update.
 
+>If you do decide to enable driver updates, keep in mind that Deadline and Grace Periods also apply to driver updates released via Autopatch, and is shared jointly with the quality updates.
+{: .notice--info}
+
 Click Next again.
 
 ![Autopatch](/assets/images/2026-06-06-AbusingAutopatch-RingSystem/Autopatch-4.png?raw=true "Getting started with autopatch")
