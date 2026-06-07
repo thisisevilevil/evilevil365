@@ -95,7 +95,7 @@ That is super valuable when you need to roll out a new policy, app, script, and 
 
 Remember to also build a multi-phase feature update rollout for your target version. It is straightforward and works well in phases.
 
-![Autopatch](/assets/images/2026-06-06-AbusingAutopatch-RingSystem/Multiphase.png?raw=true "Getting started with autopatch")
+![Autopatch](/assets/images/2026-06-06-AbusingAutopatch-RingSystem/MultiPhase.png?raw=true "Getting started with autopatch")
 
 >Final word of advice: factor in delivery timing when testing policies, apps, or other major changes against Autopatch rings. After Autopilot enrollment, a device may take 10-30 minutes to register with Autopatch, depending on your environment. So if you are testing something that normally lands during ESP, targeting Autopatch rings will not fully test the new-device deployment scenario.
 {: .notice--info}
