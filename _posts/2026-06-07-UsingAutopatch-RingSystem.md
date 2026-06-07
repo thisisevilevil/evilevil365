@@ -91,6 +91,16 @@ That is super valuable when you need to roll out a new policy, app, script, and 
 >If you create multiple Autopatch groups, they are consolidated under these groups: Modern Workplace Devices-Windows Autopatch-Test, Modern Workplace Devices-Windows Autopatch-First, Modern Workplace Devices-Windows Autopatch-Fast, and Modern Workplace Devices-Windows Autopatch-Broad. You can use these too, but the device split can be uneven between First and Fast.
 {: .notice--info}
 
+## Manually changing devices to different rings
+
+Once devices start registering, Autopatch will distribute them dynamically based on the percentages you configured. If you want to move specific devices, for example into Ring Test, Fast, or any other ring, go to Tenant Administration > Autopatch Groups > Autopatch Group Memberships.
+
+Search for the device, select it, click "Assign ring," and choose the ring you want it in.
+![Autopatch](/assets/images/2026-06-06-AbusingAutopatch-RingSystem/Ring-1.png?raw=true "Getting started with autopatch")
+![Autopatch](/assets/images/2026-06-06-AbusingAutopatch-RingSystem/Ring-2.png?raw=true "Getting started with autopatch")
+
+The Autopatch Group Memberships blade is also where you can exclude devices from Autopatch. You can also review "Not registered" devices, which shows devices that failed registration. Common reasons include unmet prerequisites such as "Windows update workload not swung over" or "Devices must be managed by Intune or Co-mgmt."
+
 ## The end
 
 Remember to also build a multi-phase feature update rollout for your target version. It is straightforward and works well in phases.
