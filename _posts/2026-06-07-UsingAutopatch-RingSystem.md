@@ -100,4 +100,4 @@ Remember to also build a multi-phase feature update rollout for your target vers
 >Final word of advice: factor in delivery timing when testing policies, apps, or other major changes against Autopatch rings. After Autopilot enrollment, a device may take 10-30 minutes to register with Autopatch, depending on your environment. So if you are testing something that normally lands during ESP, targeting Autopatch rings will not fully test the new-device deployment scenario.
 {: .notice--info}
 
-That's all for now. Hope you found it useful. :)
+That's all for now. Hope you found it useful. Have an awesome day :)
