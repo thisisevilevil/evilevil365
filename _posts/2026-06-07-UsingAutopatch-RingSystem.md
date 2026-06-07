@@ -84,7 +84,7 @@ When you are done, click Next. Apply any scope tags if relevant, and then click 
 
 Once set up, Autopatch starts registering devices from the Entra group you assigned. Almost immediately after creating the Autopatch group, you will see Entra groups for each ring.
 
-![Autopatch](/assets/images/2026-06-06-AbusingAutopatch-RingSystem/Autopatch-5.png?raw=true "Getting started with autopatch")
+![Autopatch](/assets/images/2026-06-06-AbusingAutopatch-RingSystem/Autopatch-6.png?raw=true "Getting started with autopatch")
 
 That is super valuable when you need to roll out a new policy, app, script, and so on. You can reuse those same rings for your own deployments.
 
