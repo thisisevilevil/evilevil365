@@ -22,7 +22,7 @@ Windows Autopatch is Microsoft's managed update service. It takes most patching 
 
 When Autopatch is enabled in your tenant and you create new "Autopatch groups," it automatically creates the relevant policies for Windows patching, feature updates, Edge, Office, and more. That saves IT admins from a manual click-a-thon.
 
-I still meet a lot of customers who are skeptical of Autopatch. What many people miss is that WUfB was merged into Autopatch a while back. If you spend a lot of time in the Intune admin console, you have probably noticed things moved around. That is mostly due to Autopatch maturing over the past few years.
+I still meet a lot of customers who are skeptical of Autopatch. What many people miss is that WUfB (Windows Update for Business) was merged into Autopatch a while back. If you spend a lot of time in the Intune admin console, you have probably noticed things moved around. That is mostly due to Autopatch maturing over the past few years.
 
 ![Announcement](/assets/images/2026-06-06-AbusingAutopatch-RingSystem/September2024-Autopatch-Unification.png?raw=true "September2024 WufB Unification")
 
