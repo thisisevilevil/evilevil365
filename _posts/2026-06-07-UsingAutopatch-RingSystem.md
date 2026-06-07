@@ -71,7 +71,7 @@ In the next section, you set timing for when quality updates are delivered to ea
 | --- | --- | --- |
 | **Client Deferrals** | Number of days after a cumulative update release before it is offered to the device. | Set to `10`: Autopatch waits 10 days before offering the update. |
 | **Deadline** | Number of days before the update must be installed. | Set to `3`: the device can wait up to 3 days before automatic install. |
-| **Grace** | Number of active days a user has to reboot after the update installs. Users receive notifications during this period. | Set to `3`: if two active days pass before Friday shutdown, the user still has one active day left after powering on again Monday. |
+| **Grace** | Minimum number of days after an update is installed and the device enters a pending-restart state before a restart is forced automatically. The countdown starts at pending restart, not at release — so a device that's powered off (e.g. on vacation) only begins its grace countdown once it's back online and the update has installed. Users receive increasingly prominent restart notifications during this window. | Set to `3`: after the update installs and a restart is pending, the user has 3 days to reboot on their own terms before Windows forces it. |
 
 > Grace is counted in active device days, not calendar days. That detail matters a lot when users shut down over weekends or are away from the device.
 {: .notice--info}
