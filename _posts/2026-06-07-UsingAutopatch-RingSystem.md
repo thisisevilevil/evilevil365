@@ -64,7 +64,7 @@ Click Next again.
 
 ![Autopatch](/assets/images/2026-06-06-AbusingAutopatch-RingSystem/Autopatch-5.png?raw=true "Getting started with autopatch")
 
-In the next section, you set timing for when updates are delivered to each ring. Before changing anything, make sure you understand these concepts:
+In the next section, you set timing for when quality updates are delivered to each ring. Before changing anything, make sure you understand these concepts:
 
 | Setting | What it controls | Example |
 | --- | --- | --- |
