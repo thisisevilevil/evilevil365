@@ -29,7 +29,7 @@ I still meet a lot of customers who are skeptical of Autopatch. What many people
 ## Getting started with Autopatch
 
 To start configuring Autopatch, you need an Entra group for device onboarding. This can be static or dynamic. Also be sure to review the [pre-reqs for Autopatch in the documentation.](https://learn.microsoft.com/en-us/windows/deployment/windows-autopatch/prepare/windows-autopatch-prerequisites?source=recommendations)
- Navigate to Tenant Administration > Autopatch groups and click "New autopatch group."
+ Navigate to Tenant Administration > Autopatch groups and click "Create" to start creating your autopatch group.
 ![Autopatch](/assets/images/2026-06-06-AbusingAutopatch-RingSystem/Autopatch-1.png?raw=true "Getting started with autopatch")
 
 Give it a nice name and click Next.
