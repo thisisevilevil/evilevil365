@@ -16,6 +16,8 @@ Did you know Autopatch creates those defined rings as static Entra groups? It th
 
 But let's back up a bit. What is Autopatch in the first place?
 
+![Thumbnail](/assets/images/2026-06-06-AbusingAutopatch-RingSystem/Thumbnail.png?raw=true "Thumbnail")
+
 ## What is Windows Autopatch
 
 Windows Autopatch is Microsoft's managed update service. It takes most patching overhead off IT teams. It is cloud-based and automates updates for Windows and other Microsoft software such as Edge, Microsoft Office, and anything supported by the Windows Update engine.
