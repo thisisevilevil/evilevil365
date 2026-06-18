@@ -66,9 +66,21 @@ This option can be highly desirable if you want to be in complete control yourse
 
 ### Monitoring for updated certificates
 
+
+#### Intune
+
 Microsoft released a new report in Intune to monitor for the updated certificates. You can find it by navigating to the following blade: Reports > Windows Quality Updates > Reports > Secure Boot Status
 
-![Monitoring](/assets/images/2025-09-03-SecureBoot-Cert-Expiration/SecureBootMonitoring.png?raw=true "Monitoring for updated certs") 
+![Monitoring](/assets/images/2025-09-03-SecureBoot-Cert-Expiration/Intune-SecureBootReport?raw=true "Monitoring for updated certs") 
+
+![Monitoring](/assets/images/2025-09-03-SecureBoot-Cert-Expiration/SecureBootMonitoring.png?raw=true "Monitoring for updated certs")
+
+#### Defender
+
+If you have Defender with E5, you can also monitor for the certificates in Defender, with the added benefit you also get servers here.
+
+![Monitoring](/assets/images/2025-09-03-SecureBoot-Cert-Expiration/Defender-SecureBootReport?raw=true "Monitoring for updated certs")
+
 
 ## Wrapping up
 
