@@ -79,7 +79,7 @@ Microsoft released a new report in Intune to monitor for the updated certificate
 
 If you have Defender with E5, you can also monitor for the certificates in Defender, with the added benefit you also get servers here.
 
-![Monitoring](/assets/images/2025-09-03-SecureBoot-Cert-Expiration/Defender-SecureBootReport?raw=true "Monitoring for updated certs")
+![Monitoring](/assets/images/2025-09-03-SecureBoot-Cert-Expiration/Defender-SecureBootReport.png?raw=true "Monitoring for updated certs")
 
 
 ## Wrapping up
