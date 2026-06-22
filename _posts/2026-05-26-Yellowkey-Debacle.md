@@ -10,6 +10,8 @@ tags:
   - Remediation
 ---
 
+UPDATE 22nd of June 2026: The yellowkey vulnerability has been resolved in the June 2026 patch The remediation shared in this blog post is no longer needed. [Source](https://www.bleepingcomputer.com/news/microsoft/microsoft-patches-yellowkey-greenplasma-miniplasma-zero-days/)
+
 It's been almost 2 months since the individual known as "Nightmare-Eclipse" (aka "Chaotic Eclipse") released 6 zero-day exploits, and I've been closely monitoring the debacle as it unfolds. On one side you have a disgruntled security researcher who firmly believes Microsoft has wronged him, and on the other you have Microsoft taking a no-BS approach, saying normal protocol wasn't followed and that making the source code for all of these exploits publicly available was ruthless and irresponsible. They even went so far as to ban the GitHub repo where all of the source code was initially hosted.
 
 You can read more about the details [here](https://blog.barracuda.com/2026/05/19/nightmare-eclipse-zero-days-grudge) - the events are still unfolding, and I don't think we've seen the last of it yet. Microsoft released a blog post 2 days ago (as of today's date) in which they clearly distance themselves from the kerfuffle, and according to them the security researcher is 100% to blame. You can read Microsoft's response [here](https://www.microsoft.com/en-us/msrc/blog/2026/05/a-shared-responsibility-protecting-customers-through-coordinated-vulnerability-disclosure).
