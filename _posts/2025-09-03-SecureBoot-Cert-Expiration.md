@@ -62,13 +62,22 @@ If you want to manage the rollout of the secure boot certificates yourself, sear
 
 This option can be highly desirable if you want to be in complete control yourself, as this allows you to roll this policy out in your own rings/waves. This option also doesn't require for you to send diagnostic data to Microsoft.
 
->NOTE: There is a known issue where this policy can fail with an error code 65000 - It is due to be fixed by February 27 2026 ([Source](https://support.microsoft.com/en-us/topic/microsoft-intune-method-of-secure-boot-for-windows-devices-with-it-managed-updates-1c4cf9a3-8983-40c8-924f-44d9c959889d)). In the meantime, you can apply the corresponding registry key instead, using a PowerShell script. You can download it from [my github here](https://github.com/thisisevilevil/IntunePublic/blob/main/PowerShell%20Scripts/Secure%20Boot%20Certificate%20Deployment/Deploy-SecureBootCert-SelfRollout.ps1)
-
 ### Monitoring for updated certificates
+
+#### Intune
 
 Microsoft released a new report in Intune to monitor for the updated certificates. You can find it by navigating to the following blade: Reports > Windows Quality Updates > Reports > Secure Boot Status
 
-![Monitoring](/assets/images/2025-09-03-SecureBoot-Cert-Expiration/SecureBootMonitoring.png?raw=true "Monitoring for updated certs") 
+![Monitoring](/assets/images/2025-09-03-SecureBoot-Cert-Expiration/Intune-SecureBootReport.png?raw=true "Monitoring for updated certs")
+
+![Monitoring](/assets/images/2025-09-03-SecureBoot-Cert-Expiration/SecureBootMonitoring.png?raw=true "Monitoring for updated certs")
+
+#### Defender
+
+If you have Defender with E5, you can also monitor for the certificates in Defender, with the added benefit you also get servers here.
+
+![Monitoring](/assets/images/2025-09-03-SecureBoot-Cert-Expiration/Defender-SecureBootReport.png?raw=true "Monitoring for updated certs")
+
 
 ## Wrapping up
 
