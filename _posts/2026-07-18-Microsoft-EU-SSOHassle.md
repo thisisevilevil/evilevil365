@@ -43,7 +43,7 @@ Value: AutoAcceptSsoPermission (DWORD) = 1
 >This only works in enterprise scenarios. It does not apply to personal Microsoft accounts (MSA).
 {: .notice--warning}
 
-For Intune, you will want to create a settings catalog policy, search for "Allow Auto Accept Pairing And Privacy Consent Prompts" and enable it.
+For Intune, you will want to create a settings catalog policy, search for "Allow Auto Accept Pairing And Privacy Consent Prompts" and enable it. (The policy description could use a bit of work..)
 
 ![Policy](/assets/images/2026-07-18-Microsoft-EU-SSOHassle/SSO-Intune-Policy.png?raw=true "Intune policy for suppressing the SSO prompt")
 
