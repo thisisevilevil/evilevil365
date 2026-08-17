@@ -40,7 +40,8 @@ Registry path: HKLM\SOFTWARE\Policies\Microsoft\Windows\AAD
 Value: AutoAcceptSsoPermission (DWORD) = 1
 ```
 
->This only works in enterprise scenarios. It does not apply to personal Microsoft accounts (MSA).
+
+>There is currently no Intune Settings Catalog option to set this policy as of this date - I previously mentioned a settings catalog option, but it turned out it was an incorrect policy space that was not related. See the official docs for this setting [here](https://learn.microsoft.com/en-us/entra/identity/devices/sso-admin-control#enterprise-admin-control-for-sign-in-behavior).
 {: .notice--warning}
 
 ## Wrapping up
