@@ -41,7 +41,7 @@ Value: AutoAcceptSsoPermission (DWORD) = 1
 ```
 
 
->There is currently no Intune Settings Catalog option to set this policy as of this date - I previously mentioned a settings catalog option, but it turned out it was an incorrect policy space that was not related. See the official docs for this setting [here](https://learn.microsoft.com/en-us/entra/identity/devices/sso-admin-control#enterprise-admin-control-for-sign-in-behavior).
+>There is currently no Intune Settings Catalog option to set this policy as of this date - I previously mentioned a settings catalog option, but it turned out it was an incorrect policy space that was not related. See the official docs for this setting [here](https://learn.microsoft.com/en-us/entra/identity/devices/sso-admin-control#enterprise-admin-control-for-sign-in-behavior) - You can also find a remediation to set it using Intune from [my Intune github repo](https://github.com/thisisevilevil/IntunePublic/tree/main/Remediations/AutoAcceptSSOpermission).
 {: .notice--warning}
 
 ## Wrapping up
