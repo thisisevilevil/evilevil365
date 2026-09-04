@@ -1,0 +1,61 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+
+@charset "utf-8";
+
+@import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
+@import "minimal-mistakes"; // main partials
+
+/* ==========================================================================
+   CUSTOM OVERRIDES
+   ========================================================================== */
+
+/*
+   Sessionize icon
+   Font Awesome has no Sessionize brand glyph, so `fab fa-sessionize` renders
+   as blank space. This draws the official Sessionize mark as a mask, which
+   makes it inherit `currentColor` and hover states exactly like the real
+   Font Awesome icons next to it.
+   Box is 1.25em x 1em to match `fa-fw` (fixed width).
+   ========================================================================== */
+
+.icon-sessionize {
+  display: inline-block;
+  width: 1.25em;
+  height: 1em;
+  vertical-align: -0.125em; /* same baseline nudge Font Awesome uses */
+  background-color: currentColor;
+  -webkit-mask: url("{{ '/assets/images/sessionize.svg' | relative_url }}") no-repeat center;
+  mask: url("{{ '/assets/images/sessionize.svg' | relative_url }}") no-repeat center;
+  -webkit-mask-size: 1em 1em;
+  mask-size: 1em 1em;
+
+  /* To use the Sessionize brand green instead of matching the other icons,
+     replace the `background-color` above with: #1ab394 */
+}
+
+/*
+   Microsoft MVP badge in the author sidebar
+   ========================================================================== */
+
+.author__mvp {
+  margin: 1em 0 0;
+
+  img {
+    display: block;
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+  }
+
+  /* Below $large the sidebar is a horizontal strip (avatar beside the name),
+     so keep the badge small and left-aligned there. */
+  @include breakpoint(max-width $large) {
+    margin: 0.5em 0;
+
+    img {
+      max-width: 150px;
+    }
+  }
+}
