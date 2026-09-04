@@ -49,8 +49,9 @@
     height: auto;
   }
 
-  /* Below $large the sidebar is a horizontal strip (avatar beside the name),
-     so keep the badge small and left-aligned there. */
+  /* Below $large the sidebar is a horizontal strip and the links collapse
+     into the Follow popup, so the badge lands under that strip. Keep it
+     smaller there. */
   @include breakpoint(max-width $large) {
     margin: 0.5em 0;
 
