@@ -60,7 +60,7 @@ author:
   avatar : "/assets/images/mads-2025.png"
   mvp:
     image: "/assets/images/microsoft-mvp.png"
-    # url  : "https://mvp.microsoft.com/en-US/MVP/profile/<your-profile-id>"  # optional: makes the badge a link
+    url  : "https://mvp.microsoft.com/en-US/mvp/profile/50425997-5f43-48fe-8586-71b23eb47276"
   bio    : "Follow this blog to get hints/tips for doing awesome things in Intune!"
   links:
     - label: "Linkedin"
