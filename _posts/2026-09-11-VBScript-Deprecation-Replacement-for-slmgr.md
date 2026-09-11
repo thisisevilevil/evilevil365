@@ -28,9 +28,7 @@ Microsoft’s current guidance is straightforward:
 - It will no longer be enabled by default in upcoming Windows releases - Can be eanbled with a FoD (Feature on Demand)
 - Eventually, it will be removed from future Windows releases.
 
-That means any workflow depending on `slmgr.vbs` should be identified, tested, and migrated before the environment reaches the final removal stage.
-
-> The key point is not replace everything immediately but start inventorying and validating now so you do not get caught by the final removal. The same goes for all other VBScript usage in your environment.
+Any workflow depending on `slmgr.vbs` should be identified, tested, and migrated before the environment reaches the final removal stage.
 
 ## The Windows activation replacement
 
