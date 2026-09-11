@@ -89,7 +89,7 @@ This type of dependency often exists in:
 
 ## Final takeaway
 
-For activation automation, the replacement path is already available in PowerShell, as long as your devices is running the latest OS Build from September 2026 or onwards (Nobody rolls out preview patches anyway..).
+For activation automation, the replacement path is already available in PowerShell for your Windows 11 clients, as long as your devices is running the latest OS Build from September 2026 or onwards (Nobody rolls out preview patches anyway..).
 
 If you still have some device activation automation based on VBScript in your environment, now is the time to test the `OSLicense` module and migrate it before VBScript support will be removed.
 
