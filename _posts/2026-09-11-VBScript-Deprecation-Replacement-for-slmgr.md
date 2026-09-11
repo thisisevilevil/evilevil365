@@ -85,12 +85,11 @@ Search for these references:
 
 This type of dependency often exists in:
 
-- Intune or MDM device remediation logic
-- legacy deployment scripts
+- Intune device remediation logic
 - helpdesk or service desk automation
 - software distribution workflows
 - provisioning and post-provisioning tasks
-- MDT and SCCM (Yes... big time)
+- MDT and SCCM in general (Yes... big time)
 
 ## Final takeaway
 
