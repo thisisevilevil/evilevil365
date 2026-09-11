@@ -61,8 +61,6 @@ Get-OSLicenseInfo
 
 Before rolling this out broadly, confirm the target device supports the `OSLicense` module. Install the latest September 2026 patch, to make sure it's supported (Look for builds 26100.9278, 26200.9278 or higher)
 
-According to Microsoft’s guidance, availability differs by platform:
-
 - Windows 11: requires the appropriate servicing update, such as the August 27, 2026 Preview (KB5120998) or later
 - Windows Server: availability is planned for the next major Windows Server release, with previews available for early validation in some builds
 
