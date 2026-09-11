@@ -58,6 +58,9 @@ plugins:
 author:
   name   : "Mads Johansen"
   avatar : "/assets/images/mads-2025.png"
+  mvp:
+    image: "/assets/images/microsoft-mvp.png"
+    url  : "https://mvp.microsoft.com/en-US/mvp/profile/50425997-5f43-48fe-8586-71b23eb47276"
   bio    : "Follow this blog to get hints/tips for doing awesome things in Intune!"
   links:
     - label: "Linkedin"
@@ -67,7 +70,7 @@ author:
       icon: "fab fa-fw fa-github"
       url: "https://github.com/thisisevilevil"
     - label: "Sessionize"
-      icon: "fab fa-fw fa-sessionize"
+      icon: "fab fa-fw icon-sessionize"
       url: "https://sessionize.com/madsjohansen/"
 
 
@@ -80,7 +83,7 @@ footer:
       icon: "fab fa-fw fa-linkedin"
       url: "https://www.linkedin.com/in/mads-johansen/"
     - label: "Sessionize"
-      icon: "fab fa-fw fa-sessionize"
+      icon: "fab fa-fw icon-sessionize"
       url: "https://sessionize.com/madsjohansen/"
 
 defaults:
