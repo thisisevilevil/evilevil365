@@ -64,9 +64,7 @@ Before rolling this out broadly, confirm the target device supports the `OSLicen
 - Windows 11: requires the appropriate servicing update, such as the August 27, 2026 Preview (KB5120998) or later
 - Windows Server: availability is planned for the next major Windows Server release, with previews available for early validation in some builds
 
-That means your first step should not be “rewrite everything on day one.”
-
-It should be: inventory your scripts, confirm the supported Windows builds in your estate, and validate the module in a pilot environment.
+Inventory your scripts, confirm the supported Windows builds in your estate, and test the new scripts before rolling out broadly.
 
 ## What to look for in your environment
 
