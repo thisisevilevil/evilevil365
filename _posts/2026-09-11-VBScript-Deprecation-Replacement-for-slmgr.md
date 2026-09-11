@@ -25,7 +25,7 @@ The dependency is easy to miss because `slmgr.vbs` has been around for ages, but
 Microsoft’s current guidance is straightforward:
 
 - VBScript remains available during the transition phase, but it is no longer the preferred method.
-- It will no longer be enabled by default in upcoming Windows releases - Can be eanbled with a FoD (Feature on Demand)
+- It will no longer be enabled by default in upcoming Windows releases - Can be enabled with a FoD (Feature on Demand)
 - Eventually, it will be removed from future Windows releases.
 
 Any workflow depending on `slmgr.vbs` should be identified, tested, and migrated before the environment reaches the final removal stage.
