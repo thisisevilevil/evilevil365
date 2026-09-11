@@ -61,7 +61,7 @@ Get-OSLicenseInfo
 
 ## Check support before you migrate
 
-Before rolling this out broadly, confirm the target device supports the `OSLicense` module.
+Before rolling this out broadly, confirm the target device supports the `OSLicense` module. Install the latest September 2026 patch, to make sure it's supported (Look for builds 26100.9278, 26200.9278 or higher)
 
 According to Microsoft’s guidance, availability differs by platform:
 
