@@ -32,7 +32,7 @@ Any workflow depending on `slmgr.vbs` should be identified, tested, and migrated
 
 ## The Windows activation replacement
 
-Microsoft’s recommended replacement for common activation automation is the `OSLicense` module in PowerShell.
+The recommended replacement for common activation automation is the `OSLicense` module in PowerShell.
 
 The mapping is pretty clean for the most common actions:
 
