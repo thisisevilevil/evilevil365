@@ -51,7 +51,7 @@ This gives you a supported path without relying on a deprecated scripting host.
 Invoke-OSLicense -ActivateOnline
 
 # Install product key
-Invoke-OSLicense -InstallProductKey "XXXXX-XXXXX-XXXXX-XXXXX-XXXXX"
+Invoke-OSLicense -InstallProductKey "FCKGW-RHQQ2-YXRKT-8TG6W-2B7Q8"
 
 # Review license status
 Get-OSLicenseInfo
