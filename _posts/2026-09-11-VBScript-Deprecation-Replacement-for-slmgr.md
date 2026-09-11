@@ -18,7 +18,7 @@ I also wrote about this earlier this year in the context of the broader VBScript
 
 Microsoft has also published a useful detection-focused article on monitoring for VBScript usage: [VBScript deprecation: Detection strategies for Windows - Windows IT Pro Blog](https://techcommunity.microsoft.com/blog/windows-itpro-blog/vbscript-deprecation-detection-strategies-for-windows/4414325)
 
-The dependency is easy to miss because `slmgr.vbs` has been around for ages, but it is still a common automation touchpoint in scripts, runbooks, task sequences, you name it.
+The dependency is easy to miss because `slmgr.vbs` has been around for ages, but it is still common in scripts, runbooks, task sequences, you name it.
 
 ## Why this matters now
 
