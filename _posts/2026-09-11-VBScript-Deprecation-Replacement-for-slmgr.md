@@ -30,7 +30,7 @@ Microsoft’s current guidance is straightforward:
 
 That means any workflow depending on `slmgr.vbs` should be identified, tested, and migrated before the environment reaches the final removal stage.
 
-> The key point is not “replace everything immediately,” but “start inventorying and validating now so you do not get caught by the final removal.”
+> The key point is not replace everything immediately but start inventorying and validating now so you do not get caught by the final removal. The same goes for all other VBScript usage in your environment.
 
 ## The Windows activation replacement
 
