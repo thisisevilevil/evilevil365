@@ -87,6 +87,24 @@ This type of dependency often exists in:
 - provisioning and post-provisioning tasks
 - MDT and SCCM in general (Yes... big time)
 
+If you use Microsoft Defender for Endpoint, you can use this advanced hunting rule to audit VBScript usage
+
+```KQL
+/ VBScript usage - script host execution and .vbs/.vbe file activity
+// Timeframe: last 30 days
+let lookback = 30d;
+DeviceProcessEvents
+| where Timestamp > ago(lookback)
+| where FileName in~ ("wscript.exe", "cscript.exe")
+| where ProcessCommandLine has_any (".vbs", ".vbe")
+    or ProcessCommandLine contains "//E:vbscript"
+| project Timestamp, DeviceName, AccountName,
+    FileName, ProcessCommandLine,
+    InitiatingProcessFileName, InitiatingProcessCommandLine,
+    FolderPath
+| sort by Timestamp desc
+```
+
 ## Final takeaway
 
 For activation automation, the replacement path is already available in PowerShell for your Windows 11 clients, as long as your devices is running the latest OS Build from September 2026 or onwards (Nobody rolls out preview patches anyway..).
