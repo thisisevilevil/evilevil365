@@ -1,5 +1,5 @@
 ---
-title: "VBscript deprecation: Replacement for slgmr.vbs"
+title: "VBscript deprecation: Replacement for slgmgr.vbs"
 date: 2026-09-11
 categories:
   - Windows
