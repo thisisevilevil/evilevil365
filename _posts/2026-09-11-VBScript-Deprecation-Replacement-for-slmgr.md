@@ -14,7 +14,7 @@ tags:
 
 If your organization still uses `slmgr.vbs` to activate Windows, check product keys, or read licensing status, you should start planning the change now.
 
-I also wrote about this earlier this year in the context of the broader VBScript deprecation story: [When Removing VBScript Breaks Your AMD Chipset Driver - Welcome to the land of everything Microsoft Intune!](https://evil365.com/vbscript/VBScript-Deprecation/)
+I also wrote about this earlier this year in the context of the broader VBScript deprecation story: [When Removing VBScript Breaks Your AMD Chipset Driver](https://evil365.com/vbscript/VBScript-Deprecation/)
 
 Microsoft has also published a useful detection-focused article on monitoring for VBScript usage: [VBScript deprecation: Detection strategies for Windows - Windows IT Pro Blog](https://techcommunity.microsoft.com/blog/windows-itpro-blog/vbscript-deprecation-detection-strategies-for-windows/4414325)
 
