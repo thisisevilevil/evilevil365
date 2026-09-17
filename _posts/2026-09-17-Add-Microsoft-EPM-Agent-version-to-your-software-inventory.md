@@ -28,7 +28,7 @@ You can find the remediation I wrote on my GitHub [here](https://github.com/this
 Assign to "All devices" and have it run daily. Make sure to tick "Run script in 64-bit PowerShell".
 ![EPM](/assets/images/2026-09-17-Adding-Microsoft-EPM-Agent-Software-Inventory-Reports/Remediation-Screenshot.png?raw=true "Remediation script settings - run in 64-bit PowerShell")
 
-Once you have it running, this is what it's going to look like in your installed apps:
+Once you have it running, this is what it's going to look like in your installed apps on your endpoints:
 ![EPM](/assets/images/2026-09-17-Adding-Microsoft-EPM-Agent-Software-Inventory-Reports/EPMReport-1-InstalledApps.png?raw=true "Microsoft EPM Agent in Windows Installed apps")
 
 In Intune you will see it under discovered apps:
