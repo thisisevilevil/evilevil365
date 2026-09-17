@@ -36,6 +36,6 @@ In Intune you will see it under discovered apps:
 
 ## Wrapping up
 
-During the early days of testing and rolling out EPM at one of my customers, who was one of the early adopters, it was common that the EPM team would ask us for the client version during debugging sessions. We had to go and chase it in the registry, which is why I made this script. It's just a small thing, but in the end we actually discovered there were quite a few devices that were stuck running an old version. The EPM team assisted us in getting those fixed, so it was super awesome. And of course we did point out that we would like the EPM version written to "Installed apps" without having to resort to custom solutions, but they had their reasons for not doing it at the time.
+Back when we were rolling out EPM at one of my customers, an early adopter, the EPM team would keep asking us for the client version during debugging sessions, and we had to go chase it in the registry every time. Hence this script. It's a small thing, but it did reveal quite a few devices stuck on an old version, which the EPM team then helped us get fixed. We did of course ask for the version to be written to "Installed apps" natively, but they had their reasons for not doing it at the time.
 
 That's all for now. Have a nice day :)
