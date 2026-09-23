@@ -12,8 +12,6 @@ tags:
   - Endpoint Security
 ---
 
-## What is EPM?
-
 EPM, short for [Endpoint Privilege Management](https://learn.microsoft.com/en-us/mem/intune/protect/epm-overview), is Microsoft's tool from the Intune Suite to control, audit and manage administrator rights on Windows endpoints (macOS is not supported as of yet). It falls under a category we refer to as a [PAM solution for endpoints](https://www.microsoft.com/en/security/business/security-101/what-is-privileged-access-management-pam#:~:text=Privileged%20access%20management%20(PAM)%20is,privileged%20access%20to%20critical%20resources). Having a PAM solution for your endpoints is absolutely vital to control and audit the use of elevated processes.
 
 Some organizations have chosen to remove local admin rights altogether, but there are times when users need admin rights to do their job, e.g. changing system settings for development purposes, installing apps that aren't in the existing app catalogs, or just general supportability - the list can be endless.
