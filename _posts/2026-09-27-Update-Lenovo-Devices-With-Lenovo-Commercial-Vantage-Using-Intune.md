@@ -133,8 +133,6 @@ Under Computer Configuration -> Commercial Vantage you will find all the Commerc
 
 ![LenovoCV](/assets/images/2026-09-27-Lenovo-CommercialVantage-Intune/LenovoPolicy-2-CompanyName.png?raw=true "Company name")
 
-**Configure System update:** Leave this one "Not configured". It filters which update categories Commercial Vantage searches for when the user checks for updates manually. Not configured means it searches for all available updates, which is what we want. We will control the categories for auto update in the next section instead.
-
 ### Device -> System update -> Auto update
 
 This is where the magic happens. You will find all the auto update settings in this folder:
