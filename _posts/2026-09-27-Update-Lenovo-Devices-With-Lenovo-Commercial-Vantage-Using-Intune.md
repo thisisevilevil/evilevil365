@@ -50,7 +50,13 @@ So in short: Windows Autopatch gives you a simpler, more integrated and multi-ve
 
 ### Download Lenovo Commercial Vantage
 
-First we need the latest version of the Lenovo Commercial Vantage package. You can find it on [Lenovo's support site here](https://support.lenovo.com/cg/da/solutions/hf003321). Download the zip file and extract it to a folder of your choice.
+First we need the latest version of the Lenovo Commercial Vantage package. You can find it on [Lenovo's support site here](https://support.lenovo.com/cg/da/solutions/hf003321).
+
+The download link is easy to miss. Scroll down past the screenshot of the app, and click the "Version xx.xxxx.xx.x (Application and Deployment Guide)" link to download the zip file:
+
+![LenovoCV](/assets/images/2026-09-27-Lenovo-CommercialVantage-Intune/Lenovo-DownloadCommercialVantage.png?raw=true "Download Lenovo Commercial Vantage")
+
+Once downloaded, extract the zip file to a folder of your choice.
 
 ### Import the ADMX templates to Intune
 
@@ -218,7 +224,7 @@ If the classes are not there yet, give it some time. The battery information is 
 
 You can find more details about the WMI classes in [Lenovo's Commercial Vantage configuration guide](https://docs.lenovocdrt.com/guides/lcv/configuration/).
 
-If you want to take the warranty information a step further, and get it into a Log Analytics workspace for reporting across all your devices, check out this blog post from Mindcore: [Operationalize Lenovo devices in an Intune only environment](https://blog.mindcore.dk/2023/01/operationalize-lenovo-devices-in-an-intune-only-environment/). It shows an example of how to build a Log Analytics workspace and ingest the data.
+If you want to take the warranty information a step further, and get it into a Log Analytics workspace for reporting across all your devices, check out this blog post by [Mattias Melkersen](https://www.linkedin.com/in/mattiasmelkersen/): [Operationalize Lenovo devices in an Intune only environment](https://blog.mindcore.dk/2023/01/operationalize-lenovo-devices-in-an-intune-only-environment/). It shows an example of how to build a Log Analytics workspace and ingest the data. Thanks to Mattias for sharing it with the community.
 
 ## Final words
 
