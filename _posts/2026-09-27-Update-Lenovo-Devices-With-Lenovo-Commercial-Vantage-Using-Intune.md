@@ -44,7 +44,8 @@ Honestly, for a lot of organizations, that's a perfectly fine option, and it kee
 
 So in short: Windows Autopatch gives you a simpler, more integrated and multi-vendor experience, while Lenovo Commercial Vantage gives you **speed** and the **full catalog**. If you have a mixed estate or you just want the least amount of moving parts, Autopatch is a great choice. If you want the latest BIOS and security fixes on your Lenovo devices as quickly as possible, Commercial Vantage is still the way to go.
 
-> **_NOTE:_** Don't let both solutions fight over the same updates. If you go with Commercial Vantage for driver and BIOS updates on your Lenovo devices, I recommend just disabling Driver updates via WufB or Autopatch.
+>Don't let both solutions fight over the same updates. If you go with Commercial Vantage for driver and BIOS updates on your Lenovo devices, I recommend just disabling Driver updates via WufB or Autopatch.
+{: .notice--info}
 
 ## Getting started
 
@@ -106,13 +107,15 @@ The install command makes sure Lenovo Commercial Vantage is installed in system 
 
 ### Detection rule
 
-For detection, we will use a custom detection script. Philip Jorgensen has made a great detection script for Commercial Vantage, which you can download from his GitHub: [Detect-CommercialVantage.ps1](https://github.com/philjorgensen/ConfigMgr/blob/main/Applications/Detect-CommercialVantage.ps1).
+For detection, we will use a custom detection script. [Philip Jorgensen](https://www.linkedin.com/in/pej1025/) has made a great detection script for Commercial Vantage, which you can download from his GitHub: [Detect-CommercialVantage.ps1](https://github.com/philjorgensen/ConfigMgr/blob/main/Applications/Detect-CommercialVantage.ps1).
 
-> **_IMPORTANT:_** **Make sure to adjust the version in the top of the script, so it matches the version of Commercial Vantage you are deploying.** Otherwise the detection will either fail, or Intune will think an old version is good enough. Remember to update it every time you package a new version.
+>Make sure to adjust the version in the top of the script, so it matches the version of Commercial Vantage you are deploying. Otherwise the detection will either fail, or Intune will think an old version is good enough. Remember to update it every time you package a new version.
+{: .notice--warning}
 
 Upload the script under "Detection rules" -> "Use a custom detection script", and assign the app to your Lenovo devices.
 
-> **_PROTIP:_** Use an Intune filter on the assignment, such as `(device.manufacturer -eq "LENOVO")`, so you can assign to your existing device groups without the app landing on non-Lenovo devices.
+>Use an Intune filter on the assignment, such as `(device.manufacturer -eq "LENOVO")`, so you can assign to your existing device groups without the app landing on non-Lenovo devices.
+{: .notice--info}
 
 ## Deploying baseline policies from Intune
 
@@ -186,7 +189,8 @@ Once the updates are installed, the user gets a restart notification with a coun
 
 ![LenovoCV](/assets/images/2026-09-27-Lenovo-CommercialVantage-Intune/EndUserExperience-DriverUpdate-3.png?raw=true "Lenovo Commercial Vantage - Restart notification")
 
-> **_NOTE:_** **The restart prompt only has a "Restart now" button, with no option to postpone it. Make sure your users know this is coming, so nobody loses unsaved work when the countdown runs out.**
+>The restart prompt only has a "Restart now" button, with no option to postpone it. Make sure your users know this is coming, so nobody loses unsaved work when the countdown runs out.
+{: .notice--warning}
 
 ## Nice to have: Battery and warranty information in WMI
 
@@ -230,6 +234,6 @@ If you want to take the warranty information a step further, and get it into a L
 
 I hope you found this walkthrough useful. Just like with Dell Command Update, there are pros and cons to using the vendor's own tool compared to just using Windows Autopatch for drivers and firmware. The Windows Update experience is more integrated and works across all your hardware vendors, but if you use Lenovo Commercial Vantage, you will get BIOS updates, security fixes and driver updates on your Lenovo devices much faster.
 
-A big thanks to Philip Jorgensen for sharing his work with the community. If you are managing Lenovo devices, his [GitHub repository](https://github.com/philjorgensen) is well worth a look.
+A big thanks to [Philip Jorgensen](https://www.linkedin.com/in/pej1025/) for sharing his work with the community. If you are managing Lenovo devices, his [GitHub repository](https://github.com/philjorgensen) is well worth a look.
 
 That's all folks :)
