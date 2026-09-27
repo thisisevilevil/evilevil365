@@ -234,6 +234,6 @@ If you want to take the warranty information a step further, and get it into a L
 
 I hope you found this walkthrough useful. Just like with Dell Command Update, there are pros and cons to using the vendor's own tool compared to just using Windows Autopatch for drivers and firmware. The Windows Update experience is more integrated and works across all your hardware vendors, but if you use Lenovo Commercial Vantage, you will get BIOS updates, security fixes and driver updates on your Lenovo devices much faster.
 
-A big thanks to [Philip Jorgensen](https://www.linkedin.com/in/pej1025/) for sharing his work with the community. If you are managing Lenovo devices, his [GitHub repository](https://github.com/philjorgensen) is well worth a look.
+A big thanks to [Philip Jorgensen](https://www.linkedin.com/in/pej1025/) and [Mattias Melkersen](https://www.linkedin.com/in/mattiasmelkersen/) for sharing their work with the community. If you are managing Lenovo devices, Philip's [GitHub repository](https://github.com/philjorgensen) and Mattias' post on [operationalizing Lenovo devices in an Intune only environment](https://blog.mindcore.dk/2023/01/operationalize-lenovo-devices-in-an-intune-only-environment/) are both well worth a look.
 
 That's all folks :)
