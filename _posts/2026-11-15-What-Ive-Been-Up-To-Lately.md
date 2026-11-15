@@ -19,7 +19,7 @@ On top of the migration, we built a new Autopilot setup, so the devices could be
 
 And then there was the packaging. 2 apps servicing the Point of Sale (PoS) systems needed to be packaged and deployed with Intune. Let's just say these were not modern apps. They were old, they were not built with security in mind. If you've ever had to package a legacy line-of-business app that expects to run with full admin rights and writes to places it really shouldn't, you know exactly what I'm talking about. We got there in the end, but it took a lot more time and patience than I'd like to admit.
 
-The good news is that we managed to remove the local admin rights, so the end-users no longer need to be local admins for the apps to work. In the process, though, I pinpointed a security issue with one of the apps: it writes passwords to its log files in clear text. Yeah, you read that right. Not exactly what you want to find on a device sitting in a store, so that has been flagged and is being dealt with.
+The good news is that we managed to remove the local admin rights, so the end-users no longer need to be local admins for the apps to work. In the process, though, I pinpointed a security issue with one of the apps, the kind you really don't want to find on a device sitting in a store. That has been flagged and is being dealt with.
 
 ## Project 2: A global cybersecurity initiative
 
